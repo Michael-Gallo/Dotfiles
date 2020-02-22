@@ -1,0 +1,59 @@
+URxvt.scrollBar:      false
+URxvt.font:           xft:Monospace:regular:size=10
+URxvt.url-launcher:   /usr/bin/firefox
+URxvt*loginShell:     true
+URxvt*fading:         30
+URxvt.internalBorder: 0
+URxvt.externalBorder: 0
+
+URxvt.secondaryScreen: 1
+URxvt.secondaryScroll: 0
+
+URxvt.depth: 24
+
+URxvt*background:                     #000000
+URxvt*foreground:                     #00FF41
+URxvt*cursorColor:                    #00FF41
+URxvt*scrollColor:                    #00FF41
+URxvt*highlightColor:                 #1f222d
+URxvt*highlightTextColor:             #00FF41
+
+
+URxvt*borderColor:		#00FF41
+URxvt*pointerColor:		#00FF41
+URxvt*pointerColor2:		#00FF41
+
+URxvt*color0:                         #101218
+URxvt*color1:                         #ee829f
+URxvt*color2:                         #a5ffe1
+# Color 3 is the line that controls the awkward text when you do an update
+URxvt*color3:                         #00FF41
+URxvt*color4:                         #97bbf7
+URxvt*color5:                         #c0b7f9
+URxvt*color6:                         #97e0ff
+URxvt*color7:                         #d1d4e0
+URxvt*color8:                         #7780a1
+URxvt*color9:                         #ee829f
+URxvt*color10:                        #a5ffe1
+URxvt*color11:                        #ffefcc
+URxvt*color12:                        #97bbf7
+URxvt*color13:                        #c0b7f9
+URxvt*color14:                        #97e0ff
+URxvt*color15:                        #ffffff
+
+URxvt*color16:                        #f99170
+URxvt*color17:                        #fcc09e
+URxvt*color18:                        #1f222d
+URxvt*color19:                        #252936
+URxvt*color20:                        #C0C5CE
+URxvt*color21:                        #C9CCDB
+
+URxvt.perl-ext: default
+URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.url-select.launcher: /usr/bin/xdg-open
+URxvt.url-select.underline: true
+URxvt.perl-ext-common: resize-font,fullscreen
+URxvt.keysym.F11: perl:fullscreen:switch
+URxvt.resize-font.smaller: C-Down
+URxvt.resize-font.bigger: C-Up
+URxvt.letterSpace: -1
