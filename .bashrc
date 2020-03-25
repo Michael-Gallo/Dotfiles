@@ -119,3 +119,5 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 shopt -s autocd
+export TERMCMD=xterm
+alias ii=nemo
