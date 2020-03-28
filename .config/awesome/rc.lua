@@ -303,7 +303,9 @@ globalkeys = gears.table.join(
     -- Prompt
     awful.key({ modkey },            "r",     function () awful.spawn("dmenu_run") end,
               {description = "run dmenu", group = "launcher"}),
-
+    --File Browser
+    awful.key({ modkey },            "e",     function () awful.spawn("st -e ranger") end,
+              {description = "run ranger in st", group = "launcher"}),
     awful.key({ modkey }, "x",
               function ()
                   awful.prompt.run {
