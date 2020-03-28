@@ -121,3 +121,4 @@ alias l='ls -CF'
 shopt -s autocd
 export TERMCMD=xterm
 alias ii=nemo
+export PATH="~/.bin:$PATH"
