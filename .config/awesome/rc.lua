@@ -17,7 +17,6 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
-
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -149,6 +148,7 @@ local tasklist_buttons = gears.table.join(
                                               awful.client.focus.byidx(-1)
                                           end))
 
+beautiful.useless_gap = 3
 local function set_wallpaper(s)
     -- Wallpaper
     if beautiful.wallpaper then
@@ -455,7 +455,8 @@ awful.rules.rules = {
                      keys = clientkeys,
                      buttons = clientbuttons,
                      screen = awful.screen.preferred,
-                     placement = awful.placement.no_overlap+awful.placement.no_offscreen
+                     placement = awful.placement.no_overlap+awful.placement.no_offscreen,
+	             size_hints_honor = false
      }
     },
 
