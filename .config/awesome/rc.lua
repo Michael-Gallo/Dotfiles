@@ -148,7 +148,7 @@ local tasklist_buttons = gears.table.join(
                                               awful.client.focus.byidx(-1)
                                           end))
 
-beautiful.useless_gap = 3
+beautiful.useless_gap = 2
 
 -- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
 
