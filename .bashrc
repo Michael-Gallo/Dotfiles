@@ -122,3 +122,4 @@ shopt -s autocd
 export TERMCMD=xterm
 alias ii=nemo
 export PATH="~/.bin:$PATH"
+export EDITOR=vim
