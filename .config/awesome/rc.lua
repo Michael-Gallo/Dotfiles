@@ -81,18 +81,7 @@ awful.layout.layouts = {
 
 -- {{{ Menu
 -- Create a launcher widget and a main menu
-myawesomemenu = {
-   { "hotkeys", function() hotkeys_popup.show_help(nil, awful.screen.focused()) end },
-   { "manual", terminal .. " -e man awesome" },
-   { "edit config", editor_cmd .. " " .. awesome.conffile },
-   { "restart", awesome.restart },
-   { "quit", function() awesome.quit() end },
-}
 
-mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
-                                    { "open terminal", terminal }
-                                  }
-                        })
 
 mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
                                      menu = mymainmenu })
@@ -106,7 +95,7 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- {{{ Wibar
 -- Create a textclock widget
-mytextclock = wibox.widget.textclock(" %a %b %d, %l:%M%P")
+ mytextclock = wibox.widget.textclock(" %a %b %d, %l:%M%P")
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
@@ -187,23 +176,23 @@ awful.screen.connect_for_each_screen(function(s)
     s.mywibox = awful.wibar({ position = "top", screen = s })
 
     -- Add widgets to the wibox
-    s.mywibox:setup {
-        layout = wibox.layout.align.horizontal,
-        { -- Left widgets
-            layout = wibox.layout.fixed.horizontal,
-            mylauncher,
-            s.mytaglist,
-            s.mypromptbox,
-        },
-        s.mytasklist, -- Middle widget
-        { -- Right widgets
-            layout = wibox.layout.fixed.horizontal,
-            mykeyboardlayout,
-            wibox.widget.systray(),
-            mytextclock,
-            s.mylayoutbox,
-        },
-    }
+   s.mywibox:setup {
+       layout = wibox.layout.align.horizontal,
+       { -- Left widgets
+           layout = wibox.layout.fixed.horizontal,
+           mylauncher,
+           s.mytaglist,
+           s.mypromptbox,
+       },
+       s.mytasklist, -- Middle widget
+       { -- Right widgets
+           layout = wibox.layout.fixed.horizontal,
+           mykeyboardlayout,
+           wibox.widget.systray(),
+           mytextclock,
+           s.mylayoutbox,
+       },
+   }
 end)
 -- }}}
 
