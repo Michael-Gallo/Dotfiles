@@ -95,8 +95,8 @@ mykeyboardlayout = awful.widget.keyboardlayout()
 
 -- battery widget
 batterywidget = wibox.widget.textbox()    
-batterywidget:set_text(" | Battery | ")    
-batterywidgettimer = timer({ timeout = 5 })    
+batterywidget:set_text(" || ")    
+batterywidgettimer = timer({ timeout = 30 })    
 batterywidgettimer:connect_signal("timeout",    
   function()    
     fh = assert(io.popen("acpi | cut -d, -f 2,3 -", "r"))    
