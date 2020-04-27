@@ -121,5 +121,6 @@ alias l='ls -CF'
 shopt -s autocd
 export TERMCMD=xterm
 alias ii=nemo
+alias vim=nvim
 export PATH="~/.bin:$PATH"
-export EDITOR=vim
+export EDITOR=nvim
