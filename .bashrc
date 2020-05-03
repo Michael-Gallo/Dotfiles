@@ -122,5 +122,6 @@ shopt -s autocd
 export TERMCMD=xterm
 alias ii=nemo
 alias vim=nvim
+alias svim='sudo vim'
 export PATH="~/.bin:$PATH"
 export EDITOR=nvim
