@@ -1,0 +1,6 @@
+super + Return
+	st
+super + r
+	dmenu_run
+super + e
+	st -e ranger
