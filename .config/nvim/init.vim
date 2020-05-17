@@ -14,6 +14,7 @@ call vundle#begin()
 	Plugin 'itchyny/lightline.vim'
 	Plugin 'ap/vim-css-color'
 	Plugin 'francoiscabrol/ranger.vim'
+	Plugin 'vim-python/python-syntax'
 call vundle#end()
 filetype plugin indent on    " required
 
