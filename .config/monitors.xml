@@ -1,7 +1,7 @@
 <monitors version="1">
   <configuration>
       <clone>no</clone>
-      <output name="DisplayPort-0">
+      <output name="DP-1">
           <vendor>HYC</vendor>
           <product>0x2700</product>
           <serial>0x00000000</serial>
@@ -15,9 +15,9 @@
           <reflect_y>no</reflect_y>
           <primary>yes</primary>
       </output>
-      <output name="DisplayPort-1">
+      <output name="DP-2">
       </output>
-      <output name="HDMI-A-0">
+      <output name="HDMI-1">
           <vendor>BNQ</vendor>
           <product>0x78ce</product>
           <serial>0x00005445</serial>
@@ -25,15 +25,15 @@
           <height>1080</height>
           <rate>60</rate>
           <x>0</x>
-          <y>274</y>
+          <y>308</y>
           <rotation>normal</rotation>
           <reflect_x>no</reflect_x>
           <reflect_y>no</reflect_y>
           <primary>no</primary>
       </output>
-      <output name="HDMI-A-1">
+      <output name="HDMI-2">
       </output>
-      <output name="DVI-D-0">
+      <output name="DVI-D-1">
       </output>
   </configuration>
 </monitors>
