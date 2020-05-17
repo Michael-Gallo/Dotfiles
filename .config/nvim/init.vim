@@ -17,6 +17,7 @@ Plugin 'francoiscabrol/ranger.vim'
 call vundle#end()
 filetype plugin indent on    " required
 
+let g:NERDSpaceDelims = 1  " makes it so nerdcommentor automatically adds a space after comments
 let g:rainbow_active = 1 " Activates rainbow parenthesis
 let g:lightline = {
       \ 'colorscheme': 'darcula'
