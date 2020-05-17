@@ -9,6 +9,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'preservim/nerdcommenter'
 Plugin 'frazrepo/vim-rainbow'
 Plugin 'itchyny/lightline.vim'
 Plugin 'ap/vim-css-color'
