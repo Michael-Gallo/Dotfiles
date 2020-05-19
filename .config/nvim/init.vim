@@ -12,6 +12,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 	"let Vundle manage Vundle, required
 	Plugin 'VundleVim/Vundle.vim'
+	Plugin 'tpope/vim-surround' " vim-surround needs to plugged before nerdcommenter to prevent key bind errors
 	Plugin 'preservim/nerdcommenter'
 	Plugin 'frazrepo/vim-rainbow'
 	Plugin 'itchyny/lightline.vim'
@@ -53,4 +54,3 @@ let g:goyo_width = "80%"
 """"""""""Vim Indent Settings""""""""""""""
 let g:indent_guides_guide_size = 1
 let g:indent_guides_color_change_percent = 3
-
