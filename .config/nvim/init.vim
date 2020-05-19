@@ -22,6 +22,8 @@ call vundle#begin()
 	Plugin 'junegunn/goyo.vim'
 	Plugin 'dhruvasagar/vim-table-mode'
 	Plugin 'tpope/vim-eunuch'
+	Plugin 'junegunn/fzf.vim'
+	Plugin 'junegunn/fzf'
 call vundle#end()
 filetype plugin indent on    " required
 
