@@ -19,6 +19,8 @@ call vundle#begin()
 	Plugin 'francoiscabrol/ranger.vim'
 	Plugin 'vim-python/python-syntax'
 	Plugin 'junegunn/goyo.vim'
+	Plugin 'dhruvasagar/vim-table-mode'
+	Plugin 'tpope/vim-eunuch'
 call vundle#end()
 filetype plugin indent on    " required
 
@@ -47,3 +49,8 @@ let g:lightline = {
 
 """"""""""Goyo Configuration""""""""""""""
 let g:goyo_width = "80%"
+
+""""""""""Vim Indent Settings""""""""""""""
+let g:indent_guides_guide_size = 1
+let g:indent_guides_color_change_percent = 3
+
