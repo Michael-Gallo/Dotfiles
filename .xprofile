@@ -1,3 +1,4 @@
+wal -c # clears cached pywal themes
 /home/$USER/.bin/setbg
 /home/$USER/.bin/autoscroll_enabled.sh
 # sets the caps lock key to also be an escape key
