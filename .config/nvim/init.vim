@@ -1,12 +1,10 @@
 set number relativenumber
 set clipboard=unnamedplus     " sets the default yank buffer to the clipboard
 set nocompatible              " be iMproved, required
-set noshowmode                " Doesn't need to show I'm in insert mode if lightline already does so
+" set noshowmode                " Doesn't need to show I'm in insert mode if lightline already does so
 filetype off                  " required for vundle
-
-" set the leader key to space
-let g:mapleader = " "
-
+let g:mapleader = "\<Space>" " Set Leader to Space
+let g:maplocalleader = ','
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -20,12 +18,12 @@ call vundle#begin()
 	Plugin 'francoiscabrol/ranger.vim'
 	Plugin 'vim-python/python-syntax'
 	Plugin 'junegunn/goyo.vim'
-	Plugin 'dhruvasagar/vim-table-mode'
 	Plugin 'tpope/vim-eunuch'
 	Plugin 'junegunn/fzf.vim'
 	Plugin 'junegunn/fzf'
-call vundle#end()
+	Plugin 'liuchengxu/vim-which-key'
 filetype plugin indent on    " required
+call vundle#end()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -35,7 +33,7 @@ filetype plugin indent on    " required
 
 """"""""""Nerd Commentor Settings""""""""""
 let g:NERDSpaceDelims = 1  " makes it so nerdcommentor automatically adds a space after comments
-" Enable NERDCommenterToggle to check all selected lines is commented or not 
+" Enable NERDCommenterToggle to check all selected lines is commented or not
 let g:NERDToggleCheckAllLines = 1
 let g:NERDTrimTrailingWhitespace = 1
 let g:NERDCompactSexyComs = 1
@@ -53,6 +51,8 @@ let g:lightline = {
 """"""""""Goyo Configuration""""""""""""""
 let g:goyo_width = "80%"
 
-""""""""""Vim Indent Settings""""""""""""""
-let g:indent_guides_guide_size = 1
-let g:indent_guides_color_change_percent = 3
+
+""""""""""vim-which-key Settings""""""""""""""
+set timeoutlen=500
+nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
+nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
