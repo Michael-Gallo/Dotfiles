@@ -1,7 +1,8 @@
 set number relativenumber
 set clipboard=unnamedplus     " sets the default yank buffer to the clipboard
 set nocompatible              " be iMproved, required
-" set noshowmode                " Doesn't need to show I'm in insert mode if lightline already does so
+set termguicolors " needed for color schemes to change background colors
+set noshowmode                " Doesn't need to show I'm in insert mode if lightline already does so
 filetype off                  " required for vundle
 let g:mapleader = "\<Space>" " Set Leader to Space
 let g:maplocalleader = ','
@@ -22,6 +23,8 @@ call vundle#begin()
 	Plugin 'junegunn/fzf.vim'
 	Plugin 'junegunn/fzf'
 	Plugin 'liuchengxu/vim-which-key'
+	Plugin 'arcticicestudio/nord-vim'
+	Plugin 'dracula/vim'
 filetype plugin indent on    " required
 call vundle#end()
 
@@ -30,6 +33,10 @@ call vundle#end()
 """"""""""""""""""""""""""Plugin Settings"""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""Set Color Scheme""""""""""
+" let g:dracula_colorterm = 0
+colorscheme dracula
 
 """"""""""Nerd Commentor Settings""""""""""
 let g:NERDSpaceDelims = 1  " makes it so nerdcommentor automatically adds a space after comments
