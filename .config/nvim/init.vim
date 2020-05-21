@@ -6,6 +6,18 @@ set noshowmode                " Doesn't need to show I'm in insert mode if light
 filetype off                  " required for vundle
 let g:mapleader = "\<Space>" " Set Leader to Space
 let g:maplocalleader = ','
+
+"""""""""""""""""""""""""""set color customization"""""""""""""""""""""""""""""""""""""
+" Have an auto command make the background color for dracula a little darker
+function! DraculaCustomize() abort
+	highlight Normal guibg=#181717
+endfunction
+
+augroup MyColors
+    autocmd!
+    autocmd ColorScheme dracula call DraculaCustomize()
+augroup END
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -27,7 +39,6 @@ call vundle#begin()
 	Plugin 'dracula/vim'
 filetype plugin indent on    " required
 call vundle#end()
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""Plugin Settings"""""""""""""""""""""""""
@@ -36,6 +47,8 @@ call vundle#end()
 
 """"""""""Set Color Scheme""""""""""
 " let g:dracula_colorterm = 0
+let g:dracular_colorterm = 1
+syntax enable
 colorscheme dracula
 
 """"""""""Nerd Commentor Settings""""""""""
