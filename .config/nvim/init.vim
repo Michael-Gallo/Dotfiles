@@ -1,11 +1,16 @@
+let g:mapleader = "\<Space>" " Set Leader to Space
+let g:maplocalleader = ','
 set number relativenumber
 set clipboard=unnamedplus     " sets the default yank buffer to the clipboard
 set nocompatible              " be iMproved, required
-set termguicolors " needed for color schemes to change background colors
+set termguicolors             " needed for color schemes to change background colors
 set noshowmode                " Doesn't need to show I'm in insert mode if lightline already does so
+set hidden
+set pumheight=15			  " Set pop up menu height
+set tabstop=4 expandtab       " Make tab use 4 spaces instead
+set smartindent autoindent smarttab
+set autochdir				  " Working directory will always be set properly
 filetype off                  " required for vundle
-let g:mapleader = "\<Space>" " Set Leader to Space
-let g:maplocalleader = ','
 
 """""""""""""""""""""""""""set color customization"""""""""""""""""""""""""""""""""""""
 " Have an auto command make the background color for dracula a little darker
@@ -46,9 +51,6 @@ call vundle#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""Set Color Scheme""""""""""
-" let g:dracula_colorterm = 0
-let g:dracular_colorterm = 1
-syntax enable
 colorscheme dracula
 
 """"""""""Nerd Commentor Settings""""""""""
