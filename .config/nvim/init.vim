@@ -1,5 +1,8 @@
+"Set Leader Keys
 let g:mapleader = "\<Space>" " Set Leader to Space
 let g:maplocalleader = ','
+
+"set general vim variables
 set number relativenumber
 set clipboard=unnamedplus     " sets the default yank buffer to the clipboard
 set nocompatible              " be iMproved, required
@@ -11,6 +14,10 @@ set tabstop=4 expandtab       " Make tab use 4 spaces instead
 set smartindent autoindent smarttab
 set autochdir				  " Working directory will always be set properly
 filetype off                  " required for vundle
+
+" Better tabbing
+vnoremap < <gv
+vnoremap > >gv
 
 """""""""""""""""""""""""""set color customization"""""""""""""""""""""""""""""""""""""
 " Have an auto command make the background color for dracula a little darker
@@ -42,6 +49,7 @@ call vundle#begin()
 	Plugin 'liuchengxu/vim-which-key'
 	Plugin 'arcticicestudio/nord-vim'
 	Plugin 'dracula/vim'
+    Plugin 'unblevable/quick-scope'
 filetype plugin indent on    " required
 call vundle#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -78,3 +86,6 @@ let g:goyo_width = "80%"
 set timeoutlen=500
 nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
 nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
+
+""""""""""quick-scope settings""""""""""""""
+let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
