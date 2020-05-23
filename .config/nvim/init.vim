@@ -1,4 +1,4 @@
-"Set Leader Keys
+"Set Leader Keys 
 let g:mapleader = "\<Space>" " Set Leader to Space
 let g:maplocalleader = ','
 
@@ -35,20 +35,20 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 	"let Vundle manage Vundle, required
 	Plugin 'VundleVim/Vundle.vim'
-	Plugin 'tpope/vim-surround' " vim-surround needs to plugged before nerdcommenter to prevent key bind errors
+    Plugin 'tpope/vim-surround' " vim-surround needs to plugged before nerdcommenter to prevent key bind errors
 	Plugin 'preservim/nerdcommenter'
-	Plugin 'frazrepo/vim-rainbow'
-	Plugin 'itchyny/lightline.vim'
-	Plugin 'ap/vim-css-color'
-	Plugin 'francoiscabrol/ranger.vim'
-	Plugin 'vim-python/python-syntax'
-	Plugin 'junegunn/goyo.vim'
-	Plugin 'tpope/vim-eunuch'
-	Plugin 'junegunn/fzf.vim'
-	Plugin 'junegunn/fzf'
-	Plugin 'liuchengxu/vim-which-key'
-	Plugin 'arcticicestudio/nord-vim'
-	Plugin 'dracula/vim'
+    Plugin 'frazrepo/vim-rainbow'
+    Plugin 'itchyny/lightline.vim'
+    Plugin 'ap/vim-css-color'
+    Plugin 'francoiscabrol/ranger.vim'
+    Plugin 'vim-python/python-syntax'
+    Plugin 'junegunn/goyo.vim'
+    Plugin 'tpope/vim-eunuch'
+    Plugin 'junegunn/fzf.vim'
+    Plugin 'junegunn/fzf'
+    Plugin 'liuchengxu/vim-which-key'
+    Plugin 'arcticicestudio/nord-vim'
+    Plugin 'dracula/vim'
     Plugin 'unblevable/quick-scope'
 filetype plugin indent on    " required
 call vundle#end()
@@ -83,9 +83,17 @@ let g:goyo_width = "80%"
 
 
 """"""""""vim-which-key Settings""""""""""""""
-set timeoutlen=500
+set timeoutlen=100
 nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
 nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
+" Create an empty map
+let g:which_key_map={}
+let g:which_key_map.c = { 'name' : '+comments' }
+let g:which_key_map.c.A = 'append'
+
+" Make it so the map is actually assigned to the leader key
+call which_key#register(' ', "g:which_key_map")
 
 """"""""""quick-scope settings""""""""""""""
-let g:qs_highlight_on_keys = ['f', 'F', 't', 'T']
+let g:qs_highlight_on_keys=['f', 'F', 't', 'T']
+let g:qs_max_chars=150
