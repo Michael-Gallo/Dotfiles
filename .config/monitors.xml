@@ -1,7 +1,7 @@
 <monitors version="1">
   <configuration>
       <clone>no</clone>
-      <output name="DP-1">
+      <output name="DP-2">
           <vendor>HYC</vendor>
           <product>0x2700</product>
           <serial>0x00000000</serial>
@@ -15,7 +15,7 @@
           <reflect_y>no</reflect_y>
           <primary>yes</primary>
       </output>
-      <output name="DP-2">
+      <output name="DP-1">
       </output>
       <output name="HDMI-1">
           <vendor>BNQ</vendor>
