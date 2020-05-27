@@ -111,7 +111,7 @@ alias sv="sudo vim"
 alias r="ranger"
 alias sapt="sudo apt"
 alias mkd="mkdir -pv"
-alias ls='ls --color=auto'
+[ -x "$(command -v exa)" ] && alias ls='exa -al --color=always --group-directories-first'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
