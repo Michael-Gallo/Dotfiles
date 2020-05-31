@@ -19,6 +19,8 @@ filetype off                  " required for vundle
 vnoremap < <gv
 vnoremap > >gv
 
+" Replace all is mapped to S
+nnoremap S :%s//g<Left><Left>
 """""""""""""""""""""""""""set color customization"""""""""""""""""""""""""""""""""""""
 " Have an auto command make the background color for dracula a little darker
 function! DraculaCustomize() abort
@@ -83,9 +85,11 @@ let g:goyo_width = "80%"
 
 
 """"""""""vim-which-key Settings""""""""""""""
-set timeoutlen=100
+set timeoutlen=300
 nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
 nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
+vnoremap <silent> <leader>      :<c-u>WhichKeyVisual '<Space>'<CR>
+nnoremap <silent> <localleader> :<c-u>WhichKeyVisual  ','<CR>
 " Create an empty map
 let g:which_key_map={}
 let g:which_key_map.c = { 'name' : '+comments' }
