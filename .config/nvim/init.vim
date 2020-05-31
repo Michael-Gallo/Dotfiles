@@ -1,8 +1,24 @@
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""Mappings"""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Set Leader Keys 
 let g:mapleader = "\<Space>" " Set Leader to Space
 let g:maplocalleader = ','
 
-"set general vim variables
+" Better tabbing
+vnoremap < <gv
+vnoremap > >gv
+
+" Replace all is mapped to S
+nnoremap S :%s//g<Left><Left>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""General Vim Variables""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 set number relativenumber
 set clipboard=unnamedplus     " sets the default yank buffer to the clipboard
 set nocompatible              " be iMproved, required
@@ -15,13 +31,11 @@ set smartindent autoindent smarttab
 set autochdir				  " Working directory will always be set properly
 filetype off                  " required for vundle
 
-" Better tabbing
-vnoremap < <gv
-vnoremap > >gv
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-" Replace all is mapped to S
-nnoremap S :%s//g<Left><Left>
-"""""""""""""""""""""""""""set color customization"""""""""""""""""""""""""""""""""""""
+""""""""""""""""""""""Color Customization""""""""""""""""""""""""
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Have an auto command make the background color for dracula a little darker
 function! DraculaCustomize() abort
 	highlight Normal guibg=#181717
