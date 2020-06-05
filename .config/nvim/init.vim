@@ -66,6 +66,7 @@ call vundle#begin()
     Plugin 'arcticicestudio/nord-vim'
     Plugin 'dracula/vim'
     Plugin 'unblevable/quick-scope'
+    Plugin 'tbastos/vim-lua'
 filetype plugin indent on    " required
 call vundle#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
