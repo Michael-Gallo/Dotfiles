@@ -30,7 +30,7 @@ end
 do
     local in_error = false
     awesome.connect_signal("debug::error", function (err)
-        -- Make sure we don't go into an endless error loop
+        -- Make sure we dont go into an endless error loop
         if in_error then return end
         in_error = true
 
@@ -110,7 +110,16 @@ batterywidgettimer:start()
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
-                    awful.button({ }, 1, function(t) t:view_only() end),
+                    awful.button({ }, 1, function(tag)
+                            local i = awful.tag.getidx(tag)
+                            for screen = 1, screen.count() do
+                                local tag = awful.tag.gettags(screen)[i]
+                                if tag then
+                                   awful.tag.viewonly(tag)
+                                end
+                            end
+                          end),
+                    -- awful.button({ }, 1, function(t) t:view_only() end),
                     awful.button({ modkey }, 1, function(t)
                                               if client.focus then
                                                   client.focus:move_to_tag(t)
@@ -150,7 +159,7 @@ local tasklist_buttons = gears.table.join(
 
 beautiful.useless_gap = 2
 
--- Re-set wallpaper when a screen's geometry changes (e.g. different resolution)
+-- Re-set wallpaper when a screens geometry changes (e.g. different resolution)
 
 awful.screen.connect_for_each_screen(function(s)
     -- Wallpaper
@@ -161,7 +170,7 @@ awful.screen.connect_for_each_screen(function(s)
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
-    -- Create an imagebox widget which will contain an icon indicating which layout we're using.
+    -- Create an imagebox widget which will contain an icon indicating which layout were using.
     -- We need one layoutbox per screen.
     s.mylayoutbox = awful.widget.layoutbox(s)
     s.mylayoutbox:buttons(gears.table.join(
@@ -180,7 +189,7 @@ awful.screen.connect_for_each_screen(function(s)
     s.mytasklist = awful.widget.tasklist {
         screen  = s,
         filter  = awful.widget.tasklist.filter.currenttags,
-        buttons = tasklist_buttons
+        -- buttons = tasklist_buttons
     }
     -- Create the wibox
     s.mywibox = awful.wibar({ position = "top", screen = s })
@@ -217,9 +226,20 @@ root.buttons(gears.table.join(
 globalkeys = gears.table.join(
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
               {description="show help", group="awesome"}),
-    awful.key({ modkey,           }, "Left",   awful.tag.viewprev,
+    awful.key({ modkey,           }, "Left",
+            function()
+                    for i = 1, screen.count() do
+                        awful.tag.viewprev(i)
+                    end
+            end,
               {description = "view previous", group = "tag"}),
-    awful.key({ modkey,           }, "Right",  awful.tag.viewnext,
+
+    awful.key({ modkey,           }, "Right", 
+            function()
+                    for i = 1, screen.count() do
+                        awful.tag.viewnext(i)
+                    end
+            end,
               {description = "view next", group = "tag"}),
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore,
               {description = "go back", group = "tag"}),
@@ -284,10 +304,10 @@ globalkeys = gears.table.join(
     awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(-1)                end,
               {description = "select previous", group = "layout"}),
 
-    awful.key({}, "Print", function () awful.util.spawn("scrot -e 'mv $f ~/pictures/screenshots/ 2>/dev/null'", false) end,
+    awful.key({}, "Print", function () awful.util.spawn("scrot -e mv $f ~/pictures/screenshots/ 2>/dev/null", false) end,
     {description = "print screen", group ="screenshots"}),
 
-    awful.key({modkey}, "Print", nil, function () awful.util.spawn("scrot -se 'mv $f ~/pictures/screenshots/'", false) end,
+    awful.key({modkey}, "Print", nil, function () awful.util.spawn("scrot -se mv $f ~/pictures/screenshots/", false) end,
     {description = "print selection", group ="screenshots"}),
 
     awful.key({ modkey, "Control" }, "n",
@@ -330,7 +350,7 @@ clientkeys = gears.table.join(
     awful.key({ modkey,           }, "n",
         function (c)
             -- The client currently has the input focus, so it cannot be
-            -- minimized, since minimized clients can't have the focus.
+            -- minimized, since minimized clients cant have the focus.
             c.minimized = true
         end ,
         {description = "minimize", group = "client"}),
@@ -362,12 +382,13 @@ for i = 1, 9 do
         -- View tag only.
         awful.key({ modkey }, "#" .. i + 9,
                   function ()
-                        local screen = awful.screen.focused()
-                        local tag = screen.tags[i]
-                        if tag then
-                           tag:view_only()
+                        for screen = 1, screen.count() do
+                            local tag = awful.tag.gettags(screen)[i]
+                            if tag then
+                                awful.tag.viewonly(tag)
+                            end
                         end
-                  end,
+                   end,
                   {description = "view tag #"..i, group = "tag"}),
         -- Toggle tag display.
         awful.key({ modkey, "Control" }, "#" .. i + 9,
@@ -394,8 +415,8 @@ for i = 1, 9 do
         awful.key({ modkey, "Control", "Shift" }, "#" .. i + 9,
                   function ()
                       if client.focus then
-                          local tag = client.focus.screen.tags[i]
-                          if tag then
+                              local tag = client.focus.screen.tags[i]
+                              if tag then
                               client.focus:toggle_tag(tag)
                           end
                       end
@@ -464,9 +485,9 @@ awful.rules.rules = {
           "Event Tester",  -- xev.
         },
         role = {
-          "AlarmWindow",  -- Thunderbird's calendar.
-          "ConfigManager",  -- Thunderbird's about:config.
-          "pop-up",       -- e.g. Google Chrome's (detached) Developer Tools.
+          "AlarmWindow",  -- Thunderbirds calendar.
+          "ConfigManager",  -- Thunderbirds about:config.
+          "pop-up",       -- e.g. Google Chromes (detached) Developer Tools.
         }
       }, properties = { floating = true }},
 
