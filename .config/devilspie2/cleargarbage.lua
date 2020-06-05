@@ -1,12 +1,18 @@
 -- remove the top bar from new windows except for smplayer (undecorating smplayer makes Cinnamon crash
+
 debug_print("Window Name: "..	get_window_name());
-if (get_window_name()~="SMPlayer") then
-        undecorate_window();
-else
-        maximize()
+
+local function contains(table, val)
+   for i=1,#table do
+      if table[i] == val then 
+         return true
+      end
+   end
+   return false
 end
 
-if (get_window_name()=="st") then
+maximize_programs = {"ranger","st","SMPlayer"}
+if contains(maximize_programs,get_window_name()) then
 	-- x,y, xsize, ysize
 	maximize()
 end
