@@ -157,7 +157,7 @@ local tasklist_buttons = gears.table.join(
                                               awful.client.focus.byidx(-1)
                                           end))
 
-beautiful.useless_gap = 2
+beautiful.useless_gap = 0
 
 -- Re-set wallpaper when a screens geometry changes (e.g. different resolution)
 
@@ -218,7 +218,7 @@ end)
 
 -- {{{ Mouse bindings
 root.buttons(gears.table.join(
-    awful.button({ }, 3, function () mymainmenu:toggle() end)
+    -- awful.button({ }, 3, function () mymainmenu:toggle() end)
 ))
 -- }}}
 
@@ -567,6 +567,6 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- }}}
 
 --Autostart
-awful.spawn.with_shell("picom")
 awful.spawn.with_shell("setbg")
+awful.spawn.with_shell("compton --restore")
 awful.spawn.with_shell("sudo nmcli device connect wlp4s0")
