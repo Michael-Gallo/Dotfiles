@@ -129,6 +129,17 @@ let g:which_key_map.s = { 'name' : '+Surround' ,
                         \'s': ['<Plug>Yssurround'  , 'Change surroundings (whole line)'],
                         \}
 
+let g:which_key_map.w = { 'name' : '+Window' , 
+                        \'s': ['split'  , 'Split Horizontally'],
+                        \'v': ['vsplit'  , 'Split Vertically'],
+                        \'n': ['new'  , 'New Window Horizontal'],
+                        \'c': ['close'  , 'Close Window'],
+                        \'o': ['only'  , 'Only Window'],
+                        \'h': ['<C-W>h', 'Move Cursor Left'],
+                        \'j': ['<C-W>j', 'Move Cursor Down'],
+                        \'k': ['<C-W>k', 'Move Cursor Up'],
+                        \'l': ['<C-W>l', 'Move Cursor Right'],
+                        \}
 " Make it so the map is actually assigned to the leader key
 call which_key#register(' ', "g:which_key_map")
 nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
