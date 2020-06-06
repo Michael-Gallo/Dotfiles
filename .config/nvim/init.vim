@@ -78,6 +78,8 @@ call vundle#end()
 """"""""""Set Color Scheme""""""""""
 colorscheme dracula
 
+""""""""""Ranger Settings''''''''""""""""""
+let g:ranger_map_keys = 0
 """"""""""Nerd Commentor Settings""""""""""
 let g:NERDSpaceDelims = 1  " makes it so nerdcommentor automatically adds a space after comments
 " Enable NERDCommenterToggle to check all selected lines is commented or not
@@ -101,9 +103,16 @@ let g:goyo_width = "80%"
 
 """"""""""vim-which-key Settings""""""""""""""
 set timeoutlen=300
-map <SPC-c-Space> <Nop>
 " Create an empty map
 let g:which_key_map={}
+" Fuzzy Finder bindings
+let g:which_key_map.f = { 'name' : 'Fuzzy Finder' , 
+                        \'~': [':FZF ~'  , 'In Home'],
+                        \'/': [':FZF /'  , 'In Root'],
+                        \'.': [':FZF .'  , 'In Current Directory'],
+                        \'u': [':FZF ..'  , 'In Upper Directory'],
+                        \}
+let g:which_key_map.r = [ 'Ranger' , 'Ranger' ] 
 " NerdCommenter bindings
 let g:which_key_map.c = { 'name' : '+comments' , 
                         \' ': ['<plug>NERDCommenterToggle'  , 'Toggle'],
