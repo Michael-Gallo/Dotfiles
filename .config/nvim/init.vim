@@ -101,17 +101,40 @@ let g:goyo_width = "80%"
 
 """"""""""vim-which-key Settings""""""""""""""
 set timeoutlen=300
+map <SPC-c-Space> <Nop>
+" Create an empty map
+let g:which_key_map={}
+" NerdCommenter bindings
+let g:which_key_map.c = { 'name' : '+comments' , 
+                        \' ': ['<plug>NERDCommenterToggle'  , 'Toggle'],
+                        \'$': ['<plug>NERDCommenterToEOL'  , 'EOL'],
+                        \'a': ['<plug>NERDCommenterToEOL'  , 'which_key_ignore'],
+                        \'b': ['<plug>NERDCommenterToEOL'  , 'which_key_ignore']
+                        \}
+        let g:which_key_map.c.A = 'Append'
+        let g:which_key_map.c.c = 'Comment'
+        let g:which_key_map.c.l = 'Align left'
+        let g:which_key_map.c.y = 'Comment and yank line'
+        let g:which_key_map.c.u = 'Uncomment line'
+        let g:which_key_map.c.s = 'Comment sexy'
+        let g:which_key_map.c.m = 'Minimal'
+        let g:which_key_map.c.i = 'Invert'
+        let g:which_key_map.c.n = 'Nested'
+
+let g:which_key_map.s = { 'name' : '+Surround' , 
+                        \'d': ['<Plug>Dsurround'  , 'Delete Surroundings'],
+                        \'c': ['<Plug>Csurround'  , 'Change Surroundings'],
+                        \'y': ['<Plug>Ysurround'  , 'Add Surroundings'],
+                        \'v': ['<Plug>VSurround'  , 'Add Visual Surroundings'],
+                        \'s': ['<Plug>Yssurround'  , 'Change surroundings (whole line)'],
+                        \}
+
+" Make it so the map is actually assigned to the leader key
+call which_key#register(' ', "g:which_key_map")
 nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
 nnoremap <silent> <localleader> :<c-u>WhichKey  ','<CR>
 vnoremap <silent> <leader>      :<c-u>WhichKeyVisual '<Space>'<CR>
 nnoremap <silent> <localleader> :<c-u>WhichKeyVisual  ','<CR>
-" Create an empty map
-let g:which_key_map={}
-let g:which_key_map.c = { 'name' : '+comments' }
-let g:which_key_map.c.A = 'append'
-
-" Make it so the map is actually assigned to the leader key
-call which_key#register(' ', "g:which_key_map")
 
 """"""""""quick-scope settings""""""""""""""
 let g:qs_highlight_on_keys=['f', 'F', 't', 'T']
