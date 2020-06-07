@@ -16,3 +16,6 @@ bind pager K previous-line
 # Stops one unmodified button press from taking you out of neomutt
 unbind index q
 bind index Q exit
+
+# Macros
+macro index X T~f
