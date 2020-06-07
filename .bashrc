@@ -123,5 +123,6 @@ export TERMCMD=xterm
 alias ii=nemo
 alias vim=nvim
 alias svim='sudo vim'
+alias df='df -h'
 export PATH="~/.bin:$PATH"
 export EDITOR=nvim
