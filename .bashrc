@@ -124,5 +124,6 @@ alias ii=nemo
 alias vim=nvim
 alias svim='sudo vim'
 alias df='df -h'
+alias mkdir="mkdir -pv"
 export PATH="~/.bin:$PATH"
 export EDITOR=nvim
