@@ -1,0 +1,15 @@
+# vim: filetype=neomuttrc
+set pager_index_lines=24
+set pager_context=3
+auto_view text/html
+
+# set editor to neovim
+set editor = "nvim"
+set include
+set smtp_pass="secrets"
+set auto_tag = true
+
+bind pager j next-entry
+bind pager k previous-entry
+bind pager J next-line
+bind pager K previous-line
