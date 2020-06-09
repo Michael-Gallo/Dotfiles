@@ -10,6 +10,11 @@ local function contains(table, val)
    end
    return false
 end
+needs_decorate={"firefox","smplayer"}
+
+if not contains(needs_decorate,get_application_name()) then
+        undecorate_window()
+end
 
 maximize_programs = {"ranger","st","SMPlayer"}
 if contains(maximize_programs,get_window_name()) then
