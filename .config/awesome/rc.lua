@@ -304,10 +304,10 @@ globalkeys = gears.table.join(
     awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(-1)                end,
               {description = "select previous", group = "layout"}),
 
-    awful.key({}, "Print", function () awful.util.spawn("scrot -e mv $f ~/pictures/screenshots/ 2>/dev/null", false) end,
+    awful.key({}, "Print", function () awful.util.spawn("scrot -e 'mv $f ~/pictures/screenshots/ 2>/dev/null'", false) end,
     {description = "print screen", group ="screenshots"}),
 
-    awful.key({modkey}, "Print", nil, function () awful.util.spawn("scrot -se mv $f ~/pictures/screenshots/", false) end,
+    awful.key({modkey}, "Print", nil, function () awful.util.spawn("scrot -se 'mv $f ~/pictures/screenshots/'", false) end,
     {description = "print selection", group ="screenshots"}),
 
     awful.key({ modkey, "Control" }, "n",
@@ -570,4 +570,5 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- awful.spawn.with_shell("setbg")
 awful.spawn.with_shell("nitrogen --restore")
 awful.spawn.with_shell("picom")
+awful.spawn.with_shell("blueman-applet")
 awful.spawn.with_shell("sudo nmcli device connect wlp4s0")
