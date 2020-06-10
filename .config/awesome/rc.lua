@@ -567,6 +567,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- }}}
 
 --Autostart
-awful.spawn.with_shell("setbg")
-awful.spawn.with_shell("compton --restore")
+-- awful.spawn.with_shell("setbg")
+awful.spawn.with_shell("nitrogen --restore")
+awful.spawn.with_shell("picom")
 awful.spawn.with_shell("sudo nmcli device connect wlp4s0")
