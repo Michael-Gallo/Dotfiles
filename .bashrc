@@ -122,7 +122,7 @@ shopt -s autocd
 export TERMCMD=xterm
 alias ii=nemo
 alias vim=nvim
-alias svim='sudo vim'
+alias svim='sudo -E vim'
 alias df='df -h'
 alias mkdir="mkdir -pv"
 export PATH="~/.bin:$PATH"
