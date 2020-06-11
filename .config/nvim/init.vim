@@ -1,21 +1,5 @@
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-""""""""""""""""""""""""""""Mappings"""""""""""""""""""""""""""""
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-"Set Leader Keys 
-let g:mapleader = "\<Space>" " Set Leader to Space
-let g:maplocalleader = ','
-
-" Better tabbing
-vnoremap < <gv
-vnoremap > >gv
-
-" Replace all is mapped to S
-nnoremap S :%s//g<Left><Left>
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-
 """"""""""""""""""""General Vim Variables""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -31,6 +15,23 @@ set smartindent autoindent smarttab
 set autochdir				  " Working directory will always be set properly
 filetype off                  " required for vundle
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""Mappings"""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"Set Leader Keys 
+let g:mapleader = "\<Space>" " Set Leader to Space
+let g:maplocalleader = ','
+
+" Better tabbing
+vnoremap < <gv
+vnoremap > >gv
+" Open the basic python template
+nnoremap ,ifmain :-1read /home/mike-arch/.config/nvim/snippets/template.py<CR>o
+
+" Replace all is mapped to S
+nnoremap S :%s//g<Left><Left>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""Color Customization""""""""""""""""""""""""
