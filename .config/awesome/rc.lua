@@ -571,5 +571,6 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 awful.spawn.with_shell("nitrogen --restore")
 awful.spawn.with_shell("picom")
 awful.spawn.with_shell("blueman-applet")
+awful.spawn.with_shell("pasystray")
 awful.spawn.with_shell("sudo nmcli device connect wlp4s0")
 awful.spawn.with_shell("discord")
