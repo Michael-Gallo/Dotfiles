@@ -2,7 +2,10 @@
 set pager_index_lines=24
 set pager_context=3
 auto_view text/html
-
+# unbind default bindings for pager that I don't find useful
+unbind index q # Stops one unmodified button press from taking you out of neomutt
+unbind index x # Stops one unmodified button press from taking you out of neomutt
+unbind index S # would otherwise Sync mailbox but $ already does it and I'd rather use that key for sorting
 # set editor to neovim
 set editor = "nvim"
 set include
@@ -13,10 +16,14 @@ bind pager j next-entry
 bind pager k previous-entry
 bind pager J next-line
 bind pager K previous-line
-# Stops one unmodified button press from taking you out of neomutt
-unbind index q
-unbind index x
+
+bind index o noop
+# bind pager gt noop
+bind pager G group-reply
 bind index Q exit
 
 # Macros
-macro index X T~f
+macro index X T~f "Tag by sender"
+macro index Sd '<enter-command>set sort = date-received<enter>' "sort by date received"
+macro index Ss '<enter-command>set sort = from<enter>' "sort by sender"
+macro index Sn '<enter-command>set sort = mailbox-order<enter>' "sort by mailboxes order (Sort normal)"
