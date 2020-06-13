@@ -124,6 +124,6 @@ alias vim=nvim
 alias svim='sudo -E vim'
 alias df='df -h'
 alias mkdir="mkdir -pv"
-export PATH="~/.bin:$PATH"
+export PATH="~/.bin:~/.local/bin:$PATH"
 export EDITOR=nvim
 export BROWSER=firefox
