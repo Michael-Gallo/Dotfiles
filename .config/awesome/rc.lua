@@ -562,16 +562,4 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- }}}
 
 --Autostart
-awful.spawn.with_shell("sxhkd")
--- awful.spawn.with_shell("setbg")
-awful.spawn.with_shell("nitrogen --restore")
-awful.spawn.with_shell("picom")
-awful.spawn.with_shell("sudo nmcli device connect wlp4s0")
-awful.spawn.with_shell("discord")
--- Checks mail
-awful.spawn.with_shell("mbsync -a")
--- Opens applets
-awful.spawn.with_shell("blueman-applet")
-awful.spawn.with_shell("pasystray")
-awful.spawn.with_shell("nm-applet")
-
+awful.spawn.with_shell("/home/mike-arch/.config/awesome/startup.sh")
