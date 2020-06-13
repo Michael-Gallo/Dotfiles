@@ -280,8 +280,8 @@ globalkeys = gears.table.join(
     -- Standard program
     awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
               {description = "open a terminal", group = "launcher"}),
-    awful.key({ modkey,           }, "b", function () awful.spawn("firefox") end,
-              {description = "open firefox", group = "launcher"}),
+    -- awful.key({ modkey,           }, "b", function () awful.spawn("firefox") end,
+              -- {description = "open firefox", group = "launcher"}),
     awful.key({ modkey, "Control" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit,
@@ -304,12 +304,13 @@ globalkeys = gears.table.join(
     awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(-1)                end,
               {description = "select previous", group = "layout"}),
 
-    awful.key({}, "Print", function () awful.util.spawn("scrot -e 'mv $f ~/pictures/screenshots/ 2>/dev/null'", false) end,
+    awful.key({}, "Print", function () awful.util.spawn("screenshot.sh", false) end,
     {description = "print screen", group ="screenshots"}),
 
-    awful.key({modkey}, "Print", nil, function () awful.util.spawn("scrot -se 'mv $f ~/pictures/screenshots/'", false) end,
+    awful.key({modkey}, "Print", nil, function () awful.util.spawn("screenshot.sh -s", false) end,
     {description = "print selection", group ="screenshots"}),
-
+    awful.key({modkey, "Control"}, "Print", nil, function () awful.spawn("screenshot.sh -i") end,
+    {description = "print Active Window", group ="screenshots"}),
     awful.key({ modkey, "Control" }, "n",
               function ()
                   local c = awful.client.restore()
@@ -320,14 +321,8 @@ globalkeys = gears.table.join(
                     )
                   end
               end,
-              {description = "restore minimized", group = "client"}),
+              {description = "restore minimized", group = "client"})
 
-    -- Prompt
-    awful.key({ modkey },            "r",     function () awful.spawn("dmenu_run") end,
-              {description = "run dmenu", group = "launcher"}),
-    --File Browser
-    awful.key({ modkey },            "e",     function () awful.spawn("st -e ranger") end,
-              {description = "run ranger in st", group = "launcher"})
 )
 
 clientkeys = gears.table.join(
@@ -567,6 +562,7 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- }}}
 
 --Autostart
+awful.spawn.with_shell("sxhkd")
 -- awful.spawn.with_shell("setbg")
 awful.spawn.with_shell("nitrogen --restore")
 awful.spawn.with_shell("picom")
@@ -578,3 +574,4 @@ awful.spawn.with_shell("mbsync -a")
 awful.spawn.with_shell("blueman-applet")
 awful.spawn.with_shell("pasystray")
 awful.spawn.with_shell("nm-applet")
+

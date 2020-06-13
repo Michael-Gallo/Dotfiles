@@ -1,6 +1,9 @@
-super + Return
-	st
-super + r
-	dmenu_run
+# sxhkdrc
+super + b
+        $BROWSER
+
 super + e
-	st -e ranger
+        st -e ranger
+
+super + r
+        dmenu_run
