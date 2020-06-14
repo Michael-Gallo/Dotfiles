@@ -22,13 +22,14 @@ filetype off                  " required for vundle
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "Set Leader Keys 
 let g:mapleader = "\<Space>" " Set Leader to Space
-let g:maplocalleader = ','
+" let g:maplocalleader = ','
 
 " Better tabbing
 vnoremap < <gv
 vnoremap > >gv
 " Open the basic python template
 nnoremap ,ifmain :-1read /home/mike-arch/.config/nvim/snippets/template.py<CR>o
+nnoremap ,def :-1read /home/mike-arch/.config/nvim/snippets/def.py<CR>3la
 
 " Replace all is mapped to S
 nnoremap S :%s//g<Left><Left>
@@ -68,6 +69,7 @@ call vundle#begin()
     Plugin 'dracula/vim'
     Plugin 'unblevable/quick-scope'
     Plugin 'tbastos/vim-lua'
+    Plugin 'baskerville/vim-sxhkdrc'
 filetype plugin indent on    " required
 call vundle#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
