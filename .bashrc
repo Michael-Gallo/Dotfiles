@@ -14,6 +14,8 @@ HISTCONTROL=ignoreboth
 # append to the history file, don't overwrite it
 shopt -s histappend
 
+# move history to .cache directory
+export HISTFILE=/home/$USER/.cache/.bash_history
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=-1
 HISTFILESIZE=-1
@@ -127,3 +129,4 @@ alias mkdir="mkdir -pv"
 export PATH="~/.bin:~/.local/bin:$PATH"
 export EDITOR=nvim
 export BROWSER=firefox
+export CDPATH=~/.shortcut_dirs
