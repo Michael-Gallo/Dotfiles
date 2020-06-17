@@ -60,7 +60,11 @@ fi
 if [ -f ~/.config/bash/bash_aliases  ]; then
     . ~/.config/bash/bash_aliases
 fi
+# Environmental variables in their own config file
 
+if [ -f ~/.config/bash/bash_env  ]; then
+    . ~/.config/bash/bash_env
+fi
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -74,8 +78,3 @@ fi
 #aliases and turns on vi mode
 set -o vi
 shopt -s autocd
-export TERMCMD=xterm
-export PATH="~/.bin:~/.local/bin:$PATH"
-export EDITOR=nvim
-export BROWSER=firefox
-export CDPATH=~/.shortcut_dirs
