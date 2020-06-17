@@ -1,3 +1,4 @@
+# vim: set filetype=sh
 # Environmental variables for bash
 export TERMCMD=xterm
 export PATH="~/.bin:~/.local/bin:$PATH"

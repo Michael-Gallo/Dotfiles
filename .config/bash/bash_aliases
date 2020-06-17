@@ -1,3 +1,4 @@
+# vim: set filetype=sh
 alias :q=exit
 alias sv="sudo vim"
 alias r="ranger"
