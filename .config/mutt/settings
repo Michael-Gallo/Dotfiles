@@ -29,3 +29,4 @@ macro index Ss '<enter-command>set sort = from<enter>' "sort by sender"
 macro index Sn '<enter-command>set sort = mailbox-order<enter>' "sort by mailboxes order (Sort normal)"
 # set date to use real format
 set date_format="%m/%d/%y %I:%M%p"
+set crypt_opportunistic_encrypt = no # Encryption causes more issues than it's worth
