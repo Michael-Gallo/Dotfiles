@@ -12,10 +12,6 @@ xmodmap -pke > ~/.xmodmap
 if [ -f ~/.config/bash/bash_env  ]; then
     . ~/.config/bash/bash_env
 fi
-if [ -d "$HOME/.bin" ] ; then
-        PATH="$HOME/.bin:$PATH"
-fi
 
-if [ -d "$HOME/local/.bin" ] ; then
-        PATH="$HOME/local.bin:$PATH"
-fi
+# Makes sure that all locations vim needs exist
+mkdir -p $XDG_DATA_HOME/vim/{undo,swap,backup,view}
