@@ -562,4 +562,4 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- }}}
 
 --Autostart
-awful.spawn.with_shell("/home/mike-arch/.config/awesome/startup.sh")
+awful.spawn.with_shell(os.getenv("HOME") .. "/.config/awesome/startup.sh")
