@@ -118,10 +118,10 @@ set timeoutlen=300
 let g:which_key_map={}
 " Fuzzy Finder bindings
 let g:which_key_map.f = { 'name' : 'Fuzzy Finder' , 
-                        \'~': [":call fzf#run({'source': 'rg --files --hidden --no-ignore-vcs ~ 2>/dev/null'}) " , 'In Home'],
-                        \'/': [":call fzf#run({'source': 'rg --files --hidden --no-ignore-vcs / 2>/dev/null '}) ", 'In Root'],
-                        \'.': [":call fzf#run({'source': 'rg --files --hidden --no-ignore-vcs . 2>/dev/null'}) ", 'In Current Directory'],
-                        \'u': [":call fzf#run({'source': 'rg --files --hidden --no-ignore-vcs .. 2>/dev/null'})" , 'In Upper Directory'],
+                        \'~': [':FZF ~'  , 'In Home'],
+                        \'/': [':FZF /'  , 'In Root'],
+                        \'.': [':FZF .'  , 'In Current Directory'],
+                        \'u': [':FZF ..'  , 'In Upper Directory'],
                         \}
 let g:which_key_map.r = [ 'Ranger' , 'Ranger' ] 
 " NerdCommenter bindings
