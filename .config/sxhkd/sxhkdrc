@@ -7,3 +7,6 @@ super + e
 
 super + r
         dmenu_run
+
+super + Return
+        $TERMINAL
