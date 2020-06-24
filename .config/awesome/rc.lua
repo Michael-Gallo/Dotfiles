@@ -231,14 +231,21 @@ globalkeys = gears.table.join(
                     for i = 1, screen.count() do
                         awful.tag.viewprev(i)
                     end
+                    --TODO THIS IS HIDEOUS PLEASE FIND ANOTHER SOLUTION
+                    awful.tag.viewnext()
+                    awful.tag.viewprev()
             end,
               {description = "view previous", group = "tag"}),
 
     awful.key({ modkey,           }, "Right", 
             function()
+                    current = awful.screen.focused().index
                     for i = 1, screen.count() do
                         awful.tag.viewnext(i)
                     end
+                    --TODO THIS IS HIDEOUS PLEASE FIND ANOTHER SOLUTION
+                    awful.tag.viewnext()
+                    awful.tag.viewprev()
             end,
               {description = "view next", group = "tag"}),
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore,
@@ -307,7 +314,7 @@ globalkeys = gears.table.join(
     awful.key({}, "Print", function () awful.util.spawn("screenshot.sh", false) end,
     {description = "print screen", group ="screenshots"}),
 
-    awful.key({modkey}, "Print", nil, function () awful.util.spawn("screenshot.sh -s", false) end,
+    awful.key({modkey}, "Print", function () awful.util.spawn("screenshot.sh -s", false) end,
     {description = "print selection", group ="screenshots"}),
     awful.key({modkey, "Control"}, "Print", nil, function () awful.spawn("screenshot.sh -i") end,
     {description = "print Active Window", group ="screenshots"}),
@@ -383,6 +390,9 @@ for i = 1, 9 do
                                 awful.tag.viewonly(tag)
                             end
                         end
+                    --TODO THIS IS HIDEOUS PLEASE FIND ANOTHER SOLUTION
+                    awful.tag.viewnext()
+                    awful.tag.viewprev()
                    end,
                   {description = "view tag #"..i, group = "tag"}),
         -- Toggle tag display.
