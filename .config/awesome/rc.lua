@@ -305,14 +305,6 @@ globalkeys = gears.table.join(
               {description = "select next", group = "layout"}),
     awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(-1)                end,
               {description = "select previous", group = "layout"}),
-
-    awful.key({}, "Print", function () awful.util.spawn("screenshot.sh", false) end,
-    {description = "print screen", group ="screenshots"}),
-
-    awful.key({modkey}, "Print", function () awful.util.spawn("screenshot.sh -s", false) end,
-    {description = "print selection", group ="screenshots"}),
-    awful.key({modkey, "Control"}, "Print", nil, function () awful.spawn("screenshot.sh -i") end,
-    {description = "print Active Window", group ="screenshots"}),
     awful.key({ modkey, "Control" }, "n",
               function ()
                   local c = awful.client.restore()
