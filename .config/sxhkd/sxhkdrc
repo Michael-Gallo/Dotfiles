@@ -1,4 +1,12 @@
 # sxhkdrc
+# Requirements:
+# $BROWSER and $TERMINAL environmental variables set
+# maim (screenshots)
+# dmenu
+# ranger
+
+
+# Launchers
 super + b
         $BROWSER
 
@@ -10,3 +18,14 @@ super + r
 
 super + Return
         $TERMINAL
+
+# Screenshots
+
+Print 
+        maim --noopengl -s |  xclip -selection clipboard -t image/png
+
+Print + {shift,ctrl}
+        maim --noopengl {-s,-i $(xdotool getactivewindow)} ~/pictures/screenshots/$(date '+%Y-%m-%d-%I:%M:%S%p').png
+
+Print + alt
+        maim --noopengl -i $(xdotool getactivewindow) |  xclip -selection clipboard -t image/png
