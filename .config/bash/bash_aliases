@@ -15,4 +15,4 @@ alias vim=nvim
 alias svim='sudo -E vim'
 alias df='df -h'
 alias mkdir="mkdir -pv"
-[ -x "$(command -v exa)" ] && alias ls='exa -al --color=always --group-directories-first'
+command -v exa >/dev/null && alias ls="exa -al --color=always --group-directories-first"

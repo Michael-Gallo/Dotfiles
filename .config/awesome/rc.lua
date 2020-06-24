@@ -231,14 +231,21 @@ globalkeys = gears.table.join(
                     for i = 1, screen.count() do
                         awful.tag.viewprev(i)
                     end
+                    --TODO THIS IS HIDEOUS PLEASE FIND ANOTHER SOLUTION
+                    awful.tag.viewnext()
+                    awful.tag.viewprev()
             end,
               {description = "view previous", group = "tag"}),
 
     awful.key({ modkey,           }, "Right", 
             function()
+                    current = awful.screen.focused().index
                     for i = 1, screen.count() do
                         awful.tag.viewnext(i)
                     end
+                    --TODO THIS IS HIDEOUS PLEASE FIND ANOTHER SOLUTION
+                    awful.tag.viewnext()
+                    awful.tag.viewprev()
             end,
               {description = "view next", group = "tag"}),
     awful.key({ modkey,           }, "Escape", awful.tag.history.restore,
@@ -277,11 +284,6 @@ globalkeys = gears.table.join(
         end,
         {description = "go back", group = "client"}),
 
-    -- Standard program
-    awful.key({ modkey,           }, "Return", function () awful.spawn(terminal) end,
-              {description = "open a terminal", group = "launcher"}),
-    -- awful.key({ modkey,           }, "b", function () awful.spawn("firefox") end,
-              -- {description = "open firefox", group = "launcher"}),
     awful.key({ modkey, "Control" }, "r", awesome.restart,
               {description = "reload awesome", group = "awesome"}),
     awful.key({ modkey, "Shift"   }, "q", awesome.quit,
@@ -303,14 +305,6 @@ globalkeys = gears.table.join(
               {description = "select next", group = "layout"}),
     awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(-1)                end,
               {description = "select previous", group = "layout"}),
-
-    awful.key({}, "Print", function () awful.util.spawn("screenshot.sh", false) end,
-    {description = "print screen", group ="screenshots"}),
-
-    awful.key({modkey}, "Print", nil, function () awful.util.spawn("screenshot.sh -s", false) end,
-    {description = "print selection", group ="screenshots"}),
-    awful.key({modkey, "Control"}, "Print", nil, function () awful.spawn("screenshot.sh -i") end,
-    {description = "print Active Window", group ="screenshots"}),
     awful.key({ modkey, "Control" }, "n",
               function ()
                   local c = awful.client.restore()
@@ -383,6 +377,9 @@ for i = 1, 9 do
                                 awful.tag.viewonly(tag)
                             end
                         end
+                    --TODO THIS IS HIDEOUS PLEASE FIND ANOTHER SOLUTION
+                    awful.tag.viewnext()
+                    awful.tag.viewprev()
                    end,
                   {description = "view tag #"..i, group = "tag"}),
         -- Toggle tag display.

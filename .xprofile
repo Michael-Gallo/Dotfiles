@@ -1,7 +1,5 @@
 # wal -c # clears cached pywal themes
-# /home/$USER/.bin/setbg
 /home/$USER/.bin/autoscroll_enabled.sh
-test
 # increases key speed
 xset r rate 300 50
 # sets the caps lock key to also be an escape key
