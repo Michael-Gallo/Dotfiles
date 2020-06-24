@@ -1,115 +1,114 @@
-#######################################################
-####### ZSH configuration file    #######
-#######################################################
-
-
 ### Set variables
 #################
 HISTFILE=$HOME/.config/zsh/.zhistory
 HISTSIZE=1000
 SAVEHIST=1000
 HOSTNAME="$(hostname)"
-LS_COLORS='rs=0:di=01;34:ln=01;36:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:su=37;41:sg=30;43:tw=30;42:ow=34;42:st=37;44:ex=01;32:';
-
-### Load colors
-###############
-autoload colors zsh/terminfo
-if [[ "$terminfo[colors]" -ge 8 ]]; then
-   colors
+if [ -f ~/.config/bash/bash_aliases  ]; then
+    . ~/.config/bash/bash_aliases
 fi
-for color in RED GREEN YELLOW BLUE MAGENTA CYAN WHITE; do
-   eval PR_$color='%{$terminfo[bold]$fg[${(L)color}]%}'
-   eval PR_LIGHT_$color='%{$fg[${(L)color}]%}'
-   (( count = $count + 1 ))
-done
+# Environmental variables in their own config file
 
-### Set Colors to use in in the script
-#############
-# Normal Colors
-Black='\e[0;30m'        # Black
-Red='\e[0;31m'          # Red
-Green='\e[0;32m'        # Green
-Yellow='\e[0;33m'       # Yellow
-Blue='\e[0;34m'         # Blue
-Purple='\e[0;35m'       # Purple
-Cyan='\e[0;36m'         # Cyan
-White='\e[0;37m'        # White
-
-# Bold
-BBlack='\e[1;30m'       # Black
-BRed='\e[1;31m'         # Red
-BGreen='\e[1;32m'       # Green
-BYellow='\e[1;33m'      # Yellow
-BBlue='\e[1;34m'        # Blue
-BPurple='\e[1;35m'      # Purple
-BCyan='\e[1;36m'        # Cyan
-BWhite='\e[1;37m'       # White
-
-# Background
-On_Black='\e[40m'       # Black
-On_Red='\e[41m'         # Red
-On_Green='\e[42m'       # Green
-On_Yellow='\e[43m'      # Yellow
-On_Blue='\e[44m'        # Blue
-On_Purple='\e[45m'      # Purple
-On_Cyan='\e[46m'        # Cyan
-On_White='\e[47m'       # White
-
-NC="\e[m"               # Color Reset
-
-### Set prompt
-##############
-PR_NO_COLOR="%{$terminfo[sgr0]%}"
-PS1="[%(!.${PR_RED}%n.$PR_LIGHT_YELLOW%n)%(!.${PR_LIGHT_YELLOW}@.$PR_RED@)$PR_NO_COLOR%(!.${PR_LIGHT_RED}%U%m%u.${PR_LIGHT_GREEN}%U%m%u)$PR_NO_COLOR:%(!.${PR_RED}%2c.${PR_BLUE}%2c)$PR_NO_COLOR]%(?..[${PR_LIGHT_RED}%?$PR_NO_COLOR])%(!.${PR_LIGHT_RED}#.${PR_LIGHT_GREEN}$) "
-RPS1="$PR_LIGHT_YELLOW(%D{%m-%d %H:%M})$PR_NO_COLOR"
-unsetopt ALL_EXPORT
-
-### set common functions
-#############
-
-function my_ip() # Get IP adress.
-{
-   curl ifconfig.co
-}
-
-
-function extract {
- if [ -z "$1" ]; then
-    # display usage if no parameters given
-    echo "Usage: extract <path/file_name>.<zip|rar|bz2|gz|tar|tbz2|tgz|Z|7z|xz|ex|tar.bz2|tar.gz|tar.xz>"
- else
-    if [ -f $1 ] ; then
-        # NAME=${1%.*}
-        # mkdir $NAME && cd $NAME
-        case $1 in
-          *.tar.bz2)   tar xvjf ../$1    ;;
-          *.tar.gz)    tar xvzf ../$1    ;;
-          *.tar.xz)    tar xvJf ../$1    ;;
-          *.lzma)      unlzma ../$1      ;;
-          *.bz2)       bunzip2 ../$1     ;;
-          *.rar)       unrar x -ad ../$1 ;;
-          *.gz)        gunzip ../$1      ;;
-          *.tar)       tar xvf ../$1     ;;
-          *.tbz2)      tar xvjf ../$1    ;;
-          *.tgz)       tar xvzf ../$1    ;;
-          *.zip)       unzip ../$1       ;;
-          *.Z)         uncompress ../$1  ;;
-          *.7z)        7z x ../$1        ;;
-          *.xz)        unxz ../$1        ;;
-          *.exe)       cabextract ../$1  ;;
-          *)           echo "extract: '$1' - unknown archive method" ;;
-        esac
-    else
-        echo "$1 - file does not exist"
-    fi
+if [ -f ~/.config/bash/bash_env  ]; then
+    . ~/.config/bash/bash_env
 fi
-}
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-### Set aliases and environmental variables to be the same as bash
-#############
-source $HOME/.config/bash/{bash_aliases,bash_env}
+# Path to your oh-my-zsh installation.
+export ZSH="/home/mike-arch/.oh-my-zsh"
 
+# Set name of the theme to load --- if set to "random", it will
+# load a random theme each time oh-my-zsh is loaded, in which case,
+# to know which specific one was loaded, run: echo $RANDOM_THEME
+# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
+ZSH_THEME="robbyrussell"
 
-### Source plugins
-##################
-source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# Set list of themes to pick from when loading at random
+# Setting this variable when ZSH_THEME=random will cause zsh to load
+# a theme from this variable instead of looking in $ZSH/themes/
+# If set to an empty array, this variable will have no effect.
+# ZSH_THEME_RANDOM_CANDIDATES=( "robbyrussell" "agnoster" )
+
+# Uncomment the following line to use case-sensitive completion.
+# CASE_SENSITIVE="true"
+
+# Uncomment the following line to use hyphen-insensitive completion.
+# Case-sensitive completion must be off. _ and - will be interchangeable.
+# HYPHEN_INSENSITIVE="true"
+
+# Uncomment the following line to disable bi-weekly auto-update checks.
+# DISABLE_AUTO_UPDATE="true"
+
+# Uncomment the following line to automatically update without prompting.
+# DISABLE_UPDATE_PROMPT="true"
+
+# Uncomment the following line to change how often to auto-update (in days).
+# export UPDATE_ZSH_DAYS=13
+
+# Uncomment the following line if pasting URLs and other text is messed up.
+# DISABLE_MAGIC_FUNCTIONS=true
+
+# Uncomment the following line to disable colors in ls.
+# DISABLE_LS_COLORS="true"
+
+# Uncomment the following line to disable auto-setting terminal title.
+# DISABLE_AUTO_TITLE="true"
+
+# Uncomment the following line to enable command auto-correction.
+# ENABLE_CORRECTION="true"
+
+# Uncomment the following line to display red dots whilst waiting for completion.
+# COMPLETION_WAITING_DOTS="true"
+
+# Uncomment the following line if you want to disable marking untracked files
+# under VCS as dirty. This makes repository status check for large repositories
+# much, much faster.
+# DISABLE_UNTRACKED_FILES_DIRTY="true"
+
+# Uncomment the following line if you want to change the command execution time
+# stamp shown in the history command output.
+# You can set one of the optional three formats:
+# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+# or set a custom format using the strftime function format specifications,
+# see 'man strftime' for details.
+# HIST_STAMPS="mm/dd/yyyy"
+
+# Would you like to use another custom folder than $ZSH/custom?
+# ZSH_CUSTOM=/path/to/new-custom-folder
+
+# Which plugins would you like to load?
+# Standard plugins can be found in $ZSH/plugins/
+# Custom plugins may be added to $ZSH_CUSTOM/plugins/
+# Example format: plugins=(rails git textmate ruby lighthouse)
+# Add wisely, as too many plugins slow down shell startup.
+plugins=(git
+        themes)
+
+source $ZSH/oh-my-zsh.sh
+
+# User configuration
+
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
