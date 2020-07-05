@@ -16,3 +16,5 @@ alias svim='sudo -E vim'
 alias df='df -h'
 alias mkdir="mkdir -pv"
 command -v exa >/dev/null && alias ls="exa -al --color=always --group-directories-first"
+alias lo=libreoffice
+alias pm=pcmanfm
