@@ -13,3 +13,4 @@ run mbsync -a &
 run blueman-applet &
 run pasystray &
 run nm-applet &
+run unclutter -idle 5
