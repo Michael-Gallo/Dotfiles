@@ -4,6 +4,7 @@ export TERMCMD=xterm
 export PATH="~/.bin:~/.local/bin:$PATH"
 export EDITOR=nvim
 export BROWSER=firefox
+export BUS_BROWSER=chromium
 export CDPATH=~/.shortcut_dirs
 [ -x "$(command -v st)" ] && export TERMINAL="st"
 
