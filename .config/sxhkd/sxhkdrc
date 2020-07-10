@@ -9,6 +9,9 @@
 # Launchers
 super + b
         $BROWSER
+# Launchers
+super + alt + b
+        $BUS_BROWSER
 
 super + e
         st -e ranger
