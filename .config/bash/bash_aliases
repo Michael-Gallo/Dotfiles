@@ -20,9 +20,10 @@ alias lo=libreoffice
 alias pm=pcmanfm
 alias sdn="shutdown now"
 alias nm=neomutt
+alias sm=smplayer
 
 se() {
-        bad_dirs="chromium bravesoftware cache discord libreoffice skype lutris .git .log"
+        bad_dirs="chromium bravesoftware cache discord libreoffice skype lutris .git .log mattermost mangagamer smplayer wayofthepassivefist pcsx2 indexeddb unity3d mono.addins rocket.chat virtualbox"
         vals=(${bad_dirs// /\|})
         rg --files $HOME/.config/* $HOME/.bin/* | grep -E -vi $vals| fzf | xargs -r $EDITOR ;
 }
