@@ -27,3 +27,6 @@ se() {
         vals=(${bad_dirs// /\|})
         rg --files $HOME/.config/* $HOME/.bin/* | grep -E -vi $vals| fzf | xargs -r $EDITOR ;
 }
+yu() {
+        yadm status| grep modified:| awk '{print $2}' |fzf |xargs yadm commit 
+        }
