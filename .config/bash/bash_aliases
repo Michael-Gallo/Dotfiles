@@ -27,6 +27,9 @@ se() {
         vals=(${bad_dirs// /\|})
         rg --files $HOME/.config/* $HOME/.bin/* | grep -E -vi $vals| fzf | xargs -r $EDITOR ;
 }
-yu() {
+yc() {
         yadm status| grep modified:| awk '{print $2}' |fzf |xargs yadm commit 
+        }
+yd() {
+        yadm status| grep modified:| awk '{print $2}' |fzf |xargs yadm diff 
         }
