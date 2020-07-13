@@ -21,6 +21,7 @@ alias pm=pcmanfm
 alias sdn="shutdown now"
 alias nm=neomutt
 alias sm=smplayer
+alias yp="yadm push"
 
 se() {
         bad_dirs="chromium bravesoftware cache discord libreoffice skype lutris .git .log mattermost mangagamer smplayer wayofthepassivefist pcsx2 indexeddb unity3d mono.addins rocket.chat virtualbox"
