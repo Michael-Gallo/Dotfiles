@@ -4,7 +4,6 @@ HISTFILE=$HOME/.config/zsh/.zhistory
 HISTSIZE=1000
 SAVEHIST=1000
 HOSTNAME="$(hostname)"
-
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -78,3 +77,6 @@ fi
 # Enable syntax highlighting
 source $HOME/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
+# vi mode
+bindkey -v
+set -o vi
