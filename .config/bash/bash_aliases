@@ -23,6 +23,10 @@ alias nm=neomutt
 alias sm=smplayer
 alias yp="yadm push"
 alias ys="yadm status"
+alias gp="git push"
+alias gs="git status"
+unalias gc
+unalias gd
 
 se() {
         bad_dirs="chromium bravesoftware cache discord libreoffice skype lutris .git .log mattermost mangagamer smplayer wayofthepassivefist pcsx2 indexeddb unity3d mono.addins rocket.chat virtualbox"
@@ -34,4 +38,10 @@ yc() {
         }
 yd() {
         yadm status| grep modified:| awk '{print $2}' |fzf |xargs yadm diff 
+        }
+gc() {
+        git status| grep modified:| awk '{print $2}' |fzf |xargs git commit 
+        }
+gd() {
+        git status| grep modified:| awk '{print $2}' |fzf |xargs git diff 
         }
