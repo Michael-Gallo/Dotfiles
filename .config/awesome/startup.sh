@@ -2,15 +2,16 @@
 function run {
   if ! pgrep -f $1 ;
   then
-    $@&
+    run $@&
   fi
 }
-run sxhkd & 
-run nitrogen --restore &
-run picom &
-run discord &
-run mbsync -a & 
-run blueman-applet &
-run pasystray &
-run nm-applet &
-run unclutter -idle 5
+sxhkd & 
+nitrogen --restore &
+picom &
+discord &
+mbsync -a & 
+blueman-applet &
+pasystray &
+nm-applet &
+unclutter -idle 5 &
+deluge
