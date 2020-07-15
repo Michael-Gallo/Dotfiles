@@ -76,6 +76,8 @@ fi
 
 # Enable syntax highlighting
 source $HOME/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# Enable better vim mode
+source $HOME/.config/zsh/plugins/zsh-vim-mode/zsh-vim-mode.plugin.zsh
 
 # vi mode
 bindkey -v
