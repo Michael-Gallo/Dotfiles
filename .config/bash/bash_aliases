@@ -23,6 +23,7 @@ alias nm=neomutt
 alias sm=smplayer
 alias yp="yadm push"
 alias ys="yadm status"
+alias ya="yadm add"
 alias gp="git push"
 alias gs="git status"
 unalias gc
