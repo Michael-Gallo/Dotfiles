@@ -26,8 +26,8 @@ alias ys="yadm status"
 alias ya="yadm add"
 alias gp="git push"
 alias gs="git status"
-unalias gc
-unalias gd
+unalias gc 2>/dev/null
+unalias gd  2>/dev/null
 
 se() {
         bad_dirs="chromium bravesoftware cache discord libreoffice skype lutris .git .log mattermost mangagamer smplayer wayofthepassivefist pcsx2 indexeddb unity3d mono.addins rocket.chat virtualbox"
