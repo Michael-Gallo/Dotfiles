@@ -20,6 +20,7 @@ super + r
         dmenu_run
 
 super + Return
+        echo Test;\
         $TERMINAL
 
 # Screenshots
@@ -32,3 +33,10 @@ Print + {shift,ctrl}
 # window to clipboard
 Print + alt
         maim --noopengl -i $(xdotool getactivewindow) |  xclip -selection clipboard -t image/png
+
+# ctrl+shift+backspace to delete a word
+ctrl + shift + BackSpace
+        xdotool keyup BackSpace;\
+        $HOME/.bin/del_word.sh;\
+        xdotool keydown ctrl+shift
+

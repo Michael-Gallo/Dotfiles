@@ -158,7 +158,7 @@ local tasklist_buttons = gears.table.join(
                                               awful.client.focus.byidx(-1)
                                           end))
 
-beautiful.useless_gap = 2
+beautiful.useless_gap = 3
 beautiful.gap_single_client = false
         
 
