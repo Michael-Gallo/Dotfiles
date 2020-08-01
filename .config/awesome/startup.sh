@@ -14,4 +14,5 @@ blueman-applet &
 pasystray &
 nm-applet &
 unclutter -idle 5 &
-deluge
+deluge &
+$HOME/.screenlayout/duh.sh
