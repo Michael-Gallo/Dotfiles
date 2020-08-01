@@ -21,10 +21,10 @@ alias pm=pcmanfm
 alias sdn="shutdown now"
 alias nm=neomutt
 alias sm=smplayer
-alias yp="yadm push"
+alias yp="yadm push -f"
 alias ys="yadm status"
 alias ya="yadm add"
-alias gp="git push"
+alias gp="git push -f"
 alias gs="git status"
 unalias gc 2>/dev/null
 unalias gd  2>/dev/null
