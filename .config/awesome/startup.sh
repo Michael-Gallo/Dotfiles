@@ -7,7 +7,6 @@ function run {
 }
 start_commands=(
         "sxhkd"
-        "nitrogen --restore"
         "discord"
         "picom"
         "blueman-applet"
@@ -17,7 +16,9 @@ start_commands=(
         "deluge"
         "pcmanfm -d"
         "$HOME/.screenlayout/duh.sh"
+        "nitrogen --restore"
         "mbsync -a"
+
 )
 
 for command_index in ${!start_commands[@]}; do
