@@ -48,8 +48,8 @@ end
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "st"
-editor = os.getenv("EDITOR") or "nano"
+terminal = os.getenv("TERMINAL")
+editor = os.getenv("EDITOR")
 editor_cmd = terminal .. " -e " .. editor
 
 -- Default modkey.
@@ -366,8 +366,6 @@ clientkeys = gears.table.join(
 )
 
 -- Bind all key numbers to tags.
--- Be careful: we use keycodes to make it work on any keyboard layout.
--- This should map on the top row of your keyboard, usually 1 to 9.
 for i = 1, 5 do
     globalkeys = gears.table.join(globalkeys,
         -- View tag only.
