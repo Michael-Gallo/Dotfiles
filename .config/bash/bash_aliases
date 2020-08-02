@@ -26,6 +26,7 @@ alias ys="yadm status"
 alias ya="yadm add"
 alias gp="git push -f"
 alias gs="git status"
+alias pac="sudo pacman"
 unalias gc 2>/dev/null
 unalias gd  2>/dev/null
 
