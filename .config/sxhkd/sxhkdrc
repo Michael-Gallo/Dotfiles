@@ -33,4 +33,13 @@ Print + {shift,ctrl}
 Print + alt
         maim --noopengl -i $(xdotool getactivewindow) |  xclip -selection clipboard -t image/png
 
+XF86Audio{Raise,Lower}Volume
+        pulsemixer --change-volume {10,"-10"}
+
+XF86AudioMute
+        pulsemixer --toggle-mute
+
+XF86Calculator
+        gnome-calculator        
+
 
