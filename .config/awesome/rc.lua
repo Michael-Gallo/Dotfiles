@@ -51,7 +51,7 @@ terminal = os.getenv("TERMINAL")
 editor = os.getenv("EDITOR")
 editor_cmd = terminal .. " -e " .. editor
 -- Beautiful themeing variables
-beautiful.border_width = 1
+beautiful.border_width = 2
 -- color that focused window border takes
 beautiful.border_focus = "#008080"
 -- Default modkey.
@@ -485,6 +485,7 @@ awful.rules.rules = {
         -- and the name shown there might not match defined rules here.
         name = {
           "Event Tester",  -- xev.
+          "Friends List"  -- Steam Friends List
         },
         role = {
           "AlarmWindow",  -- Thunderbirds calendar.
