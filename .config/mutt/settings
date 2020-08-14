@@ -12,10 +12,10 @@ set include
 set smtp_pass="secrets"
 set auto_tag = true
 
-bind pager j next-entry
-bind pager k previous-entry
-bind pager J next-line
-bind pager K previous-line
+bind pager J next-entry
+bind pager K previous-entry
+bind pager j next-line
+bind pager k previous-line
 
 bind index o noop
 # bind pager gt noop
