@@ -12,7 +12,7 @@ alias la='ls -A'
 alias l='ls -CF'
 alias ii=nemo
 alias vim=nvim
-alias svim='sudo -E vim'
+alias svim='sudo -u $HOME/.config/nvim/init.vim nvim'
 alias df='df -h'
 alias mkdir="mkdir -pv"
 command -v exa >/dev/null && alias ls="exa -al --color=always --group-directories-first"
@@ -39,7 +39,7 @@ yc() {
         yadm status| grep modified:| awk '{print $2}' |fzf |xargs yadm commit 
         }
 yd() {
-        yadm status| grep modified:| awk '{print $2}' |fzf |xargs yadm diff 
+        yadm status| grep modified:| awk '{print $2}' |fzf |xargs yadm --no-pager diff 
         }
 gc() {
         git status| grep modified:| awk '{print $2}' |fzf |xargs git commit 
