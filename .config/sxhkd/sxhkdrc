@@ -7,11 +7,11 @@
 
 
 # Launchers
-super + b
-        $BROWSER
+super {+ shift} + b
+        $BROWSER {--private-window}
 # Launchers
 super + alt + b
-        $BUS_BROWSER
+        $BUS_BROWSER 
 
 super + e
         st -e ranger
