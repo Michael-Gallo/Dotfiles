@@ -7,8 +7,8 @@
 
 
 # Launchers
-super {+ shift} + b
-        $BROWSER {--private-window}
+super {_,+ shift} + b
+        $BROWSER {_,--private-window}
 # Launchers
 super + alt + b
         $BUS_BROWSER 
