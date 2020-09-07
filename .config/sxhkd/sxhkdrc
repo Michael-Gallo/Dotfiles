@@ -42,4 +42,6 @@ XF86AudioMute
 XF86Calculator
         gnome-calculator        
 
-
+# Log out of lightdm
+super + shift + q
+        prompt.sh "Do you really want to log out" 'echo awesome.quit()' | awesome-client
