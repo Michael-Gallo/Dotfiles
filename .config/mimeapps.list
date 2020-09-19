@@ -2,3 +2,6 @@
 html=firefox.desktop
 x-scheme-handler/https=firefox.desktop
 x-scheme-handler/http=firefox.desktop
+application/pdf=zathura.desktop
+application/vnd.openxmlformats-officedocument.spreadsheetml.sheet=calc.desktop
+application/octet-stream=calc.desktop
