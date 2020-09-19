@@ -1,15 +1,17 @@
 # sxhkdrc
 # Requirements:
-# $BROWSER and $TERMINAL environmental variables set
+# $BROWSER , $BUS_BROWSER and $TERMINAL environmental variables set
 # maim (screenshots)
 # dmenu
 # ranger
+# prompt.sh dmenu script
 
 
-# Launchers
+##############################################
+################# Launchers ##################
+##############################################
 super {_,+ shift} + b
         $BROWSER {_,--private-window}
-# Launchers
 super + alt + b
         $BUS_BROWSER 
 
@@ -22,16 +24,24 @@ super + r
 super + Return
         $TERMINAL
 
-# Screenshots
+##############################################
+################ Screenshots #################
+##############################################
 # selection to clipboard
 Print 
         maim --noopengl -s |  xclip -selection clipboard -t image/png
+
 #shift for selection to screenshot folder, ccontrol for window  to screenshots folder
 Print + {shift,ctrl}
         maim --noopengl {-s,-i $(xdotool getactivewindow)} ~/pictures/screenshots/$(date '+%Y-%m-%d-%I:%M:%S%p').png
+
 # window to clipboard
 Print + alt
         maim --noopengl -i $(xdotool getactivewindow) |  xclip -selection clipboard -t image/png
+
+##############################################
+################### Audio ####################
+##############################################
 
 {_,shift + } XF86Audio{Raise,Lower}Volume
         pulsemixer --change-volume {+10,+25,-10,-25} 
@@ -42,10 +52,10 @@ XF86AudioMute
 XF86Calculator
         gnome-calculator        
 
-# Log out of lightdm
-super + shift + q
-        prompt.sh "Do you really want to log out" 'echo awesome.quit()' | awesome-client
 
+##############################################
+########### Power/session commands ###########
+##############################################
 
 # Restart computer
 super + F11
@@ -53,3 +63,7 @@ super + F11
 # Turn off computer
 super + F12
         prompt.sh "shutdown computer?" "sudo -A shutdown -h now"
+
+# Log out of lightdm
+super + shift + q
+        prompt.sh "Do you really want to log out" 'echo awesome.quit()' | awesome-client
