@@ -37,14 +37,15 @@ se() {
         vals=(${bad_dirs// /\|})
         rg --files $HOME/.config/* $HOME/.bin/* | grep -E -vi $vals| fzf | xargs -r $EDITOR ;
 }
+
 yc() {
-        yadm status| grep modified:| awk '{print $2}' |fzf |xargs yadm commit 
+        ((!$#)) || yadm commit $1 &&  yadm status | grep modified:| awk '{print $2}' |fzf | xargs yadm commit 
         }
 yd() {
         yadm status| grep modified:| awk '{print $2}' |fzf |xargs yadm --no-pager diff 
         }
 gc() {
-        git status| grep modified:| awk '{print $2}' |fzf |xargs git commit 
+        ((!$#)) || git commit $1 &&  git status | grep modified:| awk '{print $2}' |fzf | xargs git commit 
         }
 gd() {
         git status| grep modified:| awk '{print $2}' |fzf |xargs git diff 
