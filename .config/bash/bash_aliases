@@ -12,7 +12,7 @@ alias la='ls -A'
 alias l='ls -CF'
 alias ii=nemo
 alias vim=nvim
-alias svim='sudo -u $HOME/.config/nvim/init.vim nvim'
+alias svim='sudoedit'
 alias df='df -h'
 alias mkdir="mkdir -pv"
 command -v exa >/dev/null && alias ls="exa -al --color=always --group-directories-first"
