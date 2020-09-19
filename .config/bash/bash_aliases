@@ -39,13 +39,13 @@ se() {
 }
 
 yc() {
-        ((!$#)) || yadm commit $@ &&  yadm status | grep modified:| awk '{print $2}' |fzf | xargs yadm commit 
+        [ -z $1 ] &&  yadm status | grep modified:| awk '{print $2}' |fzf | xargs yadm commit ||yadm commit $@  
         }
 yd() {
         yadm status| grep modified:| awk '{print $2}' |fzf |xargs yadm --no-pager diff 
         }
 gc() {
-        ((!$#)) || git commit $1 &&  git status | grep modified:| awk '{print $2}' |fzf | xargs git commit 
+        [ -z $1 ] &&  git status | grep modified:| awk '{print $2}' |fzf | xargs yadm commit ||yadm commit $@  
         }
 gd() {
         git status| grep modified:| awk '{print $2}' |fzf |xargs git diff 
