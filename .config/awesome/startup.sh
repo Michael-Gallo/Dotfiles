@@ -7,7 +7,6 @@ function run {
 }
 start_commands=(
         "sxhkd"
-        "discord"
         "picom"
         "blueman-applet"
         "pasystray"
@@ -15,13 +14,15 @@ start_commands=(
         "unclutter -idle 5"
         "deluge"
         "pcmanfm -d"
-        "$HOME/.screenlayout/duh.sh"
-        "nitrogen --restore"
         "mbsync -a"
 
 )
-
 for command_index in ${!start_commands[@]}; do
         run ${start_commands[$command_index]}
 done
+sleep .5
+$HOME/.screenlayout/duh.sh
+nitrogen --restore
+sleep 1.5
+discord
 
