@@ -39,7 +39,7 @@ se() {
 }
 
 yc() {
-        ((!$#)) || yadm commit $1 &&  yadm status | grep modified:| awk '{print $2}' |fzf | xargs yadm commit 
+        ((!$#)) || yadm commit $@ &&  yadm status | grep modified:| awk '{print $2}' |fzf | xargs yadm commit 
         }
 yd() {
         yadm status| grep modified:| awk '{print $2}' |fzf |xargs yadm --no-pager diff 
