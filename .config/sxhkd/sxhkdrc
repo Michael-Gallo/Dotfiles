@@ -19,7 +19,7 @@ super + e
         st -e ranger
 
 super + r
-        dmenu_run
+        dmenu_run -i
 
 super + Return
         $TERMINAL
