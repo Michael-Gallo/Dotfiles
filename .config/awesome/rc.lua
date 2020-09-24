@@ -225,27 +225,9 @@ globalkeys = my_table.join(
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
               {description="show help", group="awesome"}),
 
-    awful.key({ modkey,           }, "Left",
-            function()
-                    for i = 1, screen.count() do
-                        awful.tag.viewprev(i)
-                    end
-                    --TODO THIS IS HIDEOUS PLEASE FIND ANOTHER SOLUTION
-                    awful.tag.viewnext()
-                    awful.tag.viewprev()
-            end,
+    awful.key({ modkey,           }, "Left",   awful.tag.viewprev,
               {description = "view previous", group = "tag"}),
-
-    awful.key({ modkey,           }, "Right", 
-            function()
-                    current = awful.screen.focused().index
-                    for i = 1, screen.count() do
-                        awful.tag.viewnext(i)
-                    end
-                    --TODO THIS IS HIDEOUS PLEASE FIND ANOTHER SOLUTION
-                    awful.tag.viewnext()
-                    awful.tag.viewprev()
-            end,
+    awful.key({ modkey,           }, "Right",  awful.tag.viewnext,
               {description = "view next", group = "tag"}),
 
     awful.key({ modkey, "Shift" }, "Left",
@@ -387,16 +369,12 @@ for i = 1, 5 do
         -- View tag only.
         awful.key({ modkey }, "#" .. i + 9,
                   function ()
-                        for screen = 1, screen.count() do
-                            local tag = awful.tag.gettags(screen)[i]
-                            if tag then
-                                awful.tag.viewonly(tag)
-                            end
+                        local screen = awful.screen.focused()
+                        local tag = screen.tags[i]
+                        if tag then
+                           tag:view_only()
                         end
-                    --TODO THIS IS HIDEOUS PLEASE FIND ANOTHER SOLUTION
-                    awful.tag.viewnext()
-                    awful.tag.viewprev()
-                   end,
+                  end,
                   {description = "view tag #"..i, group = "tag"}),
         -- Toggle tag display.
         awful.key({ modkey, "Control" }, "#" .. i + 9,
