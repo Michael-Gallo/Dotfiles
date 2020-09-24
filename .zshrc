@@ -15,7 +15,7 @@ export ZSH="$HOME/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 # ZSH_THEME="candy-kingdom"
-PROMPT="%F{141}%n%f:%F{141}%~%f$ "
+PROMPT="%F{35}%n%f:%F{35}%~%f$ "
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
