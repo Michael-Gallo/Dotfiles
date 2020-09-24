@@ -94,7 +94,7 @@ local editor       = os.getenv("EDITOR") or "vim"
 local scrlocker    = "slock"
 
 awful.util.terminal = terminal
-awful.util.tagnames = { "1", "2", "3", "4", "5" }
+awful.util.tagnames = { "Chat", "Games", "Web", "Bus", "Admin" }
 awful.layout.layouts = {
     awful.layout.suit.tile,
     -- awful.layout.suit.floating,
@@ -238,7 +238,7 @@ globalkeys = my_table.join(
                              return
                      end
                      -- get previous tag
-                     local tag = client.focus.screen.tags[(t.name - 2) % 5 + 1]
+                     local tag = client.focus.screen.tags[(t.index - 2) % 5 + 1]
                      awful.client.movetotag(tag)
              end,
              {description = "move focused client to previous tag", group = "tag"}),
@@ -251,7 +251,7 @@ globalkeys = my_table.join(
                              return
                      end
                      -- get previous tag
-                     local tag = client.focus.screen.tags[(t.name) % 5 + 1]
+                     local tag = client.focus.screen.tags[(t.index) % 5 + 1]
                      awful.client.movetotag(tag)
              end,
              {description = "move focused client to next tag", group = "tag"}),
@@ -431,6 +431,7 @@ root.keys(globalkeys)
 
 -- {{{ Rules
 -- Rules to apply to new clients (through the "manage" signal).
+awful.screen.default_focused_args = { client = true}
 awful.rules.rules = {
     -- All clients will match this rule.
     { rule = { },
@@ -451,9 +452,21 @@ awful.rules.rules = {
       properties = { titlebars_enabled = false } },
 
     -- Set Firefox to always map on the first tag on screen 1.
-    { rule = { class = "Firefox" },
-      properties = { screen = 1, tag = awful.util.tagnames[1] } },
-
+    { rule = { class = "Skype" },
+      properties = {screen = 2 , tag = awful.tag.find_by_name(screen[2],"Chat")  }},
+    { rule = { class = "discord" },
+      properties = {screen = 1, tag = awful.tag.find_by_name(screen[1],"Chat")  , maximized = true}},
+    { rule = { class = "Lutris" },
+      properties = {screen = 2, tag = awful.tag.find_by_name(screen[2],"Games")  }},
+    { rule = { class = "Steam" },
+      properties = {screen = 1, tag = awful.tag.find_by_name(screen[1],"Games")  }},
+    { rule = { class = "firefox" },
+      properties = {screen = 2, tag = awful.tag.find_by_name(screen[2],"Web")  }},
+    { rule = { class = "Chromium" },
+      properties = {screen = 1, tag = awful.tag.find_by_name(screen[1],"Bus")  }},
+    { rule = { class = "libreoffice" },
+      properties = {screen = 2, tag = awful.tag.find_by_name(screen[2],"Bus")  }},
+        -- Sizing
     { rule = { class = "Gimp", role = "gimp-image-window" },
           properties = { maximized = true } },
 }
