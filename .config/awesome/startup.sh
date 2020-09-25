@@ -24,5 +24,5 @@ sleep .5
 $HOME/.screenlayout/duh.sh
 nitrogen --restore
 sleep 1.5
-discord
-
+run discord
+run skypeforlinux
