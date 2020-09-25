@@ -27,6 +27,7 @@ alias ya="yadm add"
 alias gp="git push -f"
 alias gs="git status"
 alias pac="sudo pacman"
+alias du="du -h"
 # cwd to copy current directory to clipboard
 alias cwd="pwd|xsel -ib"
 unalias gc 2>/dev/null
