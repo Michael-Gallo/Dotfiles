@@ -17,14 +17,14 @@ local my_table = awful.util.table or gears.table -- 4.{0,1} compatibility
 local theme                                     = {}
 theme.dir                                       = os.getenv("HOME") .. "/.config/awesome/themes/powerarrow-dark"
 -- theme.wallpaper                                 = theme.dir .. "/wall.png"
-theme.font                                      = "Terminus 9"
+theme.font                                      = "Terminus 12"
 theme.fg_normal                                 = "#DDDDFF"
 theme.fg_focus                                  = "#169f6f"
 theme.fg_urgent                                 = "#00ffff"
 theme.bg_normal                                 = "#181717"
 theme.bg_focus                                  = "#313131"
 theme.bg_urgent                                 = "#1A1A1A"
-theme.border_width                              = dpi(2)
+theme.border_width                              = dpi(4)
 theme.border_normal                             = "#3F3F3F"
 theme.border_focus                              = "#169f6f"
 theme.border_marked                             = "#CC9393"
@@ -32,7 +32,7 @@ theme.tasklist_bg_focus                         = "#1A1A1A"
 theme.titlebar_bg_focus                         = theme.bg_focus
 theme.titlebar_bg_normal                        = theme.bg_normal
 theme.titlebar_fg_focus                         = theme.fg_focus
-theme.menu_height                               = dpi(16)
+theme.menu_height                               = 24
 theme.menu_width                                = dpi(140)
 theme.menu_submenu_icon                         = theme.dir .. "/icons/submenu.png"
 theme.taglist_squares_sel                       = theme.dir .. "/icons/square_sel.png"
@@ -171,7 +171,7 @@ theme.mpd = lain.widget.mpd({
 local memicon = wibox.widget.imagebox(theme.widget_mem)
 local mem = lain.widget.mem({
     settings = function()
-        widget:set_markup(markup.font(theme.font, " " .. mem_now.used .. "MB "))
+        widget:set_markup(markup.font(theme.font, " " .. tonumber(string.sub(mem_now.used/1000,0,4)) .. " GB "))
     end
 })
 
@@ -184,10 +184,10 @@ local cpu = lain.widget.cpu({
 })
 
 -- Coretemp
-local tempicon = wibox.widget.imagebox(theme.widget_temp)
+-- local tempicon = wibox.widget.imagebox(theme.widget_temp)
 local temp = lain.widget.temp({
     settings = function()
-        widget:set_markup(markup.font(theme.font, " " .. coretemp_now .. "°C "))
+        widget:set_markup(markup.font(theme.font, "🌡️" .. coretemp_now .. "°C "))
     end
 })
 
@@ -217,9 +217,9 @@ local bat = lain.widget.bat({
                 baticon:set_image(theme.widget_battery)
             end
             widget:set_markup(markup.font(theme.font, " " .. bat_now.perc .. "% "))
-        else
-            widget:set_markup(markup.font(theme.font, " AC "))
-            baticon:set_image(theme.widget_ac)
+        else 
+            -- widget:set_markup(markup.font(theme.font, " 📓  "))
+            baticon:set_image()
         end
     end
 })
@@ -340,11 +340,11 @@ function theme.at_screen_connect(s)
             arrl_dl,
             baticon,
             bat.widget,
-            arrl_ld,
-            wibox.container.background(neticon, theme.bg_focus),
-            wibox.container.background(net.widget, theme.bg_focus),
-            arrl_dl,
-            spr,
+            -- arrl_ld,
+            -- wibox.container.background(neticon, theme.bg_focus),
+            -- wibox.container.background(net.widget, theme.bg_focus),
+            -- arrl_dl,
+            -- spr,
             -- wibox.container.background(s.mylayoutbox, theme.bg_focus),
             wibox.widget.systray(),
             clock
