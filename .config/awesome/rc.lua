@@ -137,7 +137,7 @@ awful.util.tasklist_buttons = my_table.join(
             client.focus = c
             c:raise()
     end),
-    awful.button({ }, 2, function (c) c:kill() end),
+    -- awful.button({ }, 2, function (c) c:kill() end),
     awful.button({ }, 3, function ()
         local instance = nil
 
