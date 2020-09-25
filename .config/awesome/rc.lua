@@ -121,9 +121,9 @@ awful.util.taglist_buttons = my_table.join(
 
 awful.util.tasklist_buttons = my_table.join(
     awful.button({ }, 1, function (c)
-        if c == client.focus then
-            c.minimized = true
-        else
+        -- if c == client.focus then
+            -- c.minimized = true
+        -- else
             --c:emit_signal("request::activate", "tasklist", {raise = true})<Paste>
 
             -- Without this, the following
@@ -136,7 +136,6 @@ awful.util.tasklist_buttons = my_table.join(
             -- the client, if needed
             client.focus = c
             c:raise()
-        end
     end),
     awful.button({ }, 2, function (c) c:kill() end),
     awful.button({ }, 3, function ()
