@@ -23,7 +23,8 @@ local hotkeys_popup = require("awful.hotkeys_popup").widget
 local my_table      = awful.util.table or gears.table -- 4.{0,1} compatibility
 local dpi           = require("beautiful.xresources").apply_dpi
 -- }}}
-
+--  make sure
+-- awful.screen.default_focused_args = { client = true}
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -431,7 +432,6 @@ root.keys(globalkeys)
 
 -- {{{ Rules
 -- Rules to apply to new clients (through the "manage" signal).
-awful.screen.default_focused_args = { client = true}
 awful.rules.rules = {
     -- All clients will match this rule.
     { rule = { },
@@ -451,21 +451,23 @@ awful.rules.rules = {
     { rule_any = { type = { "dialog", "normal" } },
       properties = { titlebars_enabled = false } },
 
-    -- Set Firefox to always map on the first tag on screen 1.
+    -- Start Screen properties
     { rule = { class = "Skype" },
-      properties = {screen = 2 , tag = awful.tag.find_by_name(screen[2],"Chat")  }},
+      properties = {tag = "Chat"}},
     { rule = { class = "discord" },
-      properties = {screen = 1, tag = awful.tag.find_by_name(screen[1],"Chat")  , maximized = true}},
+      properties = {tag ="Chat"  , maximized = true}},
     { rule = { class = "Lutris" },
-      properties = {screen = 2, tag = awful.tag.find_by_name(screen[2],"Games")  }},
+      properties = {tag ="Games"  }},
     { rule = { class = "Steam" },
-      properties = {screen = 1, tag = awful.tag.find_by_name(screen[1],"Games")  }},
+      properties = {tag ="Games"  }},
     { rule = { class = "firefox" },
-      properties = {screen = 2, tag = awful.tag.find_by_name(screen[2],"Web")  }},
+      properties = {tag="Web"}},
+
+      -- properties = {screen = 2, tag = awful.tag.find_by_name(screen[2],"Web")  }},
     { rule = { class = "Chromium" },
-      properties = {screen = 1, tag = awful.tag.find_by_name(screen[1],"Bus")  }},
+      properties = {tag ="Bus"  }},
     { rule = { class = "libreoffice" },
-      properties = {screen = 2, tag = awful.tag.find_by_name(screen[2],"Bus")  }},
+      properties = {tag = "Bus"  }},
         -- Sizing
     { rule = { class = "Gimp", role = "gimp-image-window" },
           properties = { maximized = true } },
