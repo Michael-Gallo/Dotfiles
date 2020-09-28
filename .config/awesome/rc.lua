@@ -22,7 +22,6 @@ local hotkeys_popup = require("awful.hotkeys_popup").widget
                       -- require("awful.hotkeys_popup.keys")
 local my_table      = awful.util.table or gears.table -- 4.{0,1} compatibility
 local dpi           = require("beautiful.xresources").apply_dpi
--- }}}
 --  make sure
 -- awful.screen.default_focused_args = { client = true}
 -- {{{ Error handling
@@ -114,9 +113,10 @@ awful.util.taglist_buttons = my_table.join(
         if client.focus then
             client.focus:toggle_tag(t)
         end
-    end),
-    awful.button({ }, 4, function(t) awful.tag.viewnext(t.screen) end),
-    awful.button({ }, 5, function(t) awful.tag.viewprev(t.screen) end)
+    end)
+    -- scrolling to toggle tags
+    -- awful.button({ }, 4, function(t) awful.tag.viewnext(t.screen) end),
+    -- awful.button({ }, 5, function(t) awful.tag.viewprev(t.screen) end)
 )
 
 awful.util.tasklist_buttons = my_table.join(
