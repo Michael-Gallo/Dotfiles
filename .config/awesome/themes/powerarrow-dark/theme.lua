@@ -101,14 +101,14 @@ local clock = awful.widget.watch(
 )
 
 -- Calendar
-theme.cal = lain.widget.cal({
-    attach_to = { clock },
-    notification_preset = {
-        font = "Terminus 10",
-        fg   = theme.fg_normal,
-        bg   = theme.bg_normal
-    }
-})
+-- theme.cal = lain.widget.cal({
+    -- attach_to = { clock },
+    -- notification_preset = {
+        -- font = "Terminus 10",
+        -- fg   = theme.fg_normal,
+        -- bg   = theme.bg_normal
+    -- }
+-- })
 
 -- Mail IMAP check
 local mailicon = wibox.widget.imagebox(theme.widget_mail)
@@ -132,44 +132,44 @@ theme.mail = lain.widget.imap({
 --]]
 
 -- MPD
-local musicplr = awful.util.terminal .. " -title Music -g 130x34-320+16 -e ncmpcpp"
-local mpdicon = wibox.widget.imagebox(theme.widget_music)
-mpdicon:buttons(my_table.join(
-    awful.button({ modkey }, 1, function () awful.spawn.with_shell(musicplr) end),
-    awful.button({ }, 1, function ()
-        os.execute("mpc prev")
-        theme.mpd.update()
-    end),
-    awful.button({ }, 2, function ()
-        os.execute("mpc toggle")
-        theme.mpd.update()
-    end),
-    awful.button({ }, 3, function ()
-        os.execute("mpc next")
-        theme.mpd.update()
-    end)))
-theme.mpd = lain.widget.mpd({
-    settings = function()
-        if mpd_now.state == "play" then
-            artist = " " .. mpd_now.artist .. " "
-            title  = mpd_now.title  .. " "
-            mpdicon:set_image(theme.widget_music_on)
-        elseif mpd_now.state == "pause" then
-            artist = " mpd "
-            title  = "paused "
-        else
-            artist = ""
-            title  = ""
-            mpdicon:set_image(theme.widget_music)
-        end
+-- local musicplr = awful.util.terminal .. " -title Music -g 130x34-320+16 -e ncmpcpp"
+-- local mpdicon = wibox.widget.imagebox(theme.widget_music)
+-- mpdicon:buttons(my_table.join(
+    -- awful.button({ modkey }, 1, function () awful.spawn.with_shell(musicplr) end),
+    -- awful.button({ }, 1, function ()
+        -- os.execute("mpc prev")
+        -- theme.mpd.update()
+    -- end),
+    -- awful.button({ }, 2, function ()
+        -- os.execute("mpc toggle")
+        -- theme.mpd.update()
+    -- end),
+    -- awful.button({ }, 3, function ()
+        -- os.execute("mpc next")
+        -- theme.mpd.update()
+    -- end)))
+-- theme.mpd = lain.widget.mpd({
+    -- settings = function()
+        -- if mpd_now.state == "play" then
+            -- artist = " " .. mpd_now.artist .. " "
+            -- title  = mpd_now.title  .. " "
+            -- mpdicon:set_image(theme.widget_music_on)
+        -- elseif mpd_now.state == "pause" then
+            -- artist = " mpd "
+            -- title  = "paused "
+        -- else
+            -- artist = ""
+            -- title  = ""
+            -- mpdicon:set_image(theme.widget_music)
+        -- end
 
-        widget:set_markup(markup.font(theme.font, markup("#EA6F81", artist) .. title))
-    end
-})
+        -- widget:set_markup(markup.font(theme.font, markup("#EA6F81", artist) .. title))
+    -- end
+-- })
 
 -- MEM
 local memicon = wibox.widget.imagebox(theme.widget_mem)
-local mem = lain.widget.mem({
+local mem = lain.widget.mem({timeout= 20,
     settings = function()
         widget:set_markup(markup.font(theme.font, " " .. tonumber(string.sub(mem_now.used/1000,0,4)) .. " GB "))
     end
@@ -177,7 +177,7 @@ local mem = lain.widget.mem({
 
 -- CPU
 local cpuicon = wibox.widget.imagebox(theme.widget_cpu)
-local cpu = lain.widget.cpu({
+local cpu = lain.widget.cpu({timeout= 20,
     settings = function()
         widget:set_markup(markup.font(theme.font, " " .. cpu_now.usage .. "% "))
     end
@@ -185,7 +185,7 @@ local cpu = lain.widget.cpu({
 
 -- Coretemp
 -- local tempicon = wibox.widget.imagebox(theme.widget_temp)
-local temp = lain.widget.temp({
+local temp = lain.widget.temp({timeout= 20,
     settings = function()
         widget:set_markup(markup.font(theme.font, "🌡️" .. coretemp_now .. "°C "))
     end
