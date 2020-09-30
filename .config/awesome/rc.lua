@@ -470,6 +470,8 @@ awful.rules.rules = {
         -- Sizing
     { rule = { class = "Gimp", role = "gimp-image-window" },
           properties = { maximized = true } },
+    { rule = { name = "Calculator"},
+          properties = { floating = true } },
 }
 -- }}}
 
