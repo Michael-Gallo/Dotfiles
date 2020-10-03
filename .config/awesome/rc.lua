@@ -213,9 +213,7 @@ beautiful.useless_gap = dpi(5)
 beautiful.gap_single_client = false
 -- {{{ Mouse bindings
 root.buttons(my_table.join(
-    awful.button({ }, 3, function () awful.util.mymainmenu:toggle() end),
-    awful.button({ }, 4, awful.tag.viewnext),
-    awful.button({ }, 5, awful.tag.viewprev)
+    awful.button({ }, 3, function () awful.util.mymainmenu:toggle() end)
 ))
 -- }}}
 
@@ -310,18 +308,7 @@ globalkeys = my_table.join(
     awful.key({ modkey,           }, "space", function () awful.layout.inc( 1)                end,
               {description = "select next", group = "layout"}),
     awful.key({ modkey, "Shift"   }, "space", function () awful.layout.inc(-1)                end,
-              {description = "select previous", group = "layout"}),
-    awful.key({ modkey, "Control" }, "n",
-              function ()
-                  local c = awful.client.restore()
-                  -- Focus restored client
-                  if c then
-                    c:emit_signal(
-                        "request::activate", "key.unminimize", {raise = true}
-                    )
-                  end
-              end,
-              {description = "restore minimized", group = "client"})
+              {description = "select previous", group = "layout"})
 
 )
 
@@ -471,6 +458,8 @@ awful.rules.rules = {
     { rule = { class = "Gimp", role = "gimp-image-window" },
           properties = { maximized = true } },
     { rule = { name = "Calculator"},
+          properties = { floating = true } },
+    { rule = { class = "calendar"},
           properties = { floating = true } },
 }
 -- }}}
