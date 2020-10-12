@@ -24,6 +24,8 @@ super + r
 super + Return
         $TERMINAL
 
+XF86Calculator
+        gnome-calculator        
 ##############################################
 ################ Screenshots #################
 ##############################################
@@ -49,8 +51,6 @@ Print + alt
 XF86AudioMute
         pulsemixer --toggle-mute
 
-XF86Calculator
-        gnome-calculator        
 
 
 ##############################################
@@ -66,4 +66,4 @@ super + F12
 
 # Log out of lightdm
 super + shift + q
-        prompt.sh "Do you really want to log out" 'echo awesome.quit()' | awesome-client
+        prompt.sh "Do you really want to log out" "kill -9 -1"
