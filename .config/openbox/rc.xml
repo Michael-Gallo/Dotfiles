@@ -633,10 +633,6 @@
 
 
 
-  <applications>
-<application class="firefox">
-<decor>no</decor>
-</application>
 <application class="*">
 <decor>no</decor>
 </application>
