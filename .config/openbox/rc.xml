@@ -632,9 +632,9 @@
   </menu>
 
 
-
-<application class="*">
-<decor>no</decor>
-</application>
+<applications>
+        <application class="*">
+                <decor>no</decor>
+        </application>
 </applications>
 </openbox_config>
