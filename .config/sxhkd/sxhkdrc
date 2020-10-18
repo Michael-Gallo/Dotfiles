@@ -24,6 +24,9 @@ super + r
 super + Return
         $TERMINAL
 
+super + g
+        lutris
+
 XF86Calculator
         gnome-calculator        
 ##############################################
