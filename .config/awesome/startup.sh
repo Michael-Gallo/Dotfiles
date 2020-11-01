@@ -21,7 +21,6 @@ for command_index in ${!start_commands[@]}; do
         run ${start_commands[$command_index]}
 done
 sleep .5
-$HOME/.screenlayout/duh.sh
 nitrogen --restore
 sleep 1.5
 run discord
