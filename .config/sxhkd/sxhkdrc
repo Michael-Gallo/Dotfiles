@@ -27,6 +27,9 @@ super + Return
 super + g
         lutris
 
+super + n
+        joplin
+
 XF86Calculator
         gnome-calculator        
 ##############################################
