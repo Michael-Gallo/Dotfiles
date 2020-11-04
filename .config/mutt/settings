@@ -34,7 +34,7 @@ set crypt_opportunistic_encrypt = no # Encryption causes more issues than it's w
 set mailcap_path = $HOME/.config/mutt/mailcap
 
 # colors
-color index color234 color234 "~N"
+color index color228 color234 "~N"
 color index yellow color234  "~R"
 color index_author color6 color234 "%A"
 color index_date color7 color234
