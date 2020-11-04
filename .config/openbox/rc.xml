@@ -205,16 +205,24 @@
       <action name="ToggleShowDesktop"/>
     </keybind>
     <keybind key="W-1">
-      <action name="GoToDesktop"><to>1</to></action>
+      <action name="GoToDesktop">
+        <to>1</to>
+      </action>
     </keybind>
     <keybind key="W-2">
-      <action name="GoToDesktop"><to>2</to></action>
+      <action name="GoToDesktop">
+        <to>2</to>
+      </action>
     </keybind>
     <keybind key="W-3">
-      <action name="GoToDesktop"><to>3</to></action>
+      <action name="GoToDesktop">
+        <to>3</to>
+      </action>
     </keybind>
     <keybind key="W-4">
-      <action name="GoToDesktop"><to>4</to></action>
+      <action name="GoToDesktop">
+        <to>4</to>
+      </action>
     </keybind>
     <!-- Keybindings for windows -->
     <keybind key="W-S-c">
@@ -226,9 +234,9 @@
       <action name="Unfocus"/>
     </keybind>
     <!-- <keybind key="A-space"> -->
-      <!-- <action name="ShowMenu"> -->
-        <!-- <menu>client-menu</menu> -->
-      <!-- </action> -->
+    <!-- <action name="ShowMenu"> -->
+    <!-- <menu>client-menu</menu> -->
+    <!-- </action> -->
     <!-- </keybind> -->
     <!-- Keybindings for window switching -->
     <keybind key="A-Tab">
@@ -282,31 +290,38 @@
       </action>
     </keybind>
     <!-- Keybinds for manipulating windows -->
-    <keybind key ="W-m">
-            <action name="ToggleMaximize"/>
+    <keybind key="W-m">
+      <action name="ToggleMaximize"/>
     </keybind>
-    <keybind key="W-o">  
-            <action name="MoveResizeTo">
-                    <monitor>2</monitor>
-            </action>
+    <keybind key="W-f">
+      <action name="ToggleFullscreen"/>
+    </keybind>
+    <keybind key="W-o">
+      <action name="MoveResizeTo">
+        <monitor>2</monitor>
+      </action>
     </keybind>
     <!-- Keybindings for running applications -->
-        <keybind key="W-A-Left">
-            <action name="UnmaximizeFull"/>
-            <action name="MaximizeVert"/>
-            <action name="MoveResizeTo">
-                <width>50%</width>
-            </action>
-            <action name="MoveToEdge"><direction>west</direction></action>
-        </keybind>
-        <keybind key="W-A-Right">
-            <action name="UnmaximizeFull"/>
-            <action name="MaximizeVert"/>
-            <action name="MoveResizeTo">
-                <width>50%</width>
-            </action>
-            <action name="MoveToEdge"><direction>east</direction></action>
-        </keybind>
+    <keybind key="W-A-Left">
+      <action name="UnmaximizeFull"/>
+      <action name="MaximizeVert"/>
+      <action name="MoveResizeTo">
+        <width>50%</width>
+      </action>
+      <action name="MoveToEdge">
+        <direction>west</direction>
+      </action>
+    </keybind>
+    <keybind key="W-A-Right">
+      <action name="UnmaximizeFull"/>
+      <action name="MaximizeVert"/>
+      <action name="MoveResizeTo">
+        <width>50%</width>
+      </action>
+      <action name="MoveToEdge">
+        <direction>east</direction>
+      </action>
+    </keybind>
   </keyboard>
   <mouse>
     <dragThreshold>1</dragThreshold>
@@ -664,11 +679,9 @@
     <manageDesktops>yes</manageDesktops>
     <!-- show the manage desktops section in the client-list-(combined-)menu -->
   </menu>
-
-
-<applications>
-        <application class="*">
-                <decor>no</decor>
-        </application>
-</applications>
+  <applications>
+    <application class="*">
+      <decor>no</decor>
+    </application>
+  </applications>
 </openbox_config>
