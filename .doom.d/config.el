@@ -1,13 +1,7 @@
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
 
-;; Place your private configuration here! Remember, you do not need to run 'doom
-;; sync' after modifying this file!
-
-
 ;; Some functionality uses this to identify you, e.g. GPG configuration, email
-;; clients, file templates and snippets.
 
-(setq doom-theme 'doom-palenight)
 ;; Doom exposes five (optional) variables for controlling fonts in Doom. Here
 ;; are the three important ones:
 ;;
@@ -21,23 +15,12 @@
 ;; (setq doom-font (font-spec :family "monospace" :size 12 :weight 'semi-light)
 ;;       doom-variable-pitch-font (font-spec :family "sans" :size 13))
 
-;; There are two ways to load a theme. Both assume the theme is installed and
-;; available. You can either set `doom-theme' or manually load a theme with the
-;; `load-theme' function. This is the default:
+; set theme
 (setq doom-theme 'doom-one)
-
-;; If you use `org' and don't want your org files in the default location below,
-;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/org/")
 
-;; This determines the style of line numbers in effect. If set to `nil', line
-;; numbers are disabled. For relative line numbers, set this to `relative'.
+;; Set relative line numbers
 (setq display-line-numbers-type 'relative)
-
-(require 'mu4e)
-(add-to-list 'load-path "/usr/share/emacs/site-lisp/mu4e")
-(setq mu4e-get-mail-command "mbsync -c ~/.emacs.d/mu4e/.mbsyncrc -a"
-     mu4e-update-interval  300)
 
 (setq
  user-mail-address "michael.a.gallo95@gmail.com"
@@ -61,9 +44,19 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+; EXTENSIONS
 
 
 ;; TESTING REDDIT YADM
+
+;MU4E
+
+(require 'mu4e)
+(add-to-list 'load-path "/usr/share/emacs/site-lisp/mu4e")
+(setq mu4e-get-mail-command "mbsync -c ~/.emacs.d/mu4e/.mbsyncrc -a"
+     mu4e-update-interval  300)
+
+;; Magit and Yadm
 (global-set-key (kbd "C-x .") 'yadm-status)
 
 (defun yadm--files ()
