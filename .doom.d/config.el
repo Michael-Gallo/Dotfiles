@@ -57,7 +57,14 @@
      mu4e-update-interval  300)
 
 ;; Magit and Yadm
-(global-set-key (kbd "C-x .") 'yadm-status)
+ ;; cc(global-set-key (kbd "C-x .") 'yadm-status)
+(map!
+ :leader
+ :prefix ("g")
+ :desc "yadm status"        "y" #'yadm-status)
+
+
+
 
 (defun yadm--files ()
   (let ((default-directory "~/"))
@@ -113,3 +120,19 @@
           (user-error "Can't stage yadm dir itself.")
         (magit-with-toplevel
           (magit-stage-1 nil (list file)))))))
+
+
+;; Comments
+(map!
+ :leader
+ :prefix ("c")
+ :desc "comment"        "c" #'comment-or-uncomment-region-or-line)
+(defun comment-or-uncomment-region-or-line ()
+    "Comments or uncomments the region or the current line if there's no active region."
+    (interactive)
+    (let (beg end)
+        (if (region-active-p)
+            (setq beg (region-beginning) end (region-end))
+            (setq beg (line-beginning-position) end (line-end-position)))
+        (comment-or-uncomment-region beg end)
+        ))
