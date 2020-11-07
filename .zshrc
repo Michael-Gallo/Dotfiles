@@ -145,7 +145,7 @@ source ~/.oh-my-zsh/plugins/fzf/fzf.plugin.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
 ZSH_AUTOSUGGEST_USE_ASYNC="TE"
 ZSH_AUTOSUGGEST_HISTORY_IGNORE="kill*"
-bindkey '^L' autosuggest-accept
+bindkey '^K' autosuggest-accept
 # doubletap escape for sudo
 source ~/.oh-my-zsh/plugins/sudo/sudo.plugin.zsh
 
