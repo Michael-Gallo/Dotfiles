@@ -192,3 +192,6 @@
         (tramp-login-env (("SHELL") ("/bin/sh")))
         (tramp-remote-shell "/bin/sh")
         (tramp-remote-shell-args ("-c"))))
+
+ (set-frame-parameter (selected-frame) 'alpha '(100 . 100))
+ (add-to-list 'default-frame-alist '(alpha . (100 . 100)))
