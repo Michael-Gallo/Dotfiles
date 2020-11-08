@@ -65,7 +65,7 @@ XF86AudioMute
 
 # Restart computer
 super + F11
-        prompt.sh "reboot computer?" "reboot"
+        prompt.sh "reboot computer?" "sudo reboot"
 # Turn off computer
 super + F12
         prompt.sh "shutdown computer?" "sudo -A shutdown -h now"
