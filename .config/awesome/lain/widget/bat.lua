@@ -58,11 +58,11 @@ local function factory(args)
     }
 
     bat_notification_low_preset = {
-        title   = "Battery low",
-        text    = "Plug the cable!",
-        timeout = 15,
-        fg      = "#202020",
-        bg      = "#CDCDCD"
+        -- title   = "Battery low",
+        -- text    = "Plug the cable!",
+        -- timeout = 15,
+        -- fg      = "#202020",
+        -- bg      = "#CDCDCD"
     }
 
     bat_notification_charged_preset = {
@@ -193,6 +193,10 @@ local function factory(args)
                         replaces_id = bat.id
                     }).id
                 elseif tonumber(bat_now.perc) <= n_perc[2] then
+                    bat.id = naughty.notify({
+                        preset = bat_notification_low_preset,
+                        replaces_id = bat.id
+                    }).id
                 end
                 fullnotification = false
             elseif bat_now.status == "Full" and full_notify == "on" and not fullnotification then
