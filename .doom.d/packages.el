@@ -50,3 +50,4 @@
 ;(unpin! t)
 (package! evil-tutor)
 (package! tramp)
+(package! mu4e-views)
