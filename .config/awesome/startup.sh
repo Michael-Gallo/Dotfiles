@@ -12,7 +12,6 @@ start_commands=(
         "pasystray"
         "nm-applet"
         "unclutter -idle 5"
-        "deluge"
         "pcmanfm -d"
         "mbsync -a"
 
