@@ -16,7 +16,7 @@ super + alt + b
         $BUS_BROWSER 
 
 super + e
-        st -e ranger
+        $TERMINAL -e ranger
 
 super + r
         dmenu_run -i
@@ -32,6 +32,12 @@ super + n
 
 XF86Calculator
         gnome-calculator        
+
+super + shift + p
+        $HOME/.bin/otp-menu
+
+super + p
+        $HOME/.bin/betterpassmenu
 ##############################################
 ################ Screenshots #################
 ##############################################
@@ -73,3 +79,18 @@ super + F12
 # Log out of lightdm
 super + shift + q
         prompt.sh "Do you really want to log out" "kill -9 -1"
+
+
+################################################
+########### Type out Email Addresses ###########
+################################################
+
+# Type Personal Email
+alt + e
+        xdotool sleep 0.2 type --clearmodifiers --delay 20 $(echo $PERSONAL_EMAIL)
+
+alt+ shift + e
+        xdotool sleep 0.2 type --clearmodifiers --delay 20 $(echo $ONLINE_EMAIL)
+
+alt+ ctrl + e
+        xdotool sleep 0.2 type --clearmodifiers --delay 20 $(echo $BUS_EMAIL)
