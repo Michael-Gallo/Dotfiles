@@ -457,7 +457,8 @@ awful.rules.rules = {
         -- Sizing
     { rule = { class = "Gimp", role = "gimp-image-window" },
           properties = { maximized = true } },
-    { rule_any = { name = {"Calculator", "calendar","Bitwarden - Mozilla Firefox","Bitwarden","Bluetooth Devices"}},
+    { rule_any = { name = { "Skype","skypeforlinux", "Calculator", "calendar","Bitwarden - Mozilla Firefox","Bitwarden","Bluetooth Devices"},
+            class  = {"Skype"}},
           properties = { floating = true } },
 }
 -- }}}
