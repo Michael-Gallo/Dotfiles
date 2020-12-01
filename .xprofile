@@ -12,3 +12,10 @@ fi
 
 # Makes sure that all locations vim needs exist
 mkdir -p $XDG_DATA_HOME/vim/{undo,swap,backup,view}
+
+$HOME/.bin/startup.sh
+# sxhkd &
+# picom &
+# nitrogen --restore &
+# discord &
+
