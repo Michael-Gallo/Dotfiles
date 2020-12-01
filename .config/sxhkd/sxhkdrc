@@ -90,10 +90,10 @@ super + shift + q
 
 # Type Personal Email
 alt + e
-        xdotool sleep 0.2 type --clearmodifiers --delay 20 $(echo $PERSONAL_EMAIL)
+        xdotool sleep 0.1 type --clearmodifiers --delay 1 $(echo $PERSONAL_EMAIL)
 
 alt+ shift + e
-        xdotool sleep 0.2 type --clearmodifiers --delay 20 $(echo $ONLINE_EMAIL)
+        xdotool sleep 0.1 type --clearmodifiers --delay 1 $(echo $ONLINE_EMAIL)
 
 alt+ ctrl + e
-        xdotool sleep 0.2 type --clearmodifiers --delay 20 $(echo $BUS_EMAIL)
+        xdotool sleep 0.1 type --clearmodifiers --delay 1 $(echo $BUS_EMAIL)
