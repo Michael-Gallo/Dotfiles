@@ -3,4 +3,4 @@ sxhkd &
 picom &
 nitrogen --restore &
 discord &
-# dwmblocks &
+
