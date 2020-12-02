@@ -2,6 +2,8 @@
 html=firefox.desktop
 x-scheme-handler/https=firefox.desktop
 x-scheme-handler/http=firefox.desktop
-application/pdf=zathura.desktop
+application/pdf=FoxitReader.desktop
 application/vnd.openxmlformats-officedocument.spreadsheetml.sheet=calc.desktop
 application/octet-stream=calc.desktop
+x-scheme-handler/discord-455712169795780630=discord-455712169795780630.desktop
+application/ppdf=FoxitReader.desktop
