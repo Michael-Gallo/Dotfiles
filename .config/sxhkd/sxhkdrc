@@ -61,10 +61,11 @@ Print + alt
 ##############################################
 
 {_,shift + } XF86Audio{Raise,Lower}Volume
-        pulsemixer --change-volume {+10,+25,-10,-25} 
+        pulsemixer --change-volume {+10,+25,-10,-25}; pkill -RTMIN+10 dwmblocks
+
 
 XF86AudioMute
-        pulsemixer --toggle-mute
+        pulsemixer --toggle-mute; pkill -RTMIN+10 dwmblocks
 
 
 
