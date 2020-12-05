@@ -4,3 +4,4 @@ picom &
 nitrogen --restore &
 discord &
 dwmblocks &
+unclutter --idle 2.5 &
