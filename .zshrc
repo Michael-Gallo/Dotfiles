@@ -9,7 +9,7 @@ HOSTNAME="$(hostname)"
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
-
+export ZSH_CUSTOM="$HOME/.config/zsh"
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -35,7 +35,7 @@ _comp_options+=(globdots)		# Include hidden files.
 
 # Uncomment the following line to automatically update without prompting.
 # DISABLE_UPDATE_PROMPT="true"
-
+DISABLE_AUTO_UPDATE="true"
 # Uncomment the following line to disable auto-setting terminal title.
 # DISABLE_AUTO_TITLE="true"
 
@@ -62,14 +62,20 @@ ENABLE_CORRECTION="true"
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 plugins=(git
-        themes)
+        themes
+        pip
+        autojump
+        sudo
+        command-not-found
+        fzf
+        # Enable better vim mode
+        zsh-vim-mode
+        fast-syntax-highlighting
+        zsh-autosuggestions
+        )
 
 source $ZSH/oh-my-zsh.sh
 
-# Enable syntax highlighting
-# source $HOME/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# Enable better vim mode
-source $HOME/.config/zsh/plugins/zsh-vim-mode/zsh-vim-mode.plugin.zsh
 
 ###### User configuration #####
 
@@ -134,19 +140,10 @@ local paste_widgets=(
 x11-clip-wrap-widgets copy $copy_widgets
 x11-clip-wrap-widgets paste  $paste_widgets
 # Load syntax highlighting; should be last.
-source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh 2>/dev/null
-# get suggestions if I try to use a command that doesn't work
-source ~/.oh-my-zsh/plugins/command-not-found/command-not-found.plugin.zsh
 
 
-# testing out plugins
-source ~/.oh-my-zsh/plugins/fzf/fzf.plugin.zsh
-
-source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
 ZSH_AUTOSUGGEST_USE_ASYNC="TE"
 ZSH_AUTOSUGGEST_HISTORY_IGNORE="kill*"
 bindkey '^K' autosuggest-accept
 # doubletap escape for sudo
-source ~/.oh-my-zsh/plugins/sudo/sudo.plugin.zsh
 
-source ~/.oh-my-zsh/plugins/autojump/autojump.plugin.zsh
