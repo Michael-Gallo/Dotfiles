@@ -4,12 +4,7 @@ HISTFILE=$HOME/.config/zsh/.zhistory
 HISTSIZE=1000
 SAVEHIST=1000
 HOSTNAME="$(hostname)"
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-# Path to your oh-my-zsh installation.
-export ZSH="$HOME/.oh-my-zsh"
-export ZSH_CUSTOM="$HOME/.config/zsh"
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -19,12 +14,9 @@ export ZSH_CUSTOM="$HOME/.config/zsh"
 autoload -U compinit && compinit
 PROMPT="%F{35}%n%f:%F{35}%~%f$ "
 
-# Uncomment the following line to use case-sensitive completion.
-# CASE_SENSITIVE="true"
-
 # Uncomment the following line to use hyphen-insensitive completion.
 # Case-sensitive completion must be off. _ and - will be interchangeable.
-# HYPHEN_INSENSITIVE="true"
+HYPHEN_INSENSITIVE="true"
 
 
 # Basic auto/tab complete:
@@ -57,26 +49,26 @@ ENABLE_CORRECTION="true"
 # HIST_STAMPS="mm/dd/yyyy"
 
 
-# Which plugins would you like to load?
-# Standard plugins can be found in $ZSH/plugins/
-# Custom plugins may be added to $ZSH_CUSTOM/plugins/
-# Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git
-        themes
-        pip
-        autojump
-        sudo
-        command-not-found
-        fzf
-        # Enable better vim mode
-        zsh-vim-mode
-        fast-syntax-highlighting
-        zsh-autosuggestions
-        colored-man-pages
-        )
+source /usr/share/zsh/share/antigen.zsh
+# Load the oh-my-zsh's library.
+antigen use oh-my-zsh
 
-source $ZSH/oh-my-zsh.sh
+# Bundles from the default repo (robbyrussell's oh-my-zsh).
+antigen bundle git
+antigen bundle themes
+antigen bundle pip
+antigen bundle autojump
+antigen bundle sudo
+antigen bundle command-not-found
+antigen bundle fzf
+antigen bundle softmoth/zsh-vim-mode
+antigen bundle zdharma/fast-syntax-highlighting
+antigen bundle zsh-users/zsh-autosuggestions
+antigen bundle colored-man-pages
+# Syntax highlighting bundle.
+antigen bundle zsh-users/zsh-syntax-highlighting
 
+antigen apply
 
 ###### User configuration #####
 
