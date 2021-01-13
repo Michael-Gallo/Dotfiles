@@ -72,6 +72,7 @@ plugins=(git
         zsh-vim-mode
         fast-syntax-highlighting
         zsh-autosuggestions
+        colored-man-pages
         )
 
 source $ZSH/oh-my-zsh.sh
