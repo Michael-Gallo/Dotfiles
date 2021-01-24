@@ -27,10 +27,15 @@ filetype off                  " required for vundle
 """"""""""""""""""""""""""""Mappings"""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 "Set Leader Keys 
 let g:mapleader = "\<Space>" " Set Leader to Space
 " let g:maplocalleader = ','
-
+" Better split navigation
+	map <C-h> <C-w>h
+	map <C-j> <C-w>j
+	map <C-k> <C-w>k
+	map <C-l> <C-w>l
 " Better tabbing
 vnoremap < <gv
 vnoremap > >gv
