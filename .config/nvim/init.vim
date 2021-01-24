@@ -20,6 +20,9 @@ set pumheight=15			  " Set pop up menu height
 set tabstop=4 expandtab       " Make tab use 4 spaces instead
 set smartindent autoindent smarttab
 set autochdir				  " Working directory will always be set properly
+set wildmode=longest,list,full " better autocompletion
+autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o " Turns off autocommenting
+set splitbelow splitright  " Splits open at bottom and right
 filetype off                  " required for vundle
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
