@@ -46,26 +46,23 @@
 ;; they are implemented.
 ; EXTENSIONS
 
-
-;; TESTING REDDIT YADM
-
-;MU4E
+;MU4E accounts
 
 (require 'mu4e)
 (add-to-list 'load-path "/usr/share/emacs/site-lisp/mu4e")
 (setq mu4e-get-mail-command "mbsync -c ~/.emacs.d/mu4e/.mbsyncrc -a"
      mu4e-update-interval  300)
+(add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu4e")
+;;(require 'smtpmail)
 
+
+(load "~/.config/doom/email")
 ;; Magit and Yadm
  ;; cc(global-set-key (kbd "C-x .") 'yadm-status)
 (map!
  :leader
  :prefix ("g")
  :desc "yadm status"        "y" #'yadm-status)
-
-
-
-
 (defun yadm--files ()
   (let ((default-directory "~/"))
     (cl-delete-if-not
