@@ -52,3 +52,6 @@
 (package! tramp)
 (package! mu4e-views)
 (package! mu4e)
+(package! tldr)
+(package! elfeed)
+(package! dired-open)
