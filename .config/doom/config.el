@@ -131,7 +131,7 @@
 (map!
  :leader
  :prefix ("c")
- :desc "comment"        "c" #'comment-or-uncomment-region-or-line)
+ :desc "toggle comment"        "c" #'comment-or-uncomment-region-or-line)
 (defun comment-or-uncomment-region-or-line ()
     "Comments or uncomments the region or the current line if there's no active region."
     (interactive)
