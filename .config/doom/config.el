@@ -200,3 +200,6 @@
  :prefix ("e")
  :desc "open elfeed"        "e" #'elfeed
  :desc "update elfeed"        "u" #'elfeed-update
+)
+; alt-v universally pastes regardless of Mode
+(evil-global-set-key 'normal (kbd "M-v") 'clipboard-yank)
