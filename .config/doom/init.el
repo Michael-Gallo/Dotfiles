@@ -14,7 +14,6 @@
 ;;      Alternatively, press 'gd' (or 'C-c c d') on a module to browse its
 ;;      directory (for easy access to its source code).
 
-(add-to-list 'load-path "/usr/share/emacs/site-lisp/mu4e")
 (doom! :input
        ;;chinese
        ;;japanese
@@ -169,7 +168,7 @@
        ;;yaml              ; JSON, but readable
 
        :email
-       ;;(mu4e +gmail)
+       mu4e
        ;;notmuch
        ;;(wanderlust +gmail)
 
@@ -183,15 +182,3 @@
        ;;literate
        (default +bindings +smartparens))
 
-(setenv  "SHELL" "/bin/bash")
-(require 'tramp)
-(add-to-list 'tramp-methods
-        '("yadm"
-        (tramp-login-program "yadm")
-        (tramp-login-args (("enter")))
-        (tramp-login-env (("SHELL") ("/bin/sh")))
-        (tramp-remote-shell "/bin/sh")
-        (tramp-remote-shell-args ("-c"))))
-
- (set-frame-parameter (selected-frame) 'alpha '(100 . 100))
- (add-to-list 'default-frame-alist '(alpha . (100 . 100)))
