@@ -149,6 +149,11 @@
         (comment-or-uncomment-region beg end)
         ))
 
+; Display line numbers in elfeed
+(defun my-display-numbers-hook ()
+  (display-line-numbers-mode t)
+  )
+(add-hook 'elfeed-search-update-hook 'my-display-numbers-hook)
 ;; Elfeed feeds
 (custom-set-variables
  '(elfeed-feeds
