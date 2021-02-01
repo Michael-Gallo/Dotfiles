@@ -57,7 +57,7 @@
  :leader
  :prefix ("m")
  :desc "open mu4e"        "m" #'mu4e
- ;; :desc "update elfeed"        "u" #'elfeed-update
+ :desc "update elfeed"        "u" #'elfeed-update
 
  )
 ;;(require 'smtpmail)
