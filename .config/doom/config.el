@@ -217,3 +217,8 @@
 )
 ; alt-v universally pastes regardless of Mode
 (evil-global-set-key 'normal (kbd "M-v") 'clipboard-yank)
+
+;; Set relative line numbers
+(setq display-line-numbers-type 'relative)
+(setq display-line-numbers-mode 'relative)
+
