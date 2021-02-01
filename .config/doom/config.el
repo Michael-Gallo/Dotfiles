@@ -131,7 +131,9 @@
                  (expand-file-name "~/.yadm/"))
           (user-error "Can't stage yadm dir itself.")
         (magit-with-toplevel
-          (magit-stage-1 nil (list file)))))))
+          (magit-stage-1 nil (list file))))))
+
+; )
 
 
 ;; Comments
