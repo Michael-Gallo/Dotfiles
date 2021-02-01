@@ -18,15 +18,14 @@
 ; set theme
 (setq doom-theme 'doom-one)
 (setq org-directory "~/org/")
-
-;; Set relative line numbers
-(setq display-line-numbers-type 'relative)
+; disable transparency 
+(set-frame-parameter (selected-frame) 'alpha '(100 . 100))
+(add-to-list 'default-frame-alist '(alpha . (100 . 100)))
 
 (setq
  user-mail-address "michael.a.gallo95@gmail.com"
  user-full-name "Michael A Gallo"
  )
-;;(requiire 'smtpmail)
 
 ;; Here are some additional functions/macros that could help you configure Doom:
 ;;
