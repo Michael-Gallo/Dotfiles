@@ -45,6 +45,15 @@
 ;; they are implemented.
 ; EXTENSIONS
 
+;; Tramp nonsense
+(require 'tramp)
+(add-to-list 'tramp-methods
+       '("yadm"
+       (tramp-login-program "yadm")
+       (tramp-login-args (("enter")))
+       (tramp-login-env (("SHELL") ("/bin/sh")))
+       (tramp-remote-shell "/bin/sh")
+       (tramp-remote-shell-args ("-c"))))
 ;MU4E accounts
 
 (require 'mu4e)
@@ -65,7 +74,6 @@
 
 (load "~/.config/doom/email")
 ;; Magit and Yadm
- ;; cc(global-set-key (kbd "C-x .") 'yadm-status)
 (map!
  :leader
  :prefix ("g")
@@ -103,17 +111,17 @@
 
 (defun yadm-status ()
   (interactive)
-  (require 'tramp)
+  ; (require 'tramp)
   (with-current-buffer (magit-status "/yadm::")
     (yadm-minor-mode 1)))
 
-(with-eval-after-load 'tramp
-  (add-to-list 'tramp-methods
-               '("yadm"
-                 (tramp-login-program "yadm")
-                 (tramp-login-args (("enter")))
-                 (tramp-remote-shell "/bin/bash")
-                 (tramp-remote-shell-args ("-c"))))
+; (with-eval-after-load 'tramp
+ ; (add-to-list 'tramp-methods
+                ; '("yadm"
+                  ; (tramp-login-program "yadm")
+                  ; (tramp-login-args (("enter")))
+                  ; (tramp-remote-shell "/bin/bash")
+                  ; (tramp-remote-shell-args ("-c"))))
   (defun yadm-stage ()
     (interactive)
     (let ((file
