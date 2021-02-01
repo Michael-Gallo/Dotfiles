@@ -49,7 +49,6 @@
 ;; ...Or *all* packages (NOT RECOMMENDED; will likely break things)
 ;(unpin! t)
 (package! evil-tutor)
-(package! tramp)
 (package! mu4e-views)
 (package! mu4e)
 (package! tldr)
