@@ -28,6 +28,8 @@ alias gp="git push -f"
 alias gs="git status"
 alias pac="sudo pacman"
 alias du="du -h"
+alias hellolight="sudo systemctl start lightdm"
+alias goodbyelight="sudo systemctl stop lightdm"
 # cwd to copy current directory to clipboard
 alias cwd="pwd|xsel -ib"
 unalias gc 2>/dev/null
