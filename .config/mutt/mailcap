@@ -7,3 +7,4 @@ text/plain; $EDITOR %s ;
 # text/html; lynx -dump %s | $EDITOR ;
 application/vnd.openxmlformats-officedocument.wordprocessingml.document; libreoffice %s;
 application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; localc %s;
+application/msword; lowriter %s;
