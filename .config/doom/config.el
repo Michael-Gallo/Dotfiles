@@ -54,12 +54,23 @@
        (tramp-login-env (("SHELL") ("/bin/sh")))
        (tramp-remote-shell "/bin/sh")
        (tramp-remote-shell-args ("-c"))))
-;MU4E accounts
+; MU4E Settings
+(use-package mu4e
+  :ensure nil
+  :defer 20
+  :config
 
+  (setq mu4e-change-filenames-when-moving t)
+
+  ;; Refresh mail using isync every  10 minutes
+
+  )
+;MU4E accounts
 (require 'mu4e)
 (add-to-list 'load-path "/usr/share/emacs/site-lisp/mu4e")
-(setq mu4e-get-mail-command "mbsync -c ~/.emacs.d/mu4e/.mbsyncrc -a"
-     mu4e-update-interval  300)
+(setq mu4e-get-mail-command "mbsync -c ~/.config/mu4e/mbsyncrc -a"
+      mu4e-update-interval  300
+      )
 (add-to-list 'load-path "/usr/local/share/emacs/site-lisp/mu4e")
 
 (map!
@@ -165,6 +176,7 @@
      ("https://www.youtube.com/feeds/videos.xml?channel_id=UCY3A_5R_m3PXCn5XDhvBBsg") ; Adam Millard
      ("https://www.youtube.com/feeds/videos.xml?channel_id=UC2cC48A261pBVKztLyzOAnA") ; Ask Sebby
      ("http://www.awkwardzombie.com/awkward.php"                                    ) ; Awkward Zombie
+     ("https://www.youtube.com/feeds/videos.xml?channel_id=UCOFH59uoSs8SUF0L_p3W0sg") ; BadSeed
      ("https://www.youtube.com/feeds/videos.xml?channel_id=UCr3cBLTYmIK9kY0F_OdFWFQ") ; Casually explained
      ("https://www.youtube.com/feeds/videos.xml?channel_id=UC2C_jShtL725hvbm1arSV9w") ; CGP Grey
      ("https://www.youtube.com/feeds/videos.xml?channel_id=UCg6gPGh8HU2U01vaFCAsvmQ") ; Chris Titus Tech
@@ -179,7 +191,7 @@
      ("http://feeds.feedburner.com/Explosm"                                         ) ; Explosm
      ("https://www.youtube.com/feeds/videos.xml?channel_id=UCRXnOs1rjfLMYrtZ-0n29NA") ; Freedom Toons
      ("https://www.youtube.com/feeds/videos.xml?channel_id=UCLmzk98n_v2doN2Y20S-Zog") ; Gaming Brit Show
-     ("https://www.gematsu.com/feed")                                                 ; Gematsu
+     ;; ("https://www.gematsu.com/feed")                                                 ; Gematsu
      ("https://www.youtube.com/feeds/videos.xml?channel_id=UC7dF9qfBMXrSlaaFFDvV_Yg") ; Gigguk
      ("https://www.youtube.com/feeds/videos.xml?channel_id=UCuCkxoKLYO_EQ2GeFtbM_bw") ; Half As Interesting
      ("https://www.youtube.com/feeds/videos.xml?channel_id=UCR1D15p_vdP3HkrH8wgjQRw") ; Internet Historian
@@ -220,3 +232,27 @@
 (setq display-line-numbers-type 'relative)
 (setq display-line-numbers-mode 'relative)
 
+; Set file assocations
+;
+;; (use-package openwith
+;;   :if (not dw/is-termux)
+;;   :config
+;;   (setq openwith-associations
+;;         (list
+;;           (list (openwith-make-extension-regexp
+;;                 '("mpg" "mpeg" "mp3" "mp4"
+;;                   "avi" "wmv" "wav" "mov" "flv"
+;;                   "ogm" "ogg" "mkv"))
+;;                 "mpv"
+;;                 '(file))
+;;           (list (openwith-make-extension-regexp
+;;                 '("xbm" "pbm" "pgm" "ppm" "pnm"
+;;                   "png" "gif" "bmp" "tif" "jpeg")) ;; Removed jpg because Telega was
+;;                   ;; causing feh to be opened...
+;;                   "feh"
+;;                   '(file))
+;;           (list (openwith-make-extension-regexp
+;;                 '("pdf"))
+;;                 "zathura"
+;;                 '(file))))
+;;   (openwith-mode 1))

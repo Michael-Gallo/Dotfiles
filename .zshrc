@@ -46,29 +46,9 @@ ENABLE_CORRECTION="true"
 # "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
+HIST_STAMPS="mm/dd/yyyy"
 
-
-source /usr/share/zsh/share/antigen.zsh
-# Load the oh-my-zsh's library.
-antigen use oh-my-zsh
-
-# Bundles from the default repo (robbyrussell's oh-my-zsh).
-antigen bundle git
-antigen bundle themes
-antigen bundle pip
-antigen bundle autojump
-antigen bundle sudo
-antigen bundle command-not-found
-antigen bundle fzf
-antigen bundle softmoth/zsh-vim-mode
-antigen bundle zdharma/fast-syntax-highlighting
-antigen bundle zsh-users/zsh-autosuggestions
-antigen bundle colored-man-pages
-# Syntax highlighting bundle.
-antigen bundle zsh-users/zsh-syntax-highlighting
-
-antigen apply
+source ~/.config/zsh/zsh_plugins.sh
 
 ###### User configuration #####
 
@@ -140,3 +120,4 @@ ZSH_AUTOSUGGEST_HISTORY_IGNORE="kill*"
 bindkey '^K' autosuggest-accept
 # doubletap escape for sudo
 
+eval "$(pyenv init -)"
