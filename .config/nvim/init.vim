@@ -43,9 +43,9 @@ let g:mapleader = "\<Space>" " Set Leader to Space
 vnoremap < <gv
 vnoremap > >gv
 " Open the basic python template
-nnoremap ,ifmain :-1read /home/mike-arch/.config/nvim/snippets/template.py<CR>o
-nnoremap ,def :-1read /home/mike-arch/.config/nvim/snippets/def.py<CR>3la
-nnoremap ,pytry :-1read /home/mike-arch/.config/nvim/snippets/pytry.py<CR>A<CR>
+nnoremap ,ifmain :-1read $HOME/.config/nvim/snippets/template.py<CR>o
+nnoremap ,def :-1read $HOME/.config/nvim/snippets/def.py<CR>3la
+nnoremap ,pytry :-1read $HOME/.config/nvim/snippets/pytry.py<CR>A<CR>
 
 " Replace all is mapped to S
 nnoremap S :%s//g<Left><Left>
