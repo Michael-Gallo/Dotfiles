@@ -21,8 +21,8 @@ set tabstop=4 expandtab       " Make tab use 4 spaces instead
 set smartindent autoindent smarttab
 set autochdir				  " Working directory will always be set properly
 set wildmode=longest,list,full " better autocompletion
-autocmd FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o " Turns off autocommenting
-set splitbelow splitright  " Splits open at bottom and right
+setlocal splitbelow splitright  " Splits open at bottom and right
+au BufEnter * set fo-=c fo-=r fo-=o " Got rid of cancer autocomments
 filetype off                  " required for vundle
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
