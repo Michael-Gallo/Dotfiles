@@ -105,6 +105,8 @@ let g:NERDSpaceDelims = 1  " makes it so nerdcommentor automatically adds a spac
 let g:NERDToggleCheckAllLines = 1
 let g:NERDTrimTrailingWhitespace = 1
 let g:NERDCompactSexyComs = 1
+" Disable all default binds so I can control them with Which-key
+let g:NERDCreateDefaultMappings = 0
 
 """"""""""Rainbow Parens Settings""""""""""
 
@@ -134,20 +136,21 @@ let g:which_key_map.f = { 'name' : 'Fuzzy Finder' ,
 let g:which_key_map.r = [ 'Ranger' , 'Ranger' ] 
 " NerdCommenter bindings
 let g:which_key_map.c = { 'name' : '+comments' , 
-                        \' ': ['<plug>NERDCommenterToggle'  , 'Toggle'],
+                        \'c': ['<plug>NERDCommenterToggle'  , 'Toggle'],
                         \'$': ['<plug>NERDCommenterToEOL'  , 'EOL'],
-                        \'a': ['<plug>NERDCommenterToEOL'  , 'which_key_ignore'],
-                        \'b': ['<plug>NERDCommenterToEOL'  , 'which_key_ignore']
+                        \'a': ['<plug>NERDCommenterAppend'  , 'Append To End Of Line'],
+                        \'b': ['<plug>NERDCommenterToEOL'  , 'which_key_ignore'],
+                        \'u': ['<plug>NERDCommenterUncomment'  , 'Uncomment'],
                         \}
-        let g:which_key_map.c.A = 'Append'
-        let g:which_key_map.c.c = 'Comment'
-        let g:which_key_map.c.l = 'Align left'
-        let g:which_key_map.c.y = 'Comment and yank line'
-        let g:which_key_map.c.u = 'Uncomment line'
-        let g:which_key_map.c.s = 'Comment sexy'
-        let g:which_key_map.c.m = 'Minimal'
-        let g:which_key_map.c.i = 'Invert'
-        let g:which_key_map.c.n = 'Nested'
+        " let g:which_key_map.c.A = 'Append'
+        " let g:which_key_map.c.c = 'Comment'
+        " let g:which_key_map.c.l = 'Align left'
+        " let g:which_key_map.c.y = 'Comment and yank line'
+        " let g:which_key_map.c.u = 'Uncomment line'
+        " let g:which_key_map.c.s = 'Comment sexy'
+        " let g:which_key_map.c.m = 'Minimal'
+        " let g:which_key_map.c.i = 'Invert'
+        " let g:which_key_map.c.n = 'Nested'
 
 let g:which_key_map.s = { 'name' : '+Surround' , 
                         \'d': ['<Plug>Dsurround'  , 'Delete Surroundings'],
