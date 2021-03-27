@@ -5,11 +5,6 @@ HISTSIZE=1000
 SAVEHIST=1000
 HOSTNAME="$(hostname)"
 
-# Set name of the theme to load --- if set to "random", it will
-# load a random theme each time oh-my-zsh is loaded, in which case,
-# to know which specific one was loaded, run: echo $RANDOM_THEME
-# See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-# ZSH_THEME="candy-kingdom"
 # autoload -U colors && colors	# Load colors
 autoload -U compinit && compinit
 PROMPT="%F{35}%n%f:%F{35}%~%f$ "
@@ -25,29 +20,16 @@ zmodload zsh/complist
 compinit
 _comp_options+=(globdots)		# Include hidden files.
 
-# Uncomment the following line to automatically update without prompting.
-# DISABLE_UPDATE_PROMPT="true"
-DISABLE_AUTO_UPDATE="true"
-# Uncomment the following line to disable auto-setting terminal title.
-# DISABLE_AUTO_TITLE="true"
 
 # enable command auto-correction.
-ENABLE_CORRECTION="true"
+setopt correct
+
+# Automatic directory changing
+setopt auto_cd
 
 
-# Uncomment the following line if you want to disable marking untracked files
-# under VCS as dirty. This makes repository status check for large repositories
-# much, much faster.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"
 
-# Uncomment the following line if you want to change the command execution time
-# stamp shown in the history command output.
-# You can set one of the optional three formats:
-# "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
-# or set a custom format using the strftime function format specifications,
-# see 'man strftime' for details.
-HIST_STAMPS="mm/dd/yyyy"
-
+# install ZSH plugins
 source ~/.config/zsh/zsh_plugins.sh
 
 ###### User configuration #####
