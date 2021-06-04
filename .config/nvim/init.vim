@@ -24,6 +24,11 @@ set wildmode=longest,list,full " better autocompletion
 setlocal splitbelow splitright  " Splits open at bottom and right
 au BufEnter * set fo-=c fo-=r fo-=o " Got rid of cancer autocomments
 filetype off                  " required for vundle
+" Folding
+set foldmethod=syntax
+set foldnestmax=10
+set nofoldenable
+set foldlevel=2
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -39,6 +44,8 @@ let g:mapleader = "\<Space>" " Set Leader to Space
 	map <C-j> <C-w>j
 	map <C-k> <C-w>k
 	map <C-l> <C-w>l
+" Escape to get out of terminal mode
+tnoremap <Esc> <C-\><C-n>
 " Better tabbing
 vnoremap < <gv
 vnoremap > >gv
@@ -68,9 +75,9 @@ augroup END
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 	"let Vundle manage Vundle, required
-	Plugin 'VundleVim/Vundle.vim'
+	 Plugin 'VundleVim/Vundle.vim'
     Plugin 'tpope/vim-surround' " vim-surround needs to plugged before nerdcommenter to prevent key bind errors
-	Plugin 'preservim/nerdcommenter'
+	 Plugin 'preservim/nerdcommenter'
     Plugin 'frazrepo/vim-rainbow'
     Plugin 'itchyny/lightline.vim'
     Plugin 'ap/vim-css-color'
@@ -86,6 +93,7 @@ call vundle#begin()
     Plugin 'unblevable/quick-scope'
     Plugin 'tbastos/vim-lua'
     Plugin 'baskerville/vim-sxhkdrc'
+    Plugin 'nvie/vim-flake8'
 filetype plugin indent on    " required
 call vundle#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -181,3 +189,4 @@ nnoremap <silent> <localleader> :<c-u>WhichKeyVisual  ','<CR>
 """"""""""quick-scope settings""""""""""""""
 let g:qs_highlight_on_keys=['f', 'F', 't', 'T']
 let g:qs_max_chars=150
+
