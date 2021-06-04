@@ -256,3 +256,11 @@
 ;;                 "zathura"
 ;;                 '(file))))
 ;;   (openwith-mode 1))
+;; (use-package elpy
+;;   :ensure t
+;;   :init
+;;   (elpy-enable)
+;;   )
+;; (setq elpy-rpc-virtualenv-path "~/Environments/emacs_main/")
+;; (setq elpy-rpc-python-command "python3")
+;; (setq python-shell-interpreter "~/Environments/emacs_main/bin/python3") ;; This is what `C-c C-c` will use

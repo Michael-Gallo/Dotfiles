@@ -54,3 +54,5 @@
 (package! tldr)
 (package! elfeed)
 (package! dired-open)
+(package! ranger)
+(package! elpy)
