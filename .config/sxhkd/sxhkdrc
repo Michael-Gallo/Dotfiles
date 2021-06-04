@@ -10,6 +10,8 @@
 ##############################################
 ################# Launchers ##################
 ##############################################
+super + shift + x
+        xkill
 super {_,+ shift} + b
         $BROWSER {_,--private-window}
 super + alt + b
@@ -41,9 +43,15 @@ super + p
 
 super + i
         emacsclient -c
+
+        
 ##############################################
 ################ Screenshots #################
 ##############################################
+
+# selection to clipboard
+super + shift + 4
+        maim --noopengl -s |  xclip -selection clipboard -t image/png
 # selection to clipboard
 Print 
         maim --noopengl -s |  xclip -selection clipboard -t image/png
@@ -56,6 +64,9 @@ Print + {shift,ctrl}
 Print + alt
         maim --noopengl -i $(xdotool getactivewindow) |  xclip -selection clipboard -t image/png
 
+# window to clipboard
+# super + shift + alt + 4
+        # maim --noopengl -i $(xdotool getactivewindow) |  xclip -selection clipboard -t image/png
 ##############################################
 ################### Audio ####################
 ##############################################
@@ -68,7 +79,11 @@ XF86AudioMute
         pulsemixer --toggle-mute; pkill -RTMIN+10 dwmblocks
 
 
+shift + super + l
+        pulsemixer --toggle-mute; pkill -RTMIN+10 dwmblocks
 
+super + {Prior,Next}
+        pulsemixer --change-volume {+10,-10}; pkill -RTMIN+10 dwmblocks
 ##############################################
 ########### Power/session commands ###########
 ##############################################
@@ -89,12 +104,14 @@ super + shift + q
 ########### Type out Email Addresses ###########
 ################################################
 
-# Type Personal Email
-alt + e
-        xdotool sleep 0.1 type --clearmodifiers --delay 1 $(echo $PERSONAL_EMAIL)
+# Type out emails
+alt + {_,shift,ctrl} + e
+        xdotool sleep 0.1 type --delay 1 $(echo {$PERSONAL_EMAIL,$ONLINE_EMAIL,$BUS_EMAIL})
 
-alt+ shift + e
-        xdotool sleep 0.1 type --clearmodifiers --delay 1 $(echo $ONLINE_EMAIL)
 
-alt+ ctrl + e
-        xdotool sleep 0.1 type --clearmodifiers --delay 1 $(echo $BUS_EMAIL)
+################################################
+################### REBINDS ####################
+################################################
+
+ctrl + m
+        xdotool sleep 0.1 key 'Menu'
