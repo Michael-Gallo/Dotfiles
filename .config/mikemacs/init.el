@@ -27,16 +27,9 @@
 (menu-bar-mode -1)
 
 ;; Font 
-
-
-;; You will most likely need to adjust this font size for your system!
-;; (defvar runemacs/default-font-size 100)
-
 (set-face-attribute 'default nil :font "Fira Code Retina" :height 155)
-
 ;; Set the fixed pitch face
 (set-face-attribute 'fixed-pitch nil :font "Fira Code Retina" :height 150)
-
 ;; Set the variable pitch face
 (set-face-attribute 'variable-pitch nil :font "Cantarell" :height 170 :weight 'regular)
 
@@ -92,10 +85,7 @@
   :init
   (ivy-rich-mode 1))
 
-;; NOTE: The first time you load your configuration on a new machine, you'll
-;; need to run the following command interactively so that mode line icons
-;; display correctly:
-;;
+;; Run this the first time the config is loaded for icons:
 ;; M-x all-the-icons-install-fonts
 
 (use-package all-the-icons)
@@ -317,7 +307,10 @@
 (defun efs/org-mode-setup ()
   (org-indent-mode)
   (variable-pitch-mode 1)
-  (visual-line-mode 1))
+  ;; (auto-fill-mode 0)
+  (visual-line-mode 1)
+  ;; (setq evil-auto-indent nil)
+  )
 
 (defun efs/org-font-setup ()
   ;; Replace list hyphen with dot
@@ -357,8 +350,48 @@
   (setq org-log-into-drawer t)
   
   (setq org-agenda-files
-	'("~/.config/mikemacs/OrgFiles/Tasks.org"))
-  (efs/org-font-setup))
+	'("~/.config/mikemacs/OrgFiles/Tasks.org"
+	"~/.config/mikemacs/OrgFiles/birthdays.org")
+	)
+  (efs/org-font-setup)
+
+  (setq org-refile-targets
+    '(("Archive.org" :maxlevel . 1)
+      ("Tasks.org" :maxlevel . 1)))
+
+  ;; Save Org buffers after refiling!
+  (advice-add 'org-refile :after 'org-save-all-org-buffers)
+
+  (setq org-capture-templates
+    `(("t" "Tasks / Projects")
+      ("tt" "Task" entry (file+olp "~/.config/mikemacs/OrgFiles/Tasks.org" "Inbox")
+           "* TODO %?\n  %U\n  %a\n  %i" :empty-lines 1)
+
+      ("j" "Journal Entries")
+      ("jj" "Journal" entry
+           (file+olp+datetree "~/.config/mikemacs/OrgFiles/Journal.org")
+           "\n* %<%I:%M %p> - Journal :journal:\n\n%?\n\n"
+           :clock-in :clock-resume
+           :empty-lines 1)
+      ("jm" "Meeting" entry
+           (file+olp+datetree "~/.config/mikemacs/OrgFiles/Journal.org")
+           "* %<%I:%M %p> - %a :meetings:\n\n%?\n\n"
+           :clock-in :clock-resume
+           :empty-lines 1)
+
+      ;; ("w" "Workflows")
+      ;; ("we" "Checking Email" entry (file+olp+datetree "~/.config/mikemacs/OrgFiles/Journal.org")
+      ;;      "* Checking Email :email:\n\n%?" :clock-in :clock-resume :empty-lines 1)
+
+      ;; ("m" "Metrics Capture")
+      ;; ("mw" "Weight" table-line
+      ;;  (file+headline "~/.config/mikemacs/OrgFiles/Metrics.org" "Weight")
+      ;;  "| %U | %^{Weight} | %^{Notes} |" :kill-buffer t)
+      )
+    )
+
+
+  )
 
 (use-package org-bullets
   :after org
@@ -366,10 +399,30 @@
   :custom
   (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●")))
 
-;; (defun efs/org-mode-visual-fill ()
-;;   (setq visual-fill-column-width 100
-;;         visual-fill-column-center-text t)
-;;   (visual-fill-column-mode 1))
 
-;; (use-package visual-fill-column
-;;   :hook (org-mode . efs/org-mode-visual-fill))
+; Centers text in org mode
+(defun efs/org-mode-visual-fill ()
+  (setq visual-fill-column-width 100
+        visual-fill-column-center-text t)
+  (visual-fill-column-mode 1))
+
+(use-package visual-fill-column
+  :hook (org-mode . efs/org-mode-visual-fill))
+
+
+(org-babel-do-load-languages
+  'org-babel-load-languages
+  '((emacs-lisp . t)
+    (python . t)))
+
+(setq org-confirm-babel-evaluate nil)
+
+;; This is needed as of Org 9.2
+(require 'org-tempo)
+
+(add-to-list 'org-structure-template-alist '("sh" . "src shell"))
+(add-to-list 'org-structure-template-alist '("el" . "src emacs-lisp"))
+(add-to-list 'org-structure-template-alist '("py" . "src python"))
+
+
+(setq create-lockfiles nil)
