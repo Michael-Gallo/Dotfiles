@@ -94,6 +94,8 @@ call vundle#begin()
     Plugin 'tbastos/vim-lua'
     Plugin 'baskerville/vim-sxhkdrc'
     Plugin 'nvie/vim-flake8'
+    " Plugin 'neoclide/coc.nvim'
+    Plugin 'ycm-core/YouCompleteMe'
 filetype plugin indent on    " required
 call vundle#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -190,3 +192,14 @@ nnoremap <silent> <localleader> :<c-u>WhichKeyVisual  ','<CR>
 let g:qs_highlight_on_keys=['f', 'F', 't', 'T']
 let g:qs_max_chars=150
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" inoremap <silent><expr> <TAB>
+      " \ pumvisible() ? "\<C-n>" :
+      " \ <SID>check_back_space() ? "\<TAB>" :
+      " \ coc#refresh()
+" inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+" function! s:check_back_space() abort
+  " let col = col('.') - 1
+  " return !col || getline('.')[col - 1]  =~# '\s'
+" endfunction
