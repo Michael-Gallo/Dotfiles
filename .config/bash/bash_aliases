@@ -1,6 +1,5 @@
 # vim: set filetype=sh
 alias :q=exit
-alias sv="sudo vim"
 alias r="ranger"
 alias sapt="sudo apt"
 alias mkd="mkdir -pv"

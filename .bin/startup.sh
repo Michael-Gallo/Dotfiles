@@ -7,4 +7,3 @@ dwmblocks &
 unclutter --idle 2.5 &
 protonmail-bridge --noninteractive &
 emacs --daemon &
-deluged &

@@ -3,7 +3,7 @@
 HISTFILE=$HOME/.config/zsh/.zhistory
 HISTSIZE=1000
 SAVEHIST=1000
-HOSTNAME="$(hostname)"
+HOSTNAME=$HOSTNAME
 
 # autoload -U colors && colors	# Load colors
 autoload -U compinit && compinit

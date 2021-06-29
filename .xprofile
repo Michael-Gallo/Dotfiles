@@ -12,8 +12,8 @@ if [ -f ~/.config/bash/bash_env  ]; then
 fi
 
 # Makes sure that all locations vim needs exist
-mkdir -p $xdg_data_home/vim/{undo,swap,backup,view}
+mkdir -p $XDG_DATA_HOME/vim/{undo,swap,backup,view}
 
-setxkbmap -rules "evdev" -model "pc105+inet" -layout "us" -option "caps:swapescape,terminate:ctrl_alt_bksp"
+setxkbmap -rules "evdev" -model "pc105+inet" -layout "us" -option "caps:swapescape"
 $HOME/.bin/startup.sh
 
