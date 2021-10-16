@@ -88,7 +88,7 @@ call vundle#begin()
     Plugin 'junegunn/fzf.vim'
     Plugin 'junegunn/fzf'
     Plugin 'liuchengxu/vim-which-key'
-    Plugin 'arcticicestudio/nord-vim'
+    Plugin 'arcticicestudio/nord-vim' 
     Plugin 'dracula/vim'
     Plugin 'unblevable/quick-scope'
     Plugin 'tbastos/vim-lua'
@@ -203,3 +203,4 @@ let g:qs_max_chars=150
   " let col = col('.') - 1
   " return !col || getline('.')[col - 1]  =~# '\s'
 " endfunction
+" let g:ycm_clangd_binary_path = "/bin/clangd"
