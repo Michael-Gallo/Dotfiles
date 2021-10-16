@@ -3,7 +3,7 @@
 export TERMCMD=xterm
 export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$HOME/.bin:$HOME/local/bin:$HOME/.bin/statusbar:$PATH"
 export EDITOR=nvim
-export BROWSER=firefox
+export BROWSER=waterfox-g3
 export BUS_BROWSER=chromium
 export CDPATH=~/.shortcut_dirs
 [ -x "$(command -v st)" ] && export TERMINAL="st"
@@ -26,7 +26,7 @@ export GST_PLUGIN_SYSTEM_PATH_1_0="$HOME/.steam/steam/compatibilitytools.d/Proto
 #source personal environment variables
 source $HOME/.config/bash/private_env
 export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
+# export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
 
 # Load pyenv into the shell by adding
@@ -34,3 +34,11 @@ eval "$(pyenv init --path)"
 
 eval "$(pyenv init -)"
 
+# RADV = mesa, AMDVLK = amd vulkan 
+export AMD_VULKAN_ICD=RADV
+# certain programs want the python in PATH to be native
+function native_python(){
+        export PATH="/usr/bin:$PATH"
+}
+export JAVA_HOME=/usr/lib/jvm/java-16-openjdk
+alias psp=PPSSPPSDL
