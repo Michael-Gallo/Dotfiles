@@ -221,8 +221,10 @@
 (dolist (mode '(org-mode-hook
                 term-mode-hook
                 shell-mode-hook
-                eshell-mode-hook))
-	      (add-hook mode (lambda () (display-line-numbers-mode 0))))
+                ;; eshell-mode-hook
+                )
+              )
+              (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
 (set-face-attribute 'default nil :font "Fira Code Retina" :height 185)
 ;; Set the fixed pitch face
@@ -383,9 +385,9 @@
      ("http://feeds.feedburner.com/Explosm"                                         ) ; Explosm
      ("https://www.youtube.com/feeds/videos.xml?channel_id=UCRXnOs1rjfLMYrtZ-0n29NA") ; Freedom Toons
      ("https://www.youtube.com/feeds/videos.xml?channel_id=UCLmzk98n_v2doN2Y20S-Zog") ; Gaming Brit Show
-     ;; ("https://www.gematsu.com/feed")                                                 ; Gematsu
      ("https://www.youtube.com/feeds/videos.xml?channel_id=UC7dF9qfBMXrSlaaFFDvV_Yg") ; Gigguk
      ("https://www.youtube.com/feeds/videos.xml?channel_id=UCuCkxoKLYO_EQ2GeFtbM_bw") ; Half As Interesting
+     ("http://www.youtube.com/feeds/videos.xml?channel_id=UCkCGANrihzExmu9QiqZpPlQ")  ; How Money Works
      ("https://www.youtube.com/feeds/videos.xml?channel_id=UCR1D15p_vdP3HkrH8wgjQRw") ; Internet Historian
      ("https://www.youtube.com/feeds/videos.xml?channel_id=UCGSGPehp0RWfca-kENgBJ9Q") ; Jreg
      ("https://www.youtube.com/feeds/videos.xml?channel_id=UCXuqSBlHAE6Xw-yeJA0Tunw") ; LinusTechTips

@@ -277,11 +277,13 @@ Stop making annoying lock files
 *** Line Number Overrides
 We don't want line numbers in org mode or in terminals
 #+begin_src emacs-lisp
-(dolist (mode '(org-mode-hook
-                term-mode-hook
-                shell-mode-hook
-                eshell-mode-hook))
-	      (add-hook mode (lambda () (display-line-numbers-mode 0))))
+  (dolist (mode '(org-mode-hook
+                  term-mode-hook
+                  shell-mode-hook
+                  ;; eshell-mode-hook
+                  )
+                )
+                (add-hook mode (lambda () (display-line-numbers-mode 0))))
 #+end_src
 ** Fonts
 *** General Fonts
@@ -444,56 +446,56 @@ Tangle the emacs config into init.el
 * Elfeed
 ** Feeds
 #+begin_src emacs-lisp
-(custom-set-variables
- '(elfeed-feeds
-   (quote
-    (
+  (custom-set-variables
+   '(elfeed-feeds
+     (quote
+      (
 
-     ("https://www.youtube.com/feeds/videos.xml?channel_id=UCY3A_5R_m3PXCn5XDhvBBsg") ; Adam Millard
-     ("https://www.youtube.com/feeds/videos.xml?channel_id=UC2cC48A261pBVKztLyzOAnA") ; Ask Sebby
-     ("http://www.awkwardzombie.com/awkward.php"                                    ) ; Awkward Zombie
-     ("https://www.youtube.com/feeds/videos.xml?channel_id=UCOFH59uoSs8SUF0L_p3W0sg") ; BadSeed
-     ("https://www.youtube.com/feeds/videos.xml?channel_id=UCr3cBLTYmIK9kY0F_OdFWFQ") ; Casually explained
-     ("https://www.youtube.com/feeds/videos.xml?channel_id=UC2C_jShtL725hvbm1arSV9w") ; CGP Grey
-     ("https://www.youtube.com/feeds/videos.xml?channel_id=UCg6gPGh8HU2U01vaFCAsvmQ") ; Chris Titus Tech
-     ("https://www.youtube.com/feeds/videos.xml?channel_id=UCJQfl8QxjNen736AVO3ecFg") ; Clemps
-     ("https://www.youtube.com/feeds/videos.xml?channel_id=UCFQMnBA3CS502aghlcr0_aw") ; CoffeeZilla
-     ("https://www.youtube.com/feeds/videos.xml?channel_id=UC4QZ_LsYcvcq7qOsOhpAX4A") ; Cold Fusion
-     ("https://www.youtube.com/feeds/videos.xml?channel_id=UCq6VFHwMzcMXbuKyG7SQYIg") ; Cr1tikal
-     ("https://www.youtube.com/feeds/videos.xml?channel_id=UCQMyhrt92_8XM0KgZH6VnRg") ; Company Man
-     ("https://www.youtube.com/feeds/videos.xml?channel_id=UC9WQRw8jgJhag-vkDNTDMRg") ; Coffee Break
-     ("https://www.youtube.com/feeds/videos.xml?channel_id=UC7SeFWZYFmsm1tqWxfuOTPQ") ; Dankula
-     ("https://www.youtube.com/feeds/videos.xml?channel_id=UCVls1GmFKf6WlTraIb_IaJg") ; Distrotube
-     ("http://feeds.feedburner.com/Explosm"                                         ) ; Explosm
-     ("https://www.youtube.com/feeds/videos.xml?channel_id=UCRXnOs1rjfLMYrtZ-0n29NA") ; Freedom Toons
-     ("https://www.youtube.com/feeds/videos.xml?channel_id=UCLmzk98n_v2doN2Y20S-Zog") ; Gaming Brit Show
-     ;; ("https://www.gematsu.com/feed")                                                 ; Gematsu
-     ("https://www.youtube.com/feeds/videos.xml?channel_id=UC7dF9qfBMXrSlaaFFDvV_Yg") ; Gigguk
-     ("https://www.youtube.com/feeds/videos.xml?channel_id=UCuCkxoKLYO_EQ2GeFtbM_bw") ; Half As Interesting
-     ("https://www.youtube.com/feeds/videos.xml?channel_id=UCR1D15p_vdP3HkrH8wgjQRw") ; Internet Historian
-     ("https://www.youtube.com/feeds/videos.xml?channel_id=UCGSGPehp0RWfca-kENgBJ9Q") ; Jreg
-     ("https://www.youtube.com/feeds/videos.xml?channel_id=UCXuqSBlHAE6Xw-yeJA0Tunw") ; LinusTechTips
-     ("https://videos.lukesmith.xyz/feeds/videos.xml?accountId=3") ;                    Luke Smith
-     ("https://www.youtube.com/feeds/videos.xml?channel_id=UCb_sF2m3-2azOqeNEdMwQPw") ; Matthewmatosis
-     ("https://www.youtube.com/feeds/videos.xml?channel_id=UCXX1iQGufHujuIvQ38MPKMA") ; MauLer
-     ("https://feeds.feedburner.com/nerfnow/full")                                    ; Nerf Now
-     ("http://feeds.penny-arcade.com/pa-mainsite")                                    ; Penny Arcade
-     ("https://www.youtube.com/feeds/videos.xml?channel_id=UC2PA-AKmVpU6NKCGtZq_rKQ") ; PhilosophyTube
-     ("https://www.youtube.com/feeds/videos.xml?channel_id=UCgNg3vwj3xt7QOrcIDaHdFg") ; Polymatter
-     ("https://www.youtube.com/feeds/videos.xml?channel_id=UCXtrYuGksGkkyls50lPWvYQ") ; PPCIan
-     ("https://www.youtube.com/feeds/videos.xml?channel_id=UC1JTQBa5QxZCpXrFSkMxmPw") ; Raycevik
-     ("https://www.youtube.com/feeds/videos.xml?channel_id=UC1DTYW241WD64ah5BFWn4JA") ; SamONella
-     ("https://www.youtube.com/feeds/videos.xml?channel_id=UC0aanx5rpr7D1M7KCFYzrLQ") ; Shoe
-     ("https://www.smbc-comics.com/comic/rss")                                        ;  SMBC
-     ("https://www.youtube.com/feeds/videos.xml?channel_id=UCWqr2tH3dPshNhPjV5h1xRw") ; Super Bunny Hop
-     ("https://www.youtube.com/feeds/videos.xml?channel_id=UCtZO3K2p8mqFwiKWb9k7fXA") ; TechAltar
-     ("https://www.youtube.com/feeds/videos.xml?channel_id=UC0vBXGSyV14uvJ4hECDOl0Q") ; TechQuickie
-     ("https://www.youtube.com/feeds/videos.xml?channel_id=UCCOD-tcFzMSiaNkSUB_KVjQ") ; Tonald
-     ("http://feeds.feedburner.com/oatmealfeed")                                      ; The Oatmeal
-     ("https://www.youtube.com/feeds/videos.xml?channel_id=UCHnyfMqiRRG1u-2MsSQLbXA") ; Veritasium
-     ("https://www.youtube.com/feeds/videos.xml?channel_id=UC9RM-iSvTu1uPJb8X5yp3EQ") ; Wendover Productions
-     ("https://www.youtube.com/feeds/videos.xml?channel_id=UCVWhVAZwCdQsPZL-mDLcxPQ") ; Whitelight
-     ))))
+       ("https://www.youtube.com/feeds/videos.xml?channel_id=UCY3A_5R_m3PXCn5XDhvBBsg") ; Adam Millard
+       ("https://www.youtube.com/feeds/videos.xml?channel_id=UC2cC48A261pBVKztLyzOAnA") ; Ask Sebby
+       ("http://www.awkwardzombie.com/awkward.php"                                    ) ; Awkward Zombie
+       ("https://www.youtube.com/feeds/videos.xml?channel_id=UCOFH59uoSs8SUF0L_p3W0sg") ; BadSeed
+       ("https://www.youtube.com/feeds/videos.xml?channel_id=UCr3cBLTYmIK9kY0F_OdFWFQ") ; Casually explained
+       ("https://www.youtube.com/feeds/videos.xml?channel_id=UC2C_jShtL725hvbm1arSV9w") ; CGP Grey
+       ("https://www.youtube.com/feeds/videos.xml?channel_id=UCg6gPGh8HU2U01vaFCAsvmQ") ; Chris Titus Tech
+       ("https://www.youtube.com/feeds/videos.xml?channel_id=UCJQfl8QxjNen736AVO3ecFg") ; Clemps
+       ("https://www.youtube.com/feeds/videos.xml?channel_id=UCFQMnBA3CS502aghlcr0_aw") ; CoffeeZilla
+       ("https://www.youtube.com/feeds/videos.xml?channel_id=UC4QZ_LsYcvcq7qOsOhpAX4A") ; Cold Fusion
+       ("https://www.youtube.com/feeds/videos.xml?channel_id=UCq6VFHwMzcMXbuKyG7SQYIg") ; Cr1tikal
+       ("https://www.youtube.com/feeds/videos.xml?channel_id=UCQMyhrt92_8XM0KgZH6VnRg") ; Company Man
+       ("https://www.youtube.com/feeds/videos.xml?channel_id=UC9WQRw8jgJhag-vkDNTDMRg") ; Coffee Break
+       ("https://www.youtube.com/feeds/videos.xml?channel_id=UC7SeFWZYFmsm1tqWxfuOTPQ") ; Dankula
+       ("https://www.youtube.com/feeds/videos.xml?channel_id=UCVls1GmFKf6WlTraIb_IaJg") ; Distrotube
+       ("http://feeds.feedburner.com/Explosm"                                         ) ; Explosm
+       ("https://www.youtube.com/feeds/videos.xml?channel_id=UCRXnOs1rjfLMYrtZ-0n29NA") ; Freedom Toons
+       ("https://www.youtube.com/feeds/videos.xml?channel_id=UCLmzk98n_v2doN2Y20S-Zog") ; Gaming Brit Show
+       ("https://www.youtube.com/feeds/videos.xml?channel_id=UC7dF9qfBMXrSlaaFFDvV_Yg") ; Gigguk
+       ("https://www.youtube.com/feeds/videos.xml?channel_id=UCuCkxoKLYO_EQ2GeFtbM_bw") ; Half As Interesting
+       ("http://www.youtube.com/feeds/videos.xml?channel_id=UCkCGANrihzExmu9QiqZpPlQ")  ; How Money Works
+       ("https://www.youtube.com/feeds/videos.xml?channel_id=UCR1D15p_vdP3HkrH8wgjQRw") ; Internet Historian
+       ("https://www.youtube.com/feeds/videos.xml?channel_id=UCGSGPehp0RWfca-kENgBJ9Q") ; Jreg
+       ("https://www.youtube.com/feeds/videos.xml?channel_id=UCXuqSBlHAE6Xw-yeJA0Tunw") ; LinusTechTips
+       ("https://videos.lukesmith.xyz/feeds/videos.xml?accountId=3") ;                    Luke Smith
+       ("https://www.youtube.com/feeds/videos.xml?channel_id=UCb_sF2m3-2azOqeNEdMwQPw") ; Matthewmatosis
+       ("https://www.youtube.com/feeds/videos.xml?channel_id=UCXX1iQGufHujuIvQ38MPKMA") ; MauLer
+       ("https://feeds.feedburner.com/nerfnow/full")                                    ; Nerf Now
+       ("http://feeds.penny-arcade.com/pa-mainsite")                                    ; Penny Arcade
+       ("https://www.youtube.com/feeds/videos.xml?channel_id=UC2PA-AKmVpU6NKCGtZq_rKQ") ; PhilosophyTube
+       ("https://www.youtube.com/feeds/videos.xml?channel_id=UCgNg3vwj3xt7QOrcIDaHdFg") ; Polymatter
+       ("https://www.youtube.com/feeds/videos.xml?channel_id=UCXtrYuGksGkkyls50lPWvYQ") ; PPCIan
+       ("https://www.youtube.com/feeds/videos.xml?channel_id=UC1JTQBa5QxZCpXrFSkMxmPw") ; Raycevik
+       ("https://www.youtube.com/feeds/videos.xml?channel_id=UC1DTYW241WD64ah5BFWn4JA") ; SamONella
+       ("https://www.youtube.com/feeds/videos.xml?channel_id=UC0aanx5rpr7D1M7KCFYzrLQ") ; Shoe
+       ("https://www.smbc-comics.com/comic/rss")                                        ;  SMBC
+       ("https://www.youtube.com/feeds/videos.xml?channel_id=UCWqr2tH3dPshNhPjV5h1xRw") ; Super Bunny Hop
+       ("https://www.youtube.com/feeds/videos.xml?channel_id=UCtZO3K2p8mqFwiKWb9k7fXA") ; TechAltar
+       ("https://www.youtube.com/feeds/videos.xml?channel_id=UC0vBXGSyV14uvJ4hECDOl0Q") ; TechQuickie
+       ("https://www.youtube.com/feeds/videos.xml?channel_id=UCCOD-tcFzMSiaNkSUB_KVjQ") ; Tonald
+       ("http://feeds.feedburner.com/oatmealfeed")                                      ; The Oatmeal
+       ("https://www.youtube.com/feeds/videos.xml?channel_id=UCHnyfMqiRRG1u-2MsSQLbXA") ; Veritasium
+       ("https://www.youtube.com/feeds/videos.xml?channel_id=UC9RM-iSvTu1uPJb8X5yp3EQ") ; Wendover Productions
+       ("https://www.youtube.com/feeds/videos.xml?channel_id=UCVWhVAZwCdQsPZL-mDLcxPQ") ; Whitelight
+       ))))
 #+end_src
 * Mu4e - Email
 ** Base
