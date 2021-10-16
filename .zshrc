@@ -7,7 +7,15 @@ HOSTNAME=$HOSTNAME
 
 # autoload -U colors && colors	# Load colors
 autoload -U compinit && compinit
-PROMPT="%F{35}%n%f:%F{35}%~%f$ "
+# Add Git to prompt
+autoload -Uz add-zsh-hook vcs_info
+setopt prompt_subst
+add-zsh-hook precmd vcs_info
+zstyle ':vcs_info:git:*' formats       ' (%b%u%c) '
+zstyle ':vcs_info:git:*' actionformats ' (%b|%a%u%c) '
+
+PROMPT='%F{35}%n%f:%F{35}%~%f%F{135}${vcs_info_msg_0_}%f$ '
+# PROMPT='%F{red}${vcs_info_msg_0_}%f %# '
 
 # Uncomment the following line to use hyphen-insensitive completion.
 # Case-sensitive completion must be off. _ and - will be interchangeable.
