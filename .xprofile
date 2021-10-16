@@ -1,11 +1,5 @@
-# wal -c # clears cached pywal themes
-/home/$USER/.bin/autoscroll_enabled.sh
-# increases key speed
-xset r rate 300 50
-# sets the caps lock key to also be an escape key
-# setxkbmap -option caps:swapescape
-# setxkbmap -option altwin:swap_alt_win
-# setxkbmap -option altwin:swap_lalt_lwin
+# increases key speed 
+#xset r rate 300 50 
 # uses whatever environmental variables are set in bash_env
 if [ -f ~/.config/bash/bash_env  ]; then
     . ~/.config/bash/bash_env
@@ -13,7 +7,7 @@ fi
 
 # Makes sure that all locations vim needs exist
 mkdir -p $XDG_DATA_HOME/vim/{undo,swap,backup,view}
-
+# sets the caps lock key to also be an escape key, settings for keychron
 setxkbmap -rules "evdev" -model "pc105+inet" -layout "us" -option "caps:swapescape"
 $HOME/.bin/startup.sh
-
+export QT_STYLE_OVERRIDE=kvantum
