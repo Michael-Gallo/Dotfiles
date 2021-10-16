@@ -75,9 +75,9 @@ augroup END
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 	"let Vundle manage Vundle, required
-	 Plugin 'VundleVim/Vundle.vim'
+	Plugin 'VundleVim/Vundle.vim'
     Plugin 'tpope/vim-surround' " vim-surround needs to plugged before nerdcommenter to prevent key bind errors
-	 Plugin 'preservim/nerdcommenter'
+	Plugin 'preservim/nerdcommenter'
     Plugin 'frazrepo/vim-rainbow'
     Plugin 'itchyny/lightline.vim'
     Plugin 'ap/vim-css-color'
@@ -95,7 +95,8 @@ call vundle#begin()
     Plugin 'baskerville/vim-sxhkdrc'
     Plugin 'nvie/vim-flake8'
     " Plugin 'neoclide/coc.nvim'
-    Plugin 'ycm-core/YouCompleteMe'
+    Plugin 'Valloric/YouCompleteMe'
+    " Plugin 'rdnetto/YCM-Generator'
 filetype plugin indent on    " required
 call vundle#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -193,6 +194,7 @@ let g:qs_highlight_on_keys=['f', 'F', 't', 'T']
 let g:qs_max_chars=150
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:ycm_global_ycm_extra_conf = '$HOME/.config/nvim/ycm_c_conf.py'
 " inoremap <silent><expr> <TAB>
       " \ pumvisible() ? "\<C-n>" :
       " \ <SID>check_back_space() ? "\<TAB>" :
