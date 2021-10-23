@@ -32,8 +32,8 @@ super + g
 super + n
         joplin
 
-XF86Calculator
-        gnome-calculator        
+{XF86Calculator,super+v}
+        $CALCULATOR        
 
 super + shift + p
         $HOME/.bin/otp-menu

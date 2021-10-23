@@ -4,6 +4,7 @@ export TERMCMD=xterm
 export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$HOME/.bin:$HOME/local/bin:$HOME/.bin/statusbar:$PATH"
 export EDITOR=nvim
 export BROWSER=waterfox-g3
+export CALCULATOR=galculator
 export BUS_BROWSER=chromium
 export CDPATH=~/.shortcut_dirs
 [ -x "$(command -v st)" ] && export TERMINAL="st"
@@ -42,3 +43,4 @@ function native_python(){
 }
 export JAVA_HOME=/usr/lib/jvm/java-16-openjdk
 alias psp=PPSSPPSDL
+export $(dbus-launch)
