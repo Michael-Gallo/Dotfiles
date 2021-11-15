@@ -54,8 +54,8 @@ fi
 
 
 # vi mode
-bindkey -v
-set -o vi
+# bindkey -v
+# set -o vi
 export KEYTIMEOUT=1
 # turnoff vi prompt added in from zsh-vim-mode
 RPS1=""
