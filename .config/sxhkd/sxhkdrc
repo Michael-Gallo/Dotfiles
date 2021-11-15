@@ -113,3 +113,7 @@ alt + {_,shift,ctrl} + e
 
 ctrl + m
         xdotool sleep 0.1 key 'Menu'
+
+# Alt + plus or - is numpad plus_0
+alt + {plus, minus}
+        xdotool keyup equal keyup minus key --clearmodifiers {KP_Add,KP_Subtract}
