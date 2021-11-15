@@ -3,7 +3,7 @@
 export TERMCMD=xterm
 export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$HOME/.bin:$HOME/local/bin:$HOME/.bin/statusbar:$PATH"
 export EDITOR=nvim
-export BROWSER=waterfox-g3
+export BROWSER=waterfox-g4
 export CALCULATOR=galculator
 export BUS_BROWSER=chromium
 export CDPATH=~/.shortcut_dirs
