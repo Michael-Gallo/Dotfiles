@@ -390,6 +390,7 @@
      ("http://www.youtube.com/feeds/videos.xml?channel_id=UCkCGANrihzExmu9QiqZpPlQ")  ; How Money Works
      ("https://www.youtube.com/feeds/videos.xml?channel_id=UCR1D15p_vdP3HkrH8wgjQRw") ; Internet Historian
      ("https://www.youtube.com/feeds/videos.xml?channel_id=UCGSGPehp0RWfca-kENgBJ9Q") ; Jreg
+     ("https://www.youtube.com/feeds/videos.xml?channel_id=UCsXVk37bltHxD1rDPwtNM8Q") ; Kurzgesagt
      ("https://www.youtube.com/feeds/videos.xml?channel_id=UCXuqSBlHAE6Xw-yeJA0Tunw") ; LinusTechTips
      ("https://videos.lukesmith.xyz/feeds/videos.xml?accountId=3") ;                    Luke Smith
      ("https://www.youtube.com/feeds/videos.xml?channel_id=UCb_sF2m3-2azOqeNEdMwQPw") ; Matthewmatosis
