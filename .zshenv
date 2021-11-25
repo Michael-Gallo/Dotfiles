@@ -27,7 +27,7 @@ export WINEUSERNAME=combat1921
 export GST_PLUGIN_SYSTEM_PATH_1_0="$HOME/.steam/steam/compatibilitytools.d/Proton-5.21-GE-1/dist/lib64/gstreamer-1.0:$HOME/.steam/steam/compatibilitytools.d/Proton-5.21-GE-1/dist/lib/gstreamer-1.0"
 #source personal environment variables
 source $HOME/.config/bash/private_env
-source $HOME/.config/bash/bemenu_config
+source $HOME/.config/bemenu/bemenu_conf
 export PYENV_ROOT="$HOME/.pyenv"
 # export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
