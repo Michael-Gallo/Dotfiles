@@ -1,11 +1,15 @@
-#!/bin/bash
-sxhkd &
-picom &
-nitrogen --restore &
+#!/bin/sh
+
+if  [ $DESKTOP_SESSION = "dwm" ] then;
+        sxhkd &
+        picom &
+        nitrogen --restore &
+        dwmblocks &
+        unclutter &
+fi
 discord &
-dwmblocks &
 unclutter --idle 2.5 &
 protonmail-bridge --noninteractive &
 emacs --daemon &
-# autoscroll-enabled &
+autoscroll-enabled &
 deluge &
