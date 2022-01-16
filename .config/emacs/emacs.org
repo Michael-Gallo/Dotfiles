@@ -37,20 +37,37 @@ Elfeed feed reader
 #+begin_src emacs-lisp
 (use-package elfeed)
 #+end_src
-* Bindings
-** Better Escape
-Make the escape key get out of prompts
+* Editing
+Use spaces instead of tabs for indents
 #+begin_src emacs-lisp
-(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
+(setq-default indent-tabs-mode nil)
+#+end_src
+Whitespace cleanup
+#+begin_src emacs-lisp
+(use-package ws-butler
+  :hook ((text-mode . ws-butler-mode)
+         (prog-mode . ws-butler-mode)))
+#+end_src
+* Bindings
+** Kill buffer
+#+begin_src emacs-lisp
+(global-set-key (kbd "C-x C-k") 'kill-current-buffer)
 #+end_src
 ** Counsel
 #+begin_src emacs-lisp
 (use-package counsel
 :bind (("M-x" . counsel-M-x)
         ("C-x b" . counsel-ibuffer)
+        ("C-x C-b" . counsel-ibuffer)
         ("C-x C-f" . counsel-find-file)
+        ("C-x C-k" . kill-current-buffer)
         :map minibuffer-local-map
         ("C-r" . 'counsel-minibuffer-history)))
+#+end_src
+** Better Escape
+Make the escape key get out of prompts
+#+begin_src emacs-lisp
+(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 #+end_src
 ** Which-Key
 #+begin_src emacs-lisp
