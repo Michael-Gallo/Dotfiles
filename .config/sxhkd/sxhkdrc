@@ -91,7 +91,7 @@ super + F11
         prompt.sh "reboot computer?" "sudo reboot"
 # Turn off computer
 super + F12
-        prompt.sh "shutdown computer?" "sudo -A shutdown -h now"
+        prompt.sh "shutdown computer?" "sudo -A shutdown -P now"
 
 # Log out of lightdm
 super + shift + q
