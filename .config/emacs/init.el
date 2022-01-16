@@ -1,12 +1,10 @@
 (require 'package)
 
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
-                        ("org" . "https://orgmode.org/elpa/")
-                        ("elpa" . "https://elpa.gnu.org/packages/")))
-
+                         ("melpa-stable" . "https://stable.melpa.org/packages/")
+                         ("org" . "https://orgmode.org/elpa/")
+                         ("elpa" . "https://elpa.gnu.org/packages/")))
 (package-initialize)
-(unless package-archive-contents
-(package-refresh-contents))
 
 ;; Initialize use-package on non-Linux platforms
 (unless (package-installed-p 'use-package)
@@ -14,25 +12,36 @@
 
 (require 'use-package)
 
+; Ensure packages by default
 (setq use-package-always-ensure t)
-
 ;;Logging Package
 (use-package command-log-mode)
 
 (use-package all-the-icons)
+(use-package all-the-icons-dired)
 
 (use-package hydra)
 
 (use-package elfeed)
 
-(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
+(setq-default indent-tabs-mode nil)
+
+(use-package ws-butler
+  :hook ((text-mode . ws-butler-mode)
+         (prog-mode . ws-butler-mode)))
+
+(global-set-key (kbd "C-x C-k") 'kill-current-buffer)
 
 (use-package counsel
 :bind (("M-x" . counsel-M-x)
         ("C-x b" . counsel-ibuffer)
+        ("C-x C-b" . counsel-ibuffer)
         ("C-x C-f" . counsel-find-file)
+        ("C-x C-k" . kill-current-buffer)
         :map minibuffer-local-map
         ("C-r" . 'counsel-minibuffer-history)))
+
+(global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
 (use-package which-key
 :init (which-key-mode)
