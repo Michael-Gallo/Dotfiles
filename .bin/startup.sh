@@ -2,10 +2,6 @@
 
 
 
-discord &
-# protonmail-bridge --noninteractive &
-emacs --daemon &
-deluge &
 
 case $XDG_SESSION_TYPE in
         "xorg")
@@ -25,10 +21,22 @@ case $DESKTOP_SESSION in
         dunst &
         ;;
 
+        "openbox")
+                sxhkd &
+                picom &
+                nitrogen --restore &
+                dunst &
+
+        ;;
+
+
         "dwl")
         swaybg -i $XDG_PICTURES_DIR/wallpapers/wallpaper &
         somebar &
+        someblocks&
         dunst &
         ;;
 esac
 
+discord &
+emacs --daemon &
