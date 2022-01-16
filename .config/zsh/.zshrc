@@ -46,11 +46,6 @@ source ~/.config/zsh/zsh_plugins.sh
 if [ -f ~/.config/bash/bash_aliases  ]; then
     source ~/.config/bash/bash_aliases
 fi
-# Environmental variables in their own config file
-
-if [ -f ~/.config/bash/bash_env  ]; then
-    source ~/.config/bash/bash_env
-fi
 
 
 # vi mode
