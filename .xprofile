@@ -1,12 +1,10 @@
 # increases key speed 
 #xset r rate 300 50 
 # uses whatever environmental variables are set in bash_env
-if [ -f ~/.config/bash/bash_env  ]; then
-    . ~/.config/bash/bash_env
+if [ -f ~/.zshenv  ]; then
+        ~/.zshenv
 fi
 
-# Makes sure that all locations vim needs exist
-mkdir -p $XDG_DATA_HOME/vim/{undo,swap,backup,view}
 # sets the caps lock key to also be an escape key, settings for keychron
 setxkbmap -rules "evdev" -model "pc105+inet" -layout "us" -option "caps:swapescape"
 $HOME/.bin/startup.sh
