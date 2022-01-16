@@ -246,9 +246,66 @@ Leader Keys
       )
 #+end_src
 * File management
+** Lock files
 Stop making annoying lock files
 #+begin_src emacs-lisp
 (setq create-lockfiles nil)
+#+end_src
+** Backups
+Save file backups in a sane location and backup by copying
+#+begin_src emacs-lisp
+(setq backup-directory-alist `(("." . "~/.saves")))
+(setq backup-by-copying t)
+#+end_src
+** Symlinks
+Don't warn for following symlinks
+#+begin_src emacs-lisp
+(setq vc-follow-symlinks t)
+#+end_src
+** Dired
+#+begin_src emacs-lisp
+  (use-package dired
+    :ensure nil
+    :defer 1
+    :commands (dired dired-jump)
+    :config
+    (setq dired-listing-switches "-agho --group-directories-first"
+          dired-omit-files "^\\.[^.].*"
+          dired-omit-verbose nil
+          dired-hide-details-hide-symlink-targets nil
+          delete-by-moving-to-trash t)
+
+    (autoload 'dired-omit-mode "dired-x")
+
+    (add-hook 'dired-load-hook
+              (lambda ()
+                (interactive)
+                (dired-collapse)))
+
+    (add-hook 'dired-mode-hook
+              (lambda ()
+                (interactive)
+                (dired-omit-mode 1)
+                (dired-hide-details-mode 1)
+                (hl-line-mode 1)
+                (all-the-icons-dired-mode 1)
+                ))
+  (use-package dired-single
+    :defer t)
+
+  (use-package dired-ranger
+    :defer t)
+
+  (use-package dired-collapse
+    :defer t)
+
+  (evil-collection-define-key 'normal 'dired-mode-map
+    "h" 'dired-single-up-directory
+    "H" 'dired-omit-mode
+    "l" 'dired-single-buffer
+    "y" 'dired-ranger-copy
+    "X" 'dired-ranger-move
+    "p" 'dired-ranger-paste))
 #+end_src
 * UI Config
 ** Get rid of annoying startup message
@@ -288,10 +345,9 @@ Stop making annoying lock files
 #+end_src
 ** Line Numbers
 #+begin_src emacs-lisp
-(column-number-mode)
-(global-display-line-numbers-mode t)
-(setq display-line-numbers-mode 'relative)
-(setq display-line-numbers-type 'relative)
+  (global-display-line-numbers-mode t)
+  (setq display-line-numbers-mode 'relative)
+  (setq display-line-numbers-type 'relative)
 #+end_src
 *** Line Number Overrides
 We don't want line numbers in org mode or in terminals
@@ -304,14 +360,19 @@ We don't want line numbers in org mode or in terminals
                 )
                 (add-hook mode (lambda () (display-line-numbers-mode 0))))
 #+end_src
+** Column Numbers
+#+begin_src emacs-lisp
+  (column-number-mode)
+#+end_src
+
 ** Fonts
 *** General Fonts
 #+begin_src emacs-lisp
-(set-face-attribute 'default nil :font "Fira Code Retina" :height 185)
-;; Set the fixed pitch face
-(set-face-attribute 'fixed-pitch nil :font "Fira Code Retina" :height 160)
-;; Set the variable pitch face
-(set-face-attribute 'variable-pitch nil :font "Cantarell" :height 160 :weight 'regular)
+  (set-face-attribute 'default nil :font "Fira Code Retina" :height 160)
+  ;; Set the fixed pitch face
+  (set-face-attribute 'fixed-pitch nil :font "Fira Code Retina" :height 170)
+  ;; Set the variable pitch face
+  (set-face-attribute 'variable-pitch nil :font "Cantarell" :height 160 :weight 'regular)
 #+end_src
 *** Org Mode Fonts
 #+begin_src emacs-lisp
@@ -550,7 +611,7 @@ Tangle the emacs config into init.el
 
 #+end_src
 * Development
-** Commenting
+** Comments
 #+begin_src emacs-lisp
 (defun comment-or-uncomment-region-or-line ()
     "Comments or uncomments the region or the current line if there's no active region."
@@ -561,6 +622,11 @@ Tangle the emacs config into init.el
             (setq beg (line-beginning-position) end (line-end-position)))
         (comment-or-uncomment-region beg end)
         ))
+#+end_src
+** Code folding
+#+begin_src emacs-lisp
+(use-package origami
+  :hook (yaml-mode . origami-mode))
 #+end_src
 ** Ivy
 #+begin_src emacs-lisp
@@ -592,7 +658,8 @@ Tangle the emacs config into init.el
   (defun efs/lsp-mode-setup ()
     (setq lsp-headerline-breadcrumb-segments '(path-up-to-project file symbols))
     (lsp-headerline-breadcrumb-mode))
-  #+end_src
+#+end_src
+
 #+begin_src emacs-lisp
   (use-package lsp-mode
   :commands (lsp lsp-deferred)
@@ -651,13 +718,12 @@ Integrates lsp with ivy
     :hook (python-mode . lsp-deferred)
     :custom
     ;; NOTE: Set these if Python 3 is called "python3" on your system!
-    (python-shell-interpreter "python3")
-    (dap-python-executable "python3")
     (dap-python-debugger 'debugpy)
     :config
     (require 'dap-python)
     )
 #+end_src
+**** Language server
 #+begin_src emacs-lisp
 (use-package lsp-pyright
   :ensure t
@@ -665,4 +731,5 @@ Integrates lsp with ivy
                           (require 'lsp-pyright)
                           (lsp-deferred))))  ; or lsp-deferred
 #+end_src
+
 

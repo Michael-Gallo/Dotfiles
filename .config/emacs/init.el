@@ -199,6 +199,54 @@
 
 (setq create-lockfiles nil)
 
+(setq backup-directory-alist `(("." . "~/.saves")))
+(setq backup-by-copying t)
+
+(setq vc-follow-symlinks t)
+
+(use-package dired
+  :ensure nil
+  :defer 1
+  :commands (dired dired-jump)
+  :config
+  (setq dired-listing-switches "-agho --group-directories-first"
+        dired-omit-files "^\\.[^.].*"
+        dired-omit-verbose nil
+        dired-hide-details-hide-symlink-targets nil
+        delete-by-moving-to-trash t)
+
+  (autoload 'dired-omit-mode "dired-x")
+
+  (add-hook 'dired-load-hook
+            (lambda ()
+              (interactive)
+              (dired-collapse)))
+
+  (add-hook 'dired-mode-hook
+            (lambda ()
+              (interactive)
+              (dired-omit-mode 1)
+              (dired-hide-details-mode 1)
+              (hl-line-mode 1)
+              (all-the-icons-dired-mode 1)
+              ))
+(use-package dired-single
+  :defer t)
+
+(use-package dired-ranger
+  :defer t)
+
+(use-package dired-collapse
+  :defer t)
+
+(evil-collection-define-key 'normal 'dired-mode-map
+  "h" 'dired-single-up-directory
+  "H" 'dired-omit-mode
+  "l" 'dired-single-buffer
+  "y" 'dired-ranger-copy
+  "X" 'dired-ranger-move
+  "p" 'dired-ranger-paste))
+
 (setq inhibit-startup-message t)
 
 (use-package doom-themes
@@ -215,14 +263,13 @@
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
 (tooltip-mode -1)
-(set-fringe-mode 10)
+(set-fringe-mode 10) ; Adds borders
 (menu-bar-mode -1)
 
 ; disable transparency 
 (set-frame-parameter (selected-frame) 'alpha '(100 . 100))
 (add-to-list 'default-frame-alist '(alpha . (100 . 100)))
 
-(column-number-mode)
 (global-display-line-numbers-mode t)
 (setq display-line-numbers-mode 'relative)
 (setq display-line-numbers-type 'relative)
@@ -235,9 +282,11 @@
               )
               (add-hook mode (lambda () (display-line-numbers-mode 0))))
 
-(set-face-attribute 'default nil :font "Fira Code Retina" :height 185)
+(column-number-mode)
+
+(set-face-attribute 'default nil :font "Fira Code Retina" :height 160)
 ;; Set the fixed pitch face
-(set-face-attribute 'fixed-pitch nil :font "Fira Code Retina" :height 160)
+(set-face-attribute 'fixed-pitch nil :font "Fira Code Retina" :height 170)
 ;; Set the variable pitch face
 (set-face-attribute 'variable-pitch nil :font "Cantarell" :height 160 :weight 'regular)
 
@@ -460,6 +509,9 @@
         (comment-or-uncomment-region beg end)
         ))
 
+(use-package origami
+  :hook (yaml-mode . origami-mode))
+
 (use-package ivy
   :diminish
   :bind (("C-s" . swiper)
@@ -528,8 +580,6 @@
   :hook (python-mode . lsp-deferred)
   :custom
   ;; NOTE: Set these if Python 3 is called "python3" on your system!
-  (python-shell-interpreter "python3")
-  (dap-python-executable "python3")
   (dap-python-debugger 'debugpy)
   :config
   (require 'dap-python)
