@@ -21,7 +21,7 @@ super + e
         $TERMINAL -e ranger
 
 super + r
-        dmenu_run -i
+        dmenu_run -i -h 22
 
 super + Return
         $TERMINAL
@@ -58,7 +58,7 @@ Print
 
 #shift for selection to screenshot folder, ccontrol for window  to screenshots folder
 Print + {shift,ctrl}
-        maim --noopengl {-s,-i $(xdotool getactivewindow)} ~/pictures/screenshots/$(date '+%Y-%m-%d-%I:%M:%S%p').png
+        maim --noopengl {-s,-i $(xdotool getactivewindow)} $XDG_SCREENSHOTS_DIR/$(date '+%Y-%m-%d-%I:%M:%S%p').png
 
 # window to clipboard
 Print + alt
@@ -95,7 +95,7 @@ super + F12
 
 # Log out of lightdm
 super + shift + q
-        prompt.sh "Do you really want to log out" "kill $(pgrep -x dwm)"
+        prompt.sh "Do you really want to log out" "kill $(pgrep -x $DESKTOP_SESSION)"
 
 
 ################################################
