@@ -64,6 +64,12 @@ Print + {shift,ctrl}
 Print + alt
         maim --noopengl -i $(xdotool getactivewindow) |  xclip -selection clipboard -t image/png
 
+##############################################
+################### Brightness ###############
+##############################################
+
+XF86MonBrightness{Up,Down}
+        xbacklight {+,-} 10
 # window to clipboard
 ##############################################
 ################### Audio ####################
@@ -88,10 +94,10 @@ super + {Prior,Next}
 
 # Restart computer
 super + F11
-        prompt.sh "reboot computer?" "sudo reboot"
+        prompt.sh "reboot computer?"  echo $INIT_COMMAND
 # Turn off computer
 super + F12
-        prompt.sh "shutdown computer?" "sudo -A shutdown -P now"
+        prompt.sh "shutdown computer?" "shutdown -P now"
 
 # Log out of lightdm
 super + shift + q
