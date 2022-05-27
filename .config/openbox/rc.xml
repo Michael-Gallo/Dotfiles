@@ -40,7 +40,7 @@
                   'Active' - where the active window is -->
   </placement>
   <theme>
-    <name>dt-dark-theme</name>
+    <name>Onyx-Citrus</name>
     <titleLayout>NLIMC</titleLayout>
     <!--
       available characters are NDSLIMC, each can occur at most once.
@@ -174,20 +174,11 @@
     <moveButton>Middle</moveButton>
     <!-- 'Left', 'Middle', 'Right' -->
   </dock>
-
-
-
-
-
-<!-- KEYBINDS -->
-
-
-
-
-          <!-- W = Super (Windows) -->
-          <!-- S = Shift -->
-          <!-- C = control -->
-          <!-- A = Alt -->
+  <!-- KEYBINDS -->
+  <!-- W = Super (Windows) -->
+  <!-- S = Shift -->
+  <!-- C = control -->
+  <!-- A = Alt -->
   <keyboard>
     <chainQuitKey>C-g</chainQuitKey>
     <!-- Keybindings for desktop switching -->
@@ -341,14 +332,7 @@
       <action name="ToggleMaximize"/>
     </keybind>
   </keyboard>
-
-
-          
-<!-- END OF KEYBINDS -->
-
-
-
-
+  <!-- END OF KEYBINDS -->
   <mouse>
     <dragThreshold>1</dragThreshold>
     <!-- number of pixels the mouse must move before a drag begins -->
@@ -440,6 +424,7 @@
           </then>
         </action>
       </mousebind>
+      <mousebind button="Left" action="DoubleClick"/>
     </context>
     <context name="Titlebar Top Right Bottom Left TLCorner TRCorner BRCorner BLCorner">
       <mousebind button="Left" action="Press">
