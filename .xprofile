@@ -6,7 +6,7 @@ if [ -f ~/.zshenv  ]; then
 fi
 
 # sets the caps lock key to also be an escape key, settings for keychron
-setxkbmap -rules "evdev" -model "pc105+inet" -layout "us" -option "caps:swapescape"
+# setxkbmap -rules "evdev" -model "pc105+inet" -layout "us" -option "caps:swapescape"
 $HOME/.bin/startup.sh
 $HOME/.bin/autoscroll_enabled.sh
 export QT_STYLE_OVERRIDE=kvantum
