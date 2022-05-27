@@ -2,7 +2,7 @@
 
 MINING_POOL="us1.ethermine.org"
 PORT="4444"
-CONFIG="A384"
+CONFIG="A376"
 # Needs $ETH_ADDRESS variable to be set 
 
 sudo amdgpu-clocks
