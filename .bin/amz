@@ -1,9 +1,0 @@
-#!/bin/bash
-
-# shell script to use searx from the command line
-query=$1
-for term in "${@:2}" ; do
-        query="$query+$term"
-done
-
-nohup 2>/dev/null firefox "https://www.amazon.com/s?k=$query"
