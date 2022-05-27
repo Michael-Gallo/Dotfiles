@@ -1,5 +1,5 @@
 *.font:     mononoki Nerd Font:pixelsize=16:antialias=true:autohint=true,JoyPixels:pixelsize=16:antialias=true:autohint=true
-! *.font:     Font Awesome 5 Brands Regular:pixelsize=16:antialias=true:autohint=true;
+! *.font:     Font Awesome 6 Brands Regular:pixelsize=24:antialias=true:autohint=true;
 *.alpha: 1
 ! Dracula Xresources palette
 *.foreground: #F8F8F2
