@@ -10,16 +10,23 @@ set runtimepath=$XDG_CONFIG_HOME/vim,$VIMRUNTIME,$XDG_CONFIG_HOME/vim/after
 """"""""""""""""""""General Vim Variables""""""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set number relativenumber
-set clipboard=unnamedplus     " sets the default yank buffer to the clipboard
-set nocompatible              " be iMproved, required
-set termguicolors             " needed for color schemes to change background colors
-set noshowmode                " Doesn't need to show I'm in insert mode if lightline already does so
-set hidden
-set pumheight=15			  " Set pop up menu height
-set tabstop=4 expandtab       " Make tab use 4 spaces instead
-set smartindent autoindent smarttab
 set autochdir				  " Working directory will always be set properly
+set clipboard=unnamedplus     " sets the default yank buffer to the clipboard
+set colorcolumn=80            
+set exrc                      " If there is a project level vimrc, use it
+set hidden
+set nocompatible              " be iMproved, required
+set nohlsearch                " Highlighting turns off after search is completed
+set noshowmode                " Doesn't need to show I'm in insert mode if lightline already does so
+set noswapfile
+set nobackup
+set nowrap                    " Turns off wrapping
+set number relativenumber
+set pumheight=15			  " Set pop up menu height
+set scrolloff=10              " Make cursor stay near the center
+set smartindent autoindent smarttab
+set tabstop=4 expandtab       " Make tab use 4 spaces instead
+set termguicolors             " needed for color schemes to change background colors
 set wildmode=longest,list,full " better autocompletion
 setlocal splitbelow splitright  " Splits open at bottom and right
 au BufEnter * set fo-=c fo-=r fo-=o " Got rid of cancer autocomments
@@ -96,6 +103,8 @@ call vundle#begin()
      Plugin 'nvie/vim-flake8'
      Plugin 'vifm/vifm.vim'
      Plugin 'neoclide/coc.nvim'
+     Plugin 'nvim-lua/plenary.nvim'
+     Plugin 'nvim-telescope/telescope.nvim'
     " Plugin 'Valloric/YouCompleteMe'
     " " Plugin 'rdnetto/YCM-Generator'
 filetype plugin indent on    " required
