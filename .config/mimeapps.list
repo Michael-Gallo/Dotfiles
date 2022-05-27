@@ -21,6 +21,9 @@ x-scheme-handler/postman=Postman.desktop
 image/jpg=feh.desktop
 image/jpeg=feh.desktop
 image/png=feh.desktop
+x-scheme-handler/sidequest=SideQuest.desktop
+x-scheme-handler/lbry=lbry.desktop
+application/ppdf=zathura.desktop
 
 [Added Associations]
 application/pdf=org.pwmt.zathura-pdf-mupdf.desktop;acroread.desktop;
@@ -35,3 +38,4 @@ application/x-extension-shtml=userapp-Waterfox-WKIQ60.desktop;userapp-Waterfox-5
 application/xhtml+xml=userapp-Waterfox-WKIQ60.desktop;userapp-Waterfox-55TFD1.desktop;
 application/x-extension-xhtml=userapp-Waterfox-WKIQ60.desktop;userapp-Waterfox-55TFD1.desktop;
 application/x-extension-xht=userapp-Waterfox-WKIQ60.desktop;userapp-Waterfox-55TFD1.desktop;
+application/vnd.adobe.adept+xml=calibre-gui.desktop;
