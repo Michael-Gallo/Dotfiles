@@ -20,6 +20,10 @@ super + alt + b
 super + e
         $TERMINAL -e ranger
 
+super + shift + e
+        $FILE_MANAGER
+
+
 super + r
         dmenu_run -i -h 22
 
