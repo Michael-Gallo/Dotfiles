@@ -733,3 +733,15 @@ Integrates lsp with ivy
 #+end_src
 
 
+**** Pyenv mode
+#+begin_src emacs-lisp
+
+  (use-package pyenv-mode
+    :init
+    (add-to-list 'exec-path "~/.pyenv/shims")
+    (setenv "WORKON_HOME" "~/.pyenv/versions/")
+    :config
+    (pyenv-mode 1)
+    :bind
+    ("C-x p e" . pyenv-activate-current-project))
+#+end_src

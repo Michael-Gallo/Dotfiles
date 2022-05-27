@@ -263,7 +263,7 @@
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
 (tooltip-mode -1)
-(set-fringe-mode 10) ; Adds borders
+(set-fringe-mode 10)
 (menu-bar-mode -1)
 
 ; disable transparency 
@@ -590,3 +590,13 @@
   :hook (python-mode . (lambda ()
                           (require 'lsp-pyright)
                           (lsp-deferred))))  ; or lsp-deferred
+
+(use-package pyenv-mode
+  :init
+  (add-to-list 'exec-path "~/.pyenv/shims")
+  (setenv "WORKON_HOME" "~/.pyenv/versions/")
+  :config
+  (pyenv-mode 1)
+  :bind
+  ("C-x p e" . pyenv-activate-current-project))
+(put 'dired-find-alternate-file 'disabled nil)
