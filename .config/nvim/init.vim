@@ -4,7 +4,7 @@ set directory=$XDG_DATA_HOME/vim/swap
 set backupdir=$XDG_DATA_HOME/vim/backup
 set viewdir=$XDG_DATA_HOME/vim/view
 set viminfo+='1000,n$XDG_DATA_HOME/vim/viminfo
-set runtimepath=$XDG_CONFIG_HOME/vim,$VIMRUNTIME,$XDG_CONFIG_HOME/vim/after
+#set runtimepath=$XDG_CONFIG_HOME/vim,$VIMRUNTIME,$XDG_CONFIG_HOME/vim/after
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""General Vim Variables""""""""""""""""""""""""
@@ -30,7 +30,6 @@ set termguicolors             " needed for color schemes to change background co
 set wildmode=longest,list,full " better autocompletion
 setlocal splitbelow splitright  " Splits open at bottom and right
 au BufEnter * set fo-=c fo-=r fo-=o " Got rid of cancer autocomments
-filetype off                  " required for vundle
 " Folding
 set foldmethod=syntax
 set foldnestmax=10
@@ -78,37 +77,33 @@ augroup MyColors
     autocmd ColorScheme dracula call DraculaCustomize()
 augroup END
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-	"let Vundle manage Vundle, required
-    Plugin 'VundleVim/Vundle.vim'
-     Plugin 'tpope/vim-surround' " vim-surround needs to plugged before nerdcommenter to prevent key bind errors
-	 Plugin 'preservim/nerdcommenter'
-     Plugin 'frazrepo/vim-rainbow'
-     Plugin 'itchyny/lightline.vim'
-     Plugin 'ap/vim-css-color'
-     Plugin 'francoiscabrol/ranger.vim'
-     Plugin 'vim-python/python-syntax'
-     Plugin 'junegunn/goyo.vim'
-     Plugin 'tpope/vim-eunuch'
-     Plugin 'junegunn/fzf.vim'
-     Plugin 'junegunn/fzf'
-     Plugin 'liuchengxu/vim-which-key'
-     Plugin 'arcticicestudio/nord-vim'
-     Plugin 'dracula/vim'
-     Plugin 'unblevable/quick-scope'
-     Plugin 'tbastos/vim-lua'
-     Plugin 'baskerville/vim-sxhkdrc'
-     Plugin 'nvie/vim-flake8'
-     Plugin 'vifm/vifm.vim'
-     Plugin 'neoclide/coc.nvim'
-     Plugin 'nvim-lua/plenary.nvim'
-     Plugin 'nvim-telescope/telescope.nvim'
+call plug#begin()
+     Plug 'tpope/vim-surround' " vim-surround needs to plugged before nerdcommenter to prevent key bind errors
+	 Plug 'preservim/nerdcommenter'
+     Plug 'frazrepo/vim-rainbow'
+     Plug 'itchyny/lightline.vim'
+     Plug 'ap/vim-css-color'
+     Plug 'francoiscabrol/ranger.vim'
+     Plug 'vim-python/python-syntax'
+     Plug 'junegunn/goyo.vim'
+     Plug 'tpope/vim-eunuch'
+     Plug 'junegunn/fzf.vim'
+     Plug 'junegunn/fzf'
+     Plug 'liuchengxu/vim-which-key'
+     Plug 'arcticicestudio/nord-vim'
+     Plug 'dracula/vim'
+     Plug 'unblevable/quick-scope'
+     Plug 'tbastos/vim-lua'
+     Plug 'baskerville/vim-sxhkdrc'
+     Plug 'nvie/vim-flake8'
+     Plug 'vifm/vifm.vim'
+     " Plug 'neoclide/coc.nvim'
+     Plug 'nvim-lua/plenary.nvim'
+     Plug 'nvim-telescope/telescope.nvim'
     " Plugin 'Valloric/YouCompleteMe'
-    " " Plugin 'rdnetto/YCM-Generator'
-filetype plugin indent on    " required
-call vundle#end()
+    " Plugin 'rdnetto/YCM-Generator'
+" filetype plugin indent on    " required
+call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 """"""""""""""""""""""""""Plugin Settings"""""""""""""""""""""""""
@@ -205,14 +200,3 @@ let g:qs_max_chars=150
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""
 let g:ycm_global_ycm_extra_conf = '$HOME/.config/nvim/ycm_c_conf.py'
-" inoremap <silent><expr> <TAB>
-      " \ pumvisible() ? "\<C-n>" :
-      " \ <SID>check_back_space() ? "\<TAB>" :
-      " \ coc#refresh()
-" inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-
-" function! s:check_back_space() abort
-  " let col = col('.') - 1
-  " return !col || getline('.')[col - 1]  =~# '\s'
-" endfunction
-" let g:ycm_clangd_binary_path = "/bin/clangd"
