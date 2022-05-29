@@ -99,6 +99,7 @@ call plug#begin()
      " Plug 'neoclide/coc.nvim'
      Plug 'nvim-lua/plenary.nvim'
      Plug 'nvim-telescope/telescope.nvim'
+     Plug 'nvim-treesitter/nvim-treesitter', {'do': 'TSUpdate'}
     " Plugin 'Valloric/YouCompleteMe'
     " Plugin 'rdnetto/YCM-Generator'
 " filetype plugin indent on    " required
@@ -186,6 +187,15 @@ let g:which_key_map.w = { 'name' : '+Window' ,
                         \'k': ['<C-W>k', 'Move Cursor Up'],
                         \'l': ['<C-W>l', 'Move Cursor Right'],
                         \}
+
+let g:which_key_map.t = { 'name' : '+Telescope',
+                        \'s': [':Telescope live_grep', 'Search for String'],
+                        \'f': [':Telescope find_files', 'Search for File'],
+                        \'r': [':Telescope registers', 'Search through registers'],
+                        \'b': [':Telescope buffers', 'Search through buffers'],
+                        \'g': [':Telescope git_files', 'Search through git files'],
+                        \'h': [':Telescope oldfiles', 'Search through file history'],
+                        \ }
 " Make it so the map is actually assigned to the leader key
 call which_key#register(' ', "g:which_key_map")
 nnoremap <silent> <leader>      :<c-u>WhichKey '<Space>'<CR>
