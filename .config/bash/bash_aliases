@@ -14,7 +14,7 @@ alias vim=nvim
 alias svim='sudoedit'
 alias df='df -h'
 alias mkdir="mkdir -pv"
-command -v exa >/dev/null && alias ls="exa -al --color=always --group-directories-first --git"
+command -v exa >/dev/null && alias ls="exa -a --color=always --group-directories-first --git --icons"
 alias lo=libreoffice
 alias pm=pcmanfm
 alias sdn="shutdown now"
