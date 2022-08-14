@@ -1,1 +1,0 @@
-Files in this folder are backup files that I want when I pull my dotfiles but that do not belong in the ~ directory, all files here have their expected locations as comments and will likely need edits on new installs but are still more useful than starting with fresh files

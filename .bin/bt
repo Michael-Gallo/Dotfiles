@@ -1,9 +1,0 @@
-#!/bin/sh
-
-bluetoothctl -- agent on
-bluetoothctl -- default-agent
-bluetoothctl -- power on
-bluetoothctl -- discoverable on
-bluetoothctl -- pairable on
-bluetoothctl -- scan on
-
