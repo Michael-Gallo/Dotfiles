@@ -19,6 +19,7 @@ case $DESKTOP_SESSION in
         unclutter &
         systemctl --user start xdg-desktop-portal &
         dunst &
+        deluged &
         ;;
 
         "openbox")
