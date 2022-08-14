@@ -1,0 +1,3 @@
+#!/bin/sh
+apt-get install -y autojump zsh neovim
+chsh --shell /bin/zsh
