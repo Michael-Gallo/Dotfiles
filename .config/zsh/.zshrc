@@ -105,7 +105,5 @@ ZSH_AUTOSUGGEST_HISTORY_IGNORE="kill*"
 bindkey '^K' autosuggest-accept
 # doubletap escape for sudo
 
-eval "$(pyenv init -)"
 # make aliases work with sudo
 alias sudo='sudo '
-alias orphans='sudo pacman -R $(pacman -Qdtq)'
