@@ -1,8 +1,8 @@
 ### Set variables
 #################
 HISTFILE=$HOME/.config/zsh/.zhistory
-HISTSIZE=1000
-SAVEHIST=1000
+HISTSIZE=1000000
+SAVEHIST=1000000
 HOSTNAME=$HOSTNAME
 
 # autoload -U colors && colors	# Load colors
