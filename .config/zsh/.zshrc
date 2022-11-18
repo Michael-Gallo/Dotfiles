@@ -2,7 +2,7 @@
 #################
 HISTFILE=$HOME/.config/zsh/.zhistory
 HISTSIZE=1000000
-SAVEHIST=1000000
+SAVEHIST=$HISTSIZE
 HOSTNAME=$HOSTNAME
 
 # autoload -U colors && colors	# Load colors
