@@ -38,7 +38,7 @@ unalias gd  2>/dev/null
 se() {
         bad_dirs="chromium bravesoftware cache discord libreoffice skype lutris .git .log mattermost mangagamer smplayer wayofthepassivefist pcsx2 indexeddb unity3d mono.addins rocket.chat virtualbox"
         vals=(${bad_dirs// /\|})
-        rg --files $HOME/.config/* $HOME/.bin/* | grep -E -vi $vals| fzf --layout=reverse | xargs -r $EDITOR ;
+        rg --files --hidden $HOME/.config $HOME/.bin | grep -E -vi $vals| fzf --layout=reverse | xargs -r $EDITOR ;
 }
 
 yc() {
