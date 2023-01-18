@@ -47,9 +47,6 @@ yc() {
 yd() {
         yadm status| grep modified:| awk '{print $2}' |fzf |xargs yadm --no-pager diff 
         }
-gc() {
-        [ -z $1 ] &&  git status | grep modified:| awk '{print $2}' |fzf | xargs yadm commit ||yadm commit $@  
-        }
 gd() {
         git status| grep modified:| awk '{print $2}' |fzf |xargs git diff 
         }
