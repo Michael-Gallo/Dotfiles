@@ -4,10 +4,10 @@ export ZDOTDIR=$HOME/.config/zsh
 export TERMCMD=xterm
 export PATH="$HOME/.bin/statusbar:$HOME/.local/bin:$HOME/.cargo/bin:$HOME/.bin:$HOME/local/bin:/var/lib/flatpak/exports/bin:$PATH:$HOME/Apps"
 export EDITOR=nvim
-export BROWSER=waterfox-g4
+export BROWSER=firefox
 export FILE_MANAGER=pcmanfm
 export CALCULATOR=galculator
-export BUS_BROWSER=chromium
+export BUS_BROWSER=brave
 export CDPATH=~/.shortcut_dirs
 [ -x "$(command -v st)" ] && export TERMINAL="st"
 
@@ -41,8 +41,8 @@ source $HOME/.config/bemenu/bemenu_conf
 
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
-# eval "$(pyenv init --path)"
-# eval "$(pyenv init -)"
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
 
 # RADV = mesa, AMDVLK = amd vulkan 
 export AMD_VULKAN_ICD=RADV
@@ -50,7 +50,7 @@ export AMD_VULKAN_ICD=RADV
 # function native_python(){
         # export PATH="/usr/bin:$PATH"
 # }
-export JAVA_HOME=/usr/lib/jvm/java-16-openjdk
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk
 alias psp=PPSSPPSDL
 # export $(dbus-launch)
 
