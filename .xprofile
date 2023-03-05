@@ -2,7 +2,7 @@
 #xset r rate 300 50 
 # uses whatever environmental variables are set in bash_env
 if [ -f ~/.zshenv  ]; then
-        ~/.zshenv
+        source ~/.zshenv
 fi
 
 # sets the caps lock key to also be an escape key, settings for keychron
