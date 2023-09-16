@@ -2,14 +2,12 @@
 # Environmental variables for zsh
 export ZDOTDIR=$HOME/.config/zsh
 export TERMCMD=xterm
-export PATH="$HOME/.bin/statusbar:$HOME/.local/bin:$HOME/.cargo/bin:$HOME/.bin:$HOME/local/bin:/var/lib/flatpak/exports/bin:$PATH:$HOME/Apps"
+export PATH="$HOME/.bin/statusbar:$HOME/.local/bin:$HOME/.cargo/bin:$HOME/.bin:$HOME/local/bin:/var/lib/flatpak/exports/bin:$PATH:$HOME/Apps:/opt/android-sdk/platform-tools"
 export EDITOR=nvim
 export BROWSER=firefox
 export FILE_MANAGER=pcmanfm
 export CALCULATOR=galculator
-export BUS_BROWSER=brave
 export CDPATH=~/.shortcut_dirs
-[ -x "$(command -v st)" ] && export TERMINAL="st"
 
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/local/share"
@@ -20,6 +18,28 @@ export XDG_PICTURES_DIR="$HOME/Pictures"
 export XDG_SCREENSHOTS_DIR="$HOME/Pictures/screenshots"
 export VIMINIT='source $XDG_CONFIG_HOME/nvim/init.vim'
 source $HOME/.cache/bwsession
+
+
+# Display protocol specific env vars
+
+case $XDG_SESSION_TYPE in
+        "wayland")
+                export TERMINAL="foot"
+                export RUN_LAUNCHER="bemenu-run"
+                export MENU="bemenu"
+                export BUS_BROWSER="brave --ozone-platform=wayland"
+                
+        ;;
+        "xorg")
+                [ -x "$(command -v st)" ] && export TERMINAL="st"
+                export RUN_LAUNCHER="dmenu_run"
+                export BUS_BROWSER="brave"
+                export MENU="dmenu"
+
+        ;;
+esac
+
+
 
 
 # make fzf not follow symbolic links
@@ -57,3 +77,4 @@ alias psp=PPSSPPSDL
 export GTK_MODULES=canberra-gtk-module
 export GTK3_MODULES=xapp-gtk3-module
 export ZDOTDIR=$HOME/.config/zsh
+source "/home/mike/.rover/env"
