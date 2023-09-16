@@ -28,6 +28,7 @@ case $XDG_SESSION_TYPE in
                 export RUN_LAUNCHER="bemenu-run"
                 export MENU="bemenu"
                 export BUS_BROWSER="brave --ozone-platform=wayland"
+                export MOZ_ENABLE_WAYLAND=1
                 
         ;;
         "xorg")
