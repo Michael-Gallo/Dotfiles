@@ -1,0 +1,6 @@
+#!/bin/sh
+if [ -f $HOME/.zshenv  ]; then
+    source $HOME/.zshenv
+fi
+export MOZ_ENABLE_WAYLAND=1
+dwl -s $HOME/.bin/startup.sh

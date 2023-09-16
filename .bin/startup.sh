@@ -7,10 +7,14 @@ case $XDG_SESSION_TYPE in
         "xorg")
                 unclutter --idle 2.5 &
                 autoscroll-enabled &
+                discord &
+        ;;
+        "wayland")
+                discord --ozone-platform=wayland &
+        ;;
 esac
 
 case $DESKTOP_SESSION in
-
         "dwm")
         sxhkd &
         picom &
@@ -39,5 +43,3 @@ case $DESKTOP_SESSION in
         ;;
 esac
 
-discord &
-emacs --daemon &

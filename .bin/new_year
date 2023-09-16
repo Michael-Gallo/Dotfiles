@@ -1,0 +1,4 @@
+#!/bin/sh
+year=$1
+
+mkdir -p $1/charitable_donations $1/healthcare_expenses $1/tax_forms
