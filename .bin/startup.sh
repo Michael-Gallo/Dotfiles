@@ -10,6 +10,7 @@ case $XDG_SESSION_TYPE in
                 discord &
         ;;
         "wayland")
+                foot --server &
                 discord --ozone-platform=wayland &
         ;;
 esac
@@ -37,9 +38,11 @@ case $DESKTOP_SESSION in
 
         "dwl")
         swaybg -i $XDG_PICTURES_DIR/wallpapers/wallpaper &
+        swhks & # swhkd server
         somebar &
         someblocks&
         dunst &
+        pkexec swhkd -c /home/mike/.config/swhkd/swhkdrc
         ;;
 esac
 
