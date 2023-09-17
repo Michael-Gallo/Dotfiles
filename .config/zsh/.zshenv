@@ -32,7 +32,7 @@ case $XDG_SESSION_TYPE in
                 export WMBLOCKS="someblocks"
                 
         ;;
-        "xorg")
+        "x11")
                 [ -x "$(command -v st)" ] && export TERMINAL="st"
                 export RUN_LAUNCHER="dmenu_run"
                 export BUS_BROWSER="brave"
