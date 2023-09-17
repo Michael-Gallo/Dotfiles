@@ -1,0 +1,141 @@
+# sxhkdrc
+# Requirements:
+# $BROWSER , $BUS_BROWSER and $TERMINAL environmental variables set
+# maim (screenshots)
+# dmenu
+# ranger
+# prompt.sh dmenu script
+
+##############################################
+################# Launchers ##################
+##############################################
+
+super + b
+        $BROWSER 
+
+super + shift + b
+        $BROWSER --private-window
+
+
+super + alt + b
+        $BUS_BROWSER 
+super + e
+        $TERMINAL -e ranger
+
+super + shift + e
+        $FILE_MANAGER
+
+
+super + r
+        $RUN_LAUNCHER #-i -h 22
+
+super + Return
+        $TERMINAL
+
+super + g
+        lutris
+
+super + n
+        joplin
+
+super+v
+        $CALCULATOR
+
+super + shift + p
+        $HOME/.bin/otp-menu
+
+super + p
+        passmenu
+
+super + i
+        emacsclient -c
+
+        
+##############################################
+################ Screenshots #################
+##############################################
+
+# # selection to clipboard
+# super + shift + Print
+        # maim --noopengl -s |  xclip -selection clipboard -t image/png
+# # selection to clipboard
+Print
+        grimshot copy area
+
+# #shift for selection to screenshot folder, ccontrol for window  to screenshots folder
+# Print + {shift,ctrl}
+        # grimshot save {area,window}
+        # maim --noopengl {-s,-i $(xdotool getactivewindow)} $XDG_SCREENSHOTS_DIR/$(date '+%Y-%m-%d-%I:%M:%S%p').png
+
+{shift , ctrl} +Print 
+        grimshot save {area,window}
+
+
+# # window to clipboard
+alt + Print
+        grimshot copy window
+
+# ##############################################
+# ################### Brightness ###############
+# ##############################################
+
+# XF86MonBrightness{Up,Down}
+        # xbacklight {+,-} 10
+# # window to clipboard
+# ##############################################
+# ################### Audio ####################
+# ##############################################
+
+# {_,shift + } XF86Audio{Raise,Lower}Volume
+        # pulsemixer --change-volume {+10,+25,-10,-25}; pkill -RTMIN+10 dwmblocks
+
+
+# xf86audiomute
+        # pulsemixer --toggle-mute& pkill -RTMIN+10 $WMBLOCKS
+
+
+shift + super + l
+        pulsemixer --toggle-mute& pkill -RTMIN+10 $WMBLOCKS
+
+
+
+super + next
+        pulsemixer --change-volume +10; pkill -RTMIN+10 $WMBLOCKS
+
+super + prior
+        pulsemixer --change-volume -10; pkill -RTMIN+10 $WMBLOCKS
+# ##############################################
+# ########### Power/session commands ###########
+# ##############################################
+
+# # Restart computer
+super + F11
+        prompt.sh "reboot computer?"  reboot
+# # Turn off computer
+super + F12
+        prompt.sh "shutdown computer?" "shutdown -P now"
+
+# # Log out of lightdm
+# super + shift + q
+        # prompt.sh "Do you really want to log out" "kill $(pgrep -x $DESKTOP_SESSION)"
+
+
+# ################################################
+# ########### Type out Email Addresses ###########
+# ################################################
+
+# # Type out emails
+# alt + {_,shift,ctrl} + e
+        # xdotool sleep 0.1 type --delay 1 $(echo {$PERSONAL_EMAIL,$ONLINE_EMAIL,$BUS_EMAIL})
+
+
+# ################################################
+# ################### REBINDS ####################
+# ################################################
+
+# ctrl + m
+        # xdotool sleep 0.1 key 'Menu'
+
+# # Alt + plus or - is numpad plus_0
+# alt + {plus, minus}
+        # xdotool keyup equal keyup minus key --clearmodifiers {KP_Add,KP_Subtract}
