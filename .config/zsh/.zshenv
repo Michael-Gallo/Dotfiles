@@ -29,6 +29,7 @@ case $XDG_SESSION_TYPE in
                 export MENU="bemenu"
                 export BUS_BROWSER="brave --ozone-platform=wayland"
                 export MOZ_ENABLE_WAYLAND=1
+                export WMBLOCKS="someblocks"
                 
         ;;
         "xorg")
@@ -36,6 +37,7 @@ case $XDG_SESSION_TYPE in
                 export RUN_LAUNCHER="dmenu_run"
                 export BUS_BROWSER="brave"
                 export MENU="dmenu"
+                export WMBLOCKS="dwmblocks"
 
         ;;
 esac
