@@ -3,6 +3,8 @@
 export ZDOTDIR=$HOME/.config/zsh
 export TERMCMD=xterm
 export PATH="$HOME/.bin/statusbar:$HOME/.local/bin:$HOME/.cargo/bin:$HOME/.bin:$HOME/local/bin:/var/lib/flatpak/exports/bin:$PATH:$HOME/Apps:/opt/android-sdk/platform-tools"
+# Golang
+export PATH="$PATH:/usr/local/go/bin"
 export EDITOR=nvim
 export BROWSER=firefox
 export FILE_MANAGER=pcmanfm
@@ -27,9 +29,10 @@ case $XDG_SESSION_TYPE in
                 export TERMINAL="foot"
                 export RUN_LAUNCHER="bemenu-run"
                 export MENU="bemenu"
-                export BUS_BROWSER="brave --ozone-platform=wayland"
+                export BUS_BROWSER="brave"
                 export MOZ_ENABLE_WAYLAND=1
                 export WMBLOCKS="someblocks"
+                export GDK_BACKEND="wayland"
                 
         ;;
         "x11")
