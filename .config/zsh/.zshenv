@@ -22,6 +22,7 @@ export VIMINIT='source $XDG_CONFIG_HOME/nvim/init.vim'
 source $HOME/.cache/bwsession
 
 
+export GTK_THEME="Adwaita:dark"
 # Display protocol specific env vars
 
 case $XDG_SESSION_TYPE in
