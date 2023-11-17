@@ -37,18 +37,19 @@ setopt auto_cd
 
 
 
-# install ZSH plugins
-zsh_plugins=${ZDOTDIR:-~}/.zsh_plugins.zsh
-[[ -f ${zsh_plugins:r}.txt ]] || touch ${zsh_plugins:r}.txt
 # Lazy-load antidote.
-fpath+=(${ZDOTDIR:-~}/.antidote)
-autoload -Uz $fpath[-1]/antidote
+# antidotePath=/usr/share/zsh-antidote
+
+zsh_plugins=${ZDOTDIR:-~}/zsh_plugins
 # Generate static file in a subshell when .zsh_plugins.txt is updated.
-if [[ ! $zsh_plugins -nt ${zsh_plugins:r}.txt ]]; then
-  (antidote bundle <${zsh_plugins:r}.txt >|$zsh_plugins)
+if [[ ! ${zsh_plugins}.zsh -nt ${zsh_plugins}.txt ]]; then
+        (
+    source /usr/share/zsh-antidote/functions/antidote
+    antidote bundle <${zsh_plugins}.txt >${zsh_plugins}.zsh
+)
 fi
 # Source static plugins file.
-source $zsh_plugins
+source $zsh_plugins.zsh
 
 ###### User configuration #####
 
