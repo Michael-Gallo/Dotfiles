@@ -1,8 +1,5 @@
 #!/bin/sh
 
-
-
-
 case $XDG_SESSION_TYPE in
         "xorg")
                 unclutter --idle 2.5 &
@@ -37,12 +34,10 @@ case $DESKTOP_SESSION in
 
 
         "dwl")
-        swaybg -i $XDG_PICTURES_DIR/wallpapers/wallpaper &
-        swhks & # swhkd server
-        somebar &
-        someblocks&
         dunst &
-        pkexec swhkd -c /home/mike/.config/swhkd/swhkdrc
+        swaybg -i $XDG_PICTURES_DIR/wallpapers/wallpaper & 
+        somebar &
+        someblocks
         ;;
 esac
 
