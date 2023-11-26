@@ -16,15 +16,20 @@
     // Modules configuration
      "hyprland/workspaces": {
          "disable-scroll": true,
-         "all-outputs": true,
+         "all-outputs": false,
          "warp-on-scroll": false,
-         "format": "{name}: {icon}",
+         "format": "{icon}",
          "format-icons": {
-             "1": "",
-             "2": "",
-             "3": "",
-             "4": "",
-             "5": "",
+             "1": "1: ",
+             "2": "2: ",
+             "3": "3: ",
+             "4": "4: ",
+             "5": "5: ",
+             "6": "1: ",
+             "7": "2: ",
+             "8": "3: ",
+             "9": "4: ",
+             "10": "5: ",
              "urgent": "",
              "focused": "",
              "default": ""
@@ -166,7 +171,10 @@
         },
         "escape": true,
         "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
+
+
         // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
     }
+
 }
 
