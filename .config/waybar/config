@@ -36,7 +36,7 @@
          }
      },
     "keyboard-state": {
-        "numlock": true,
+        //"numlock": true,
         "capslock": true,
         "format": "{name} {icon}",
         "format-icons": {
