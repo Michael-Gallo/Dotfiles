@@ -25,6 +25,9 @@ set previewer ~/.config/lf/preview
 # Use the `dim` attribute instead of underline for the cursor in the preview pane
 set cursorpreviewfmt "\033[7;2m"
 
+
+# Binds
+map D delete
 # use enter for shell commands
 map <enter> shell
 
@@ -50,6 +53,25 @@ cmd open &{{
     esac
 }}
 
+
+cmd link %{{
+    set -- $(cat $XDG_DATA_HOME/lf/files)
+    mode="$1"
+    shift
+    if [ "$#" -lt 1 ]; then
+        lf -remote "send $id echo no files to link"
+        exit 0
+    fi
+    case "$mode" in
+        # symbolically copy mode is indicating a soft link
+        copy) ln -sr -t . -- "$@";;
+        # while a move mode is indicating a hard link
+        move) ln -t . -- "$@";;
+    esac
+    rm ~/.local/share/lf/files
+    lf -remote "send clear"
+}}
+map P :link
 # mkdir command. See wiki if you want it to select created dir
 map a :push %mkdir<space>
 
