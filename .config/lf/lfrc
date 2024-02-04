@@ -27,7 +27,7 @@ set cursorpreviewfmt "\033[7;2m"
 
 
 # Binds
-map D delete
+map D trash
 
 # Open shell with S
 map S $ $SHELL
@@ -83,7 +83,7 @@ map a :push %mkdir<space>
 # map r push :rename<space>
 
 # make sure trash folder exists
-# %mkdir -p ~/.trash
+%mkdir -p ~/.trash
 
 # move current file or selected files to trash folder
 # (also see 'man mv' for backup/overwrite options)
