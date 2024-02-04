@@ -28,6 +28,9 @@ set cursorpreviewfmt "\033[7;2m"
 
 # Binds
 map D delete
+
+# Open shell with S
+map S $ $SHELL
 # use enter for shell commands
 map <enter> shell
 
@@ -130,3 +133,6 @@ cmd zip ${{
     zip -r $1.zip $1
     rm -rf $1
 }}
+
+cmd drag ${{ dragon-drop  $f }}
+map <ctrl>d :drag
