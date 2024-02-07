@@ -135,4 +135,4 @@ cmd zip ${{
 }}
 
 cmd drag ${{ dragon-drop  $f }}
-map <ctrl>d :drag
+map <c-d> :drag
