@@ -25,9 +25,9 @@ set previewer ~/.config/lf/preview
 # Use the `dim` attribute instead of underline for the cursor in the preview pane
 set cursorpreviewfmt "\033[7;2m"
 
-
 # Binds
-map D trash
+cmd trash-put %trash-put $fx
+map D trash-put
 
 # Open shell with S
 map S $ $SHELL
@@ -41,6 +41,7 @@ map ` !true
 map x $$f
 map X !$f
 
+map c &{(wl-copy  < $f)}
 # dedicated keys for file opener actions
 map o &mimeopen $f
 map O $mimeopen --ask $f
