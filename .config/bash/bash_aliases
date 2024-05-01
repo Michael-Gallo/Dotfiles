@@ -35,6 +35,7 @@ alias goodbyelight="sudo systemctl stop lightdm"
 alias tf=terraform
 # cwd to copy current directory to clipboard
 alias cwd="pwd|xsel -ib"
+alias mirrors="rate-mirrors --allow-root --protocol https arch | sudo tee /etc/pacman.d/mirrorlist"
 unalias gc 2>/dev/null
 unalias gd  2>/dev/null
 
