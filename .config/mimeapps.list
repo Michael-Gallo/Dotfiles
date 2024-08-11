@@ -27,11 +27,13 @@ application/ppdf=zathura.desktop
 inode/directory=pcmanfm.desktop
 application/vnd.openxmlformats-officedocument.wordprocessingml.document=libreoffice-writer.desktop
 application.pdf=zathura.desktop
+scheme-handler/http=firefox.desktop
+scheme-handler/https=firefox.desktop
 
 [Added Associations]
 application/pdf=org.pwmt.zathura-pdf-mupdf.desktop;acroread.desktop;
-x-scheme-handler/http=userapp-Waterfox-WKIQ60.desktop;userapp-Waterfox-55TFD1.desktop;firefox.desktop;
-x-scheme-handler/https=userapp-Waterfox-WKIQ60.desktop;userapp-Waterfox-55TFD1.desktop;firefox.desktop;
+x-scheme-handler/http=userapp-Waterfox-WKIQ60.desktop;userapp-Waterfox-55TFD1.desktop;firefox.desktop;brave-browser.desktop;
+x-scheme-handler/https=userapp-Waterfox-WKIQ60.desktop;userapp-Waterfox-55TFD1.desktop;
 x-scheme-handler/ftp=userapp-Waterfox-WKIQ60.desktop;
 x-scheme-handler/chrome=userapp-Waterfox-WKIQ60.desktop;userapp-Waterfox-55TFD1.desktop;firefox.desktop;
 text/html=userapp-Waterfox-WKIQ60.desktop;userapp-Waterfox-55TFD1.desktop;firefox.desktop;
