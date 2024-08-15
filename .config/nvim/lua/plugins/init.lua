@@ -14,7 +14,7 @@ return {
 	  --   end
 	  --  },
 	'Mofiqul/dracula.nvim',
-	{'nvim-treesitter/nvim-treesitter', build = 'TSUpdate'},
+	{'nvim-treesitter/nvim-treesitter', build = ':TSUpdate'},
 	'theprimeagen/harpoon',
 	'mbbill/undotree',
 	'tpope/vim-fugitive',
