@@ -32,6 +32,7 @@ alias du="du -h"
 alias nmap="nmap -sn"
 alias hellolight="sudo systemctl start lightdm"
 alias goodbyelight="sudo systemctl stop lightdm"
+alias gmt="go mod tidy"
 alias tf=terraform
 # cwd to copy current directory to clipboard
 alias cwd="pwd|xsel -ib"
