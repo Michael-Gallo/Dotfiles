@@ -31,3 +31,6 @@ require("lazy").setup({
 	  checker = { enabled = true },
   })
 
+  require("lazy").update(
+    {show = false}
+  )
