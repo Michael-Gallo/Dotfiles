@@ -29,6 +29,7 @@ application/vnd.openxmlformats-officedocument.wordprocessingml.document=libreoff
 application.pdf=zathura.desktop
 scheme-handler/http=firefox.desktop
 scheme-handler/https=firefox.desktop
+x-scheme-handler/discord-455712169795780630=discord-455712169795780630.desktop
 
 [Added Associations]
 application/pdf=org.pwmt.zathura-pdf-mupdf.desktop;acroread.desktop;
@@ -44,4 +45,6 @@ application/xhtml+xml=userapp-Waterfox-WKIQ60.desktop;userapp-Waterfox-55TFD1.de
 application/x-extension-xhtml=userapp-Waterfox-WKIQ60.desktop;userapp-Waterfox-55TFD1.desktop;firefox.desktop;
 application/x-extension-xht=userapp-Waterfox-WKIQ60.desktop;userapp-Waterfox-55TFD1.desktop;firefox.desktop;
 application/vnd.adobe.adept+xml=calibre-gui.desktop;
-text/calendar=org.kde.korganizer.desktop;
+text/calendar=org.gnome.Evolution.desktop;org.kde.korganizer.desktop;
+application/x-bittorrent=transmission-gtk.desktop;
+application/octet-stream=org.gnome.Evolution.desktop;
