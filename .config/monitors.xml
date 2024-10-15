@@ -1,39 +1,40 @@
-<monitors version="1">
+<monitors version="2">
   <configuration>
-      <clone>no</clone>
-      <output name="DP-2">
+    <migrated/>
+    <logicalmonitor>
+      <x>1920</x>
+      <y>0</y>
+      <primary>yes</primary>
+      <monitor>
+        <monitorspec>
+          <connector>DP-2</connector>
           <vendor>HYC</vendor>
           <product>0x2700</product>
           <serial>0x00000000</serial>
+        </monitorspec>
+        <mode>
           <width>2560</width>
           <height>1440</height>
-          <rate>165</rate>
-          <x>1920</x>
-          <y>0</y>
-          <rotation>normal</rotation>
-          <reflect_x>no</reflect_x>
-          <reflect_y>no</reflect_y>
-          <primary>yes</primary>
-      </output>
-      <output name="DP-1">
-      </output>
-      <output name="HDMI-1">
+          <rate>165.000</rate>
+        </mode>
+      </monitor>
+    </logicalmonitor>
+    <logicalmonitor>
+      <x>0</x>
+      <y>308</y>
+      <monitor>
+        <monitorspec>
+          <connector>HDMI-1</connector>
           <vendor>BNQ</vendor>
           <product>0x78ce</product>
           <serial>0x00005445</serial>
+        </monitorspec>
+        <mode>
           <width>1920</width>
           <height>1080</height>
-          <rate>60</rate>
-          <x>0</x>
-          <y>308</y>
-          <rotation>normal</rotation>
-          <reflect_x>no</reflect_x>
-          <reflect_y>no</reflect_y>
-          <primary>no</primary>
-      </output>
-      <output name="HDMI-2">
-      </output>
-      <output name="DVI-D-1">
-      </output>
+          <rate>60.000</rate>
+        </mode>
+      </monitor>
+    </logicalmonitor>
   </configuration>
 </monitors>
