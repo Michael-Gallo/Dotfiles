@@ -83,7 +83,15 @@ ZSH_AUTOSUGGEST_HISTORY_IGNORE="kill*"
 bindkey '^K' autosuggest-accept
 # doubletap escape for sudo
 
-eval "$(pyenv init -)"
 # make aliases work with sudo
 alias sudo='sudo '
 alias orphans='sudo pacman -R $(pacman -Qdtq)'
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+
+
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init --path)"
+eval "$(pyenv init -)"
