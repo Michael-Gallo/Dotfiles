@@ -17,9 +17,9 @@ export CALENDAR=evolution
 export XDG_PICTURES_DIR="$HOME/Pictures"
 export XDG_SCREENSHOTS_DIR="$HOME/Pictures/screenshots"
 export VIMINIT='source $XDG_CONFIG_HOME/nvim/init.lua'
-export PATH="$HOME/.bin/statusbar:$HOME/.local/bin:$HOME/.cargo/bin:$HOME/.bin:$HOME/local/bin:/var/lib/flatpak/exports/bin:$PATH:$HOME/Apps:/opt/android-sdk/platform-tools"
+export PATH="$HOME/.bin/statusbar:$HOME/.local/bin:$HOME/.cargo/bin:$HOME/.bin:$HOME/local/bin:/var/lib/flatpak/exports/bin:$HOME/Apps:/opt/android-sdk/platform-tools:$PATH"
 # Golang
-export PATH="$PATH:/usr/local/go/bin"
+export PATH="/usr/local/go/bin:$HOME/go/bin:$PATH"
 
 # Python
 # Load pyenv into the shell by adding
