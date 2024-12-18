@@ -11,6 +11,7 @@ export CDPATH=~/.shortcut_dirs
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/local/share"
 export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_MUSIC_DIR="$HOME/Music"
 export XDG_DATA_DIRS="/usr/local/share:/usr/share:$HOME/.local/share:/var/lib/flatpak/exports/share:/home/mike/local/share/flatpak/exports/share"
 export XDG_CONFIG_DIRS="/etc/xdg"
 export CALENDAR=evolution
@@ -19,7 +20,8 @@ export XDG_SCREENSHOTS_DIR="$HOME/Pictures/screenshots"
 export VIMINIT='source $XDG_CONFIG_HOME/nvim/init.lua'
 export PATH="$HOME/.bin/statusbar:$HOME/.local/bin:$HOME/.cargo/bin:$HOME/.bin:$HOME/local/bin:/var/lib/flatpak/exports/bin:$HOME/Apps:/opt/android-sdk/platform-tools:$PATH"
 # Golang
-export PATH="/usr/local/go/bin:$HOME/go/bin:$PATH"
+export GOPATH="$HOME/go"
+export PATH="$HOME/go/bin:$PATH"
 
 # Python
 # Load pyenv into the shell by adding
@@ -34,9 +36,6 @@ export GEM_HOME="$(gem env user_gemhome)"
 export PATH="$PATH:$GEM_HOME/bin"
 export PATH="$XDG_DATA_HOME/gem/ruby/3.0.0/bin:$PATH"
 source $HOME/.cache/bwsession
-
-
-export GTK_THEME="Adwaita:dark"
 
 
 # Display protocol specific env vars
