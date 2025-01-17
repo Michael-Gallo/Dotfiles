@@ -21,9 +21,9 @@ fi
 
 # Cloud storage
 
-echo "Music to $target" && rclone sync --transfers 32 /mnt/storage/Music $remote/Music
-echo "Documents to $target" && rclone sync --transfers 32 /mnt/storage/Documents $remote/Documents
-echo "Pictures to $target" &&  rclone sync --transfers 32 /mnt/storage/Pictures $remote/Pictures
+echo "Music to $target" && rclone sync --skip-links --transfers 32 /mnt/storage/Music $remote/Music
+echo "Documents to $target" && rclone sync --skip-links --transfers 32 /mnt/storage/Documents $remote/Documents
+echo "Pictures to $target" &&  rclone sync --skip-links --transfers 32 /mnt/storage/Pictures $remote/Pictures
 
 
 echo "Done transfering to $target"
