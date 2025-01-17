@@ -1,16 +1,29 @@
 #!/bin/sh
+# Crontab will look something like:
+# 0 6 * * * /usr/binparallel /home/mike/.bin/backup.sh ::: cloud nas
 
-# use rclone to encrypt and backup my folders
+# Parallel's output is only sane if you use --ungroup
+# parallel --tag --ungroup b2.sh ::: cloud nas 
+
+
+cloud_remote=encrypted-mg-backup-bucket:
+local_remote=nas:backup
+target=$1
+if [[ "$target" == "cloud" ]]; then
+   remote=$cloud_remote
+elif [[ "$target" == "nas" ]]; then
+    remote=$local_remote
+else
+    echo "Invalid target: $target"
+    exit 1
+fi
 
 
 # Cloud storage
-cloud_remote=crypt
-rclone sync --transfers 32 /mnt/storage/Music $cloud_remote/Music
-rclone sync --transfers 32 /mnt/storage/Documents $cloud_remote/Documents
-rclone sync --transfers 32 /mnt/storage/Pictures $cloud_remote/Pictures
 
-local_remote=nas:backup
-rclone sync --transfers=32 /mnt/storage/Music $local_remote/Music
-rclone sync --transfers=32 /mnt/storage/Documents $local_remote/Documents
-rclone sync --transfers=32 /mnt/storage/Pictures $local_remote/Pictures
+echo "Music to $target" && rclone sync --transfers 32 /mnt/storage/Music $remote/Music
+echo "Documents to $target" && rclone sync --transfers 32 /mnt/storage/Documents $remote/Documents
+echo "Pictures to $target" &&  rclone sync --transfers 32 /mnt/storage/Pictures $remote/Pictures
 
+
+echo "Done transfering to $target"
