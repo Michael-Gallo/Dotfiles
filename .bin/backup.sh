@@ -14,7 +14,7 @@ if [[ "$target" == "cloud" ]]; then
 elif [[ "$target" == "nas" ]]; then
     remote=$local_remote
 else
-    echo "Invalid target: $target"
+    echo "Invalid target: $target please use cloud or nas"
     exit 1
 fi
 
