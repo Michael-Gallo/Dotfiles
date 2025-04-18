@@ -39,6 +39,7 @@ alias cwd="pwd|xsel -ib"
 alias mirrors="rate-mirrors --allow-root --protocol https arch | sudo tee /etc/pacman.d/mirrorlist"
 unalias gc 2>/dev/null
 unalias gd  2>/dev/null
+alias discord="nohup setsid discord --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime &"
 
 se() {
         bad_dirs="chromium bravesoftware cache discord libreoffice skype lutris .git .log mattermost mangagamer smplayer wayofthepassivefist pcsx2 indexeddb unity3d mono.addins rocket.chat virtualbox"
