@@ -5,6 +5,7 @@ require('nvim-treesitter.configs').setup{
 				enable = true,
 				additional_vim_regex_highlighting = true
 		},
+        indent = { enable = true },
 		ensure_installed = {
 			"bash",
 			"go",
