@@ -1,4 +1,5 @@
 # vim: set filetype=sh
+# vim: set ft=sh :
 alias :q=exit
 alias r="ranger"
 alias sapt="sudo apt"
@@ -48,11 +49,27 @@ se() {
 }
 
 yc() {
+    local file
         [ -z $1 ] &&  yadm status | grep modified:| awk '{print $2}' |fzf | xargs yadm commit ||yadm commit $@  
         }
 yd() {
-        yadm status| grep modified:| awk '{print $2}' |fzf |xargs yadm --no-pager diff 
-        }
+        local file
+        file=$(yadm status| grep modified:| awk '{print $2}' |fzf )
+        if [[ -z "$file" ]]; then
+            echo "No file selected"
+            return
+        fi
+        yadm --no-pager diff "$file"
+
+        echo "Do you want to commit this file? [y/N]"
+        read -k1 answer < /dev/tty
+        if [[ "$answer" =~ ^[Yy]$ ]]; then
+            yadm commit "$file"
+        else
+            echo "commit cancelled" 
+        fi
+
+    }
 gd() {
         git status| grep modified:| awk '{print $2}' |fzf |xargs git diff 
         }
