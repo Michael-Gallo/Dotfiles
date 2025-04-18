@@ -1,24 +1,24 @@
 # vim: set filetype=sh
 # Environmental variables for zsh
-export ZDOTDIR=$HOME/.config/zsh
-export TERMCMD=xterm
-export EDITOR=nvim
-export BROWSER=firefox
-export TERMINAL_FILE_BROWSER=lf
-export FILE_MANAGER=pcmanfm
+export BROWSER=zen-browser
 export CALCULATOR=galculator
-export CDPATH=~/.shortcut_dirs
-export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_DATA_HOME="$HOME/local/share"
-export XDG_CACHE_HOME="$HOME/.cache"
-export XDG_MUSIC_DIR="$HOME/Music"
-export XDG_DATA_DIRS="/usr/local/share:/usr/share:$HOME/.local/share:/var/lib/flatpak/exports/share:/home/mike/local/share/flatpak/exports/share"
-export XDG_CONFIG_DIRS="/etc/xdg"
 export CALENDAR=evolution
+export CDPATH=~/.shortcut_dirs
+export EDITOR=nvim
+export FILE_MANAGER=pcmanfm
+export PATH="$HOME/.bin/statusbar:$HOME/.local/bin:$HOME/.cargo/bin:$HOME/.bin:$HOME/local/bin:/var/lib/flatpak/exports/bin:$HOME/Apps:/opt/android-sdk/platform-tools:$PATH"
+export TERMCMD=xterm
+export TERMINAL_FILE_BROWSER=lf
+export VIMINIT='source $XDG_CONFIG_HOME/nvim/init.lua'
+export XDG_CACHE_HOME="$HOME/.cache"
+export XDG_CONFIG_DIRS="/etc/xdg"
+export XDG_CONFIG_HOME="$HOME/.config"
+export XDG_DATA_DIRS="/usr/local/share:/usr/share:$HOME/.local/share:/var/lib/flatpak/exports/share:/home/mike/local/share/flatpak/exports/share"
+export XDG_DATA_HOME="$HOME/local/share"
+export XDG_MUSIC_DIR="$HOME/Music"
 export XDG_PICTURES_DIR="$HOME/Pictures"
 export XDG_SCREENSHOTS_DIR="$HOME/Pictures/screenshots"
-export VIMINIT='source $XDG_CONFIG_HOME/nvim/init.lua'
-export PATH="$HOME/.bin/statusbar:$HOME/.local/bin:$HOME/.cargo/bin:$HOME/.bin:$HOME/local/bin:/var/lib/flatpak/exports/bin:$HOME/Apps:/opt/android-sdk/platform-tools:$PATH"
+export ZDOTDIR=$HOME/.config/zsh
 # Golang
 export GOPATH="$HOME/go"
 export PATH="$HOME/go/bin:$PATH"
@@ -32,15 +32,14 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
 eval "$(pyenv init -)"
 # Ruby
-export GEM_HOME="$(gem env user_gemhome)"
-export PATH="$PATH:$GEM_HOME/bin"
-export PATH="$XDG_DATA_HOME/gem/ruby/3.0.0/bin:$PATH"
 source $HOME/.cache/bwsession
 
 
+export TERMINAL="foot"
 # Display protocol specific env vars
 case $XDG_SESSION_TYPE in
         "wayland")
+                export ELECTRON_OZONE_PLATFORM_HINT=wayland
                 export TERMINAL="foot"
                 export RUN_LAUNCHER="bemenu-run"
                 export MENU="bemenu"
@@ -48,7 +47,6 @@ case $XDG_SESSION_TYPE in
                 export MOZ_ENABLE_WAYLAND=1
                 export WMBLOCKS="someblocks"
                 export GDK_BACKEND="wayland"
-                
         ;;
         "x11")
                 [ -x "$(command -v st)" ] && export TERMINAL="st"
@@ -78,7 +76,7 @@ source $HOME/.config/bemenu/bemenu_conf
 
 # RADV = mesa, AMDVLK = amd vulkan 
 export AMD_VULKAN_ICD=RADV
-export JAVA_HOME=/usr/lib/jvm/java-11-openjdk
+export JAVA_HOME=/usr/lib/jvm/java-21-openjdk
 alias psp=PPSSPPSDL
 # export $(dbus-launch)
 
@@ -90,5 +88,11 @@ if [ -f ~/.config/bash/bash_aliases  ]; then
     source ~/.config/bash/bash_aliases
 fi
 
+export GTK_IM_MODULE=fcitx
 export QT_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
+export GLFW_IM_MODULE=ibus
+export SDL_IM_MODULE=fcitx
+export ANDROID_HOME=/home/mike/Android/Sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/platform-tools
