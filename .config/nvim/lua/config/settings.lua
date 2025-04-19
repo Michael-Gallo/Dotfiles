@@ -22,3 +22,6 @@ vim.opt.signcolumn = "yes"
 vim.opt.updatetime = 50
 
 vim.opt.clipboard:append { 'unnamed', 'unnamedplus' }
+vim.opt.formatoptions:remove('r')
+vim.opt.formatoptions:remove('o')
+vim.opt.formatoptions:remove('c')
