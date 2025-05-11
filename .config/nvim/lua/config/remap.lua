@@ -22,3 +22,12 @@ vim.keymap.set("n","<leader>x","<cmd>!chmod +x %<CR>", {silent = true, desc = "s
 vim.keymap.set("n", "<leader><leader>", function()
         vim.cmd("so")
 end, {desc = "source current file"})
+
+
+-- Ctrl + W breaks out of terminal mode and sends a normal Ctrl + W to enable window operations
+vim.api.nvim_set_keymap(
+    't',
+    '<C-w>',
+    [[<C-\><C-n><C-w>]],
+    { noremap = true, silent = true }
+)
