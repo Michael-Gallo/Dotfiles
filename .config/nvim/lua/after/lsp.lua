@@ -55,6 +55,14 @@ cmp.setup({
   --- (Optional) Show source name in completion menu
   formatting = cmp_format,
 })
-require('lspconfig').gopls.setup{}
-require('lspconfig').bashls.setup{}
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*.go",
+  callback = function()
+    -- Run formatting before saving
+    vim.lsp.buf.format({ async = false })
+  end,
+})
 
+require('lspconfig').gopls.setup{}
+
+require('lspconfig').bashls.setup{}
