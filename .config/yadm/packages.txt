@@ -15,6 +15,7 @@ neovim
 nerd-fonts
 noto-fonts
 npm
+rate-mirrors-bin
 swaybg
 trash-cli
 waybar
