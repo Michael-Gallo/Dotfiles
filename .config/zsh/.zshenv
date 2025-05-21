@@ -39,7 +39,16 @@ source $HOME/.cache/bwsession
 export TERMINAL="foot"
 # Display protocol specific env vars
 case $XDG_SESSION_TYPE in
-        "wayland")
+        "x11")
+                [ -x "$(command -v st)" ] && export TERMINAL="st"
+                export RUN_LAUNCHER="dmenu_run"
+                export BUS_BROWSER="brave"
+                export MENU="dmenu"
+                export WMBLOCKS="dwmblocks"
+
+        ;;
+        # Wayland by default
+        *)
                 export ELECTRON_OZONE_PLATFORM_HINT=wayland
                 export TERMINAL="foot"
                 export RUN_LAUNCHER="bemenu-run"
@@ -48,14 +57,6 @@ case $XDG_SESSION_TYPE in
                 export MOZ_ENABLE_WAYLAND=1
                 export WMBLOCKS="someblocks"
                 export GDK_BACKEND="wayland"
-        ;;
-        "x11")
-                [ -x "$(command -v st)" ] && export TERMINAL="st"
-                export RUN_LAUNCHER="dmenu_run"
-                export BUS_BROWSER="brave"
-                export MENU="dmenu"
-                export WMBLOCKS="dwmblocks"
-
         ;;
 esac
 
