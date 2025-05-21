@@ -5,8 +5,6 @@ HISTSIZE=1000000
 SAVEHIST=$HISTSIZE
 HOSTNAME=$HOSTNAME
 
-# autoload -U colors && colors	# Load colors
-autoload -U compinit && compinit
 # Add Git to prompt
 autoload -Uz add-zsh-hook vcs_info
 setopt prompt_subst
@@ -25,7 +23,6 @@ HYPHEN_INSENSITIVE="true"
 # Basic auto/tab complete:
 zstyle ':completion:*' menu select
 zmodload zsh/complist
-compinit
 _comp_options+=(globdots)		# Include hidden files.
 
 
@@ -48,7 +45,6 @@ zsh_plugins=${ZDOTDIR:-~}/zsh_plugins
 # Generate static file in a subshell when .zsh_plugins.txt is updated.
 if [[ ! ${zsh_plugins}.zsh -nt ${zsh_plugins}.txt ]]; then
     (
-
     antidote load
     antidote bundle <${zsh_plugins}.txt >${zsh_plugins}.zsh
 )
@@ -93,6 +89,7 @@ alias sudo='sudo '
 alias orphans='sudo pacman -R $(pacman -Qdtq)'
 
 
+source <(fzf --zsh)
 
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
@@ -101,3 +98,6 @@ eval "$(pyenv init -)"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+
+zstyle ':plugin:ez-compinit' 'compstyle' 'zshzoo'
+

@@ -1,3 +1,4 @@
+mattmc3/ez-compinit
 ohmyzsh/ohmyzsh path:plugins/autojump
 # ohmyzsh/ohmyzsh path:plugins/command-not-found
 # zdharma/fast-syntax-highlighting
