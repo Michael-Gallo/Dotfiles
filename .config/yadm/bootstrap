@@ -8,4 +8,4 @@ if ! command -v yay >/dev/null 2>&1; then
     makepkg -si
 fi
 
-yay -S --noconfirm ---needed < packages.txt
+yay -S --noconfirm --needed $(< packages.txt)
