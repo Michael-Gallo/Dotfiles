@@ -216,21 +216,30 @@ bind = $mainMod, F11, exec, prompt.sh "reboot computer?" "reboot"
 bind = $mainMod, F12, exec, prompt.sh "shutdown computer?" "shutdown now"
 
 # Switch workspaces with mainMod + [0-9]
- bind = $mainMod, 1, exec, ~/.bin/workspace.sh 1
- bind = $mainMod, 2, exec, ~/.bin/workspace.sh 2
- bind = $mainMod, 3, exec, ~/.bin/workspace.sh 3
- bind = $mainMod, 4, exec, ~/.bin/workspace.sh 4
- bind = $mainMod, 5 ,exec, ~/.bin/workspace.sh 5
+{% if yadm.class == "laptop" %}
+$workspaceCommand = movetoworkpace
+{% else %}
+$workspaceCommand = exec, ~/.bin/workspace.sh
+{% endif %}
+bind = $mainMod, 1,  $workspaceCommand 1
+bind = $mainMod, 2,  $workspaceCommand 2
+bind = $mainMod, 3,  $workspaceCommand 3
+bind = $mainMod, 4,  $workspaceCommand 4
+bind = $mainMod, 5,  $workspaceCommand 5
 
 # Move active window to a workspace with mainMod + SHIFT + [0-9]
+{% if yadm.class == "laptop" %}
+bind = $mainMod SHIFT, 1,exec, movetoworkspace 1 
+bind = $mainMod SHIFT, 2,exec, movetoworkspace 2 
+bind = $mainMod SHIFT, 3,exec, movetoworkspace 3 
+bind = $mainMod SHIFT, 4,exec, movetoworkspace 4 
+bind = $mainMod SHIFT, 5,exec, movetoworkspace 5 
+{% else %}
 bind = $mainMod SHIFT, 1,exec, ~/.bin/workspace.sh 1 move
 bind = $mainMod SHIFT, 2,exec, ~/.bin/workspace.sh 2 move
 bind = $mainMod SHIFT, 3,exec, ~/.bin/workspace.sh 3 move
 bind = $mainMod SHIFT, 4,exec, ~/.bin/workspace.sh 4 move
 bind = $mainMod SHIFT, 5,exec, ~/.bin/workspace.sh 5 move
-# Move/resize windows with mainMod + LMB/RMB and dragging
-bindm = $mainMod, mouse:272, movewindow
-bindm = $mainMod, mouse:273, resizewindow
 
 workspace=1,monitor:DP-2
 workspace=2,monitor:DP-2
@@ -243,6 +252,11 @@ workspace=7, monitor:DP-3
 workspace=8, monitor:DP-3
 workspace=9, monitor:DP-3
 workspace=10,monitor:DP-3
+{% endif %}
+# Move/resize windows with mainMod + LMB/RMB and dragging
+bindm = $mainMod, mouse:272, movewindow
+bindm = $mainMod, mouse:273, resizewindow
+
 ##############################
 ### WINDOWS AND WORKSPACES ###
 ##############################
