@@ -9,3 +9,21 @@ if ! command -v yay >/dev/null 2>&1; then
 fi
 
 yay -S --noconfirm --needed $(< packages.txt)
+
+git config --global pull.rebase true
+
+gitlab_url="git@gitlab.com:michaelagallo95/dotfiles.git"
+github_url="git@github.com:Michael-Gallo/Dotfiles.git"
+remote_name="origin"
+current_origin_url=$(yadm remote get-url "$remote_name" 2>/dev/null || echo "")
+
+if [ "$current_origin_url" != "$gitlab_url" ]; then
+    echo "Setting GitHub/GitLab remote structure"
+    yadm remote remove $remote_name 2>/dev/null || true
+    yadm remote add $remote_name $gitlab_url
+    yadm fetch
+    current_branch=$(yadm symbolic-ref --short HEAD)
+    yadm branch --set-upstream-to="$remote_name/$current_branch" "$current_branch"
+    yadm remote set-url --add --push $remote_name $gitlab_url
+    yadm remote set-url --add --push $remote_name $github_url
+fi
