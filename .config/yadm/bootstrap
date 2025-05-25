@@ -27,3 +27,11 @@ if [ "$current_origin_url" != "$gitlab_url" ]; then
     yadm remote set-url --add --push $remote_name $gitlab_url
     yadm remote set-url --add --push $remote_name $github_url
 fi
+
+
+read -rp "Are you on a laptop? (y/N) " is_laptop
+if [ "$is_laptop" = "y" ] || [ "$is_laptop" = "Y" ]; then
+    yadm config local.class laptop
+fi
+
+yadm alt
