@@ -8,6 +8,8 @@ fcitx5
 firefox
 foot
 fzf
+greetd
+greetd-tuigreet
 less
 lf
 neofetch
