@@ -70,7 +70,11 @@ export QT_QPA_PLATFORMTHEME=qt6ct
 # set username for wine
 export WINEUSERNAME=combat1921
 #source personal environment variables
-source $HOME/.config/zsh/private_env
+if [ -f $HOME/.config/zsh/private_env ]; then
+    source $HOME/.config/zsh/private_env
+else
+    touch $HOME/.config/zsh/private_env
+fi
 source $HOME/.config/bemenu/bemenu_conf
 
 
