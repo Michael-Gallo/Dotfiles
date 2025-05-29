@@ -3,12 +3,14 @@
 sudo pacman -S --noconfirm --needed git base-devel 
 # Install Yay
 if ! command -v yay >/dev/null 2>&1; then
+    echo "Installing Yay AUR helper"
     git clone https://aur.archlinux.org/yay.git
     cd yay
     makepkg -si
 fi
 
-yay -S --noconfirm --needed $(< packages.txt)
+echo "Installing needed packages"
+yay -S --noconfirm --needed --quiet $(< packages.txt) 2>&1 | grep -vi "warning:"
 
 git config --global pull.rebase true
 
@@ -29,9 +31,38 @@ if [ "$current_origin_url" != "$gitlab_url" ]; then
 fi
 
 
-read -rp "Are you on a laptop? (y/N) " is_laptop
-if [ "$is_laptop" = "y" ] || [ "$is_laptop" = "Y" ]; then
+if ls /sys/class/power_supply/ | grep -q "^BAT"; then
+    echo "Setting laptop class"
     yadm config local.class laptop
 fi
 
 yadm alt
+
+# Write files
+
+
+write_if_different() {
+  local content="$1"
+  local target_file="$2"
+  local tmp_file="${target_file}.tmp"
+
+  # Write content to a temporary file with sudo
+  echo "$content" | sudo tee "$tmp_file" >/dev/null
+
+  # Compare temporary file with target file
+  if ! sudo cmp -s "$target_file" "$tmp_file"; then
+    # Replace target file only if different
+    sudo mv "$tmp_file" "$target_file"
+    echo "Updated $target_file"
+  else
+    # Remove temporary file if no difference
+    sudo rm "$tmp_file"
+  fi
+}
+
+# Disable the annoying pcspkr module/beep sound
+write_if_different "blacklist pcspkr"  /etc/modprobe.d/nobeep.conf
+write_if_different "[default_session]
+command = \"Hyprland\"
+user=\"$(whoami)\" " /etc/greetd/tuigreet.toml
+
