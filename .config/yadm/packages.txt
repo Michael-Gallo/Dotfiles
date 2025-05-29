@@ -19,10 +19,11 @@ noto-fonts
 npm
 rate-mirrors-bin
 swaybg
+tldr
 trash-cli
 waybar
 wget
-wofi
 wl-clipboard
+wofi
 zsh
 zsh-antidote
