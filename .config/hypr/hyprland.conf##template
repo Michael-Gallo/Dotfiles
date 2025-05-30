@@ -217,7 +217,7 @@ bind = $mainMod, F12, exec, prompt.sh "shutdown computer?" "shutdown now"
 
 # Switch workspaces with mainMod + [0-9]
 {% if yadm.class == "laptop" %}
-$workspaceCommand = movetoworkspace,
+$workspaceCommand = workspace,
 {% else %}
 $workspaceCommand = exec, ~/.bin/workspace.sh
 {% endif %}
