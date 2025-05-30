@@ -12,6 +12,10 @@ fi
 echo "Installing needed packages"
 yay -S --noconfirm --needed --quiet $(< packages.txt) 2>&1 | grep -vi "warning:"
 
+echo "Installing nvim plugins"
+nvim --headless -c 'Lazy sync' -c 'qa'
+
+
 git config --global pull.rebase true
 
 gitlab_url="git@gitlab.com:michaelagallo95/dotfiles.git"
@@ -39,7 +43,6 @@ fi
 yadm alt
 
 # Write files
-
 
 write_if_different() {
   local content="$1"
