@@ -28,7 +28,7 @@ return {
                     },
                 }
                 },
-     explorer = { enabled = true, replace_netrw = true },
+  -- explorer = { enabled = true, replace_netrw = true },
      statuscolumn = { enabled = true },
      input = { enabled = true },
   -- notifier = { enabled = true },
