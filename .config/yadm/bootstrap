@@ -15,6 +15,16 @@ yay -S --noconfirm --needed --quiet $(< packages.txt) 2>&1 | grep -vi "warning:"
 echo "Installing nvim plugins"
 nvim --headless -c 'Lazy sync' -c 'qa'
 
+TARGET_SHELL="/usr/bin/zsh"
+CURRENT_SHELL=$(basename "$SHELL")
+
+if [ "$SHELL" != "$TARGET_SHELL" ]; then
+  echo "Current shell is $SHELL, changing to $TARGET_SHELL..."
+  chsh -s "$TARGET_SHELL"
+  echo "Shell changed. Please log out and log back in for changes to take effect."
+else
+  echo "Shell is already set to $TARGET_SHELL."
+fi
 
 git config --global pull.rebase true
 
@@ -53,6 +63,7 @@ write_if_different() {
   echo "$content" | sudo tee "$tmp_file" >/dev/null
 
   # Compare temporary file with target file
+  echo "comparing file $target_file to $tmp_file"
   if ! sudo cmp -s "$target_file" "$tmp_file"; then
     # Replace target file only if different
     sudo mv "$tmp_file" "$target_file"
