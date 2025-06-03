@@ -11,6 +11,7 @@ foot
 fzf
 greetd
 greetd-tuigreet
+grimblast-git
 less
 lf
 neofetch
