@@ -51,6 +51,8 @@ if ls /sys/class/power_supply/ | grep -q "^BAT"; then
 fi
 
 yadm alt
+# Needed for previews
+mkdir -p $HOME/.cache/lf/thumbnail
 
 # Write files
 

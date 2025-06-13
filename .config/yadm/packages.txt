@@ -5,6 +5,7 @@ cronie
 discord
 downgrade
 fcitx5
+ffmpegthumbnailer
 firefox
 foot
 fzf
