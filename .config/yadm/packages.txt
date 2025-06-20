@@ -1,7 +1,9 @@
 autojump-rs
+avahi
 bat
 btop
 cronie
+cups
 discord
 downgrade
 fcitx5

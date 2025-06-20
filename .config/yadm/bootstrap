@@ -82,3 +82,7 @@ write_if_different "[default_session]
 command = \"Hyprland\"
 user=\"$(whoami)\" " /etc/greetd/tuigreet.toml
 
+
+# Enable services
+sudo systemctl enable avahi-daemon.service --now
+sudo systemctl enable cups.service --now
