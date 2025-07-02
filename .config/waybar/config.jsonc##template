@@ -22,10 +22,8 @@
         "cpu",
         "memory",
         "temperature",
-        "backlight",
-        // "keyboard-state",
-        // "hyprland/language",
         {% if yadm.class != "laptop" %}
+        "backlight",
         "battery",
         "battery#bat2",
         {% endif %}
