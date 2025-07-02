@@ -12,7 +12,8 @@
     "modules-center": ["hyprland/window"],
         "hyprland/window": {
             "max-length": 200,
-            "separate-outputs": true
+            "separate-outputs": true,
+            "swap-icon-label": false
         },
     //"modules-right": ["mpd", "idle_inhibitor", "pulseaudio", "network", "cpu", "memory", "temperature", "backlight", "keyboard-state", "sway/language", "battery", "battery#bat2", "clock", "tray"],
     "modules-right": [
