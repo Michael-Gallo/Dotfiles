@@ -22,7 +22,7 @@
         "cpu",
         "memory",
         "temperature",
-        {% if yadm.class != "laptop" %}
+        {% if yadm.class == "laptop" %}
         "backlight",
         "battery",
         "battery#bat2",
