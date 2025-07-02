@@ -109,10 +109,15 @@
         "spacing": 10
     },
     "clock": {
-        // "timezone": "America/New_York",
-        "format": "{:%I:%M %p %Y-%m-%d}",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+        "timezone": "America/New_York",
+        "format": "{:%I:%M %p}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
         // "format-alt": "{:%Y-%m-%d}"
+        "calendar": {
+            "format":{
+                "today": "<span color='#ffffff'><big><b>{}</b></big></span>"
+            }
+        }
     },
     "cpu": {
         "format": "{usage}% ",
