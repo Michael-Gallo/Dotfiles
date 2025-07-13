@@ -17,7 +17,7 @@ nvim --headless -c 'Lazy sync' -c 'qa'
 
 echo "Setting groups"
 
-sudo usermod -a -G cdrom $(whoami)
+sudo usermod -a -G storage $(whoami)
 sudo usermod -a -G scanner $(whoami)
 sudo usermod -a -G docker $(whoami)
 
