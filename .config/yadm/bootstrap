@@ -15,6 +15,12 @@ yay -S --noconfirm --needed --quiet $(< packages.txt) 2>&1 | grep -vi "warning:"
 echo "Installing nvim plugins"
 nvim --headless -c 'Lazy sync' -c 'qa'
 
+echo "Setting groups"
+
+sudo usermod -a -G cdrom $(whoami)
+sudo usermod -a -G scanner $(whoami)
+sudo usermod -a -G docker $(whoami)
+
 TARGET_SHELL="/usr/bin/zsh"
 CURRENT_SHELL=$(basename "$SHELL")
 
