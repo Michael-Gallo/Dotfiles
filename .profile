@@ -5,8 +5,6 @@ if [ -f ~/.zshenv  ]; then
         source ~/.zshenv
 fi
 
-export QT_STYLE_OVERRIDE=kvantum
-
 if [ -z "$SSH_AGENT_PID" ]; then
   eval "$(ssh-agent -s)" > /dev/null
 fi
