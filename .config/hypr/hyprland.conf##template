@@ -38,6 +38,7 @@ monitor = , preferred, auto, 1
 exec = /usr/bin/gnome-keyring-daemon --start --components=secrets
 exec-once = hyprpm update
 exec-once = hyprpm reload 
+exec-once = hypridle
 exec-once = waybar 
 exec-once = discord --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime
 exec-once = foot --server 
@@ -166,7 +167,7 @@ $mainMod = SUPER
 # Launchers
 bind = $mainMod, RETURN, exec, $TERMINAL
 bind = $mainMod SHIFT, C, killactive, 
-bind = $mainMod SHIFT, Q, exit, 
+bind = $mainMod SHIFT, Q, exec, prompt.sh "Exit Hyprland" "hyprctl dispatch exit" 
 # bind = $mainMod, E, exec, dolphin
 bind = $mainMod, T, togglefloating, 
 bind = $mainMod, R, exec, bemenu-run
