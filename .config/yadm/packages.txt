@@ -14,6 +14,9 @@ fzf
 greetd
 greetd-tuigreet
 grimblast-git
+hypridle
+hyprland
+hyprlock
 less
 lf
 neofetch
