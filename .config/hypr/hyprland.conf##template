@@ -159,11 +159,14 @@ gestures {
 # https://wiki.hyprland.org/Configuring/Binds/
 $mainMod = SUPER
 
+$webapp = uwsm app -- chromium --new-window --ozone-platform=wayland --app
+
 # Launchers
 bind = $mainMod, RETURN, exec, $TERMINAL
 bind = $mainMod SHIFT, C, killactive, 
 bind = $mainMod SHIFT, Q, exec, prompt.sh "Exit Hyprland" "hyprctl dispatch exit" 
-# bind = $mainMod, E, exec, dolphin
+bind = $mainMod, A, exec, $webapp="https://t3.chat/"
+bind = $mainMod, D, exec, $webapp="https://app.todoist.com/app/today"
 bind = $mainMod, T, togglefloating, 
 bind = $mainMod, R, exec, bemenu-run
 bind = $mainMod, B, exec, $BROWSER
