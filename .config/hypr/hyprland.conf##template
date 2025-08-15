@@ -35,7 +35,6 @@ monitor = , preferred, auto, 1
 # Autostart necessary processes (like notifications daemons, status bars, etc.)
 # Or execute your favorite apps at launch like this:
 
-exec = /usr/bin/gnome-keyring-daemon --start --components=secrets
 exec-once = hypridle
 exec-once = waybar 
 exec-once = discord --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime
