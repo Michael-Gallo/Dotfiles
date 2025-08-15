@@ -36,15 +36,11 @@ monitor = , preferred, auto, 1
 # Or execute your favorite apps at launch like this:
 
 exec = /usr/bin/gnome-keyring-daemon --start --components=secrets
-exec-once = hyprpm update
-exec-once = hyprpm reload 
 exec-once = hypridle
 exec-once = waybar 
 exec-once = discord --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime
 exec-once = foot --server 
-exec-once = /usr/bin/kdeconnectd 
 exec-once = swaybg -i $XDG_PICTURES_DIR/wallpapers/wallpaper 
-exec-once = fcitx5
 exec-once = $HOME/.bin/make_bitwarden_float_hyprland.sh
 
 #############################
