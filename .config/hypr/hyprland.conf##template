@@ -29,18 +29,8 @@ monitor = , preferred, auto, 1
 
 # See https://wiki.hyprland.org/Configuring/Keywords/ for more
 
-#################
-### AUTOSTART ###
-#################
-# Autostart necessary processes (like notifications daemons, status bars, etc.)
-# Or execute your favorite apps at launch like this:
 
-exec-once = hypridle
-exec-once = waybar 
-exec-once = discord --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime
-exec-once = foot --server 
-exec-once = swaybg -i $XDG_PICTURES_DIR/wallpapers/wallpaper 
-exec-once = $HOME/.bin/make_bitwarden_float_hyprland.sh
+source = ~/.config/hypr/autostart.conf
 
 #############################
 ### ENVIRONMENT VARIABLES ###
