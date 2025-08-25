@@ -7,6 +7,7 @@
 $mainMod = SUPER
 
 $webapp = uwsm app -- chromium --new-window --ozone-platform=wayland --app
+$CALENDAR = evolution
 
 # Launchers
 bind = $mainMod, RETURN, exec, $TERMINAL
@@ -19,6 +20,7 @@ bind = $mainMod, R, exec, bemenu-run
 bind = $mainMod, B, exec, $BROWSER
 bind = $mainMod SHIFT, B, exec, $BROWSER --private-window
 bind = $mainMod, E, exec, $TERMINAL -e $TERMINAL_FILE_BROWSER
+bind = $mainMod, C, exec, $CALENDAR
 
 # Window Management
 #bind = $mainMod, h, movefocus, l
