@@ -56,7 +56,7 @@ if ls /sys/class/power_supply/ | grep -q "^BAT"; then
     yadm config local.class laptop
 
     # Install and enable TLP
-    sudo pacman -S --no-confirm tlp
+    sudo pacman -S --noconfirm tlp
     sudo systemctl enable tlp.service --now
     sudo systemctl mask systemd-rfkill.service
     sudo systemctl mask systemd-rfkill.socket
