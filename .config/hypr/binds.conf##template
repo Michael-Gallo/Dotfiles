@@ -20,7 +20,7 @@ bind = $mainMod, R, exec, bemenu-run
 bind = $mainMod, B, exec, $BROWSER
 bind = $mainMod SHIFT, B, exec, $BROWSER --private-window
 bind = $mainMod, E, exec, $TERMINAL -e $TERMINAL_FILE_BROWSER
-bind = $mainMod, C, exec, $CALENDAR
+bind = $mainMod, S, exec, $CALENDAR
 
 # Window Management
 #bind = $mainMod, h, movefocus, l
