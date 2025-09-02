@@ -30,6 +30,7 @@ application.pdf=zathura.desktop
 scheme-handler/http=firefox.desktop
 scheme-handler/https=firefox.desktop
 x-scheme-handler/discord-455712169795780630=discord-455712169795780630.desktop
+x-scheme-handler/mailto=userapp-Evolution-WCDSB3.desktop
 
 [Added Associations]
 application/pdf=org.pwmt.zathura-pdf-mupdf.desktop;acroread.desktop;
@@ -49,3 +50,4 @@ text/calendar=org.gnome.Evolution.desktop;
 application/x-bittorrent=transmission-gtk.desktop;
 application/octet-stream=org.gnome.Evolution.desktop;
 text/plain=org.gnome.Evolution.desktop;
+x-scheme-handler/mailto=userapp-Evolution-WCDSB3.desktop;
