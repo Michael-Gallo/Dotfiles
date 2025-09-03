@@ -121,6 +121,9 @@ windowrulev2 = rounding 0, floating:0, onworkspace:w[tv1]
 windowrulev2 = bordersize 0, floating:0, onworkspace:f[1]
 windowrulev2 = rounding 0, floating:0, onworkspace:f[1]
 
+# So we don't idle during games
+windowrulev2 = idleinhibit fullscreen, class:.*
+
 dwindle {
     # See https://wiki.hyprland.org/Configuring/Dwindle-Layout/ for more
     pseudotile = yes # master switch for pseudotiling. Enabling is bound to mainMod + P in the keybinds section below
