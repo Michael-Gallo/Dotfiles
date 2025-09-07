@@ -10,6 +10,7 @@ fcitx5
 ffmpegthumbnailer
 firefox
 foot
+fuse2
 fzf
 greetd
 greetd-tuigreet
