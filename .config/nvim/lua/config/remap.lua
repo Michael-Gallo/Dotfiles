@@ -7,9 +7,6 @@ vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
 
 vim.keymap.set("n","J","mzJ`z",{desc="cursor stays in same place with J"})
 
-vim.keymap.set("n", "<C-d>", "C-d>zz",{desc="stay in middle when doing half page moves down"})
-vim.keymap.set("n", "<C-u>", "C-u>zz",{desc="stay in middle when doing half page moves up"})
-
 vim.keymap.set("n","n","nzzzv",{desc="keep cursor in middle while searching"})
 vim.keymap.set("n","N","Nzzzv",{desc="keep cursor in middle while searching"})
 
