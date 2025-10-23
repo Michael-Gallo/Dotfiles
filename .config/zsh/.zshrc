@@ -1,5 +1,6 @@
 ### Set variables
 #################
+bindkey -e
 HISTFILE=$HOME/.config/zsh/.zhistory
 HISTSIZE=1000000
 SAVEHIST=$HISTSIZE
@@ -13,7 +14,6 @@ zstyle ':vcs_info:git:*' formats       ' (%b%u%c) '
 zstyle ':vcs_info:git:*' actionformats ' (%b|%a%u%c) '
 
 PROMPT='%F{35}%n%f:%F{35}%~%f%F{135}${vcs_info_msg_0_}%f$ '
-# PROMPT='%F{red}${vcs_info_msg_0_}%f %# '
 
 # Uncomment the following line to use hyphen-insensitive completion.
 # Case-sensitive completion must be off. _ and - will be interchangeable.
@@ -32,14 +32,9 @@ setopt correct
 # Automatic directory changing
 setopt auto_cd
 
-
-
 # Lazy-load antidote.
 source '/usr/share/zsh-antidote/antidote.zsh'
 antidotePath=/usr/share/zsh-antidote
-
-
-
 
 zsh_plugins=${ZDOTDIR:-~}/zsh_plugins
 # Generate static file in a subshell when .zsh_plugins.txt is updated.
@@ -60,16 +55,7 @@ if [ -f ~/.config/bash/bash_aliases  ]; then
 fi
 
 
-# vi mode
-# bindkey -v
-# set -o vi
 export KEYTIMEOUT=1
-# turnoff vi prompt added in from zsh-vim-mode
-RPS1=""
-
-# Edit line in vim with ctrl-e:
-autoload edit-command-line; zle -N edit-command-line
-bindkey '^e' edit-command-line
 
 local copy_widgets=(
     vi-yank vi-yank-eol vi-delete vi-backward-kill-word vi-change-whole-line
@@ -78,9 +64,6 @@ local paste_widgets=(
     vi-put-{before,after}
 )
 
-# Load syntax highlighting; should be last.
-ZSH_AUTOSUGGEST_USE_ASYNC="TE"
-ZSH_AUTOSUGGEST_HISTORY_IGNORE="kill*"
 bindkey '^K' autosuggest-accept
 # doubletap escape for sudo
 
@@ -101,3 +84,10 @@ export PATH="$PATH:$HOME/.rvm/bin"
 
 zstyle ':plugin:ez-compinit' 'compstyle' 'zshzoo'
 
+# Load syntax highlighting; should be last.
+ZSH_AUTOSUGGEST_USE_ASYNC="TE"
+ZSH_AUTOSUGGEST_HISTORY_IGNORE="kill*"
+
+
+bindkey "\e[1;3D" backward-word
+bindkey "\e[1;3C" forward-word
