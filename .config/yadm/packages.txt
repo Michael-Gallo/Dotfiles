@@ -20,6 +20,7 @@ hyprland
 hyprlock
 less
 lf
+libreoffice-fresh
 neofetch
 neovim
 nerd-fonts
