@@ -1,7 +1,0 @@
-require("after.plugin.telescope")
-require("after.plugin.treesitter")
-require("after.plugin.harpoon")
-require("after.plugin.undotree")
-require("after.plugin.fugitive")
-require("after.plugin.whichkey")
-require("after.plugin.comment")
