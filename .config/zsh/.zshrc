@@ -36,7 +36,7 @@ setopt auto_cd
 source '/usr/share/zsh-antidote/antidote.zsh'
 antidotePath=/usr/share/zsh-antidote
 
-zsh_plugins=${ZDOTDIR:-~}/zsh_plugins
+zsh_plugins=${ZDOTDIR:-~}/.zsh_plugins
 # Generate static file in a subshell when .zsh_plugins.txt is updated.
 if [[ ! ${zsh_plugins}.zsh -nt ${zsh_plugins}.txt ]]; then
     (
