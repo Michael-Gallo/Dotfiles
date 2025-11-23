@@ -1,5 +1,10 @@
 #!/bin/sh
 
+if [ "$EUID" -eq 0 ]; then
+  echo "Do not run this script as root."
+  exit 1
+fi
+
 sudo pacman -S --noconfirm --needed git base-devel 
 # Install Yay
 if ! command -v yay >/dev/null 2>&1; then
