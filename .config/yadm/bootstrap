@@ -94,6 +94,8 @@ write_if_different "blacklist pcspkr"  /etc/modprobe.d/nobeep.conf
 write_if_different "[default_session]
 command = \"Hyprland\"
 user=\"$(whoami)\" " /etc/greetd/tuigreet.toml
+# make it take 10 retries to lock me out
+write_if_different "$(cat faillock.conf)" /etc/security/faillock.conf
 
 
 # Enable services
