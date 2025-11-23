@@ -64,6 +64,7 @@ else
 fi
 
 git config --global pull.rebase true
+git config --global rerere.enabled true
 
 gitlab_url="git@gitlab.com:michaelagallo95/dotfiles.git"
 github_url="git@github.com:Michael-Gallo/Dotfiles.git"
