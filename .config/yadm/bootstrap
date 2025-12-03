@@ -13,6 +13,13 @@ if [ ! -f "$package_list_path" ]; then
   exit 1
 fi
 
+wallpaper_location=$XDG_PICTURES_DIR/wallpapers
+# Ensure that wallpaper is set
+if [ ! -f $wallpaper_location/wallpaper ]; then
+  echo "setting wallpaper"
+  mkdir -p $wallpaper_location
+  cp $XDG_CONFIG_HOME/yadm/wallpaper.png $wallpaper_location/wallpaper
+fi
 
 sudo pacman -S --noconfirm --needed git base-devel 
 # Install Paru
@@ -104,6 +111,7 @@ command = \"Hyprland\"
 user=\"$(whoami)\" " /etc/greetd/tuigreet.toml
 # make it take 10 retries to lock me out
 write_if_different "$(cat faillock.conf)" /etc/security/faillock.conf
+
 
 
 # Enable services
