@@ -5,6 +5,7 @@ btop
 cronie
 cups
 discord
+docker
 downgrade
 fcitx5
 ffmpegthumbnailer
@@ -26,7 +27,7 @@ neovim
 nerd-fonts
 noto-fonts
 npm
-rate-mirrors-bin
+rate-mirrors
 swaybg
 tealdear
 trash-cli
