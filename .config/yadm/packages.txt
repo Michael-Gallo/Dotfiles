@@ -28,6 +28,7 @@ neovim
 nerd-fonts
 noto-fonts
 npm
+pulsemixer
 rate-mirrors
 swaybg
 tealdear
