@@ -15,11 +15,11 @@ fi
 
 
 sudo pacman -S --noconfirm --needed git base-devel 
-# Install Yay
-if ! command -v yay >/dev/null 2>&1; then
-    echo "Installing Yay AUR helper"
-    git clone https://aur.archlinux.org/yay.git
-    cd yay
+# Install Paru
+if ! command -v paru >/dev/null 2>&1; then
+    echo "Installing Paru AUR helper"
+    git clone https://aur.archlinux.org/paru.git
+    cd paru
     makepkg -si
 fi
 
