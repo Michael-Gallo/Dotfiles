@@ -87,7 +87,6 @@ alias psp=PPSSPPSDL
 export GTK_MODULES=canberra-gtk-module
 export GTK3_MODULES=xapp-gtk3-module
 export ZDOTDIR=$HOME/.config/zsh
-source "/home/mike/.rover/env"
 if [ -f ~/.config/bash/bash_aliases  ]; then
     source ~/.config/bash/bash_aliases
 fi
