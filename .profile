@@ -2,7 +2,7 @@
 #xset r rate 300 50 
 # uses whatever environmental variables are set in bash_env
 if [ -f ~/.zshenv  ]; then
-        source ~/.zshenv
+  source ~/.zshenv
 fi
 
 if [ -z "$SSH_AGENT_PID" ]; then
