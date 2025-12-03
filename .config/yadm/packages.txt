@@ -28,7 +28,7 @@ noto-fonts
 npm
 rate-mirrors-bin
 swaybg
-tldr
+tealdear
 trash-cli
 waybar
 wget
