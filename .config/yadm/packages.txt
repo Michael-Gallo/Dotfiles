@@ -5,7 +5,6 @@ btop
 chafa
 cronie
 cups
-discord
 docker
 downgrade
 fcitx5

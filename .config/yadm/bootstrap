@@ -13,6 +13,13 @@ if [ ! -f "$package_list_path" ]; then
   exit 1
 fi
 
+flatpak_list_path=$XDG_CONFIG_HOME/yadm/flatpaks.txt
+
+if [ ! -f "$package_list_path" ]; then
+  echo "$flatpak_list_path not found"
+  exit 1
+fi
+
 wallpaper_location=$XDG_PICTURES_DIR/wallpapers
 # Ensure that wallpaper is set
 if [ ! -f $wallpaper_location/wallpaper ]; then
@@ -32,6 +39,9 @@ fi
 
 echo "Installing needed packages"
 yay -S --noconfirm --needed --quiet $(< $package_list_path) 2>&1 | grep -vi "warning:"
+
+echo "Installing needed flatpaks"
+flatpak install -y $(< $flatpak_list_path) 2>&1 | grep -vi "warning:"
 
 echo "Installing nvim plugins"
 nvim --headless -c 'Lazy sync' -c 'qa'
