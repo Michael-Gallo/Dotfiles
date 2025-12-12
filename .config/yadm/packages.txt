@@ -11,6 +11,7 @@ downgrade
 fcitx5
 ffmpegthumbnailer
 firefox
+flatpak
 foot
 fuse2
 fzf
