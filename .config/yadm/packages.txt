@@ -30,6 +30,7 @@ noto-fonts
 npm
 pulsemixer
 rate-mirrors
+rofi
 swaybg
 tealdear
 trash-cli

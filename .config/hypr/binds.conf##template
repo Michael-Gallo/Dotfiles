@@ -17,7 +17,7 @@ bind = $mainMod, A, exec, $webapp="https://t3.chat/"
 bind = $mainMod, D, exec, $webapp="https://app.todoist.com/app/today"
 bind = $mainMod, Y, exec, $webapp="https://app.ynab.com"
 bind = $mainMod, T, togglefloating, 
-bind = $mainMod, R, exec, bemenu-run
+bind = $mainMod, R, exec, rofi -show drun
 bind = $mainMod, B, exec, $BROWSER
 bind = $mainMod SHIFT, B, exec, $BROWSER --private-window
 bind = $mainMod, E, exec, $TERMINAL -e $TERMINAL_FILE_BROWSER
