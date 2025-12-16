@@ -10,18 +10,18 @@ $webapp = uwsm app -- chromium --new-window --ozone-platform=wayland --app
 $CALENDAR = evolution
 
 # Launchers
-bind = $mainMod, RETURN, exec, $TERMINAL
+bind = $mainMod, RETURN, exec, uwsm app -- $TERMINAL
 bind = $mainMod SHIFT, C, killactive, 
 bind = $mainMod SHIFT, Q, exec, prompt.sh "Exit Hyprland" "hyprctl dispatch exit" 
 bind = $mainMod, A, exec, $webapp="https://t3.chat/"
 bind = $mainMod, D, exec, $webapp="https://app.todoist.com/app/today"
 bind = $mainMod, Y, exec, $webapp="https://app.ynab.com"
 bind = $mainMod, T, togglefloating, 
-bind = $mainMod, R, exec, rofi -show drun
-bind = $mainMod, B, exec, $BROWSER
-bind = $mainMod SHIFT, B, exec, $BROWSER --private-window
-bind = $mainMod, E, exec, $TERMINAL -e $TERMINAL_FILE_BROWSER
-bind = $mainMod, S, exec, $CALENDAR
+bind = $mainMod, R, exec, uwsm app -- rofi -show drun
+bind = $mainMod, B, exec, uwsm app -- $BROWSER
+bind = $mainMod SHIFT, B, exec, uwsm app -- $BROWSER --private-window
+bind = $mainMod, E, exec, uwsm app -- $TERMINAL -e $TERMINAL_FILE_BROWSER
+bind = $mainMod, S, exec, uwsm app -- $CALENDAR
 
 # Window Management
 #bind = $mainMod, h, movefocus, l
