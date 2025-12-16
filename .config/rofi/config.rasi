@@ -2,4 +2,5 @@ configuration {
     show-icons: true;
 }
 
-@theme "/usr/share/rofi/themes/DarkBlue.rasi"
+// @theme "/usr/share/rofi/themes/DarkBlue.rasi"
+@theme "./DarkBlue.rasi"
