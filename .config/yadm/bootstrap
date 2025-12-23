@@ -43,6 +43,11 @@ yay -S --noconfirm --needed --quiet $(< $package_list_path) 2>&1 | grep -vi "war
 echo "Installing needed flatpaks"
 flatpak install -y $(< $flatpak_list_path) 2>&1 | grep -vi "warning:"
 
+# Override for Discord so link opening works
+flatpak override --user com.discordapp.Discord \
+  --talk-name=org.freedesktop.portal.Desktop \
+  --talk-name=org.freedesktop.portal.Documents
+
 echo "Installing nvim plugins"
 nvim --headless -c 'Lazy sync' -c 'qa'
 
