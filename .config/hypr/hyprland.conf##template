@@ -71,7 +71,6 @@ general {
 
     gaps_in = 3
     gaps_out = 1
-    no_border_on_floating = false
     border_size = 4
     col.active_border =rgba(00ff99ee) #rgba(33ccffee)  45deg
     col.inactive_border = rgba(595959ee)
@@ -137,7 +136,6 @@ master {
     # See https://wiki.hyprland.org/Configuring/Master-Layout/ for more
     new_status = master
     new_on_top = false
-    inherit_fullscreen= true
 }
 
 gestures {
