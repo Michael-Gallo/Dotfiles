@@ -4,6 +4,25 @@
 ## See: 
 # https://wiki.hyprland.org/Configuring/Keywords/ for more
 # https://wiki.hyprland.org/Configuring/Binds/
+
+# Switch to a submap called `resize`.
+bind = ALT, R, submap, resize
+
+# Start a submap called "resize".
+submap = resize
+
+# Set repeatable binds for resizing the active window.
+$resizeFactor = 15
+binde = , right, resizeactive, $resizeFactor 0
+binde = , left, resizeactive, -$resizeFactor 0
+binde = , up, resizeactive, 0 -$resizeFactor
+binde = , down, resizeactive, 0 $resizeFactor
+
+# Use `reset` to go back to the global submap
+bind = , escape, submap, reset
+
+# Reset the submap, which will return to the global submap
+submap = reset
 $mainMod = SUPER
 
 $webapp = uwsm app -- chromium --new-window --ozone-platform=wayland --app
