@@ -1,2 +1,3 @@
 com.discordapp.Discord
 net.ankiweb.Anki
+app.zen_browser.zen
