@@ -33,7 +33,7 @@ pulsemixer
 rate-mirrors
 rofi
 swaybg
-tealdear
+tealdeer
 trash-cli
 waybar
 wget
