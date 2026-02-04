@@ -7,7 +7,7 @@ cronie
 cups
 docker
 downgrade
-evolution-etesync
+evolution-etesync-git
 fcitx5
 ffmpegthumbnailer
 firefox
