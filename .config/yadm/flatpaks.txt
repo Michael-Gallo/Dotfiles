@@ -1,1 +1,2 @@
 com.discordapp.Discord
+net.ankiweb.Anki
