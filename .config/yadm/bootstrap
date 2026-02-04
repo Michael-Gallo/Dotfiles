@@ -37,8 +37,10 @@ if ! command -v paru >/dev/null 2>&1; then
     makepkg -si
 fi
 
+echo "Updating system"
+paru -Syu --noconfirm
 echo "Installing needed packages"
-yay -S --noconfirm --needed --quiet $(< $package_list_path) 2>&1 | grep -vi "warning:"
+paru -S --noconfirm --needed --quiet $(< $package_list_path) 2>&1 | grep -vi "warning:"
 
 echo "Installing needed flatpaks"
 flatpak install -y $(< $flatpak_list_path) 2>&1 | grep -vi "warning:"
