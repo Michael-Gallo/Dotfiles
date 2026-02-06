@@ -37,8 +37,8 @@ bind = $mainMod, D, exec, $webapp="https://app.todoist.com/app/today"
 bind = $mainMod, Y, exec, $webapp="https://app.ynab.com"
 bind = $mainMod, T, togglefloating, 
 bind = $mainMod, R, exec, uwsm app -- rofi -show drun
-bind = $mainMod, B, exec, uwsm app -- $BROWSER
-bind = $mainMod SHIFT, B, exec, uwsm app -- $BROWSER --private-window
+bind = $mainMod, B, exec, uwsm app -- flatpak run app.zen_browser.zen --private-window
+bind = $mainMod SHIFT, B, exec, uwsm app -- flatpak run app.zen_browser.zen --private-window
 bind = $mainMod, E, exec, uwsm app -- $TERMINAL -e $TERMINAL_FILE_BROWSER
 bind = $mainMod, S, exec, uwsm app -- $CALENDAR
 
