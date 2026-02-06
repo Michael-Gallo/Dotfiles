@@ -1,8 +1,8 @@
 [Default Applications]
 html=firefox.desktop
 text/xml=firefox.desktop
-x-scheme-handler/https=zen.desktop
-x-scheme-handler/http=zen.desktop
+x-scheme-handler/https=app.zen_browser.zen.desktop
+x-scheme-handler/http=app.zen_browser.zen.desktop
 application/pdf=org.pwmt.zathura.desktop
 application/vnd.openxmlformats-officedocument.spreadsheetml.sheet=calc.desktop
 application/octet-stream=calc.desktop
@@ -10,7 +10,7 @@ x-scheme-handler/discord-606879956932231192=discord-606879956932231192.desktop
 x-scheme-handler/msteams=teams.desktop
 x-scheme-handler/ftp=userapp-Waterfox-WKIQ60.desktop
 x-scheme-handler/chrome=zen.desktop
-text/html=zen.desktop
+text/html=app.zen_browser.zen.desktop
 application/x-extension-htm=zen.desktop
 application/x-extension-html=zen.desktop
 application/x-extension-shtml=zen.desktop
@@ -31,6 +31,8 @@ scheme-handler/http=firefox.desktop
 scheme-handler/https=firefox.desktop
 x-scheme-handler/discord-455712169795780630=discord-455712169795780630.desktop
 x-scheme-handler/mailto=userapp-Evolution-WCDSB3.desktop
+x-scheme-handler/about=app.zen_browser.zen.desktop
+x-scheme-handler/unknown=app.zen_browser.zen.desktop
 
 [Added Associations]
 application/pdf=org.pwmt.zathura-pdf-mupdf.desktop;acroread.desktop;
