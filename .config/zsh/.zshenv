@@ -1,6 +1,5 @@
 # vim: set filetype=sh
 # Environmental variables for zsh
-export BROWSER=zen-browser
 export CALCULATOR=galculator
 export CALENDAR=evolution
 export CDPATH=~/.shortcut_dirs
