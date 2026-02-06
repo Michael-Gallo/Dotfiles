@@ -1,4 +1,4 @@
-autojump-rs
+autojump-rs-bin
 avahi
 bat
 btop
@@ -30,7 +30,7 @@ nerd-fonts
 noto-fonts
 npm
 pulsemixer
-rate-mirrors
+rate-mirrors-bin
 rofi
 swaybg
 tealdeer
