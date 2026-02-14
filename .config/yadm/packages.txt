@@ -29,6 +29,7 @@ neovim
 nerd-fonts
 noto-fonts
 npm
+prettier
 pulsemixer
 rate-mirrors-bin
 rofi
