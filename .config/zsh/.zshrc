@@ -104,10 +104,6 @@ zstyle ':plugin:ez-compinit' 'compstyle' 'zshzoo'
 # Load syntax highlighting; should be last.
 ZSH_AUTOSUGGEST_USE_ASYNC="TE"
 ZSH_AUTOSUGGEST_HISTORY_IGNORE="kill*"
-
-source $HOME/.config/bemenu/bemenu_conf
-
-
 #source personal environment variables
 [ -f "$HOME/.config/zsh/private_env" ] && source "$HOME/.config/zsh/private_env"
 
