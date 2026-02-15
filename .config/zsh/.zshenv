@@ -64,7 +64,6 @@ export WINEUSERNAME=combat1921
 # RADV = mesa, AMDVLK = amd vulkan 
 export AMD_VULKAN_ICD=RADV
 export JAVA_HOME=/usr/lib/jvm/java-21-openjdk
-export ZDOTDIR=$HOME/.config/zsh
 if [ -f ~/.config/bash/bash_aliases  ]; then
     source ~/.config/bash/bash_aliases
 fi
