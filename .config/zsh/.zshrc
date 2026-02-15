@@ -72,7 +72,12 @@ alias sudo='sudo '
 alias orphans='sudo pacman -R $(pacman -Qdtq)'
 
 
-source <(fzf --zsh)
+# fzf integration (static)
+[ -f /usr/share/fzf/key-bindings.zsh ] &&
+  source /usr/share/fzf/key-bindings.zsh
+
+[ -f /usr/share/fzf/completion.zsh ] &&
+  source /usr/share/fzf/completion.zsh
 
 
 # lazy load python# ---- Lazy pyenv loader ----
