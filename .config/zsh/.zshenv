@@ -25,27 +25,6 @@ export PATH="$HOME/go/bin:$PATH"
 
 export TERMINAL="foot"
 export BUS_BROWSER="brave"
-# Display protocol specific env vars
-case $XDG_SESSION_TYPE in
-        "x11")
-                [ -x "$(command -v st)" ] && export TERMINAL="st"
-                export RUN_LAUNCHER="dmenu_run"
-                export MENU="dmenu"
-
-        ;;
-        # Wayland by default
-        *)
-                export ELECTRON_OZONE_PLATFORM_HINT=wayland
-                export RUN_LAUNCHER="bemenu-run"
-                export MENU="bemenu"
-                export BUS_BROWSER="brave"
-                export MOZ_ENABLE_WAYLAND=1
-                export GDK_BACKEND="wayland"
-        ;;
-esac
-
-
-
 
 # make fzf not follow symbolic links
 export FZF_DEFAULT_COMMAND='rg --files --hidden --no-ignore-vcs'
