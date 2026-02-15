@@ -15,14 +15,8 @@ path=(
   $path
 )
 export PATH
-export CALCULATOR=galculator
-export CALENDAR=evolution
 export CDPATH=~/.shortcut_dirs
-export EDITOR=nvim
-export FILE_MANAGER=pcmanfm
 export FZF_DEFAULT_OPTS='--preview="bat --style=numbers --color=always {}"'
-export TERMCMD=xterm
-export TERMINAL_FILE_BROWSER=lf
 export VIMINIT='source $XDG_CONFIG_HOME/nvim/init.lua'
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_CONFIG_DIRS="/etc/xdg"
