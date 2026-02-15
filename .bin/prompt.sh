@@ -2,9 +2,11 @@
 
 choice=$(printf "No\nYes" | rofi -dmenu \
   -i \
+  -no-custom \
   -p "${1:-Confirm?}" \
-  -lines 2 \
-  -width 20 \
-  -theme-str 'window {width: 20%;} listview {lines: 2;}')
+  -theme-str '
+    window { width: 22%; location: center; }
+    listview { lines: 2; }
+  ')
 
 [ "$choice" = "Yes" ] && shift && exec "$@"
