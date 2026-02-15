@@ -33,7 +33,6 @@ setopt auto_cd
 
 # Lazy-load antidote.
 source '/usr/share/zsh-antidote/antidote.zsh'
-antidotePath=/usr/share/zsh-antidote
 
 zsh_plugins=${ZDOTDIR:-~}/.zsh_plugins
 # Generate static file in a subshell when .zsh_plugins.txt is updated.
