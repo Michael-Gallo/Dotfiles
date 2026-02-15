@@ -1,3 +1,5 @@
+# uncomment this line if perf testing
+# zmodload zsh/zprof
 ### Set variables
 #################
 bindkey -e
@@ -31,16 +33,14 @@ setopt correct
 # Automatic directory changing
 setopt auto_cd
 
+ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 # Lazy-load antidote.
 source '/usr/share/zsh-antidote/antidote.zsh'
 
 zsh_plugins=${ZDOTDIR:-~}/.zsh_plugins
 # Generate static file in a subshell when .zsh_plugins.txt is updated.
-if [[ ! ${zsh_plugins}.zsh -nt ${zsh_plugins}.txt ]]; then
-    (
-    antidote load
-    antidote bundle <${zsh_plugins}.txt >${zsh_plugins}.zsh
-)
+if [[ ! $zsh_plugins.zsh -nt $zsh_plugins.txt ]]; then
+  antidote bundle <$zsh_plugins.txt >|$zsh_plugins.zsh
 fi
 # Source static plugins file.
 source $zsh_plugins.zsh
@@ -144,3 +144,6 @@ zle -N fzf-cd-widget
 bindkey '^R' fzf-history-widget
 bindkey '^T' fzf-file-widget
 bindkey '\ec' fzf-cd-widget
+
+# uncomment this line if perf testing
+# zprof
