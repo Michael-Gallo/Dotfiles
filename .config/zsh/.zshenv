@@ -1,12 +1,26 @@
 # vim: set filetype=sh
 # Environmental variables for zsh
+typeset -U path
+
+path=(
+  "$HOME/.local/bin"
+  "$HOME/.cargo/bin"
+  "$HOME/.bin"
+  "/var/lib/flatpak/exports/bin"
+  "$HOME/Apps"
+  "/opt/android-sdk/platform-tools"
+  "$HOME/go/bin"
+  "$ANDROID_HOME/emulator"
+  "$ANDROID_HOME/platform-tools"
+  $path
+)
+export PATH
 export CALCULATOR=galculator
 export CALENDAR=evolution
 export CDPATH=~/.shortcut_dirs
 export EDITOR=nvim
 export FILE_MANAGER=pcmanfm
 export FZF_DEFAULT_OPTS='--preview="bat --style=numbers --color=always {}"'
-export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$HOME/.bin:/var/lib/flatpak/exports/bin:$HOME/Apps:/opt/android-sdk/platform-tools:$PATH"
 export TERMCMD=xterm
 export TERMINAL_FILE_BROWSER=lf
 export VIMINIT='source $XDG_CONFIG_HOME/nvim/init.lua'
