@@ -97,7 +97,7 @@ pip3()   { _pyenv_lazy_init pip3   "$@"; }
 # python done
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
+path+=("$HOME/.rvm/bin")
 
 zstyle ':plugin:ez-compinit' 'compstyle' 'zshzoo'
 
