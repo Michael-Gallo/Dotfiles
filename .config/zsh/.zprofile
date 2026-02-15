@@ -11,7 +11,6 @@ export XDG_STATE_HOME="$HOME/.local/state"
 
 # Toolchains
 export GOPATH="$HOME/go"
-export ANDROID_HOME=/home/mike/Android/Sdk
 export JAVA_HOME=/usr/lib/jvm/java-21-openjdk
 
 # python
