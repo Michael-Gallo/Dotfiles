@@ -14,7 +14,7 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_CONFIG_DIRS="/etc/xdg"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_DIRS="/usr/local/share:/usr/share:$HOME/.local/share:/var/lib/flatpak/exports/share:/home/mike/local/share/flatpak/exports/share"
-export XDG_DATA_HOME="$HOME/local/share"
+export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_MUSIC_DIR="$HOME/Music"
 export XDG_PICTURES_DIR="$HOME/Pictures"
 export XDG_SCREENSHOTS_DIR="$HOME/Pictures/screenshots"
@@ -23,23 +23,17 @@ export ZDOTDIR=$HOME/.config/zsh
 export GOPATH="$HOME/go"
 export PATH="$HOME/go/bin:$PATH"
 
-# Python
-# Load pyenv into the shell by adding
-# the following to ~/.zshrc:
-
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
-eval "$(pyenv init -)"
 
 
 export TERMINAL="foot"
+export BUS_BROWSER="brave"
 # Display protocol specific env vars
 case $XDG_SESSION_TYPE in
         "x11")
                 [ -x "$(command -v st)" ] && export TERMINAL="st"
                 export RUN_LAUNCHER="dmenu_run"
-                export BUS_BROWSER="brave"
                 export MENU="dmenu"
 
         ;;
@@ -63,16 +57,8 @@ export FZF_DEFAULT_COMMAND='rg --files --hidden --no-ignore-vcs'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 export QT_QPA_PLATFORMTHEME=qt6ct
-#
 # set username for wine
 export WINEUSERNAME=combat1921
-#source personal environment variables
-if [ -f $HOME/.config/zsh/private_env ]; then
-    source $HOME/.config/zsh/private_env
-else
-    touch $HOME/.config/zsh/private_env
-fi
-source $HOME/.config/bemenu/bemenu_conf
 
 
 # RADV = mesa, AMDVLK = amd vulkan 
