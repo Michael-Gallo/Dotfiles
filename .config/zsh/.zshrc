@@ -16,6 +16,7 @@ zstyle ':vcs_info:git:*' actionformats ' (%b|%a%u%c) '
 
 PROMPT='%F{35}%n%f:%F{35}%~%f%F{135}${vcs_info_msg_0_}%f$ '
 
+export MANPAGER="sh -c 'col -bx | bat -l man -p'"
 # Uncomment the following line to use hyphen-insensitive completion.
 # Case-sensitive completion must be off. _ and - will be interchangeable.
 HYPHEN_INSENSITIVE="true"
