@@ -41,7 +41,6 @@ case $XDG_SESSION_TYPE in
                 export RUN_LAUNCHER="dmenu_run"
                 export BUS_BROWSER="brave"
                 export MENU="dmenu"
-                export WMBLOCKS="dwmblocks"
 
         ;;
         # Wayland by default
@@ -52,7 +51,6 @@ case $XDG_SESSION_TYPE in
                 export MENU="bemenu"
                 export BUS_BROWSER="brave"
                 export MOZ_ENABLE_WAYLAND=1
-                export WMBLOCKS="someblocks"
                 export GDK_BACKEND="wayland"
         ;;
 esac
@@ -80,11 +78,6 @@ source $HOME/.config/bemenu/bemenu_conf
 # RADV = mesa, AMDVLK = amd vulkan 
 export AMD_VULKAN_ICD=RADV
 export JAVA_HOME=/usr/lib/jvm/java-21-openjdk
-alias psp=PPSSPPSDL
-# export $(dbus-launch)
-
-export GTK_MODULES=canberra-gtk-module
-export GTK3_MODULES=xapp-gtk3-module
 export ZDOTDIR=$HOME/.config/zsh
 if [ -f ~/.config/bash/bash_aliases  ]; then
     source ~/.config/bash/bash_aliases
