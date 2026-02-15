@@ -1,5 +1,7 @@
 # vim: set filetype=sh
 # Environmental variables for zsh
+
+export ANDROID_HOME=$HOME/Android/Sdk
 typeset -U path
 
 path=(
