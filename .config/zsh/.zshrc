@@ -4,7 +4,6 @@ bindkey -e
 HISTFILE=$HOME/.config/zsh/.zhistory
 HISTSIZE=1000000
 SAVEHIST=$HISTSIZE
-HOSTNAME=$HOSTNAME
 
 # Add Git to prompt
 autoload -Uz add-zsh-hook vcs_info
