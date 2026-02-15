@@ -72,11 +72,11 @@ alias orphans='sudo pacman -R $(pacman -Qdtq)'
 
 
 # fzf integration (static)
-[ -f /usr/share/fzf/key-bindings.zsh ] &&
-  source /usr/share/fzf/key-bindings.zsh
-
-[ -f /usr/share/fzf/completion.zsh ] &&
-  source /usr/share/fzf/completion.zsh
+# [ -f /usr/share/fzf/key-bindings.zsh ] &&
+#   source /usr/share/fzf/key-bindings.zsh
+#
+# [ -f /usr/share/fzf/completion.zsh ] &&
+#   source /usr/share/fzf/completion.zsh
 
 
 # lazy load python# ---- Lazy pyenv loader ----
@@ -114,3 +114,34 @@ bindkey "\e[1;3C" forward-word
 export FZF_DEFAULT_OPTS='--preview="bat --style=numbers --color=always {}"'
 export FZF_DEFAULT_COMMAND='rg --files --hidden --no-ignore-vcs'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+# Lazy-load fzf sources but keep widgets functional
+_fzf_lazy_source() {
+  [ -f /usr/share/fzf/key-bindings.zsh ] && source /usr/share/fzf/key-bindings.zsh
+  [ -f /usr/share/fzf/completion.zsh ] && source /usr/share/fzf/completion.zsh
+  unset -f _fzf_lazy_source
+}
+
+# Wrap fzf widgets to trigger lazy load on first use
+fzf-history-widget() {
+  _fzf_lazy_source
+  zle fzf-history-widget
+}
+zle -N fzf-history-widget
+
+fzf-file-widget() {
+  _fzf_lazy_source
+  zle fzf-file-widget
+}
+zle -N fzf-file-widget
+
+fzf-cd-widget() {
+  _fzf_lazy_source
+  zle fzf-cd-widget
+}
+zle -N fzf-cd-widget
+
+# Bind keys after widgets are defined
+bindkey '^R' fzf-history-widget
+bindkey '^T' fzf-file-widget
+bindkey '\ec' fzf-cd-widget
