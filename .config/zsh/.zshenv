@@ -51,7 +51,6 @@ esac
 export FZF_DEFAULT_COMMAND='rg --files --hidden --no-ignore-vcs'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
-export QT_QPA_PLATFORMTHEME=qt6ct
 # set username for wine
 export WINEUSERNAME=combat1921
 
