@@ -13,7 +13,7 @@ export VIMINIT='source $XDG_CONFIG_HOME/nvim/init.lua'
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_CONFIG_DIRS="/etc/xdg"
 export XDG_CONFIG_HOME="$HOME/.config"
-export XDG_DATA_DIRS="/usr/local/share:/usr/share:$HOME/.local/share:/var/lib/flatpak/exports/share:/home/mike/local/share/flatpak/exports/share"
+export XDG_DATA_DIRS="/usr/local/share:/usr/share:$HOME/.local/share:/var/lib/flatpak/exports/share:$HOME/.local/share/flatpak/exports/share"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_MUSIC_DIR="$HOME/Music"
 export XDG_PICTURES_DIR="$HOME/Pictures"
@@ -40,7 +40,6 @@ case $XDG_SESSION_TYPE in
         # Wayland by default
         *)
                 export ELECTRON_OZONE_PLATFORM_HINT=wayland
-                export TERMINAL="foot"
                 export RUN_LAUNCHER="bemenu-run"
                 export MENU="bemenu"
                 export BUS_BROWSER="brave"
@@ -64,9 +63,6 @@ export WINEUSERNAME=combat1921
 # RADV = mesa, AMDVLK = amd vulkan 
 export AMD_VULKAN_ICD=RADV
 export JAVA_HOME=/usr/lib/jvm/java-21-openjdk
-if [ -f ~/.config/bash/bash_aliases  ]; then
-    source ~/.config/bash/bash_aliases
-fi
 
 export ANDROID_HOME=/home/mike/Android/Sdk
 export PATH=$PATH:$ANDROID_HOME/emulator
