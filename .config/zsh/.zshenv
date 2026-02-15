@@ -68,10 +68,6 @@ if [ -f ~/.config/bash/bash_aliases  ]; then
     source ~/.config/bash/bash_aliases
 fi
 
-export QT_IM_MODULE=fcitx
-export XMODIFIERS=@im=fcitx
-export GLFW_IM_MODULE=ibus
-export SDL_IM_MODULE=fcitx
 export ANDROID_HOME=/home/mike/Android/Sdk
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/platform-tools
