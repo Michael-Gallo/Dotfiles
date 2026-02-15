@@ -74,9 +74,22 @@ alias orphans='sudo pacman -R $(pacman -Qdtq)'
 
 source <(fzf --zsh)
 
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
+
+# lazy load python# ---- Lazy pyenv loader ----
+_pyenv_lazy_init() {
+  unset -f pyenv python pip pip3
+
+  eval "$(pyenv init -)"
+
+  # Re-run the original command
+  command "$@"
+}
+
+pyenv()  { _pyenv_lazy_init pyenv  "$@"; }
+python() { _pyenv_lazy_init python "$@"; }
+pip()    { _pyenv_lazy_init pip    "$@"; }
+pip3()   { _pyenv_lazy_init pip3   "$@"; }
+# python done
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
