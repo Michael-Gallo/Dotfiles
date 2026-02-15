@@ -28,10 +28,11 @@ $mainMod = SUPER
 $webapp = uwsm app -- chromium --new-window --ozone-platform=wayland --app
 $CALENDAR = evolution
 
+$prompt = ~/.bin/prompt.sh
 # Launchers
 bind = $mainMod, RETURN, exec, uwsm app -- $TERMINAL
 bind = $mainMod SHIFT, C, killactive, 
-bind = $mainMod SHIFT, Q, exec, prompt.sh "Exit Hyprland" "hyprctl dispatch exit" 
+bind = $mainMod SHIFT, Q, exec, $prompt "Exit Hyprland" "hyprctl dispatch exit" 
 bind = $mainMod, A, exec, $webapp="https://t3.chat/"
 bind = $mainMod, D, exec, $webapp="https://app.todoist.com/app/today"
 bind = $mainMod, Y, exec, $webapp="https://app.ynab.com"
@@ -80,8 +81,8 @@ bind = $mainMod SHIFT, Page_Down, exec, $audioProgram --change-volume -$bigAudio
 #  Power
 
 # Note: needs passwordless reboot for this to work
-bind = $mainMod, F11, exec, prompt.sh "reboot computer?" "reboot"
-bind = $mainMod, F12, exec, prompt.sh "shutdown computer?" "shutdown now"
+bind = $mainMod, F11, exec, $prompt "reboot computer?" "reboot"
+bind = $mainMod, F12, exec, $prompt "shutdown computer?" "shutdown now"
 
 # Switch workspaces with mainMod + [0-9]
 {% if yadm.class == "laptop" %}
