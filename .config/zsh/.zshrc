@@ -108,3 +108,9 @@ source $HOME/.config/bemenu/bemenu_conf
 
 bindkey "\e[1;3D" backward-word
 bindkey "\e[1;3C" forward-word
+
+
+# make fzf not follow symbolic links
+export FZF_DEFAULT_OPTS='--preview="bat --style=numbers --color=always {}"'
+export FZF_DEFAULT_COMMAND='rg --files --hidden --no-ignore-vcs'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
