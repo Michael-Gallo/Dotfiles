@@ -1,5 +1,4 @@
 mattmc3/ez-compinit
-ohmyzsh/ohmyzsh path:plugins/autojump
 zsh-users/zsh-autosuggestions
 zsh-users/zsh-completions
 zsh-users/zsh-syntax-highlighting
