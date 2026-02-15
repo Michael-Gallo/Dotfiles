@@ -91,11 +91,7 @@ source $HOME/.config/bemenu/bemenu_conf
 
 
 #source personal environment variables
-if [ -f $HOME/.config/zsh/private_env ]; then
-    source $HOME/.config/zsh/private_env
-else
-    touch $HOME/.config/zsh/private_env
-fi
+[ -f "$HOME/.config/zsh/private_env" ] && source "$HOME/.config/zsh/private_env"
 
 bindkey "\e[1;3D" backward-word
 bindkey "\e[1;3C" forward-word
