@@ -1,16 +1,12 @@
 # vim: set filetype=sh
 # vim: set ft=sh :
 alias :q=exit
-alias r="ranger"
-alias sapt="sudo apt"
 alias mkd="mkdir -pv"
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 alias ll='ls -alF'
 alias la='ls -A'
-alias l='ls -CF'
-alias ii=nemo
 alias vim=nvim
 alias svim='sudoedit'
 alias df='df -h'
@@ -18,9 +14,6 @@ alias mkdir="mkdir -pv"
 command -v exa >/dev/null && alias ls="exa -a --color=always --group-directories-first --git --icons"
 alias lo=libreoffice
 alias pm=pcmanfm
-alias sdn="shutdown now"
-alias nm=neomutt
-alias sm=smplayer
 alias yp="yadm push -f"
 alias ys="yadm status"
 alias ya="yadm add"
@@ -31,8 +24,6 @@ alias gpoh="git push origin HEAD"
 alias pac="sudo pacman"
 alias du="du -h"
 alias nmap="nmap -sn"
-alias hellolight="sudo systemctl start lightdm"
-alias goodbyelight="sudo systemctl stop lightdm"
 alias gmt="go mod tidy"
 alias tf=terraform
 # cwd to copy current directory to clipboard
@@ -40,7 +31,6 @@ alias cwd="pwd|xsel -ib"
 alias mirrors="rate-mirrors --allow-root --protocol https arch | sudo tee /etc/pacman.d/mirrorlist"
 unalias gc 2>/dev/null
 unalias gd 2>/dev/null
-alias discord="nohup setsid discord --enable-features=UseOzonePlatform --ozone-platform=wayland --enable-wayland-ime &"
 se() {
 	bad_dirs="chromium bravesoftware cache discord libreoffice skype lutris .git .log mattermost mangagamer smplayer wayofthepassivefist pcsx2 indexeddb unity3d mono.addins rocket.chat virtualbox"
 	vals=(${bad_dirs// /\|})
@@ -74,4 +64,3 @@ gd() {
 	git status | grep modified: | awk '{print $2}' | fzf | xargs git diff
 }
 
-alias signal="signal-desktop --password-store=\"gnome-libsecret\""
