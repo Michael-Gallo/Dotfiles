@@ -26,13 +26,11 @@ alias du="du -h"
 alias nmap="nmap -sn"
 alias gmt="go mod tidy"
 alias tf=terraform
-# cwd to copy current directory to clipboard
-alias cwd="pwd|xsel -ib"
 alias mirrors="rate-mirrors --allow-root --protocol https arch | sudo tee /etc/pacman.d/mirrorlist"
 unalias gc 2>/dev/null
 unalias gd 2>/dev/null
 se() {
-	bad_dirs="chromium bravesoftware cache discord libreoffice skype lutris .git .log mattermost mangagamer smplayer wayofthepassivefist pcsx2 indexeddb unity3d mono.addins rocket.chat virtualbox"
+	bad_dirs="chromium bravesoftware cache discord libreoffice skype lutris .git .log mattermost mangagamer smplayer pcsx2 indexeddb unity3d mono.addins rocket.chat virtualbox"
 	vals=(${bad_dirs// /\|})
 	rg --files --hidden $HOME/.config $HOME/.bin | grep -E -vi $vals | fzf --layout=reverse --preview="bat --color=always {}" --bind "enter:become($EDITOR {})"
 }
