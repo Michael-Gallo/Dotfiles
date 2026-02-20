@@ -1,0 +1,1 @@
+bind \ck forward-char
