@@ -31,7 +31,6 @@ noto-fonts
 npm
 prettier
 pulsemixer
-rate-mirrors-bin
 rofi
 swaybg
 tealdeer
