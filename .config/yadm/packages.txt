@@ -15,6 +15,7 @@ flatpak
 foot
 fuse2
 fzf
+glow
 greetd
 greetd-tuigreet
 grimblast-git
