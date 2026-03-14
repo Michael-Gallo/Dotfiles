@@ -1,4 +1,3 @@
-autojump-rs-bin
 avahi
 bat
 btop
