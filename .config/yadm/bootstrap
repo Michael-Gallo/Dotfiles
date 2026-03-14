@@ -59,16 +59,6 @@ sudo usermod -a -G storage $(whoami)
 sudo usermod -a -G scanner $(whoami)
 sudo usermod -a -G docker $(whoami)
 
-TARGET_SHELL="/usr/bin/zsh"
-CURRENT_SHELL=$(basename "$SHELL")
-
-if [ "$SHELL" != "$TARGET_SHELL" ]; then
-  echo "Current shell is $SHELL, changing to $TARGET_SHELL..."
-  chsh -s "$TARGET_SHELL"
-  echo "Shell changed. Please log out and log back in for changes to take effect."
-else
-  echo "Shell is already set to $TARGET_SHELL."
-fi
 
 git config --global pull.rebase true
 git config --global rerere.enabled true
