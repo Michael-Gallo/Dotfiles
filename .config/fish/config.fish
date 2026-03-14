@@ -1,5 +1,7 @@
 if status is-interactive
     # Commands to run in interactive sessions can go here
+    set -x FZF_DEFAULT_OPTS '--preview "bat --color=always {}"'
+    set -Ux fzf_fd_opts --hidden --follow --exclude .git
 end
 
 set -g fish_greeting
