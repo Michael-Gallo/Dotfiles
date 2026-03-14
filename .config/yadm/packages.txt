@@ -30,6 +30,7 @@ noto-fonts
 npm
 prettier
 pulsemixer
+rclone
 rofi
 swaybg
 tealdeer
