@@ -8,6 +8,7 @@ cups
 docker
 downgrade
 evolution-etesync-git
+fastfetch
 fcitx5
 ffmpegthumbnailer
 firefox
@@ -24,7 +25,6 @@ hyprlock
 less
 lf
 libreoffice-fresh
-neofetch
 neovim
 nerd-fonts
 noto-fonts
