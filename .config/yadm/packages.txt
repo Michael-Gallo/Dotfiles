@@ -42,5 +42,6 @@ waybar
 wget
 wl-clipboard
 wofi
+xdg-desktop-portal-hyprland
 zsh
 zsh-antidote
