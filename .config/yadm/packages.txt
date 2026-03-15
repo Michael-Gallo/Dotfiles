@@ -29,6 +29,8 @@ grimblast-git
 hypridle
 hyprland
 hyprlock
+jellyfin-server
+jellyfin-web
 less
 lf
 libreoffice-fresh
