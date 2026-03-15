@@ -90,6 +90,8 @@ yadm alt
 # Needed for previews
 mkdir -p $HOME/.cache/lf/thumbnail
 
+# Have fish set universal variables
+fish $HOME/.config/fish/fish_setup.fish
 # Write files
 
 write_if_different() {

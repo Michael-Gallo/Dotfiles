@@ -12,6 +12,7 @@ fastfetch
 fcitx5
 ffmpegthumbnailer
 firefox
+fish
 flatpak
 foot
 fuse2
