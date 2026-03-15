@@ -12,6 +12,8 @@ dunst
 evolution-etesync-git
 fastfetch
 fcitx5
+fcitx5-configtool
+fcitx5-mozc
 ffmpegthumbnailer
 firefox
 fish
