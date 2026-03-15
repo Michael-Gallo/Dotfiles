@@ -22,6 +22,7 @@ foot
 fuse2
 fzf
 glow
+gnome-keyring
 greetd
 greetd-tuigreet
 grimblast-git
