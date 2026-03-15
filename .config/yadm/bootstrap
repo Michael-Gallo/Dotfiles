@@ -15,7 +15,7 @@ fi
 
 flatpak_list_path=$XDG_CONFIG_HOME/yadm/flatpaks.txt
 
-if [ ! -f "$package_list_path" ]; then
+if [ ! -f "$flatpak_list_path" ]; then
   echo "$flatpak_list_path not found"
   exit 1
 fi
