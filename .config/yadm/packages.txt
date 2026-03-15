@@ -39,6 +39,7 @@ rofi
 swaybg
 tealdeer
 trash-cli
+uwsm
 waybar
 wget
 wl-clipboard
