@@ -1,0 +1,13 @@
+[backblaze]
+type = b2
+account = ${B2_ACCOUNT_ID}
+key = ${B2_APPLICATION_KEY}
+bucket = mg-backup-bucket
+
+[b2crypt]
+type = crypt
+remote = backblaze:mg-backup-bucket
+directory_name_encryption = false
+password = ${B2_CRYPT_PASSWORD}
+password2 = ${B2_CRYPT_SALT}
+

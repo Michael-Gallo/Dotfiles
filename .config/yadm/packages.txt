@@ -1,5 +1,6 @@
 avahi
 bat
+bitwarden-cli
 btop
 chafa
 chromium
