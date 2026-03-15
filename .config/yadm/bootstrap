@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 set -euo pipefail
 if [ "$EUID" -eq 0 ]; then
@@ -7,6 +7,7 @@ if [ "$EUID" -eq 0 ]; then
 fi
 
 package_list_path=$XDG_CONFIG_HOME/yadm/packages.txt
+script_dir=$(dirname "$(readlink -f "$0")")
 
 if [ ! -f "$package_list_path" ]; then
   echo "$package_list_path not found"
@@ -22,28 +23,34 @@ fi
 
 wallpaper_location=$XDG_PICTURES_DIR/wallpapers
 # Ensure that wallpaper is set
-if [ ! -f $wallpaper_location/wallpaper ]; then
+if [ ! -f "$wallpaper_location/wallpaper" ]; then
   echo "setting wallpaper"
-  mkdir -p $wallpaper_location
-  cp $XDG_CONFIG_HOME/yadm/wallpaper.png $wallpaper_location/wallpaper
+  mkdir -p "$wallpaper_location"
+  cp "$XDG_CONFIG_HOME/yadm/wallpaper.png" "$wallpaper_location/wallpaper"
 fi
 
 sudo pacman -S --noconfirm --needed git base-devel 
+
+install_paru(){
+    tmpdir=$(mktemp -d)
+    trap 'rm -rf "$tmpdir"' EXIT INT TERM
+    git clone https://aur.archlinux.org/paru.git "$tmpdir/paru"
+    cd "$tmpdir/paru"
+    makepkg -si --noconfirm
+}
 # Install Paru
 if ! command -v paru >/dev/null 2>&1; then
     echo "Installing Paru AUR helper"
-    git clone https://aur.archlinux.org/paru.git
-    cd paru
-    makepkg -si
+    (install_paru)
 fi
 
 echo "Updating system"
 paru -Syu --noconfirm
 echo "Installing needed packages"
-paru -S --noconfirm --needed --quiet $(< $package_list_path) 2>&1 | grep -vi "warning:"
+paru -S --noconfirm --needed --quiet $(< "$package_list_path") 2>&1 | grep -vi warning:
 
 echo "Installing needed flatpaks"
-flatpak install -y $(< $flatpak_list_path) 2>&1 | grep -vi "warning:"
+flatpak install -y $(< "$flatpak_list_path") 2>&1 | grep -vi warning:
 
 # Override for Discord so link opening works
 flatpak override --user com.discordapp.Discord \
@@ -55,9 +62,9 @@ nvim --headless -c 'Lazy sync' -c 'qa'
 
 echo "Setting groups"
 
-sudo usermod -a -G storage $(whoami)
-sudo usermod -a -G scanner $(whoami)
-sudo usermod -a -G docker $(whoami)
+sudo usermod -a -G storage $USER
+sudo usermod -a -G scanner $USER
+sudo usermod -a -G docker $USER
 
 
 git config --global pull.rebase true
@@ -72,7 +79,7 @@ if [ "$current_origin_url" != "$github_url" ]; then
     echo "Setting GitHub/GitLab remote structure"
     yadm remote remove $remote_name 2>/dev/null || true
     yadm remote add $remote_name $github_url
-    yadm fetch
+    yadm fetch --all
     current_branch=$(yadm symbolic-ref --short HEAD)
     yadm branch --set-upstream-to="$remote_name/$current_branch" "$current_branch"
     yadm remote set-url --add --push $remote_name $gitlab_url
@@ -80,7 +87,7 @@ if [ "$current_origin_url" != "$github_url" ]; then
 fi
 
 
-if ls /sys/class/power_supply/ | grep -q "^BAT"; then
+if [ -d /sys/class/power_supply/BAT* ] 2>/dev/null; then
     echo "Setting laptop class"
     yadm config local.class laptop
 
@@ -118,9 +125,10 @@ write_if_different() {
 write_if_different "blacklist pcspkr"  /etc/modprobe.d/nobeep.conf
 write_if_different "[default_session]
 command = \"Hyprland\"
-user=\"$(whoami)\" " /etc/greetd/tuigreet.toml
+user=\"$USER\" " /etc/greetd/tuigreet.toml
 # make it take 10 retries to lock me out
-write_if_different "$(cat faillock.conf)" /etc/security/faillock.conf
+faillock_file="$script_dir/faillock.conf"
+write_if_different "$(cat "$faillock_file")" /etc/security/faillock.conf
 
 
 
@@ -132,4 +140,4 @@ for svc in "${services[@]}"; do
 done
 
 # Set up Rclone config
-./set_rclone.sh
+"$script_dir/set_rclone.sh"
