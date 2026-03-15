@@ -8,6 +8,7 @@ cronie
 cups
 docker
 downgrade
+dunst
 evolution-etesync-git
 fastfetch
 fcitx5
