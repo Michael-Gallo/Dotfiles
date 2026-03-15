@@ -8,7 +8,6 @@ application/vnd.openxmlformats-officedocument.spreadsheetml.sheet=calc.desktop
 application/octet-stream=calc.desktop
 x-scheme-handler/discord-606879956932231192=discord-606879956932231192.desktop
 x-scheme-handler/msteams=teams.desktop
-x-scheme-handler/ftp=userapp-Waterfox-WKIQ60.desktop
 x-scheme-handler/chrome=zen.desktop
 text/html=app.zen_browser.zen.desktop
 application/x-extension-htm=zen.desktop
@@ -36,17 +35,7 @@ x-scheme-handler/unknown=app.zen_browser.zen.desktop
 
 [Added Associations]
 application/pdf=org.pwmt.zathura-pdf-mupdf.desktop;acroread.desktop;
-x-scheme-handler/http=zen.desktop;firefox.desktop;userapp-Waterfox-WKIQ60.desktop;userapp-Waterfox-55TFD1.desktop;brave-browser.desktop;
-x-scheme-handler/https=zen.desktop;firefox.desktop;userapp-Waterfox-WKIQ60.desktop;userapp-Waterfox-55TFD1.desktop;
 x-scheme-handler/ftp=userapp-Waterfox-WKIQ60.desktop;
-x-scheme-handler/chrome=zen.desktop;firefox.desktop;userapp-Waterfox-WKIQ60.desktop;userapp-Waterfox-55TFD1.desktop;
-text/html=userapp-Waterfox-WKIQ60.desktop;userapp-Waterfox-55TFD1.desktop;firefox.desktop;zen.desktop;
-application/x-extension-htm=userapp-Waterfox-WKIQ60.desktop;userapp-Waterfox-55TFD1.desktop;firefox.desktop;zen.desktop;
-application/x-extension-html=userapp-Waterfox-WKIQ60.desktop;userapp-Waterfox-55TFD1.desktop;firefox.desktop;zen.desktop;
-application/x-extension-shtml=userapp-Waterfox-WKIQ60.desktop;userapp-Waterfox-55TFD1.desktop;firefox.desktop;zen.desktop;
-application/xhtml+xml=userapp-Waterfox-WKIQ60.desktop;userapp-Waterfox-55TFD1.desktop;firefox.desktop;zen.desktop;
-application/x-extension-xhtml=userapp-Waterfox-WKIQ60.desktop;userapp-Waterfox-55TFD1.desktop;firefox.desktop;zen.desktop;
-application/x-extension-xht=userapp-Waterfox-WKIQ60.desktop;userapp-Waterfox-55TFD1.desktop;firefox.desktop;zen.desktop;
 application/vnd.adobe.adept+xml=calibre-gui.desktop;
 text/calendar=org.gnome.Evolution.desktop;
 application/x-bittorrent=transmission-gtk.desktop;
