@@ -14,9 +14,11 @@ abbr pm pcmanfm
 abbr yp "yadm push -f"
 abbr ys "yadm status"
 abbr ya "yadm add"
+abbr yc 'yadm commit'
 abbr gp "git push -f"
 abbr gs "git status"
 abbr gcp "git cherry-pick"
+abbr gco "git checkout"
 abbr gpoh "git push origin HEAD"
 abbr pac "sudo pacman"
 abbr --position=anywhere du "du -h"
