@@ -6,7 +6,7 @@
 # parallel --tag --ungroup b2.sh ::: cloud nas 
 
 
-cloud_remote=encrypted-mg-backup-bucket:
+cloud_remote=b2crypt:
 local_remote=nas:backup
 target=$1
 if [[ "$target" == "cloud" ]]; then
@@ -19,11 +19,19 @@ else
 fi
 
 
-# Cloud storage
+backup() {
+    local name=$1 src=$2
+    echo "$name to $target"
+    if ! rclone sync --skip-links --transfers 32 "$src" "$remote/$name"; then
+        notify-send -u critical "Backup Failed" "$name sync failed"
+        exit 1
+    fi
+}
 
-echo "Music to $target" && rclone sync --skip-links --transfers 32 /mnt/storage/Music $remote/Music
-echo "Documents to $target" && rclone sync --skip-links --transfers 32 /mnt/storage/Documents $remote/Documents
-echo "Pictures to $target" &&  rclone sync --skip-links --transfers 32 /mnt/storage/Pictures $remote/Pictures
+    
+backup "Music" "/mnt/storage/Music"
+backup "Documents" "/mnt/storage/Documents"
+backup "Pictures" "/mnt/storage/Pictures"
 
 
 echo "Done transfering to $target"
