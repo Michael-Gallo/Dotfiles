@@ -125,8 +125,11 @@ write_if_different "$(cat faillock.conf)" /etc/security/faillock.conf
 
 
 # Enable services
-sudo systemctl enable avahi-daemon.service --now
-sudo systemctl enable cups.service --now
+services=(avahi-daemon cups jellyfin)
+
+for svc in "${services[@]}"; do
+  sudo systemctl enable "$svc.service" --now
+done
 
 # Set up Rclone config
 ./set_rclone.sh
