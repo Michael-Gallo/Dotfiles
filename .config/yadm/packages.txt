@@ -2,6 +2,7 @@ avahi
 bat
 btop
 chafa
+chromium
 cronie
 cups
 docker
