@@ -1,4 +1,5 @@
-com.discordapp.Discord
-net.ankiweb.Anki
 app.zen_browser.zen
+com.discordapp.Discord
+com.slack.Slack
+net.ankiweb.Anki
 org.signal.Signal
