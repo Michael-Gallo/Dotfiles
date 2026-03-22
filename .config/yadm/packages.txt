@@ -32,6 +32,7 @@ hyprland
 hyprlock
 jellyfin-server
 jellyfin-web
+kdeconnect
 less
 lf
 libreoffice-fresh
