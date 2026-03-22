@@ -41,10 +41,6 @@ source '/usr/share/zsh-antidote/antidote.zsh'
 zsh_plugins=${ZDOTDIR:-~}/.zsh_plugins
 [[ -f ${zsh_plugins}.txt ]] || touch ${zsh_plugins}.txt
 
-# Lazy-load antidote from its functions directory.
-fpath=(/path/to/antidote/functions $fpath)
-autoload -Uz antidote
-
 # Generate a new static file whenever .zsh_plugins.txt is updated.
 if [[ ! ${zsh_plugins}.zsh -nt ${zsh_plugins}.txt ]]; then
   antidote bundle <${zsh_plugins}.txt >|${zsh_plugins}.zsh
@@ -55,9 +51,9 @@ source ${zsh_plugins}.zsh
 
 ###### User configuration #####
 
-# Bash Aliases
-if [ -f ~/.config/bash/bash_aliases  ]; then
-    source ~/.config/bash/bash_aliases
+# Aliases
+if [ -f ~/.config/zsh/aliases  ]; then
+    source ~/.config/zsh/aliases
 fi
 
 
