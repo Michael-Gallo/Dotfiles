@@ -38,9 +38,12 @@ neovim
 nerd-fonts
 noto-fonts
 npm
+opentofu
 perl-image-exiftool
+ripgrep
 prettier
 pulsemixer
+pcmanfm
 rclone
 rofi
 swaybg
