@@ -19,7 +19,7 @@ abbr gpoh "git push origin HEAD"
 abbr pac "sudo pacman"
 abbr --position=anywhere du "du -h"
 abbr gmt "go mod tidy"
-abbr tf terraform
+abbr tf tofu
 abbr mirrors "rate-mirrors --allow-root --protocol https arch | sudo tee /etc/pacman.d/mirrorlist"
 abbr inv 'fzf --preview="bat --color=always {}" --bind "enter:become($EDITOR {})"'
 
