@@ -18,7 +18,6 @@ abbr gco "git checkout"
 abbr gpoh "git push origin HEAD"
 abbr pac "sudo pacman"
 abbr --position=anywhere du "du -h"
-abbr --position=anywhere nmap "nmap -sn"
 abbr gmt "go mod tidy"
 abbr tf terraform
 abbr mirrors "rate-mirrors --allow-root --protocol https arch | sudo tee /etc/pacman.d/mirrorlist"
