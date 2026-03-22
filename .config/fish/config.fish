@@ -1,5 +1,5 @@
 if status is-interactive
-    # Commands to run in interactive sessions can go here
+    fish_add_path -g ~/.bin
 end
 
 set -g fish_greeting
