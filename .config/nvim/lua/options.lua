@@ -15,9 +15,3 @@ vim.api.nvim_create_autocmd("FileType", {
     vim.opt_local.formatoptions:remove "o"
   end,
 })
-
-return {
-  opt = {
-    formatoptions = vim.opt.formatoptions:get():gsub("c", ""):gsub("r", ""):gsub("o", ""),
-  },
-}
