@@ -1,5 +1,6 @@
 app.zen_browser.zen
 com.discordapp.Discord
 com.slack.Slack
+com.usebruno.Bruno
 net.ankiweb.Anki
 org.signal.Signal
