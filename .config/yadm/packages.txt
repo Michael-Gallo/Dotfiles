@@ -7,9 +7,7 @@ chromium
 cronie
 cups
 docker
-downgrade
 dunst
-evolution-etesync-git
 fastfetch
 fcitx5
 fcitx5-configtool
@@ -26,7 +24,6 @@ go
 gnome-keyring
 greetd
 greetd-tuigreet
-grimblast-git
 hypridle
 hyprland
 hyprlock
@@ -68,4 +65,3 @@ wl-clipboard
 wofi
 xdg-desktop-portal-hyprland
 zsh
-zsh-antidote

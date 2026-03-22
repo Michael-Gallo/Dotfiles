@@ -1,0 +1,4 @@
+downgrade
+evolution-etesync-git
+grimblast-git
+zsh-antidote

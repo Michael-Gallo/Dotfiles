@@ -6,11 +6,16 @@ if [ "$EUID" -eq 0 ]; then
   exit 1
 fi
 
-package_list_path=$XDG_CONFIG_HOME/yadm/packages.txt
-script_dir=$(dirname "$(readlink -f "$0")")
+pacman_list_path=$XDG_CONFIG_HOME/yadm/pacman.txt
+aur_list_path=$XDG_CONFIG_HOME/yadm/aur.txt
 
-if [ ! -f "$package_list_path" ]; then
-  echo "$package_list_path not found"
+if [ ! -f "$pacman_list_path" ]; then
+  echo "$pacman_list_path not found"
+  exit 1
+fi
+
+if [ ! -f "$aur_list_path" ]; then
+  echo "$aur_list_path not found"
   exit 1
 fi
 
@@ -44,10 +49,14 @@ if ! command -v paru >/dev/null 2>&1; then
     (install_paru)
 fi
 
-echo "Updating system"
+echo "Installing needed pacman packages"
+sudo pacman -S --noconfirm --needed $(< "$pacman_list_path") 2>&1 | grep -vi warning:
+
+echo "Updating system with AUR"
 paru -Syu --noconfirm
-echo "Installing needed packages"
-paru -S --noconfirm --needed --quiet $(< "$package_list_path") 2>&1 | grep -vi warning:
+
+echo "Installing needed AUR packages"
+paru -S --noconfirm --needed --quiet $(< "$aur_list_path") 2>&1 | grep -vi warning:
 
 echo "Installing needed flatpaks"
 flatpak install -y $(< "$flatpak_list_path") 2>&1 | grep -vi warning:
