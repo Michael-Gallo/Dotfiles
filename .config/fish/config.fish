@@ -1,5 +1,6 @@
 if status is-interactive
     fish_add_path -g ~/.bin
+    pyenv init - fish | source
 end
 
 set -g fish_greeting
