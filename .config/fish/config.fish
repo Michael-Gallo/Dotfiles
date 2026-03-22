@@ -12,9 +12,11 @@ function fish_prompt
     set_color 28a745
     printf '%s' (prompt_pwd)
     set_color normal
-    set_color 87afff
-    printf '%s' (fish_vcs_prompt)
-    set_color normal
+    if fish_vcs_prompt
+        set_color 87afff
+        printf '%s' (fish_vcs_prompt)
+        set_color normal
+    end
     printf '$ '
 end
 # Warn if fisher is missing
@@ -26,6 +28,7 @@ function update-fish-plugins
     fisher update
 end
 # configure fzf binds
+if functions -q fzf_configure_bindings
 fzf_configure_bindings \
     --history=\cr \
     --directory=\ct \
@@ -33,5 +36,5 @@ fzf_configure_bindings \
     --git_status=\cs \
     --variables=\cv \
     --processes=\cp
-
+end
 

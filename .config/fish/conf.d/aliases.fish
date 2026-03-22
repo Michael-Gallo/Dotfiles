@@ -1,8 +1,4 @@
 abbr :q exit
-abbr mkd "mkdir -pv"
-abbr --position=anywhere grep "grep --color=auto"
-abbr --position=anywhere fgrep "fgrep --color=auto"
-abbr --position=anywhere egrep "egrep --color=auto"
 abbr ll "ls -alF"
 abbr la "ls -A"
 abbr vim nvim
@@ -15,7 +11,7 @@ abbr yp "yadm push -f"
 abbr ys "yadm status"
 abbr ya "yadm add"
 abbr yc 'yadm commit'
-abbr gp "git push -f"
+abbr gp "git push"
 abbr gs "git status"
 abbr gcp "git cherry-pick"
 abbr gco "git checkout"
