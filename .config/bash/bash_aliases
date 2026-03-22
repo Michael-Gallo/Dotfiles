@@ -14,10 +14,10 @@ alias mkdir="mkdir -pv"
 command -v exa >/dev/null && alias ls="exa -a --color=always --group-directories-first --git --icons"
 alias lo=libreoffice
 alias pm=pcmanfm
-alias yp="yadm push -f"
+alias yp="yadm push"
 alias ys="yadm status"
 alias ya="yadm add"
-alias gp="git push -f"
+alias gp="git push"
 alias gs="git status"
 alias gcp="git cherry-pick"
 alias gpoh="git push origin HEAD"
