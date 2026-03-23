@@ -64,4 +64,6 @@ wget
 wl-clipboard
 wofi
 xdg-desktop-portal-hyprland
+zathura
+zathura-pdf-mupdf
 zsh
