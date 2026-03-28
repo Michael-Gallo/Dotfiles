@@ -7,6 +7,7 @@ chromium
 cronie
 cups
 docker
+docker-buildx
 dunst
 fastfetch
 fcitx5
