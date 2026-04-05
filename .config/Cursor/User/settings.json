@@ -1,7 +1,8 @@
 {
-    "editor.multiCursorModifier": "ctrlCmd",
     "window.commandCenter": true,
     "explorer.confirmDelete": false,
     "editor.fontFamily": "FiraCode Nerd Font Mono",
-    "editor.fontLigatures": true
+    "editor.fontLigatures": true,
+    "terminal.integrated.sendKeybindingsToShell": true,
+    "vim.useSystemClipboard": true
 }
