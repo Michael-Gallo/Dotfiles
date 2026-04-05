@@ -4,5 +4,8 @@
   "editor.fontFamily": "FiraCode Nerd Font Mono",
   "editor.fontLigatures": true,
   "terminal.integrated.sendKeybindingsToShell": false,
-  "vim.useSystemClipboard": true
+  "vim.useSystemClipboard": true,
+  "editor.fontSize": 16,
+  "debug.console.fontSize": 16,
+  "terminal.integrated.fontSize": 16,
 }
