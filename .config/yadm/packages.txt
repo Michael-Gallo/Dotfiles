@@ -22,6 +22,7 @@ fuse2
 fzf
 glow
 go
+golangci-lint
 gnome-keyring
 greetd
 greetd-tuigreet
