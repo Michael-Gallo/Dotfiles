@@ -130,6 +130,9 @@ write_if_different() {
   fi
 }
 
+# Load sg module at boot (for scanners)
+write_if_different "sg" /etc/modules
+
 # Disable the annoying pcspkr module/beep sound
 write_if_different "blacklist pcspkr"  /etc/modprobe.d/nobeep.conf
 write_if_different "[default_session]
