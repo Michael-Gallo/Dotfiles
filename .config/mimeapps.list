@@ -29,9 +29,11 @@ application.pdf=zathura.desktop
 scheme-handler/http=firefox.desktop
 scheme-handler/https=firefox.desktop
 x-scheme-handler/discord-455712169795780630=discord-455712169795780630.desktop
-x-scheme-handler/mailto=userapp-Evolution-WCDSB3.desktop
+x-scheme-handler/mailto=userapp-Thunderbird-6SI1N3.desktop
 x-scheme-handler/about=app.zen_browser.zen.desktop
 x-scheme-handler/unknown=app.zen_browser.zen.desktop
+message/rfc822=userapp-Thunderbird-6SI1N3.desktop
+x-scheme-handler/mid=userapp-Thunderbird-6SI1N3.desktop
 
 [Added Associations]
 application/pdf=org.pwmt.zathura-pdf-mupdf.desktop;acroread.desktop;
@@ -41,4 +43,5 @@ text/calendar=org.gnome.Evolution.desktop;
 application/x-bittorrent=transmission-gtk.desktop;
 application/octet-stream=org.gnome.Evolution.desktop;
 text/plain=org.gnome.Evolution.desktop;
-x-scheme-handler/mailto=userapp-Evolution-WCDSB3.desktop;
+x-scheme-handler/mailto=userapp-Thunderbird-6SI1N3.desktop;userapp-Evolution-WCDSB3.desktop;
+x-scheme-handler/mid=userapp-Thunderbird-6SI1N3.desktop;
