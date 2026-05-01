@@ -46,8 +46,8 @@ bind = $mainMod, S, exec, uwsm app -- $CALENDAR
 # Window Management
 #bind = $mainMod, h, movefocus, l
 #bind = $mainMod, l, movefocus, r
-bind = $mainMod, h, layoutmsg,mfact, 0.4
-bind = $mainMod, l, layoutmsg,mfact, +0.5
+bind = $mainMod, h, layoutmsg,mfact -0.1
+bind = $mainMod, l, layoutmsg,mfact +0.1
 bind = $mainMod, comma, focusmonitor, -1
 bind = $mainMod, period, focusmonitor, +1
 bind = $mainMod, o, movewindow, mon:+1
