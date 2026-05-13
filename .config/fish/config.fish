@@ -2,6 +2,7 @@ if status is-interactive
     fish_add_path -g ~/.bin
     fish_add_path -g ~/go/bin
     fish_add_path -g ~/.local/share/gem/ruby/3.4.0/bin
+    fish_add_path -g ~/.local/bin
     pyenv init - fish | source
 end
 
