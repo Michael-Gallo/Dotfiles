@@ -16,9 +16,10 @@ function fish_prompt
     set_color 28a745
     printf '%s' (prompt_pwd)
     set_color normal
-    if fish_vcs_prompt
+    set -l vcs (fish_vcs_prompt)
+    if test -n "$vcs"
         set_color 87afff
-        printf '%s' (fish_vcs_prompt)
+        printf '%s' $vcs
         set_color normal
     end
     printf '$ '
@@ -41,4 +42,3 @@ fzf_configure_bindings \
     --variables=\cv \
     --processes=\cp
 end
-

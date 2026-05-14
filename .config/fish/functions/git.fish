@@ -1,11 +1,3 @@
-function yc
-    if test -z $argv[1]
-        yadm status | grep modified: | awk '{print $2}' | fzf | xargs yadm commit
-    else
-        yadm commit $argv
-    end
-end
-
 function yd
     set file (yadm status | grep modified: | awk '{print $2}' | fzf)
     if test -z "$file"
