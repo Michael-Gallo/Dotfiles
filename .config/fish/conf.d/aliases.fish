@@ -7,7 +7,7 @@ abbr df "df -h"
 abbr --position=anywhere mkdir "mkdir -pv"
 abbr lo libreoffice
 abbr pm pcmanfm
-abbr yp "yadm push -f"
+abbr yp "yadm push"
 abbr ys "yadm status"
 abbr ya "yadm add"
 abbr yc 'yadm commit'
