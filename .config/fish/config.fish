@@ -42,3 +42,6 @@ fzf_configure_bindings \
     --variables=\cv \
     --processes=\cp
 end
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/home/mike/google-cloud-sdk/path.fish.inc' ]; . '/home/mike/google-cloud-sdk/path.fish.inc'; end
