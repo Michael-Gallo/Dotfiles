@@ -9,4 +9,5 @@
   "debug.console.fontSize": 16,
   "terminal.integrated.fontSize": 16,
   "git.autofetch": true,
+  "window.autoDetectColorScheme": false,
 }
