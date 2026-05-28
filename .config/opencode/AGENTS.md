@@ -1,0 +1,3 @@
+- I'm on Arch Linux
+- If installing packaged I prefer pacman over flatpak and flatpak over the AUR
+  - paru is my AUR helper
