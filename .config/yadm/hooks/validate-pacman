@@ -1,0 +1,43 @@
+#!/bin/bash
+staged_pacman=$(git diff --cached --name-only -- '*.config/yadm/pacman.txt')
+if [ -z "$staged_pacman" ]; then
+  exit 0
+fi
+
+pacman_file=$(git diff --cached -- '.config/yadm/pacman.txt' | grep '^+[^+]' | sed 's/^+//' | grep -v '^$')
+if [ -z "$pacman_file" ]; then
+  exit 0
+fi
+
+pkgs=()
+while IFS= read -r line; do
+  line="${line#+}"
+  line="$(echo "$line" | xargs)"
+  [ -z "$line" ] && continue
+  pkgs+=("$line")
+done <<< "$pacman_file"
+
+if [ ${#pkgs[@]} -eq 0 ]; then
+  exit 0
+fi
+
+missing=()
+for pkg in "${pkgs[@]}"; do
+  response=$(curl -s "https://archlinux.org/packages/search/json/?name=$pkg")
+  if [ -z "$response" ]; then
+    echo "validate-pacman: could not reach Arch package API, skipping validation"
+    exit 0
+  fi
+  count=$(echo "$response" | python3 -c "import sys,json; d=json.load(sys.stdin); print(len(d.get('results',[])))")
+  if [ "$count" = "0" ]; then
+    missing+=("$pkg")
+  fi
+done
+
+if [ ${#missing[@]} -gt 0 ]; then
+  echo "validate-pacman: the following packages were not found in official repos:"
+  for m in "${missing[@]}"; do
+    echo "  - $m"
+  done
+  exit 1
+fi

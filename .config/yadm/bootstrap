@@ -126,6 +126,10 @@ if [ -d /sys/class/power_supply/BAT* ] 2>/dev/null; then
 
 fi
 
+hooks_dir="$HOME/.local/share/yadm/repo.git/hooks"
+mkdir -p "$hooks_dir"
+ln -sf "$XDG_CONFIG_HOME/yadm/hooks/pre-commit" "$hooks_dir/pre-commit"
+
 yadm alt
 # Needed for previews
 mkdir -p $HOME/.cache/lf/thumbnail

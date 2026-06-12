@@ -1,0 +1,12 @@
+#!/bin/bash
+hook_dir="$(dirname "$(readlink -f "$0")")"
+
+"$hook_dir/validate-aur"
+aur_result=$?
+
+"$hook_dir/validate-pacman"
+pacman_result=$?
+
+if [ $aur_result -ne 0 ] || [ $pacman_result -ne 0 ]; then
+  exit 1
+fi

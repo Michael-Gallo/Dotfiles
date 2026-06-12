@@ -1,0 +1,57 @@
+#!/bin/bash
+staged_aur=$(git diff --cached --name-only -- '*.config/yadm/aur.txt')
+if [ -z "$staged_aur" ]; then
+  exit 0
+fi
+
+aur_file=$(git diff --cached -- '.config/yadm/aur.txt' | grep '^+[^+]' | sed 's/^+//' | grep -v '^$')
+if [ -z "$aur_file" ]; then
+  exit 0
+fi
+
+pkgs=()
+while IFS= read -r line; do
+  line="${line#+}"
+  line="$(echo "$line" | xargs)"
+  [ -z "$line" ] && continue
+  pkgs+=("$line")
+done <<< "$aur_file"
+
+if [ ${#pkgs[@]} -eq 0 ]; then
+  exit 0
+fi
+
+url="https://aur.archlinux.org/rpc/v5/info?"
+first=true
+for pkg in "${pkgs[@]}"; do
+  if [ "$first" = true ]; then
+    url+="arg[]=$pkg"
+    first=false
+  else
+    url+="&arg[]=$pkg"
+  fi
+done
+
+response=$(curl -s "$url")
+
+if [ -z "$response" ]; then
+  echo "validate-aur: could not reach AUR RPC, skipping validation"
+  exit 0
+fi
+
+returned=$(echo "$response" | python3 -c "import sys,json; d=json.load(sys.stdin); print(' '.join(r.get('Name','') for r in d.get('results',[])))")
+
+missing=()
+for pkg in "${pkgs[@]}"; do
+  if ! echo "$returned" | grep -qw "$pkg"; then
+    missing+=("$pkg")
+  fi
+done
+
+if [ ${#missing[@]} -gt 0 ]; then
+  echo "validate-aur: the following packages were not found in the AUR:"
+  for m in "${missing[@]}"; do
+    echo "  - $m"
+  done
+  exit 1
+fi
