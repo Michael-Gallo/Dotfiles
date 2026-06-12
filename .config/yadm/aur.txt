@@ -1,4 +1,2 @@
-downgrade
-evolution-etesync-git
-grimblast-git
-zsh-antidote
+dragon-drop
+libsane-dsseries
