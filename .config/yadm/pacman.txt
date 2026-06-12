@@ -10,6 +10,7 @@ cups
 docker
 docker-buildx
 dunst
+evolution
 fastfetch
 fcitx5
 fcitx5-configtool
@@ -70,4 +71,3 @@ wofi
 xdg-desktop-portal-hyprland
 zathura
 zathura-pdf-mupdf
-zsh
