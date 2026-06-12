@@ -49,6 +49,7 @@ opentofu
 p7zip
 pcmanfm
 perl-image-exiftool
+pipewire-jack
 poppler
 prettier
 pulsemixer
