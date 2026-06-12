@@ -1,9 +1,8 @@
 abbr :q exit
-abbr ll "ls -alF"
-abbr la "ls -A"
 abbr vim nvim
 abbr svim sudoedit
 abbr df "df -h"
+abbr --position=anywhere du "du -h"
 abbr --position=anywhere mkdir "mkdir -pv"
 abbr lo libreoffice
 abbr pm pcmanfm
@@ -18,13 +17,15 @@ abbr gco "git checkout"
 abbr gc "git commit"
 abbr gpoh "git push -u origin HEAD"
 abbr pac "sudo pacman"
-abbr --position=anywhere du "du -h"
 abbr gmt "go mod tidy"
 abbr tf tofu
 abbr mirrors "rate-mirrors --allow-root --protocol https arch | sudo tee /etc/pacman.d/mirrorlist"
 abbr inv 'fzf --preview="bat --color=always {}" --bind "enter:become($EDITOR {})"'
 
-# Conditional abbr
-if command -v exa >/dev/null
-    abbr ls "exa -a --color=always --group-directories-first --git --icons"
+# Conditional ls abbr
+if command -v eza >/dev/null
+    set -l opts --color=always --group-directories-first --git --icons
+    abbr ls "eza $opts"
+    abbr ll "eza -l $opts"
+    abbr la "eza -a $opts"
 end
