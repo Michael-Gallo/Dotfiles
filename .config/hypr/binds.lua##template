@@ -19,7 +19,7 @@ local prompt = "~/.bin/prompt.sh"
 -- Launchers
 hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd("uwsm app -- $TERMINAL"))
 hl.bind(mainMod .. " + SHIFT + C", hl.dsp.window.close())
-hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.exec_cmd(prompt .. ' "Exit Hyprland" hyprctl dispatch exit'))
+hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.exec_cmd(prompt .. ' "Exit Hyprland" hyprctl dispatch "hl.dsp.exit()"'))
 hl.bind(mainMod .. " + A", hl.dsp.exec_cmd(webapp .. '="https://t3.chat/"'))
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(webapp .. '="https://app.todoist.com/app/today"'))
 hl.bind(mainMod .. " + Y", hl.dsp.exec_cmd(webapp .. '="https://app.ynab.com"'))
@@ -33,9 +33,9 @@ hl.bind(mainMod .. " + S", hl.dsp.exec_cmd("uwsm app -- " .. CALENDAR))
 -- Window Management
 hl.bind(mainMod .. " + H", hl.dsp.layout("mfact -0.1"))
 hl.bind(mainMod .. " + L", hl.dsp.layout("mfact +0.1"))
-hl.bind(mainMod .. " + comma", hl.dsp.exec_cmd("hyprctl dispatch focusmonitor -1"))
-hl.bind(mainMod .. " + period", hl.dsp.exec_cmd("hyprctl dispatch focusmonitor +1"))
-hl.bind(mainMod .. " + o", hl.dsp.exec_cmd("hyprctl dispatch movewindow mon:+1"))
+hl.bind(mainMod .. " + comma", hl.dsp.exec_cmd('hyprctl dispatch "hl.dsp.focus({monitor = \'-1\'})"'))
+hl.bind(mainMod .. " + period", hl.dsp.exec_cmd('hyprctl dispatch "hl.dsp.focus({monitor = \'+1\'})"'))
+hl.bind(mainMod .. " + o", hl.dsp.exec_cmd('hyprctl dispatch "hl.dsp.window.move({monitor = \'+1\'})"'))
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ action = "toggle" }))
 hl.bind(mainMod .. " + M", hl.dsp.window.fullscreen({ mode = "maximized", action = "set" }))
 
