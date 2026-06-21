@@ -57,7 +57,7 @@ pulsemixer
 rclone
 ripgrep
 rofi
-swaybg
+hyprpaper
 tealdeer
 transmission-cli
 trash-cli
