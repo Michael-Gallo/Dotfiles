@@ -1,0 +1,169 @@
+-- Ecosystem
+hl.config({
+    ecosystem = {
+        no_update_news = true,
+    },
+})
+
+-- Monitors
+{% if yadm.class != "laptop" %}
+hl.monitor({
+    output = "DP-2",
+    mode = "2560x1440",
+    position = "0x0",
+    scale = 1,
+})
+hl.monitor({
+    output = "DP-3",
+    mode = "2560x1440",
+    position = "2560x0",
+    scale = 1,
+})
+{% else %}
+hl.monitor({
+    output = "",
+    mode = "preferred",
+    position = "auto",
+    scale = "auto",
+})
+{% endif %}
+
+-- Autostart
+require("autostart")
+
+-- Environment variables
+hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
+hl.env("XCURSOR_SIZE", "24")
+hl.env("XDG_CURRENT_DESKTOP", "Hyprland")
+hl.env("GTK_IM_MODULE", "fcitx")
+hl.env("QT_IM_MODULE", "fcitx")
+hl.env("XMODIFIERS", "@im=fcitx")
+hl.env("SDL_IM_MODULE", "fcitx")
+hl.env("GLFW_IM_MODULE", "fcitx")
+hl.env("ELECTRON_OZONE_PLATFORM_HINT", "wayland")
+hl.env("MOZ_ENABLE_WAYLAND", "1")
+
+-- Input
+hl.config({
+    input = {
+        kb_layout = "us",
+        kb_variant = "",
+        kb_model = "",
+{% if yadm.class != "laptop" %}
+        kb_options = "",
+{% else %}
+        kb_options = "caps:swapescape",
+{% endif %}
+        kb_rules = "",
+        follow_mouse = 0,
+        mouse_refocus = false,
+        scroll_method = "on_button_down",
+        touchpad = {
+            natural_scroll = false,
+        },
+        sensitivity = 0,
+    },
+})
+
+-- General
+hl.config({
+    general = {
+        gaps_in = 3,
+        gaps_out = 1,
+        border_size = 4,
+        col = {
+            active_border = "rgba(00ff99ee)",
+            inactive_border = "rgba(595959ee)",
+        },
+        layout = "master",
+    },
+})
+
+hl.config({
+    debug = {
+        disable_logs = false,
+    },
+})
+
+-- Decoration
+hl.config({
+    decoration = {
+        rounding = 1,
+        blur = {
+            enabled = false,
+            size = 3,
+            passes = 1,
+        },
+    },
+})
+
+-- Animations
+hl.config({
+    animations = {
+        enabled = true,
+    },
+})
+
+hl.curve("myBezier", { type = "bezier", points = { {0.05, 0.9}, {0.1, 1.05} } })
+
+hl.animation({ leaf = "windows", enabled = true, speed = 1.5, bezier = "myBezier" })
+hl.animation({ leaf = "windowsOut", enabled = true, speed = 7, bezier = "default", style = "popin 80%" })
+hl.animation({ leaf = "windowsMove", enabled = true, speed = 0.9, bezier = "default", style = "popin 80%" })
+hl.animation({ leaf = "border", enabled = true, speed = 10, bezier = "default" })
+hl.animation({ leaf = "borderangle", enabled = true, speed = 8, bezier = "default" })
+hl.animation({ leaf = "fade", enabled = false, speed = 7, bezier = "default" })
+hl.animation({ leaf = "workspaces", enabled = false, speed = 6, bezier = "default" })
+
+-- Smart Gaps / no gaps when only
+hl.workspace_rule({ workspace = "w[tv1]", gaps_out = 0, gaps_in = 0 })
+hl.workspace_rule({ workspace = "f[1]", gaps_out = 0, gaps_in = 0 })
+
+hl.window_rule({
+    name = "windowrule-1",
+    match = { float = false, workspace = "w[tv1]" },
+    border_size = 0,
+    rounding = 0,
+})
+
+hl.window_rule({
+    name = "windowrule-2",
+    match = { float = false, workspace = "f[1]" },
+    border_size = 0,
+    rounding = 0,
+})
+
+hl.window_rule({
+    name = "dont-idle-during-games",
+    match = { class = ".*" },
+    idle_inhibit = "fullscreen",
+})
+
+-- Dwindle
+hl.config({
+    dwindle = {
+        preserve_split = true,
+    },
+})
+
+-- Master
+hl.config({
+    master = {
+        new_status = "master",
+        new_on_top = false,
+    },
+})
+
+-- Gestures
+hl.config({
+    gestures = {},
+})
+
+-- Keybindings
+require("binds")
+
+-- Suppress maximize events
+hl.window_rule({
+    name = "windowrule-4",
+    match = { class = ".*" },
+    suppress_event = "maximize",
+})

@@ -1,0 +1,91 @@
+-- Resize submap
+hl.bind("ALT + R", hl.dsp.submap("resize"))
+
+hl.define_submap("resize", function()
+    local resizeFactor = 15
+    hl.bind("right", hl.dsp.window.resize({ x = resizeFactor, y = 0, relative = true }), { repeating = true })
+    hl.bind("left",  hl.dsp.window.resize({ x = -resizeFactor, y = 0, relative = true }), { repeating = true })
+    hl.bind("up",    hl.dsp.window.resize({ x = 0, y = -resizeFactor, relative = true }), { repeating = true })
+    hl.bind("down",  hl.dsp.window.resize({ x = 0, y = resizeFactor, relative = true }), { repeating = true })
+    hl.bind("escape", hl.dsp.submap("reset"))
+end)
+
+-- Variables
+local mainMod = "SUPER"
+local webapp = "uwsm app -- chromium --new-window --ozone-platform=wayland --app"
+local CALENDAR = "evolution"
+local prompt = "~/.bin/prompt.sh"
+
+-- Launchers
+hl.bind(mainMod .. " + RETURN", hl.dsp.exec_cmd("uwsm app -- $TERMINAL"))
+hl.bind(mainMod .. " + SHIFT + C", hl.dsp.window.close())
+hl.bind(mainMod .. " + SHIFT + Q", hl.dsp.exec_cmd(prompt .. ' "Exit Hyprland" hyprctl dispatch exit'))
+hl.bind(mainMod .. " + A", hl.dsp.exec_cmd(webapp .. '="https://t3.chat/"'))
+hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(webapp .. '="https://app.todoist.com/app/today"'))
+hl.bind(mainMod .. " + Y", hl.dsp.exec_cmd(webapp .. '="https://app.ynab.com"'))
+hl.bind(mainMod .. " + T", hl.dsp.window.float({ action = "toggle" }))
+hl.bind(mainMod .. " + R", hl.dsp.exec_cmd("uwsm app -- rofi -show drun"))
+hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("uwsm app -- flatpak run app.zen_browser.zen"))
+hl.bind(mainMod .. " + SHIFT + B", hl.dsp.exec_cmd("uwsm app -- flatpak run app.zen_browser.zen --private-window"))
+hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("uwsm app -- $TERMINAL -e $TERMINAL_FILE_BROWSER"))
+hl.bind(mainMod .. " + S", hl.dsp.exec_cmd("uwsm app -- " .. CALENDAR))
+
+-- Window Management
+hl.bind(mainMod .. " + H", hl.dsp.layout("mfact -0.1"))
+hl.bind(mainMod .. " + L", hl.dsp.layout("mfact +0.1"))
+hl.bind(mainMod .. " + comma", hl.dsp.exec_cmd("hyprctl dispatch focusmonitor -1"))
+hl.bind(mainMod .. " + period", hl.dsp.exec_cmd("hyprctl dispatch focusmonitor +1"))
+hl.bind(mainMod .. " + o", hl.dsp.exec_cmd("hyprctl dispatch movewindow mon:+1"))
+hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen({ action = "toggle" }))
+hl.bind(mainMod .. " + M", hl.dsp.window.fullscreen({ mode = "maximized", action = "set" }))
+
+hl.bind(mainMod .. " + J", hl.dsp.layout("cyclenext"))
+hl.bind(mainMod .. " + K", hl.dsp.layout("cycleprev"))
+hl.bind(mainMod .. " + semicolon", hl.dsp.layout("swapwithmaster"))
+
+-- Screenshots
+local screenshotProgram = "grimblast"
+hl.bind("Print",               hl.dsp.exec_cmd(screenshotProgram .. " copy area"))
+hl.bind(mainMod .. " + Print", hl.dsp.exec_cmd(screenshotProgram .. " save area"))
+hl.bind("CTRL + Print",        hl.dsp.exec_cmd(screenshotProgram .. " save output"))
+hl.bind("ALT + Print",         hl.dsp.exec_cmd(screenshotProgram .. " copy output"))
+
+-- Typing
+hl.bind(mainMod .. " + ALT + E", hl.dsp.exec_cmd("ydotool type $PERSONAL_EMAIL"))
+
+-- Audio
+local audioProgram = "pulsemixer"
+hl.bind(mainMod .. " + SHIFT + L", hl.dsp.exec_cmd(audioProgram .. " --toggle-mute"))
+hl.bind(mainMod .. " + Page_Up",           hl.dsp.exec_cmd(audioProgram .. " --change-volume +10"))
+hl.bind(mainMod .. " + SHIFT + Page_Up",   hl.dsp.exec_cmd(audioProgram .. " --change-volume +25"))
+hl.bind(mainMod .. " + Page_Down",         hl.dsp.exec_cmd(audioProgram .. " --change-volume -10"))
+hl.bind(mainMod .. " + SHIFT + Page_Down", hl.dsp.exec_cmd(audioProgram .. " --change-volume -25"))
+
+-- Power
+hl.bind(mainMod .. " + F11", hl.dsp.exec_cmd(prompt .. ' "reboot computer?" reboot'))
+hl.bind(mainMod .. " + F12", hl.dsp.exec_cmd(prompt .. ' "shutdown computer?" shutdown now'))
+
+-- Workspace switching & moving windows
+{% if yadm.class == "laptop" %}
+for i = 1, 5 do
+    hl.bind(mainMod .. " + " .. i,          hl.dsp.focus({ workspace = i }))
+    hl.bind(mainMod .. " + SHIFT + " .. i,  hl.dsp.window.move({ workspace = i }))
+end
+{% else %}
+local workspaceScript = "~/.bin/workspace.sh"
+for i = 1, 5 do
+    hl.bind(mainMod .. " + " .. i,          hl.dsp.exec_cmd(workspaceScript .. " " .. i))
+    hl.bind(mainMod .. " + SHIFT + " .. i,  hl.dsp.exec_cmd(workspaceScript .. " " .. i .. " move"))
+end
+
+for i = 1, 5 do
+    hl.workspace_rule({ workspace = i, monitor = "DP-2" })
+end
+for i = 6, 10 do
+    hl.workspace_rule({ workspace = i, monitor = "DP-3" })
+end
+{% endif %}
+
+-- Mouse binds
+hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
+hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
