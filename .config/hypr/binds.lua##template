@@ -72,10 +72,17 @@ for i = 1, 5 do
     hl.bind(mainMod .. " + SHIFT + " .. i,  hl.dsp.window.move({ workspace = i }))
 end
 {% else %}
-local workspaceScript = "~/.bin/workspace.sh"
 for i = 1, 5 do
-    hl.bind(mainMod .. " + " .. i,          hl.dsp.exec_cmd(workspaceScript .. " " .. i))
-    hl.bind(mainMod .. " + SHIFT + " .. i,  hl.dsp.exec_cmd(workspaceScript .. " " .. i .. " move"))
+    hl.bind(mainMod .. " + " .. i, function()
+        local mon = hl.get_active_monitor()
+        local ws = mon.id * 5 + i
+        hl.dispatch(hl.dsp.focus({ workspace = ws }))
+    end)
+    hl.bind(mainMod .. " + SHIFT + " .. i, function()
+        local mon = hl.get_active_monitor()
+        local ws = mon.id * 5 + i
+        hl.dispatch(hl.dsp.window.move({ workspace = ws }))
+    end)
 end
 
 for i = 1, 5 do
