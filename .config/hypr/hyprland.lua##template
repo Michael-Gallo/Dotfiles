@@ -138,6 +138,27 @@ hl.window_rule({
     idle_inhibit = "fullscreen",
 })
 
+hl.window_rule({
+    name = "bitwarden-popup",
+    match = { title = ".*Bitwarden.*Password Manager.*" },
+    float = true,
+    size = "20% 54%",
+})
+
+hit_bitwarden = {}
+hl.on("window.title", function(w)
+    if w.title:match("Bitwarden.*Password Manager") and not hit_bitwarden[w.address] then
+        hit_bitwarden[w.address] = true
+        hl.exec_cmd('hyprctl dispatch togglefloating address:' .. w.address)
+        hl.exec_cmd('hyprctl dispatch resizewindowpixel exact 20% 54%,address:' .. w.address)
+        hl.exec_cmd('hyprctl dispatch centerwindow address:' .. w.address)
+    end
+end)
+
+hl.on("window.close", function(w)
+    hit_bitwarden[w.address] = nil
+end)
+
 -- Dwindle
 hl.config({
     dwindle = {
