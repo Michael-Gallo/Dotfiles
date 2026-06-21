@@ -1,7 +1,9 @@
 - I'm on Arch Linux
-- If installing packaged I prefer pacman over flatpak and flatpak over the AUR
+- If installing packages I prefer pacman over flatpak and flatpak over the AUR
   - paru is my AUR helper
 - My dotfiles are managed with yadm (work dir ~)
   - When creating or modifying config files under ~, ask if the file should be tracked in yadm
   - When installing packages that I want across machines, remind me to add them to ~/.config/yadm/pacman.txt, aur.txt, or flatpaks.txt and commit
   - Use `yadm` instead of `git` for dotfile operations (add, commit, diff, status, etc.)
+  - Exception: I'm on `waybar-git` from AUR because waybar 0.15.x doesn't support Hyprland 0.55's Lua IPC protocol (workspace clicks break). Switch back to mainline once waybar 0.16+ releases.
+- Dotfiles use yadm with `##template` files for machine-specific config (e.g. `hyprland.lua##template`, `binds.lua##template`) — don't convert these conditionals to Lua
