@@ -1,3 +1,7 @@
 - I'm on Arch Linux
 - If installing packaged I prefer pacman over flatpak and flatpak over the AUR
   - paru is my AUR helper
+- My dotfiles are managed with yadm (work dir ~)
+  - When creating or modifying config files under ~, ask if the file should be tracked in yadm
+  - When installing packages that I want across machines, remind me to add them to ~/.config/yadm/pacman.txt, aur.txt, or flatpaks.txt and commit
+  - Use `yadm` instead of `git` for dotfile operations (add, commit, diff, status, etc.)
