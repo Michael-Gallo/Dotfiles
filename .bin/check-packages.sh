@@ -2,50 +2,55 @@
 set -e
 
 yadm_dir="$HOME/.config/yadm"
-pacman_pkgs=""
-aur_pkgs=""
-flatpak_pkgs=""
+pacman_missing=""
+aur_missing=""
+flatpak_missing=""
 
-installed=$(pacman -Qq 2>/dev/null || true)
-installed_flatpaks=$(flatpak list --app --columns=application 2>/dev/null || true)
-
-check_pacman() {
-    [ -f "$yadm_dir/pacman.txt" ] || return
-    while IFS= read -r pkg; do
-        [ -z "$pkg" ] || [ "#*" = "$pkg" ] && continue
-        echo "$installed" | grep -qx "$pkg" || pacman_pkgs="$pacman_pkgs $pkg"
-    done < "$yadm_dir/pacman.txt"
+read_pkgs() {
+    [ -f "$1" ] || return
+    grep -vE '^\s*$|^\s*#' "$1"
 }
 
-check_aur() {
-    [ -f "$yadm_dir/aur.txt" ] || return
-    while IFS= read -r pkg; do
-        [ -z "$pkg" ] || [ "#*" = "$pkg" ] && continue
-        echo "$installed" | grep -qx "$pkg" || aur_pkgs="$aur_pkgs $pkg"
-    done < "$yadm_dir/aur.txt"
+check_pacman_aur() {
+    pacman_pkgs=$(read_pkgs "$yadm_dir/pacman.txt")
+    aur_pkgs=$(read_pkgs "$yadm_dir/aur.txt")
+    all_pkgs="$pacman_pkgs $aur_pkgs"
+    [ -z "$(echo "$all_pkgs" | tr -d ' ')" ] && return
+
+    unsatisfied=$(pacman -T $all_pkgs 2>/dev/null) || true
+    for pkg in $unsatisfied; do
+        if pacman -Qg "$pkg" >/dev/null 2>&1; then
+            continue
+        fi
+        if echo "$aur_pkgs" | grep -qw "$pkg"; then
+            aur_missing="$aur_missing $pkg"
+        else
+            pacman_missing="$pacman_missing $pkg"
+        fi
+    done
 }
 
-check_flatpak() {
+check_flatpaks() {
     [ -f "$yadm_dir/flatpaks.txt" ] || return
+    installed_flatpaks=$(flatpak list --app --columns=application 2>/dev/null || true)
     while IFS= read -r pkg; do
         [ -z "$pkg" ] || [ "#*" = "$pkg" ] && continue
-        echo "$installed_flatpaks" | grep -qx "$pkg" || flatpak_pkgs="$flatpak_pkgs $pkg"
+        echo "$installed_flatpaks" | grep -qx "$pkg" || flatpak_missing="$flatpak_missing $pkg"
     done < "$yadm_dir/flatpaks.txt"
 }
 
-check_pacman
-check_aur
-check_flatpak
+check_pacman_aur
+check_flatpaks
 
-if [ -z "$pacman_pkgs" ] && [ -z "$aur_pkgs" ] && [ -z "$flatpak_pkgs" ]; then
+if [ -z "$pacman_missing" ] && [ -z "$aur_missing" ] && [ -z "$flatpak_missing" ]; then
     echo "All packages installed"
     exit 0
 fi
 
 echo "Missing packages:"
-[ -n "$pacman_pkgs" ] && echo "  pacman:$(echo "$pacman_pkgs" | tr '\n' ' ')"
-[ -n "$aur_pkgs" ] && echo "  aur:$(echo "$aur_pkgs" | tr '\n' ' ')"
-[ -n "$flatpak_pkgs" ] && echo "  flatpak:$(echo "$flatpak_pkgs" | tr '\n' ' ')"
+[ -n "$pacman_missing" ] && echo "  pacman:$pacman_missing"
+[ -n "$aur_missing" ] && echo "  aur:$aur_missing"
+[ -n "$flatpak_missing" ] && echo "  flatpak:$flatpak_missing"
 echo ""
 
 prompt_install() {
@@ -62,9 +67,9 @@ prompt_install() {
             $cmd $pkgs
             ;;
         a|A)
-            sudo pacman -S --needed $pacman_pkgs
-            paru -S --needed $aur_pkgs
-            flatpak install $flatpak_pkgs
+            sudo pacman -S --needed $pacman_missing
+            paru -S --needed $aur_missing
+            flatpak install $flatpak_missing
             exit 0
             ;;
         *)
@@ -73,6 +78,6 @@ prompt_install() {
     esac
 }
 
-prompt_install "pacman" "$pacman_pkgs" "sudo pacman -S --needed"
-prompt_install "AUR" "$aur_pkgs" "paru -S --needed"
-prompt_install "flatpak" "$flatpak_pkgs" "flatpak install"
+prompt_install "pacman" "$pacman_missing" "sudo pacman -S --needed"
+prompt_install "AUR" "$aur_missing" "paru -S --needed"
+prompt_install "flatpak" "$flatpak_missing" "flatpak install"
