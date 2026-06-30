@@ -6,13 +6,5 @@
       "~/.config/yadm/**":"allow"
     }
   },
-  "mcp":{
-    
-    "fastmail":{
-      "enabled":true,
-      "url":"https://api.fastmail.com/mcp",
-      "type":"remote"
-
-    }
-  }
+  "plugin": ["@dietrichgebert/ponytail"],
 }
