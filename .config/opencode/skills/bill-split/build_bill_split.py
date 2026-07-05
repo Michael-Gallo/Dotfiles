@@ -12,7 +12,6 @@ JSON shape:
         "receipts": [
             {
                 "title": "Diner",
-                "restaurant": "Diner",
                 "tax": 8.00,
                 "tip": 15.00,
                 "subtotal": 80.00,
@@ -30,13 +29,14 @@ Items without "assigned" are left blank (red highlight).
 import json
 import sys
 import datetime
-from pathlib import Path
 
 from openpyxl import Workbook
 from openpyxl.styles import Font, PatternFill, Alignment
 from openpyxl.utils import get_column_letter
 from openpyxl.worksheet.datavalidation import DataValidation
 from openpyxl.formatting.rule import FormulaRule
+
+MONEY = '"$"#,##0.00'
 
 
 def make_sheet(
@@ -47,29 +47,28 @@ def make_sheet(
     tip,
     receipt_subtotal,
     title,
-    restaurant="",
-    date=None,
+    date,
 ):
     """Simple layout: Item | Price | Assigned To. Summary below."""
     n = len(people)
 
-    ws["A1"] = f"{title} — {restaurant} — {date or datetime.date.today().isoformat()}"
+    ws["A1"] = f"{title} — {date}"
     ws["A1"].font = Font(bold=True, size=14)
     ws.merge_cells(start_row=1, start_column=1, end_row=1, end_column=3)
 
     # Receipt totals in top-right
     ws["F1"] = "Subtotal"
     ws["G1"] = receipt_subtotal
-    ws["G1"].number_format = '"$"#,##0.00'
+    ws["G1"].number_format = MONEY
     ws["F2"] = "Tax"
     ws["G2"] = tax
-    ws["G2"].number_format = '"$"#,##0.00'
+    ws["G2"].number_format = MONEY
     ws["F3"] = "Tip"
     ws["G3"] = tip
-    ws["G3"].number_format = '"$"#,##0.00'
+    ws["G3"].number_format = MONEY
     ws["F4"] = "Total"
     ws["G4"] = receipt_subtotal + tax + tip
-    ws["G4"].number_format = '"$"#,##0.00'
+    ws["G4"].number_format = MONEY
 
     # Header row
     for col, header in enumerate(["Item", "Price", "Assigned To"], 1):
@@ -81,7 +80,7 @@ def make_sheet(
     for i, item in enumerate(items):
         row = first_data_row + i
         ws.cell(row=row, column=1, value=item["name"])
-        ws.cell(row=row, column=2, value=item["price"]).number_format = '"$"#,##0.00'
+        ws.cell(row=row, column=2, value=item["price"]).number_format = MONEY
         ws.cell(row=row, column=3, value=item.get("assigned", ""))
 
     last_data_row = first_data_row + len(items) - 1
@@ -127,23 +126,23 @@ def make_sheet(
             row=subtotal_row,
             column=p_idx,
             value=f"=SUMIF($C${first_data_row}:$C${last_data_row},\"{person}\",$B${first_data_row}:$B${last_data_row})",
-        ).number_format = '"$"#,##0.00'
+        ).number_format = MONEY
 
         ws.cell(
             row=tax_row,
             column=p_idx,
             value=f"=IFERROR({col_letter}{subtotal_row}/SUM($B${subtotal_row}:${get_column_letter(1+n)}${subtotal_row})*$G$2,0)",
-        ).number_format = '"$"#,##0.00'
+        ).number_format = MONEY
         ws.cell(
             row=tip_row,
             column=p_idx,
             value=f"=IFERROR({col_letter}{subtotal_row}/SUM($B${subtotal_row}:${get_column_letter(1+n)}${subtotal_row})*$G$3,0)",
-        ).number_format = '"$"#,##0.00'
+        ).number_format = MONEY
         ws.cell(
             row=total_row,
             column=p_idx,
             value=f"={col_letter}{subtotal_row}+{col_letter}{tax_row}+{col_letter}{tip_row}",
-        ).number_format = '"$"#,##0.00'
+        ).number_format = MONEY
         ws.cell(row=total_row, column=p_idx).font = Font(bold=True)
 
     # Column widths
@@ -154,11 +153,6 @@ def make_sheet(
         ws.column_dimensions[get_column_letter(col)].width = 12
 
     ws.freeze_panes = "A3"
-
-
-def load_config(path):
-    with open(path, "r") as f:
-        return json.load(f)
 
 
 def build(config):
@@ -192,7 +186,6 @@ def build(config):
             tip=receipt["tip"],
             receipt_subtotal=receipt["subtotal"],
             title=receipt["title"],
-            restaurant=receipt.get("restaurant", receipt["title"]),
             date=date,
         )
 
@@ -205,5 +198,6 @@ if __name__ == "__main__":
         print("Usage: build_bill_split.py <config.json>")
         sys.exit(1)
 
-    config = load_config(sys.argv[1])
+    with open(sys.argv[1]) as f:
+        config = json.load(f)
     build(config)
