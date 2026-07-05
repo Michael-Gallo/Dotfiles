@@ -7,3 +7,5 @@
   - Use `yadm` instead of `git` for dotfile operations (add, commit, diff, status, etc.)
   - Exception: I'm on `waybar-git` from AUR because waybar 0.15.x doesn't support Hyprland 0.55's Lua IPC protocol (workspace clicks break). Switch back to mainline once waybar 0.16+ releases.
 - Dotfiles use yadm with `##template` files for machine-specific config (e.g. `hyprland.lua##template`, `binds.lua##template`) — don't convert these conditionals to Lua
+- Do not EVER commit anything that includes any amount of personal information without me giving a very explicit instruction.
+  - If creating a skill that needs an example, assume I want an anonymized version. If the real life example is "I paid $4.52 for a Krabby Patty, Jim paid $7.01 for kelp fries", turn it into "I paid $5 for a burger and Jeff paid $7 for fries", for instance
