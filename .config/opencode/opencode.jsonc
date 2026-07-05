@@ -3,7 +3,9 @@
   "lsp": true,
   "permission":{
     "external_directory":{
-      "~/.config/yadm/**":"allow"
+      "~/.config/yadm/**":"allow",
+      "~/.config/lf/**":"allow",
+      "~/.config/mimeapps.list":"allow"
     }
   },
   "plugin": ["@dietrichgebert/ponytail"],
