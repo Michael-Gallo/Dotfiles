@@ -1,5 +1,5 @@
-# Bill data is private; the generic script is tracked.
-receipts/
+# The script + schema are tracked. Receipt configs are never persisted
+# (piped via stdin); only the user's output .xlsx is written, elsewhere.
 .venv/
 __pycache__/
 *.pyc

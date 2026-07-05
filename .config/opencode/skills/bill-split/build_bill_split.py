@@ -1,35 +1,24 @@
 #!/usr/bin/env python3
 """Build a simple bill-split .xlsx from a JSON config.
 
-Usage:
-    ./build_bill_split.py receipts/2026-07-05-diner.json
+Reads JSON from stdin (or a file path arg for testing with fake data).
+Never persist a config containing real receipt data; pipe it in.
 
-JSON shape:
-    {
-        "people": ["me", "alice", "bob", "carol"],
-        "filename": "/path/to/output.xlsx",
-        "date": "2026-07-05",
-        "receipts": [
-            {
-                "title": "Diner",
-                "tax": 8.00,
-                "tip": 15.00,
-                "subtotal": 80.00,
-                "items": [
-                    {"name": "Burger", "price": 18.50, "assigned": "me"},
-                    {"name": "Fries", "price": 6.00}
-                ]
-            }
-        ]
-    }
+    config_json | ./build_bill_split.py
+    ./build_bill_split.py - < config.json        # explicit stdin
+    ./build_bill_split.py fixtures/fake.json     # local fake data only
 
-Items without "assigned" are left blank (red highlight).
+The config shape is defined and validated against schema.json (JSON Schema
+Draft 2020-12) sitting next to this script. Items without "assigned" are
+left blank (red highlight).
 """
 
 import json
 import sys
 import datetime
+from pathlib import Path
 
+from jsonschema import validate, FormatChecker
 from openpyxl import Workbook
 from openpyxl.styles import Font, PatternFill, Alignment
 from openpyxl.utils import get_column_letter
@@ -37,6 +26,7 @@ from openpyxl.worksheet.datavalidation import DataValidation
 from openpyxl.formatting.rule import FormulaRule
 
 MONEY = '"$"#,##0.00'
+SCHEMA_PATH = Path(__file__).resolve().parent / "schema.json"
 
 
 def make_sheet(
@@ -155,7 +145,28 @@ def make_sheet(
     ws.freeze_panes = "A3"
 
 
+def load_schema():
+    with open(SCHEMA_PATH) as f:
+        return json.load(f)
+
+
+def validate_config(config):
+    validate(instance=config, schema=load_schema(), format_checker=FormatChecker())
+    # ponytail: "assigned must be in people" is a cross-field rule JSON Schema
+    # can't express without non-standard $data refs; checked here instead.
+    people = set(config["people"])
+    for receipt in config["receipts"]:
+        for item in receipt["items"]:
+            assigned = item.get("assigned")
+            if assigned is not None and assigned not in people:
+                raise ValueError(
+                    f"{receipt['title']}: item {item['name']!r} assigned to "
+                    f"{assigned!r}, who is not in people {sorted(people)}"
+                )
+
+
 def build(config):
+    validate_config(config)
     people = config["people"]
     filename = config["filename"]
     date = config.get("date", datetime.date.today().isoformat())
@@ -194,10 +205,10 @@ def build(config):
 
 
 if __name__ == "__main__":
-    if len(sys.argv) < 2:
-        print("Usage: build_bill_split.py <config.json>")
-        sys.exit(1)
-
-    with open(sys.argv[1]) as f:
-        config = json.load(f)
+    if len(sys.argv) < 2 or sys.argv[1] == "-":
+        raw = sys.stdin.read()
+    else:
+        with open(sys.argv[1]) as f:
+            raw = f.read()
+    config = json.loads(raw)
     build(config)

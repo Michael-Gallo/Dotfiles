@@ -65,14 +65,20 @@ Apply a red fill to any data row where `Assigned To` is empty. This makes unassi
 
 ## Reference script
 
-A generic generator script lives at `~/.config/opencode/skills/bill-split/build_bill_split.py` (tracked). It reads a JSON config and produces the `.xlsx`. Billing data is kept in `~/.config/opencode/skills/bill-split/receipts/` (untracked).
+A generic generator script lives at `~/.config/opencode/skills/bill-split/build_bill_split.py` (tracked). It reads a JSON config from **stdin** and produces the `.xlsx`. The config shape is defined by `~/.config/opencode/skills/bill-split/schema.json` (JSON Schema Draft 2020-12, tracked) — the script validates against it on every run.
 
-Usage:
+**Never persist a config containing real receipt data.** No receipt JSON files are written to disk, tracked or otherwise. Build the JSON in memory and pipe it in via a heredoc. Real names, restaurants, and prices must never land in a file under this skill (or anywhere on disk beyond the final `.xlsx` the user asked for).
+
+Usage (pipe via stdin; `-` is explicit stdin):
 ```bash
-./build_bill_split.py receipts/2026-07-05-diner.json
+./build_bill_split.py <<'JSON'
+{ ...config... }
+JSON
 ```
 
-JSON shape:
+A file path arg is supported **only for local fake/test fixtures** (`./build_bill_split.py fixtures/fake.json`). Never use it with real data.
+
+Config shape (see `schema.json` for the authoritative contract):
 ```json
 {
   "people": ["me", "alice", "bob", "carol"],
@@ -81,7 +87,6 @@ JSON shape:
   "receipts": [
     {
       "title": "Diner",
-      "restaurant": "Diner",
       "tax": 8.00,
       "tip": 15.00,
       "subtotal": 80.00,
@@ -94,4 +99,12 @@ JSON shape:
 }
 ```
 
-It uses a Python virtualenv at `~/.config/opencode/skills/bill-split/.venv` with openpyxl installed.
+Validation enforced by the script:
+- JSON Schema (`schema.json`): required fields, types, `minItems`, `date` format.
+- Cross-check: every `item.assigned` (if present) must be in `people`.
+- Subtotal reconciliation: `sum(item.price)` must equal `receipt.subtotal`.
+
+It uses a Python virtualenv at `~/.config/opencode/skills/bill-split/.venv` with `openpyxl` and `jsonschema` installed:
+```bash
+./.venv/bin/pip install openpyxl jsonschema
+```
