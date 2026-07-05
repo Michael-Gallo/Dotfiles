@@ -1,0 +1,5 @@
+# Bill data is private; the generic script is tracked.
+receipts/
+.venv/
+__pycache__/
+*.pyc

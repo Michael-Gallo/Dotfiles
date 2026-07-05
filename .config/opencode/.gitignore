@@ -1,0 +1,8 @@
+node_modules
+package.json
+package-lock.json
+bun.lock
+.gitignore
+!.gitignore
+!skills/bill-split/.gitignore
+/skills/bill-split/receipts/
