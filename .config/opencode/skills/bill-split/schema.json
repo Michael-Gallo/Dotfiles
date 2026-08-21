@@ -24,6 +24,7 @@
           "title": {"type": "string", "minLength": 1, "description": "Tab + header name"},
           "tax": {"type": "number", "minimum": 0},
           "tip": {"type": "number", "minimum": 0},
+          "discount": {"type": "number", "minimum": 0, "description": "Discount/credit to split proportionally"},
           "subtotal": {"type": "number", "minimum": 0, "description": "Must equal sum of item prices"},
           "items": {
             "type": "array",

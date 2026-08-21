@@ -18,7 +18,9 @@ Turn receipts into a simple, shareable `.xlsx` spreadsheet that shows exactly ho
 5. **Tax and tip are split proportionally.**
    - `tax_share_person = (person_subtotal / total_subtotal) * tax`
    - `tip_share_person = (person_subtotal / total_subtotal) * tip`
-6. **Output an `.xlsx` with formulas.** Use Python + openpyxl. Use `SUMIF` formulas so the user can edit assignments later and the summary totals update automatically.
+6. **Discounts/credits are split proportionally.** If the user says something like "I got a $23 InKind discount, split it proportionally", add a Discount row to the summary and subtract each person's share from their total.
+   - `discount_share_person = (person_subtotal / total_subtotal) * discount`
+7. **Output an `.xlsx` with formulas.** Use Python + openpyxl. Use `SUMIF` formulas so the user can edit assignments later and the summary totals update automatically.
 7. **Names and context:** Ask for the group list if not provided. Ask for the restaurant name and/or date for each receipt. Name the output file using the date and one restaurant name (e.g., `2026-07-05-diner.xlsx`). Use lowercase names consistently.
 8. **Pre-allocate items the user already assigned.** If the user says "Alice got the wine", fill `Assigned To` on that row. Only leave rows blank when the recipient is unknown.
 9. **Reconcile the subtotal.** After extracting all items, sum them. If the calculated subtotal does not match the receipt subtotal, stop and ask the user for missing items, quantities, or prices before building the spreadsheet. Do not silently invent prices.
@@ -35,17 +37,18 @@ Each receipt gets one tab with these columns:
 Below the item list, add a summary table with one column per person:
 
 | Person | me | alice | bob | carol | ... |
-|---|---|---|---|---|
-| Subtotal | =SUMIF(...) | ... | ... | ... |
-| Tax | =Subtotal / TotalSubtotal * Tax | ... | ... | ... |
-| Tip | =Subtotal / TotalSubtotal * Tip | ... | ... | ... |
-| Total Owed | =Subtotal + Tax + Tip | ... | ... | ... |
+|---|---|---|---|---|---|
+| Subtotal | =SUMIF(...) | ... | ... | ... | ... |
+| Tax | =Subtotal / TotalSubtotal * Tax | ... | ... | ... | ... |
+| Tip | =Subtotal / TotalSubtotal * Tip | ... | ... | ... | ... |
+| Discount | =Subtotal / TotalSubtotal * Discount | ... | ... | ... | ... |
+| Total Owed | =Subtotal + Tax + Tip - Discount | ... | ... | ... | ... |
 
 - `Assigned To` is a dropdown matching one of the group names.
-- Put the receipt subtotal, tax, tip, and total in a small block at the top-right (e.g., F1:G4).
+- Put the receipt subtotal, tax, tip, discount, and total in a small block at the top-right (e.g., F1:G5).
 - `Subtotal` row uses `SUMIF($C$3:$C$N, person, $B$3:$B$N)` for each person.
-- `Tax` and `Tip` rows use proportional formulas based on the `Subtotal` row.
-- `Total Owed` = Subtotal + Tax + Tip.
+- `Tax`, `Tip`, and `Discount` rows use proportional formulas based on the `Subtotal` row.
+- `Total Owed` = Subtotal + Tax + Tip - Discount.
 
 ## Conditional formatting
 

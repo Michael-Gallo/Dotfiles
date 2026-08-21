@@ -38,6 +38,7 @@ def make_sheet(
     receipt_subtotal,
     title,
     date,
+    discount=0,
 ):
     """Simple layout: Item | Price | Assigned To. Summary below."""
     n = len(people)
@@ -56,9 +57,12 @@ def make_sheet(
     ws["F3"] = "Tip"
     ws["G3"] = tip
     ws["G3"].number_format = MONEY
-    ws["F4"] = "Total"
-    ws["G4"] = receipt_subtotal + tax + tip
+    ws["F4"] = "Discount"
+    ws["G4"] = discount
     ws["G4"].number_format = MONEY
+    ws["F5"] = "Total"
+    ws["G5"] = receipt_subtotal + tax + tip - discount
+    ws["G5"].number_format = MONEY
 
     # Header row
     for col, header in enumerate(["Item", "Price", "Assigned To"], 1):
@@ -103,12 +107,14 @@ def make_sheet(
     ws.cell(row=summary_row + 1, column=1, value="Subtotal").font = Font(bold=True)
     ws.cell(row=summary_row + 2, column=1, value="Tax").font = Font(bold=True)
     ws.cell(row=summary_row + 3, column=1, value="Tip").font = Font(bold=True)
-    ws.cell(row=summary_row + 4, column=1, value="Total Owed").font = Font(bold=True)
+    ws.cell(row=summary_row + 4, column=1, value="Discount").font = Font(bold=True)
+    ws.cell(row=summary_row + 5, column=1, value="Total Owed").font = Font(bold=True)
 
     subtotal_row = summary_row + 1
     tax_row = summary_row + 2
     tip_row = summary_row + 3
-    total_row = summary_row + 4
+    discount_row = summary_row + 4
+    total_row = summary_row + 5
 
     for p_idx, person in enumerate(people, 2):
         col_letter = get_column_letter(p_idx)
@@ -129,9 +135,14 @@ def make_sheet(
             value=f"=IFERROR({col_letter}{subtotal_row}/SUM($B${subtotal_row}:${get_column_letter(1+n)}${subtotal_row})*$G$3,0)",
         ).number_format = MONEY
         ws.cell(
+            row=discount_row,
+            column=p_idx,
+            value=f"=IFERROR({col_letter}{subtotal_row}/SUM($B${subtotal_row}:${get_column_letter(1+n)}${subtotal_row})*$G$4,0)",
+        ).number_format = MONEY
+        ws.cell(
             row=total_row,
             column=p_idx,
-            value=f"={col_letter}{subtotal_row}+{col_letter}{tax_row}+{col_letter}{tip_row}",
+            value=f"={col_letter}{subtotal_row}+{col_letter}{tax_row}+{col_letter}{tip_row}-{col_letter}{discount_row}",
         ).number_format = MONEY
         ws.cell(row=total_row, column=p_idx).font = Font(bold=True)
 
@@ -198,6 +209,7 @@ def build(config):
             receipt_subtotal=receipt["subtotal"],
             title=receipt["title"],
             date=date,
+            discount=receipt.get("discount", 0),
         )
 
     wb.save(filename)
