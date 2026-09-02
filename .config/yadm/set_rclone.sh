@@ -12,7 +12,12 @@ echo "Filling Rclone config"
 mkdir -p $RCLONE_DIR
 chmod 700 $RCLONE_DIR
 
-export BW_SESSION=$(bw unlock --raw)
+if [[ "$(bw status | jq -r .status)" == "unauthenticated" ]]; then
+  echo "Logging into Bitwarden to fetch rclone secrets..."
+  bw login
+fi
+BW_SESSION=$(bw unlock --raw)
+export BW_SESSION
 echo "BitWarden Unlocked"
 eval "$(bw get item $BW_ITEM_NAME | jq -r '.notes')"
 echo "Item Retrieved"
