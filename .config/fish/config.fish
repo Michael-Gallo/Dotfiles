@@ -1,3 +1,6 @@
+set -gx GEM_HOME ~/.local/share/gem
+fish_add_path -g $GEM_HOME/bin
+
 if status is-interactive
     fish_add_path -g ~/.bin
     fish_add_path -g ~/go/bin
