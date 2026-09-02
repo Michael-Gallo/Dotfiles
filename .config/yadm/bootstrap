@@ -67,7 +67,7 @@ flatpak override --user com.discordapp.Discord \
   --talk-name=org.freedesktop.portal.Documents
 
 install_gcloud() {
-    local tmpdir=$(mktemp -d)
+    tmpdir=$(mktemp -d)
     trap 'rm -rf "$tmpdir"' EXIT INT TERM
     curl -fsSLO https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-cli-linux-x86_64.tar.gz \
       --output-dir "$tmpdir"
