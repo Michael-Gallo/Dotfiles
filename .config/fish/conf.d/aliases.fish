@@ -16,6 +16,7 @@ abbr gcp "git cherry-pick"
 abbr gco "git checkout"
 abbr gc "git commit"
 abbr gpoh "git push -u origin HEAD"
+abbr gf "git fetch --all --prune"
 abbr pac "sudo pacman"
 abbr gmt "go mod tidy"
 abbr tf tofu
