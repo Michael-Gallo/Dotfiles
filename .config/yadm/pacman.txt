@@ -70,7 +70,6 @@ trash-cli
 unrar
 uwsm
 w3m
-waybar
 wget
 wl-clipboard
 wofi
