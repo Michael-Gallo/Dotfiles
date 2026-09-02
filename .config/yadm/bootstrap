@@ -180,5 +180,7 @@ for svc in "${services[@]}"; do
   sudo systemctl enable "$svc.service" --now
 done
 
-# Set up Rclone config
-"$script_dir/set_rclone.sh"
+# Set up Rclone config (desktop only)
+if [[ "$(yadm config local.class)" != "laptop" ]]; then
+    "$script_dir/set_rclone.sh"
+fi
