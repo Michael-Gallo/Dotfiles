@@ -50,7 +50,7 @@ if ! command -v paru >/dev/null 2>&1; then
 fi
 
 echo "Installing needed pacman packages"
-sudo pacman -S --noconfirm --needed $(< "$pacman_list_path") 2>&1 | grep -vi warning:
+sudo pacman -Syu --noconfirm --needed $(< "$pacman_list_path") 2>&1 | grep -vi warning:
 
 echo "Updating system with AUR"
 paru -Syu --noconfirm
