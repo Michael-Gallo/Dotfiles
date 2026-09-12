@@ -34,6 +34,8 @@ x-scheme-handler/about=app.zen_browser.zen.desktop
 x-scheme-handler/unknown=app.zen_browser.zen.desktop
 message/rfc822=userapp-Thunderbird-6SI1N3.desktop
 x-scheme-handler/mid=userapp-Thunderbird-6SI1N3.desktop
+x-scheme-handler/grokbot=grok-bot.desktop
+x-scheme-handler/sand=grok-bot.desktop
 
 [Added Associations]
 application/pdf=org.pwmt.zathura-pdf-mupdf.desktop;acroread.desktop;
