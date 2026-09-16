@@ -4,7 +4,7 @@ text/xml=firefox.desktop
 x-scheme-handler/https=app.zen_browser.zen.desktop
 x-scheme-handler/http=app.zen_browser.zen.desktop
 application/pdf=org.pwmt.zathura.desktop
-application/vnd.openxmlformats-officedocument.spreadsheetml.sheet=calc.desktop
+application/vnd.openxmlformats-officedocument.spreadsheetml.sheet=libreoffice-calc.desktop
 application/octet-stream=calc.desktop
 x-scheme-handler/discord-606879956932231192=discord-606879956932231192.desktop
 x-scheme-handler/msteams=teams.desktop
@@ -36,6 +36,11 @@ message/rfc822=userapp-Thunderbird-6SI1N3.desktop
 x-scheme-handler/mid=userapp-Thunderbird-6SI1N3.desktop
 x-scheme-handler/grokbot=grok-bot.desktop
 x-scheme-handler/sand=grok-bot.desktop
+x-scheme-handler/t3code=t3code-url-handler.desktop
+x-scheme-handler/codex=chatgpt.desktop
+application/vnd.ms-excel=libreoffice-calc.desktop
+application/vnd.ms-excel.sheet.macroEnabled.12=libreoffice-calc.desktop
+text/csv=libreoffice-calc.desktop
 
 [Added Associations]
 application/pdf=org.pwmt.zathura-pdf-mupdf.desktop;acroread.desktop;
@@ -47,3 +52,4 @@ application/octet-stream=org.gnome.Evolution.desktop;
 text/plain=org.gnome.Evolution.desktop;
 x-scheme-handler/mailto=userapp-Thunderbird-6SI1N3.desktop;userapp-Evolution-WCDSB3.desktop;
 x-scheme-handler/mid=userapp-Thunderbird-6SI1N3.desktop;
+x-scheme-handler/t3code=t3code.desktop;
