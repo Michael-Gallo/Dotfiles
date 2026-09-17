@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Neovim
+Comment=Edit files in a terminal with Neovim
+Exec=foot -e nvim %F
+Categories=Utility;TextEditor;
+MimeType=text/plain;text/markdown;text/xml;application/json;application/x-sh;application/javascript;text/x-python;

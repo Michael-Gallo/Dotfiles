@@ -1,47 +1,77 @@
 [Default Applications]
-html=firefox.desktop
-text/xml=firefox.desktop
-x-scheme-handler/https=app.zen_browser.zen.desktop
-x-scheme-handler/http=app.zen_browser.zen.desktop
-application/pdf=org.pwmt.zathura.desktop
-application/vnd.openxmlformats-officedocument.spreadsheetml.sheet=calc.desktop
-application/octet-stream=calc.desktop
-x-scheme-handler/discord-606879956932231192=discord-606879956932231192.desktop
-x-scheme-handler/msteams=teams.desktop
-x-scheme-handler/chrome=zen.desktop
+# Browser (Zen flatpak)
 text/html=app.zen_browser.zen.desktop
-application/x-extension-htm=zen.desktop
-application/x-extension-html=zen.desktop
-application/x-extension-shtml=zen.desktop
-application/xhtml+xml=zen.desktop
-application/x-extension-xhtml=zen.desktop
-application/x-extension-xht=zen.desktop
-x-scheme-handler/postman=Postman.desktop
-image/jpg=feh.desktop
-image/jpeg=feh.desktop
-image/png=feh.desktop
-x-scheme-handler/sidequest=SideQuest.desktop
-x-scheme-handler/lbry=lbry.desktop
-application/ppdf=zathura.desktop
-inode/directory=pcmanfm.desktop
-application/vnd.openxmlformats-officedocument.wordprocessingml.document=libreoffice-writer.desktop
-application.pdf=zathura.desktop
-scheme-handler/http=firefox.desktop
-scheme-handler/https=firefox.desktop
-x-scheme-handler/discord-455712169795780630=discord-455712169795780630.desktop
-x-scheme-handler/mailto=org.mozilla.Thunderbird.desktop
+text/xml=app.zen_browser.zen.desktop
+x-scheme-handler/http=app.zen_browser.zen.desktop
+x-scheme-handler/https=app.zen_browser.zen.desktop
+x-scheme-handler/chrome=app.zen_browser.zen.desktop
 x-scheme-handler/about=app.zen_browser.zen.desktop
 x-scheme-handler/unknown=app.zen_browser.zen.desktop
+application/x-extension-htm=app.zen_browser.zen.desktop
+application/x-extension-html=app.zen_browser.zen.desktop
+application/x-extension-shtml=app.zen_browser.zen.desktop
+application/xhtml+xml=app.zen_browser.zen.desktop
+application/x-extension-xhtml=app.zen_browser.zen.desktop
+application/x-extension-xht=app.zen_browser.zen.desktop
+
+# Documents
+application/pdf=org.pwmt.zathura.desktop
+application/epub+zip=org.pwmt.zathura.desktop
+application/vnd.openxmlformats-officedocument.wordprocessingml.document=libreoffice-writer.desktop
+application/msword=libreoffice-writer.desktop
+application/vnd.oasis.opendocument.text=libreoffice-writer.desktop
+application/vnd.openxmlformats-officedocument.spreadsheetml.sheet=libreoffice-calc.desktop
+application/vnd.ms-excel=libreoffice-calc.desktop
+application/vnd.oasis.opendocument.spreadsheet=libreoffice-calc.desktop
+application/octet-stream=libreoffice-calc.desktop
+application/vnd.openxmlformats-officedocument.presentationml.presentation=libreoffice-impress.desktop
+application/vnd.oasis.opendocument.presentation=libreoffice-impress.desktop
+
+# Mail / calendar
+x-scheme-handler/mailto=org.mozilla.Thunderbird.desktop
 message/rfc822=org.mozilla.Thunderbird.desktop
 x-scheme-handler/mid=org.mozilla.Thunderbird.desktop
-x-scheme-handler/grokbot=grok-bot.desktop
-x-scheme-handler/sand=grok-bot.desktop
 x-scheme-handler/webcal=org.mozilla.Thunderbird.desktop
 x-scheme-handler/webcals=org.mozilla.Thunderbird.desktop
 text/calendar=org.mozilla.Thunderbird.desktop
 application/x-extension-ics=org.mozilla.Thunderbird.desktop
 
+# Files
+inode/directory=pcmanfm.desktop
+
+# Images
+image/jpg=swayimg.desktop
+image/jpeg=swayimg.desktop
+image/png=swayimg.desktop
+image/gif=swayimg.desktop
+image/webp=swayimg.desktop
+image/avif=swayimg.desktop
+image/svg+xml=swayimg.desktop
+
+# Text editor (foot + nvim wrapper in ~/.local/share/applications)
+text/plain=nvim.desktop
+text/markdown=nvim.desktop
+application/json=nvim.desktop
+text/xml=nvim.desktop
+
+# Media
+video/mp4=mpv.desktop
+video/x-matroska=mpv.desktop
+video/webm=mpv.desktop
+video/quicktime=mpv.desktop
+video/mpeg=mpv.desktop
+video/x-msvideo=mpv.desktop
+video/ogg=mpv.desktop
+audio/mpeg=mpv.desktop
+audio/flac=mpv.desktop
+audio/ogg=mpv.desktop
+audio/x-wav=mpv.desktop
+audio/mp4=mpv.desktop
+audio/webm=mpv.desktop
+
+# Torrents
+application/x-bittorrent=org.qbittorrent.qBittorrent.desktop
+x-scheme-handler/magnet=org.qbittorrent.qBittorrent.desktop
+
 [Added Associations]
-application/pdf=org.pwmt.zathura-pdf-mupdf.desktop;acroread.desktop;
-application/vnd.adobe.adept+xml=calibre-gui.desktop;
-application/x-bittorrent=transmission-gtk.desktop;
+application/pdf=org.pwmt.zathura-pdf-mupdf.desktop;

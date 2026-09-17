@@ -63,6 +63,7 @@ qbittorrent
 rclone
 ripgrep
 rofi
+swayimg
 tealdeer
 thunderbird
 transmission-cli
