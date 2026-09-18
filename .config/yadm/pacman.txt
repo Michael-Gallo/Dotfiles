@@ -59,6 +59,7 @@ pipewire-jack
 poppler
 prettier
 pulsemixer
+pyenv
 qbittorrent
 rclone
 ripgrep
