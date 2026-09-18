@@ -97,6 +97,9 @@ fi
 echo "Installing nvim plugins"
 nvim --headless "+Lazy! sync" +qa
 
+echo "Installing Mason tools (language servers, formatters)"
+nvim --headless "+MasonToolsInstallSync" +qa
+
 echo "Setting groups"
 
 sudo usermod -a -G storage $USER

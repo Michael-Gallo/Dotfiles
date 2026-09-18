@@ -1,5 +1,3 @@
-if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
-
 -- Customize Mason
 
 ---@type LazySpec
@@ -11,16 +9,24 @@ return {
     opts = {
       -- Make sure to use the names found in `:Mason`
       ensure_installed = {
-        -- install language servers
+        -- language servers
         "lua-language-server",
+        "gopls",
 
-        -- install formatters
+        -- go tools (astrocommunity go pack)
+        "delve",
+        "goimports",
+        "gomodifytags",
+        "gotests",
+        "iferr",
+        "impl",
+
+        -- formatters/linters
         "stylua",
-
-        -- install debuggers
+        "selene",
         "debugpy",
 
-        -- install any other package
+        -- other
         "tree-sitter-cli",
       },
     },
