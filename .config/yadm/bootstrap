@@ -144,6 +144,8 @@ mkdir -p $HOME/.cache/lf/thumbnail
 
 # Have fish set universal variables
 echo "Installing fish plugins"
+# yadm used to track this fisher-owned file; a stale checkout blocks fisher. fisher update restores it.
+rm -f ~/.config/fish/conf.d/fzf.fish
 fish -c 'fisher update'
 fish $HOME/.config/fish/fish_setup.fish
 # Write files
