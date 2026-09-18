@@ -2,5 +2,6 @@ app.zen_browser.zen
 com.discordapp.Discord
 com.slack.Slack
 com.usebruno.Bruno
+it.mijorus.gearlever
 
 org.signal.Signal
