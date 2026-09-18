@@ -71,6 +71,10 @@ for i = 1, 5 do
     hl.bind(mainMod .. " + " .. i,          hl.dsp.focus({ workspace = i }))
     hl.bind(mainMod .. " + SHIFT + " .. i,  hl.dsp.window.move({ workspace = i }))
 end
+
+-- Brightness
+hl.bind("XF86MonBrightnessUp",   hl.dsp.exec_cmd("brightnessctl set +5%"), { repeating = true })
+hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl set 5%-"), { repeating = true })
 {% else %}
 for i = 1, 5 do
     hl.bind(mainMod .. " + " .. i, function()
