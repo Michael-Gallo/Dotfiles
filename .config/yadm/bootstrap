@@ -70,6 +70,11 @@ flatpak override --user com.discordapp.Discord \
   --talk-name=org.freedesktop.portal.Desktop \
   --talk-name=org.freedesktop.portal.Documents
 
+# Sync AppImages (manifest: appimages.txt) and integrate with GearLever
+if [ -f "$XDG_CONFIG_HOME/yadm/appimages.txt" ]; then
+  "$HOME/.bin/appimage-sync.sh" || echo "AppImage sync failed; re-run ~/.bin/appimage-sync.sh later"
+fi
+
 install_gcloud() {
     tmpdir=$(mktemp -d)
     trap 'rm -rf "$tmpdir"' EXIT INT TERM

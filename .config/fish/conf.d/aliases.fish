@@ -23,6 +23,9 @@ abbr tf tofu
 abbr mirrors "rate-mirrors --allow-root --protocol https arch | sudo tee /etc/pacman.d/mirrorlist"
 abbr inv 'fzf --preview="bat --color=always {}" --bind "enter:become($EDITOR {})"'
 
+abbr appup "~/.bin/appimage-sync.sh"
+abbr gearlever "flatpak run it.mijorus.gearlever"
+
 # Conditional ls abbr
 if command -v eza >/dev/null
     set -l opts --color=always --group-directories-first --git --icons

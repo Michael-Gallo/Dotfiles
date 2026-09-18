@@ -1,0 +1,9 @@
+# AppImages synced by ~/.bin/appimage-sync.sh
+# Lines with only name+url are direct AppImage links.
+# Lines with a third column treat url as a JSON "latest version" endpoint and
+# use the column as a grep -P pattern to extract the real download URL.
+# A fourth column "nodektop" removes GearLever's .desktop entry after
+# integration — for apps that self-integrate on launch (e.g. pCloud), to
+# avoid duplicate menu entries.
+pcloud  https://api.pcloud.com/getlastversion?os=ELECTRONV2  "url":\s*"\K[^"]*  nodektop
+grokbot https://api2.cursor.sh/updates/api/download/stable/linux-x64/sand  "downloadUrl":\s*"\K[^"]*
