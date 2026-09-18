@@ -95,7 +95,7 @@ if ! command -v gcloud >/dev/null 2>&1; then
 fi
 
 echo "Installing nvim plugins"
-nvim --headless -c 'Lazy sync' -c 'qa'
+nvim --headless "+Lazy! sync" +qa
 
 echo "Setting groups"
 
@@ -113,14 +113,18 @@ remote_name="origin"
 current_origin_url=$(yadm remote get-url "$remote_name" 2>/dev/null || echo "")
 
 if [ "$current_origin_url" != "$github_url" ]; then
-    echo "Setting GitHub/GitLab remote structure"
-    yadm remote remove $remote_name 2>/dev/null || true
-    yadm remote add $remote_name $github_url
-    yadm fetch --all
-    current_branch=$(yadm symbolic-ref --short HEAD)
-    yadm branch --set-upstream-to="$remote_name/$current_branch" "$current_branch"
-    yadm remote set-url --add --push $remote_name $gitlab_url
-    yadm remote set-url --add --push $remote_name $github_url
+    if ls ~/.ssh/id_* >/dev/null 2>&1; then
+        echo "Setting GitHub/GitLab remote structure"
+        yadm remote remove $remote_name 2>/dev/null || true
+        yadm remote add $remote_name $github_url
+        yadm fetch --all
+        current_branch=$(yadm symbolic-ref --short HEAD)
+        yadm branch --set-upstream-to="$remote_name/$current_branch" "$current_branch"
+        yadm remote set-url --add --push $remote_name $gitlab_url
+        yadm remote set-url --add --push $remote_name $github_url
+    else
+        echo "No SSH key found; skipping GitHub remote setup. Generate/add a key, then re-run bootstrap."
+    fi
 fi
 
 
