@@ -32,6 +32,7 @@ go
 golangci-lint
 greetd
 greetd-tuigreet
+grimblast-git
 gscan2pdf
 hypridle
 hyprland
