@@ -19,6 +19,7 @@ fcitx5-mozc
 ffmpegthumbnailer
 firefox
 fish
+fisher
 flatpak
 foot
 fuse2

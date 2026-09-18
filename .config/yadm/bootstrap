@@ -143,6 +143,8 @@ yadm alt
 mkdir -p $HOME/.cache/lf/thumbnail
 
 # Have fish set universal variables
+echo "Installing fish plugins"
+fish -c 'fisher update'
 fish $HOME/.config/fish/fish_setup.fish
 # Write files
 
