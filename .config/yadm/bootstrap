@@ -50,6 +50,9 @@ if ! command -v paru >/dev/null 2>&1; then
     (install_paru)
 fi
 
+# ISO ships jack2, which conflicts with pipewire-jack; pipewire-jack provides jack so -Rdd is safe
+for pkg in jack jack2; do sudo pacman -Rdd --noconfirm "$pkg" 2>/dev/null || true; done
+
 echo "Installing needed pacman packages"
 sudo pacman -Syuu --noconfirm --needed $(< "$pacman_list_path") 2>&1 | grep -vi warning:
 
