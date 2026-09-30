@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=qBittorrent
+Comment=Download and share files over BitTorrent
+Exec=/home/mike/.config/qBittorrent/autostart.sh
+Icon=qbittorrent
+Terminal=false
+Categories=Network;FileTransfer;P2P;Qt;
