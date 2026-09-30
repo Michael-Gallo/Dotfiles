@@ -78,8 +78,8 @@ if [ -f "$XDG_CONFIG_HOME/yadm/appimages.txt" ]; then
   "$HOME/.bin/appimage-sync.sh" || echo "AppImage sync failed; re-run ~/.bin/appimage-sync.sh later"
 fi
 
-# Stop Zen restoring every window after an unclean shutdown (crash recovery);
-# the pref lives in each profile's user.js, see ~/.bin/zen-session-fix.sh
+# Stop Zen reopening old windows after an unclean shutdown (crash recovery +
+# window sync); the prefs live in each profile's user.js, see ~/.bin/zen-session-fix.sh
 "$HOME/.bin/zen-session-fix.sh" || echo "Zen session fix failed; re-run ~/.bin/zen-session-fix.sh after first Zen launch"
 
 install_gcloud() {
