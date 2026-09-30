@@ -75,6 +75,9 @@ if [ -f "$XDG_CONFIG_HOME/yadm/appimages.txt" ]; then
   "$HOME/.bin/appimage-sync.sh" || echo "AppImage sync failed; re-run ~/.bin/appimage-sync.sh later"
 fi
 
+# Stop Zen restoring every window after an unclean shutdown (see notes.md)
+"$HOME/.bin/zen-session-fix.sh" || echo "Zen session fix failed; re-run ~/.bin/zen-session-fix.sh after first Zen launch"
+
 install_gcloud() {
     tmpdir=$(mktemp -d)
     trap 'rm -rf "$tmpdir"' EXIT INT TERM
@@ -200,3 +203,8 @@ done
 if [[ "$(yadm config local.class)" != "laptop" ]]; then
     "$script_dir/set_rclone.sh"
 fi
+
+# Show setup notes (why things are configured the way they are)
+echo
+echo "======== Setup notes ========"
+cat "$XDG_CONFIG_HOME/yadm/notes.md"
