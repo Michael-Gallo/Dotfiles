@@ -1,5 +1,4 @@
 [Default Applications]
-# Browser (Zen flatpak)
 text/html=app.zen_browser.zen.desktop
 text/xml=app.zen_browser.zen.desktop
 x-scheme-handler/http=app.zen_browser.zen.desktop
@@ -13,8 +12,6 @@ application/x-extension-shtml=app.zen_browser.zen.desktop
 application/xhtml+xml=app.zen_browser.zen.desktop
 application/x-extension-xhtml=app.zen_browser.zen.desktop
 application/x-extension-xht=app.zen_browser.zen.desktop
-
-# Documents
 application/pdf=org.pwmt.zathura.desktop
 application/epub+zip=org.pwmt.zathura.desktop
 application/vnd.openxmlformats-officedocument.wordprocessingml.document=libreoffice-writer.desktop
@@ -26,8 +23,6 @@ application/vnd.oasis.opendocument.spreadsheet=libreoffice-calc.desktop
 application/octet-stream=libreoffice-calc.desktop
 application/vnd.openxmlformats-officedocument.presentationml.presentation=libreoffice-impress.desktop
 application/vnd.oasis.opendocument.presentation=libreoffice-impress.desktop
-
-# Mail / calendar
 x-scheme-handler/mailto=org.mozilla.Thunderbird.desktop
 message/rfc822=org.mozilla.Thunderbird.desktop
 x-scheme-handler/mid=org.mozilla.Thunderbird.desktop
@@ -35,11 +30,7 @@ x-scheme-handler/webcal=org.mozilla.Thunderbird.desktop
 x-scheme-handler/webcals=org.mozilla.Thunderbird.desktop
 text/calendar=org.mozilla.Thunderbird.desktop
 application/x-extension-ics=org.mozilla.Thunderbird.desktop
-
-# Files
 inode/directory=pcmanfm.desktop
-
-# Images
 image/jpg=swayimg.desktop
 image/jpeg=swayimg.desktop
 image/png=swayimg.desktop
@@ -47,14 +38,10 @@ image/gif=swayimg.desktop
 image/webp=swayimg.desktop
 image/avif=swayimg.desktop
 image/svg+xml=swayimg.desktop
-
-# Text editor (foot + nvim wrapper in ~/.local/share/applications)
 text/plain=nvim.desktop
 text/markdown=nvim.desktop
 application/json=nvim.desktop
 text/xml=nvim.desktop
-
-# Media
 video/mp4=mpv.desktop
 video/x-matroska=mpv.desktop
 video/webm=mpv.desktop
@@ -68,10 +55,12 @@ audio/ogg=mpv.desktop
 audio/x-wav=mpv.desktop
 audio/mp4=mpv.desktop
 audio/webm=mpv.desktop
-
-# Torrents
 application/x-bittorrent=org.qbittorrent.qBittorrent.desktop
 x-scheme-handler/magnet=org.qbittorrent.qBittorrent.desktop
+x-scheme-handler/t3code=com.t3tools.T3Code.desktop
+x-scheme-handler/grokbot=grok-bot.desktop
+x-scheme-handler/sand=grok-bot.desktop
 
 [Added Associations]
 application/pdf=org.pwmt.zathura-pdf-mupdf.desktop;
+x-scheme-handler/t3code=t3code.desktop;
