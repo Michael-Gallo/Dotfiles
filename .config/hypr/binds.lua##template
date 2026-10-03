@@ -28,6 +28,7 @@ hl.bind(mainMod .. " + R", hl.dsp.exec_cmd("uwsm app -- rofi -show drun"))
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("uwsm app -- flatpak run app.zen_browser.zen"))
 hl.bind(mainMod .. " + SHIFT + B", hl.dsp.exec_cmd("uwsm app -- flatpak run app.zen_browser.zen --private-window"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("uwsm app -- $TERMINAL -e $TERMINAL_FILE_BROWSER"))
+hl.bind(mainMod .. " + SHIFT + E", hl.dsp.exec_cmd("uwsm app -- pcmanfm"))
 hl.bind(mainMod .. " + S", hl.dsp.exec_cmd("uwsm app -- " .. CALENDAR))
 
 -- Window Management
