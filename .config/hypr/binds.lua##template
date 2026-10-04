@@ -1,15 +1,3 @@
--- Resize submap
-hl.bind("ALT + R", hl.dsp.submap("resize"))
-
-hl.define_submap("resize", function()
-    local resizeFactor = 15
-    hl.bind("right", hl.dsp.window.resize({ x = resizeFactor, y = 0, relative = true }), { repeating = true })
-    hl.bind("left",  hl.dsp.window.resize({ x = -resizeFactor, y = 0, relative = true }), { repeating = true })
-    hl.bind("up",    hl.dsp.window.resize({ x = 0, y = -resizeFactor, relative = true }), { repeating = true })
-    hl.bind("down",  hl.dsp.window.resize({ x = 0, y = resizeFactor, relative = true }), { repeating = true })
-    hl.bind("escape", hl.dsp.submap("reset"))
-end)
-
 -- Variables
 local mainMod = "SUPER"
 local webapp = "uwsm app -- chromium --new-window --ozone-platform=wayland --app"
