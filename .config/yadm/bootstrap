@@ -137,8 +137,12 @@ if [ "$current_origin_url" != "$github_url" ]; then
         yadm remote remove $remote_name 2>/dev/null || true
         yadm remote add $remote_name $github_url
         yadm fetch --all
-        current_branch=$(yadm symbolic-ref --short HEAD)
-        yadm branch --set-upstream-to="$remote_name/$current_branch" "$current_branch"
+        # Detached checkouts have no branch to track; keep bootstrap moving.
+        if current_branch=$(yadm symbolic-ref --quiet --short HEAD); then
+            yadm branch --set-upstream-to="$remote_name/$current_branch" "$current_branch"
+        else
+            echo "Detached HEAD; skipping upstream branch setup."
+        fi
     else
         echo "No SSH key found; skipping GitHub remote setup. Generate/add a key, then re-run bootstrap."
     fi
