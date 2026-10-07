@@ -145,7 +145,7 @@ if [ "$current_origin_url" != "$github_url" ]; then
 fi
 
 
-if [ -d /sys/class/power_supply/BAT* ] 2>/dev/null; then
+if compgen -G '/sys/class/power_supply/BAT*' >/dev/null; then
     echo "Setting laptop class"
     yadm config local.class laptop
 
