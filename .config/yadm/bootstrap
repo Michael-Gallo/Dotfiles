@@ -182,14 +182,17 @@ write_if_different() {
   fi
 }
 
-# Force-install Bitwarden from the Chrome Web Store in Chromium.
+# Force-install extensions from the Chrome Web Store in Chromium.
+# Bitwarden: nngceckbapebfimnlniiiahkandclblb
+# Migaku Early Access: dmeppfcidcpcocleneopiblmpnbokhep
 chromium_policy_dir=/etc/chromium/policies/managed
 sudo mkdir -p "$chromium_policy_dir"
 write_if_different '{
   "ExtensionInstallForcelist": [
-    "nngceckbapebfimnlniiiahkandclblb;https://clients2.google.com/service/update2/crx"
+    "nngceckbapebfimnlniiiahkandclblb;https://clients2.google.com/service/update2/crx",
+    "dmeppfcidcpcocleneopiblmpnbokhep;https://clients2.google.com/service/update2/crx"
   ]
-}' "$chromium_policy_dir/bitwarden.json"
+}' "$chromium_policy_dir/extensions.json"
 
 # Load sg module at boot (for scanners)
 write_if_different "sg" /etc/modules
