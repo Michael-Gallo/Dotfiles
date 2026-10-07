@@ -182,6 +182,15 @@ write_if_different() {
   fi
 }
 
+# Force-install Bitwarden from the Chrome Web Store in Chromium.
+chromium_policy_dir=/etc/chromium/policies/managed
+sudo mkdir -p "$chromium_policy_dir"
+write_if_different '{
+  "ExtensionInstallForcelist": [
+    "nngceckbapebfimnlniiiahkandclblb;https://clients2.google.com/service/update2/crx"
+  ]
+}' "$chromium_policy_dir/bitwarden.json"
+
 # Load sg module at boot (for scanners)
 write_if_different "sg" /etc/modules
 
