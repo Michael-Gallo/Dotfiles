@@ -6,6 +6,11 @@ if [ "$EUID" -eq 0 ]; then
   exit 1
 fi
 
+: "${XDG_CONFIG_HOME:=$HOME/.config}"
+: "${XDG_DATA_HOME:=$HOME/.local/share}"
+pictures_dir=${XDG_PICTURES_DIR:-$(xdg-user-dir PICTURES 2>/dev/null || true)}
+: "${pictures_dir:=$HOME/Pictures}"
+
 script_dir=$XDG_CONFIG_HOME/yadm
 pacman_list_path=$XDG_CONFIG_HOME/yadm/pacman.txt
 aur_list_path=$XDG_CONFIG_HOME/yadm/aur.txt
@@ -27,7 +32,7 @@ if [ ! -f "$flatpak_list_path" ]; then
   exit 1
 fi
 
-wallpaper_location=$XDG_PICTURES_DIR/wallpapers
+wallpaper_location=$pictures_dir/wallpapers
 # Ensure that wallpaper is set
 if [ ! -f "$wallpaper_location/wallpaper" ]; then
   echo "setting wallpaper"
