@@ -194,6 +194,22 @@ write_if_different '{
   ]
 }' "$chromium_policy_dir/extensions.json"
 
+# Force-install Bitwarden in Zen via Flatpak's per-user Firefox policy extension.
+zen_policy_dir="$XDG_DATA_HOME/flatpak/extension/app.zen_browser.zen.systemconfig/x86_64/stable/policies"
+mkdir -p "$zen_policy_dir"
+cat > "$zen_policy_dir/policies.json" <<'EOF'
+{
+  "policies": {
+    "ExtensionSettings": {
+      "{446900e4-71c2-419f-a6a7-df9c091e268b}": {
+        "installation_mode": "force_installed",
+        "install_url": "https://addons.mozilla.org/firefox/downloads/latest/bitwarden-password-manager/latest.xpi"
+      }
+    }
+  }
+}
+EOF
+
 # Load sg module at boot (for scanners)
 write_if_different "sg" /etc/modules
 
