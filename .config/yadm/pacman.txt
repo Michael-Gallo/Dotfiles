@@ -42,6 +42,7 @@ imagemagick
 jellyfin-server
 jellyfin-web
 kdeconnect
+kooha
 less
 lf
 libisoburn
