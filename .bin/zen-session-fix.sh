@@ -4,6 +4,7 @@
 #   default true) replays the whole previous session on next launch.
 # - Window Sync (v1.18b+) makes every window mirror the same tab list; off keeps
 #   windows independent.
+# Also disable saving and autofilling addresses.
 # Prefs are written to each profile's user.js, which Zen re-applies at every
 # startup regardless of whether it was running during setup.
 
@@ -14,6 +15,7 @@ zen_root=$HOME/.var/app/app.zen_browser.zen/.zen
 prefs=(
     'user_pref("browser.sessionstore.resume_from_crash", false);'
     'user_pref("zen.window-sync.enabled", false);'
+    'user_pref("extensions.formautofill.addresses.enabled", false);'
 )
 
 if [ ! -d "$zen_root" ]; then

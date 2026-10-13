@@ -84,7 +84,7 @@ if [ -f "$XDG_CONFIG_HOME/yadm/appimages.txt" ]; then
 fi
 
 # Stop Zen reopening old windows after an unclean shutdown (crash recovery +
-# window sync); the prefs live in each profile's user.js, see ~/.bin/zen-session-fix.sh
+# window sync) and disable address autofill; prefs live in each profile's user.js.
 "$HOME/.bin/zen-session-fix.sh" || echo "Zen session fix failed; re-run ~/.bin/zen-session-fix.sh after first Zen launch"
 
 install_gcloud() {
