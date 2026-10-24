@@ -1,0 +1,25 @@
+# Development commands already approved for routine use.
+prefix_rule(pattern=["git", "status"], decision="allow")
+prefix_rule(pattern=["gh", ["issue", "pr"], "view"], decision="allow")
+prefix_rule(pattern=["go", "test"], decision="allow")
+prefix_rule(pattern=["go", "mod", "download"], decision="allow")
+prefix_rule(pattern=["gofmt"], decision="allow")
+prefix_rule(pattern=["just", ["test", "lint"]], decision="allow")
+
+# Process and desktop inspection.
+prefix_rule(pattern=["ps"], decision="allow")
+prefix_rule(pattern=["pgrep"], decision="allow")
+prefix_rule(pattern=["hyprctl", ["version", "monitors", "devices", "workspaces", "activeworkspace", "layers", "configerrors"]], decision="allow")
+prefix_rule(pattern=["gsettings", ["get", "list-schemas", "list-relocatable-schemas", "list-keys", "list-children", "list-recursively", "describe", "range"]], decision="allow")
+prefix_rule(pattern=["busctl", "--user", "--no-pager", ["list", "status", "tree", "introspect", "get-property"], "--"], decision="allow")
+prefix_rule(pattern=["systemctl", "--user", "--no-pager", ["status", "show", "list-units", "list-unit-files"]], decision="allow")
+
+# End option parsing before arbitrary search patterns, paths, or journal filters.
+prefix_rule(pattern=["rg", "--"], decision="allow")
+prefix_rule(pattern=["rg", "-n", "--"], decision="allow")
+prefix_rule(pattern=["journalctl", "--user", "--no-pager", "--"], decision="allow")
+
+# Previously approved configuration reloads and shell UI controls.
+prefix_rule(pattern=["hyprctl", "reload"], decision="allow")
+prefix_rule(pattern=["systemctl", "--user", ["show-environment", "daemon-reload"]], decision="allow")
+prefix_rule(pattern=["noctalia", "msg", ["status", "panel-open", "panel-close", "panel-toggle", "settings-open", "settings-close", "settings-toggle", "wallpaper-get"]], decision="allow")
