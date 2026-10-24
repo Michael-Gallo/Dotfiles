@@ -20,7 +20,7 @@ path = "~/Pictures/wallpapers/wallpaper"
 
 [bar.default]
 position = "top"
-thickness = 28
+thickness = 24
 margin_ends = 0
 margin_edge = 0
 radius = 0
