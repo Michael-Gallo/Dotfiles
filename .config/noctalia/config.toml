@@ -8,6 +8,9 @@ enabled = false
 [audio]
 enable_sounds = false
 
+[osd.kinds]
+media = false
+
 [theme]
 mode = "dark"
 
