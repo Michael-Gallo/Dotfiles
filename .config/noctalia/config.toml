@@ -28,7 +28,7 @@ shadow = false
 compositor_blur = false
 start = ["workspaces"]
 center = ["monitor_title"]
-end = ["caffeine", "output_volume", "input_volume", "network", "cpu", "ram", "brightness", "battery", "clock", "tray", "notifications", "control-center", "session"]
+end = ["caffeine", "output_volume", "input_volume", "network", "cpu", "ram", "brightness", "battery", "tray", "notifications", "control-center", "clock"]
 
 [widget.clock]
 format = "{:%I:%M %p}"
