@@ -64,9 +64,6 @@ sudo pacman -Syuu --noconfirm --needed $(< "$pacman_list_path") 2>&1 | grep -vi 
 echo "Updating system with AUR"
 paru -Syu --noconfirm
 
-# waybar comes from the AUR git package: waybar 0.15.x doesn't support
-# Hyprland 0.55's Lua IPC protocol (workspace clicks break); switch back to
-# mainline once waybar 0.16+ releases
 echo "Installing needed AUR packages"
 paru -S --noconfirm --needed --quiet $(< "$aur_list_path") 2>&1 | grep -vi warning:
 

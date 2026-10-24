@@ -10,7 +10,6 @@ cups
 docker
 docker-buildx
 docker-compose
-dunst
 evolution
 fastfetch
 fcitx5
@@ -34,10 +33,7 @@ greetd
 greetd-tuigreet
 grimblast-git
 gscan2pdf
-hypridle
 hyprland
-hyprlock
-hyprpaper
 imagemagick
 jellyfin-server
 jellyfin-web
@@ -49,6 +45,7 @@ libisoburn
 libreoffice-fresh
 neovim
 nerd-fonts
+noctalia
 noto-fonts
 npm
 obsidian
@@ -66,7 +63,7 @@ pyenv
 qbittorrent
 rclone
 ripgrep
-rofi
+socat
 swayimg
 tealdeer
 thunderbird
@@ -77,7 +74,6 @@ uwsm
 w3m
 wget
 wl-clipboard
-wofi
 xclip
 xdg-desktop-portal-hyprland
 zathura

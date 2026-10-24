@@ -1,0 +1,15 @@
+id = "mike/monitor-title"
+name = "Monitor window title"
+version = "1.0.0"
+plugin_api = 32
+author = "mike"
+description = "Show each monitor's visible workspace window title."
+dependencies = ["hyprland", "socat"]
+
+[[service]]
+id = "hyprland"
+entry = "service.luau"
+
+[[widget]]
+id = "title"
+entry = "widget.luau"

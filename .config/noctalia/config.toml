@@ -1,0 +1,68 @@
+[shell]
+time_format = "{:%I:%M %p}"
+clipboard_enabled = false
+
+[shell.animation]
+enabled = false
+
+[audio]
+enable_sounds = false
+
+[theme]
+mode = "dark"
+
+[wallpaper]
+directory = "~/Pictures/wallpapers"
+fill_mode = "crop"
+
+[wallpaper.default]
+path = "~/Pictures/wallpapers/wallpaper"
+
+[bar.default]
+position = "top"
+thickness = 28
+margin_ends = 0
+margin_edge = 0
+radius = 0
+shadow = false
+compositor_blur = false
+start = ["workspaces"]
+center = ["monitor_title"]
+end = ["caffeine", "output_volume", "input_volume", "network", "cpu", "ram", "brightness", "battery", "clock", "tray", "notifications", "control-center", "session"]
+
+[widget.clock]
+format = "{:%I:%M %p}"
+
+[widget.monitor_title]
+type = "mike/monitor-title:title"
+
+[plugins]
+enabled = ["mike/monitor-title"]
+
+[widget.workspaces]
+style = "regular"
+show_all_outputs = false
+label_source = "name"
+
+[widget.ram]
+stat = "ram_pct"
+
+[idle]
+pre_action_fade_seconds = 0
+
+[idle.behavior.screen-off]
+enabled = true
+timeout = 930
+action = "screen_off"
+
+[idle.behavior.lock]
+enabled = true
+timeout = 1000
+action = "lock"
+
+[lockscreen]
+lock_before_suspend = true
+transition = []
+
+[notification]
+enable_daemon = true

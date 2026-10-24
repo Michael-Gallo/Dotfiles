@@ -1,7 +1,4 @@
 hl.on("hyprland.start", function()
-    hl.exec_cmd("hypridle")
-    hl.exec_cmd("waybar")
+    hl.exec_cmd("noctalia")
     hl.exec_cmd("foot --server")
-    hl.exec_cmd("dunst")
-    hl.exec_cmd("hyprpaper")
 end)

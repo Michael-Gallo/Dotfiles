@@ -12,7 +12,8 @@ hl.bind(mainMod .. " + A", hl.dsp.exec_cmd(webapp .. '="https://t3.chat/"'))
 hl.bind(mainMod .. " + D", hl.dsp.exec_cmd(webapp .. '="https://app.todoist.com/app/today"'))
 hl.bind(mainMod .. " + Y", hl.dsp.exec_cmd(webapp .. '="https://app.ynab.com"'))
 hl.bind(mainMod .. " + T", hl.dsp.window.float({ action = "toggle" }))
-hl.bind(mainMod .. " + R", hl.dsp.exec_cmd("uwsm app -- rofi -show drun"))
+hl.bind(mainMod .. " + R", hl.dsp.exec_cmd("noctalia msg panel-toggle launcher"))
+hl.bind(mainMod .. " + CTRL + L", hl.dsp.exec_cmd("noctalia msg session lock"))
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("uwsm app -- flatpak run app.zen_browser.zen"))
 hl.bind(mainMod .. " + SHIFT + B", hl.dsp.exec_cmd("uwsm app -- flatpak run app.zen_browser.zen --private-window"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("uwsm app -- $TERMINAL -e $TERMINAL_FILE_BROWSER"))
@@ -79,10 +80,10 @@ for i = 1, 5 do
 end
 
 for i = 1, 5 do
-    hl.workspace_rule({ workspace = i, monitor = "DP-2" })
+    hl.workspace_rule({ workspace = i, monitor = "DP-2", default_name = tostring(i) })
 end
 for i = 6, 10 do
-    hl.workspace_rule({ workspace = i, monitor = "DP-3" })
+    hl.workspace_rule({ workspace = i, monitor = "DP-3", default_name = tostring(i - 5) })
 end
 {% endif %}
 
