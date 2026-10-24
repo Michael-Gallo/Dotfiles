@@ -221,9 +221,49 @@ write_if_different "sg" /etc/modules
 
 # Disable the annoying pcspkr module/beep sound
 write_if_different "blacklist pcspkr"  /etc/modprobe.d/nobeep.conf
-write_if_different "[default_session]
-command = \"Hyprland\"
-user=\"$USER\" " /etc/greetd/tuigreet.toml
+
+# Configure Noctalia Greeter and greetd. Keep this safe to re-run.
+greeter_user=greeter
+greeter_setup=/usr/share/noctalia-greeter/setup_greeter_system.sh
+if [[ ! -x "$greeter_setup" || ! -x /usr/bin/noctalia-greeter-session ]]; then
+  echo "Noctalia Greeter is not installed; ensure noctalia-greeter is in pacman.txt." >&2
+  exit 1
+fi
+if ! getent passwd "$greeter_user" >/dev/null; then
+  echo "Missing greetd account: $greeter_user" >&2
+  exit 1
+fi
+
+sudo env GREETER_USER="$greeter_user" "$greeter_setup"
+greetd_config="$(cat <<'EOF'
+[terminal]
+vt = 1
+
+[default_session]
+command = "/usr/bin/noctalia-greeter-session"
+user = "greeter"
+EOF
+)"
+write_if_different "$greetd_config" /etc/greetd/config.toml
+
+# PAM uses the login password to unlock the GNOME Keyring.
+greetd_pam=/etc/pam.d/greetd
+keyring_auth='auth       optional     pam_gnome_keyring.so'
+keyring_session='session    optional     pam_gnome_keyring.so auto_start'
+if ! sudo grep -Fqx "$keyring_auth" "$greetd_pam" || ! sudo grep -Fqx "$keyring_session" "$greetd_pam"; then
+  sudo cp -a "$greetd_pam" "$greetd_pam.bak.bootstrap.$(date +%Y%m%d-%H%M%S)"
+fi
+sudo grep -Fqx "$keyring_auth" "$greetd_pam" || printf '%s\n' "$keyring_auth" | sudo tee -a "$greetd_pam" >/dev/null
+sudo grep -Fqx "$keyring_session" "$greetd_pam" || printf '%s\n' "$keyring_session" | sudo tee -a "$greetd_pam" >/dev/null
+
+display_manager=$(readlink -f /etc/systemd/system/display-manager.service 2>/dev/null || true)
+case "$display_manager" in
+  /usr/lib/systemd/system/plasmalogin.service) sudo systemctl disable plasmalogin.service ;;
+  /usr/lib/systemd/system/greetd.service|'') ;;
+  *) echo "Unexpected display manager at display-manager.service: $display_manager" >&2; exit 1 ;;
+esac
+sudo systemctl enable greetd.service
+
 # make it take 10 retries to lock me out
 faillock_file="$script_dir/faillock.conf"
 write_if_different "$(cat "$faillock_file")" /etc/security/faillock.conf

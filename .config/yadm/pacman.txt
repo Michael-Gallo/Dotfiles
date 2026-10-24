@@ -30,7 +30,6 @@ gnumeric
 go
 golangci-lint
 greetd
-greetd-tuigreet
 grimblast-git
 gscan2pdf
 hyprland
@@ -46,6 +45,7 @@ libreoffice-fresh
 neovim
 nerd-fonts
 noctalia
+noctalia-greeter
 noto-fonts
 npm
 obsidian
