@@ -17,7 +17,7 @@ hl.bind(mainMod .. " + CTRL + L", hl.dsp.exec_cmd("noctalia msg session lock"))
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd("uwsm app -- flatpak run app.zen_browser.zen"))
 hl.bind(mainMod .. " + SHIFT + B", hl.dsp.exec_cmd("uwsm app -- flatpak run app.zen_browser.zen --private-window"))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd("uwsm app -- $TERMINAL -e $TERMINAL_FILE_BROWSER"))
-hl.bind(mainMod .. " + SHIFT + E", hl.dsp.exec_cmd("uwsm app -- pcmanfm"))
+hl.bind(mainMod .. " + SHIFT + E", hl.dsp.exec_cmd("uwsm app -- strata"))
 hl.bind(mainMod .. " + S", hl.dsp.exec_cmd("uwsm app -- " .. CALENDAR))
 
 -- Window Management
