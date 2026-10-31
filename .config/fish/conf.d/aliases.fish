@@ -20,6 +20,7 @@ abbr gf "git fetch --all --prune"
 abbr pac "sudo pacman"
 abbr gmt "go mod tidy"
 abbr tf tofu
+abbr oc opencode
 abbr mirrors "rate-mirrors --allow-root --protocol https arch | sudo tee /etc/pacman.d/mirrorlist"
 abbr inv 'fzf --preview="bat --color=always {}" --bind "enter:become($EDITOR {})"'
 
