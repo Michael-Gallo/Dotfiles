@@ -222,6 +222,11 @@ write_if_different "sg" /etc/modules
 # Disable the annoying pcspkr module/beep sound
 write_if_different "blacklist pcspkr"  /etc/modprobe.d/nobeep.conf
 
+# Silence Readline applications without replacing the system's key bindings.
+if ! grep -qx 'set bell-style none' /etc/inputrc; then
+  printf '\nset bell-style none\n' | sudo tee -a /etc/inputrc >/dev/null
+fi
+
 # Configure Noctalia Greeter and greetd. Keep this safe to re-run.
 greeter_user=greeter
 greeter_setup=/usr/share/noctalia-greeter/setup_greeter_system.sh
