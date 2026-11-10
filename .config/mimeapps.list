@@ -60,6 +60,8 @@ x-scheme-handler/magnet=org.qbittorrent.qBittorrent.desktop
 x-scheme-handler/t3code=com.t3tools.T3Code.desktop
 x-scheme-handler/grokbot=grok-bot.desktop
 x-scheme-handler/sand=grok-bot.desktop
+x-scheme-handler/claude-cli=claude-code-url-handler.desktop
+x-scheme-handler/codex=chatgpt.desktop
 
 [Added Associations]
 application/pdf=org.pwmt.zathura-pdf-mupdf.desktop;
