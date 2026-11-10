@@ -47,6 +47,12 @@ style = "regular"
 show_all_outputs = false
 label_source = "name"
 
+[widget.workspaces.actions]
+scroll_up = "none"
+scroll_down = "none"
+scroll_left = "none"
+scroll_right = "none"
+
 [widget.ram]
 stat = "ram_pct"
 
