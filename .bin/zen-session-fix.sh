@@ -5,6 +5,7 @@
 # - Window Sync (v1.18b+) makes every window mirror the same tab list; off keeps
 #   windows independent.
 # Also disable saving and autofilling addresses.
+# Disable split view triggers.
 # Prefs are written to each profile's user.js, which Zen re-applies at every
 # startup regardless of whether it was running during setup.
 
@@ -16,6 +17,9 @@ prefs=(
     'user_pref("browser.sessionstore.resume_from_crash", false);'
     'user_pref("zen.window-sync.enabled", false);'
     'user_pref("extensions.formautofill.addresses.enabled", false);'
+    'user_pref("zen.splitView.enable-tab-drop", false);'
+    'user_pref("zen.splitView.enable-tab-click-split", false);'
+    'user_pref("zen.splitView.enable-drag-over-split", false);'
 )
 
 if [ ! -d "$zen_root" ]; then
