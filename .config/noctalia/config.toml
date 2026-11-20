@@ -44,7 +44,6 @@ enabled = ["mike/monitor-title"]
 
 [widget.workspaces]
 style = "regular"
-show_all_outputs = false
 label_source = "name"
 
 [widget.workspaces.actions]
